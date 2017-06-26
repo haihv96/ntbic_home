@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/cong-nghe')!!}" class="active">Công nghệ</a>
+<a href="#" class="active" id="namepage">Công nghệ</a>
 @endsection
 
 @section('main')
@@ -17,7 +17,7 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="{!! url('admin/cong-nghe/'.$congnghe->id) !!}" method="POST" id="form_sample_3" class="form-horizontal">
+                <form action="#" id="createForm" method="POST" id="form_sample_3" class="form-horizontal">
                         {{ method_field('PUT') }}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-body">
@@ -45,7 +45,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Sửa</button>
-                                <a type="button" class="btn default" href="{!!url('admin/cong-nghe')!!}">Hủy</a>
+                                <a type="button" class="btn default" href="#">Hủy</a>
                             </div>
                         </div>
                     </div>
@@ -56,4 +56,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+    <script src="/js/path.js"></script>
 @endsection
