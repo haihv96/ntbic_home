@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/tin-tuc')!!}" class="active">Tin tức</a>
+<a href="{!!url('tin_tuc')!!}" class="active">Tin tức</a>
 @endsection
 
 @section('main')

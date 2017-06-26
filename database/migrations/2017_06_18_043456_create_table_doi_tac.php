@@ -16,6 +16,7 @@ class CreateTableDoiTac extends Migration
         Schema::create('doi_tac', function(Blueprint $table) {
             $table->increments('id');
             $table->string('ten');
+            $table->string('hinh_anh');
             $table->string('ten_khong_dau');
             $table->longText('noi_dung');
             $table->timestamps();

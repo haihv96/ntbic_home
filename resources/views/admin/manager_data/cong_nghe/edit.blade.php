@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/cong-nghe')!!}" class="active">Công nghệ</a>
+<a href="{!!url('cong_nghe')!!}" class="active">Công nghệ</a>
 @endsection
 
 @section('main')
@@ -17,7 +17,7 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="{!! url('admin/cong-nghe/'.$congnghe->id) !!}" method="POST" id="form_sample_3" class="form-horizontal">
+                <form action="{!! url('cong_nghe'.$congnghe->id) !!}" method="POST" id="form_sample_3" class="form-horizontal">
                         {{ method_field('PUT') }}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-body">

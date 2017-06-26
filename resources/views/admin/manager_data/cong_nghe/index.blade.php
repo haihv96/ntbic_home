@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/loai-tin')!!}" class="active">Loại tin</a>
+<a href="{!!url('cong_nghe')!!}" class="active">Công nghệ</a>
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Bảng loại tin</span>
+                    <span class="caption-subject bold uppercase"> Danh sách</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green btn-outline" href="{!! url('admin/loai-tin/create') !!}"><span class="fa fa-pencil"></span> Thêm loại tin</a>
+                                <a id="sample_editable_1_new" class="btn sbold green btn-outline" href="{!! url('admin/cong-nghe/create') !!}"><span class="fa fa-pencil"></span> Thêm bài công nghệ</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -46,31 +46,31 @@
                         </div>
                     </div>
                 </div>
-                @if (session('message'))
+                @if (session('status'))
                     <div class="alert alert-success">
-                    <button class="close" data-close="alert"></button>{{session('message')}}</div>
+                    <button class="close" data-close="alert"></button>{{session('status')}}</div>
                 @endif
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
                         	<th> STT </th>
-                            <th> Loại tin</th>
+                            <th> Tên đề tài công nghệ</th>
 		                    <th> Sửa </th>
 		                    <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($loaitin as $item)
+                    @foreach($congnghe as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{{$item->ten}}</td>
-                            <td class="center"><div ><a href="{!! url('admin/loai-tin/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td class="center"><div ><a href="{!! url('admin/cong-nghe/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {!! $loaitin->links() !!}
+                {!! $congnghe->links() !!}
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -81,13 +81,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Xóa loại tin</h4>
+                <h4 class="modal-title">Xóa bài công nghệ</h4>
             </div>
             <div class="modal-body"> 
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa loại tin? 
+                    Bạn chắc chắn muốn xóa loại công nghệ này? 
                 </form>
             </div>
             <div class="modal-footer">
@@ -104,7 +104,7 @@
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/loai-tin/'+id;
+            var url_delete = 'admin/cong-nghe/'+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',

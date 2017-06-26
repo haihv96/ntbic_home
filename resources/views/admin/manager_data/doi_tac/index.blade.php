@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-Sự kiện
+Đối tác
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@ Sự kiện
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Bảng sự kiện</span>
+                    <span class="caption-subject bold uppercase"> Bảng đối tác</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -20,7 +20,7 @@ Sự kiện
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('admin/su-kien/create') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
+                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('doi_tac') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -54,27 +54,22 @@ Sự kiện
                     <thead>
                         <tr>
                             <th> STT </th>
-                            <th> Sự kiện</th>
-                            <th> Nội dung </th>
-                            <th> Hình ảnh </th>
-                            <th> Ngày bắt đầu</th>
-                            <th> Ngày kết thúc</th>
+                            <th> Đối tác</th>
+                            <th>Hình ảnh</th>
                             <th> Xem </th>
                             <th> Sửa </th>
                             <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($sukien as $item)
+                    @foreach($doitac as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{{$item->ten}}</td>
+                            <td><img src="assets/upload/doi-tac/{{$item->hinh_anh}}" height="100"></td>
                             <td>{{$item->noi_dung}}</td>
-                            <td>{{$item->hinh_anh}}</td>
-                            <td>{{$item->ngay_bat_dau}}</td>
-                            <td>{{$item->ngay_ket_thuc}}</td>
                             <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a href="{!! url('admin/su-kien/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td class="center"><div ><a href="{!! url('doi_tac'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                         @endforeach
@@ -114,7 +109,7 @@ Sự kiện
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/su-kien/'+id;
+            var url_delete = 'admin/su_kien/'+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',

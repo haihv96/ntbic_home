@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/cong-nghe')!!}" class="active">Công nghệ</a>
+<a href="{!!url('cong_nghe')!!}" class="active">Công nghệ</a>
 @endsection
 
 @section('main')
@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Thêm</button>
-                                <a type="button" class="btn default" href="{!!url('admin/cong-nghe')!!}">Hủy</a>
+                                <a type="button" class="btn default" href="{!!url('cong_nghe')!!}">Hủy</a>
                             </div>
                         </div>
                     </div>

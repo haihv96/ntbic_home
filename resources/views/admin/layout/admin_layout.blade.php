@@ -140,7 +140,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="{!! url('admin/tin-tuc') !!}" class="nav-link ">
+                                    <a href="{!! url('tin_tuc') !!}" class="nav-link ">
                                         <span class="title">Tin tức</span>
                                     </a>
                                 </li>
@@ -150,7 +150,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="{!! url('admin/doi-tac') !!}" class="nav-link ">
+                                    <a href="{!! url('doi_tac') !!}" class="nav-link ">
                                         <span class="title">Đối tác</span>
                                     </a>
                                 </li>

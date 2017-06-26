@@ -20,7 +20,7 @@ class SuKienController extends Controller
     public function index()
     {
         $su_kien = DB::table('su_kien')->paginate(10);
-        return view('admin.manager_data.su-kien.index',['sukien' => $su_kien]);
+        return view('admin.manager_data.su_kien.index',['sukien' => $su_kien]);
     }
 
     /**
@@ -30,7 +30,7 @@ class SuKienController extends Controller
      */
     public function create()
     {
-        return view('admin.manager_data.su-kien.create');
+        return view('admin.manager_data.su_kien.create');
     }
 
     /**
@@ -57,17 +57,17 @@ class SuKienController extends Controller
 
             $name = $file->getClientOriginalName();
             $hinh_anh = str_random(4)."_".$name;
-            while(file_exists("assets/upload/su-kien/".$hinh_anh)){
+            while(file_exists("assets/upload/su_kien/".$hinh_anh)){
                 $hinh_anh = str_random(4)."_".$name;
             }
-            $file->move("assets/upload/su-kien",$hinh_anh);
-            $su_kien->hinh_anh = "assets/upload/su-kien/".$hinh_anh;
+            $file->move("assets/upload/su_kien",$hinh_anh);
+            $su_kien->hinh_anh = "assets/upload/su_kien/".$hinh_anh;
         }
         else{
             $su_kien->hinh_anh = "";
         }
         $su_kien->save();
-       return redirect()->route('su-kien.index')->with('message','Bạn đã thêm sự kiện thành công');
+       return redirect()->route('su_kien.index')->with('message','Bạn đã thêm sự kiện thành công');
     }
 
     /**
@@ -90,7 +90,7 @@ class SuKienController extends Controller
     public function edit($id)
     {
         $su_kien = su_kien::find($id);
-        return view('admin.manager_data.su-kien.edit', ['sukien' => $su_kien]);
+        return view('admin.manager_data.su_kien.edit', ['sukien' => $su_kien]);
     }
 
     /**
@@ -117,11 +117,11 @@ class SuKienController extends Controller
             }
             $name = $file->getClientOriginalName();
             $hinh_anh = str_random(4)."_".$name;
-            while(file_exists("assets/upload/su-kien/".$hinh_anh)){
+            while(file_exists("assets/upload/su_kien/".$hinh_anh)){
                 $hinh_anh = str_random(4)."_".$name;
             }
-            $file->move("assets/upload/su-kien/",$hinh_anh);
-            $su_kien->hinh_anh = "assets/upload/su-kien/".$hinh_anh;
+            $file->move("assets/upload/su_kien/",$hinh_anh);
+            $su_kien->hinh_anh = "assets/upload/su_kien/".$hinh_anh;
         }
         if($request->delete_logo == "delete" && $su_kien->hinh_anh != ""){
            $str = substr($su_kien->hinh_anh, 0);

@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/su-kien')!!}" class="active">Sự kiện</a>
+<a href="{!!url('su_kien')!!}" class="active">Sự kiện</a>
 @endsection
 
 @section('main')
@@ -21,7 +21,7 @@
             @endif
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="{!! url('admin/su-kien/'.$sukien->id) !!}" id="form_sample_3" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                <form action="{!! url('su_kien'.$sukien->id) !!}" id="form_sample_3" class="form-horizontal" method="POST" enctype="multipart/form-data">
                 {{ method_field('PUT') }}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
@@ -108,7 +108,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Thêm</button>
-                                <a type="button" class="btn default" href="{!!url('admin/loai-tin')!!}">Hủy</a>
+                                <a type="button" class="btn default" href="{!!url('loai_tin')!!}">Hủy</a>
                             </div>
                         </div>
                     </div>

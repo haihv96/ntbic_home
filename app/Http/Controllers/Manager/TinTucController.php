@@ -67,10 +67,10 @@ class TinTucController extends Controller
 
             $name = $file->getClientOriginalName();
             $hinh_anh = str_random(4)."_".$name;
-            while(file_exists("assets/upload/tin-tuc/".$hinh_anh)){
+            while(file_exists("assets/upload/tin_tuc/".$hinh_anh)){
                 $hinh_anh = str_random(4)."_".$name;
             }
-            $file->move("assets/upload/tin-tuc",$hinh_anh);
+            $file->move("assets/upload/tin_tuc",$hinh_anh);
             $tin_tuc->hinh_anh = $hinh_anh;
         }
         else{
@@ -78,7 +78,7 @@ class TinTucController extends Controller
         }
 
         $tin_tuc->save();
-        return redirect()->route('tin-tuc.index')->with('message', 'Bạn đã thêm tin tức thành công');
+        return redirect()->route('tin_tuc.index')->with('message', 'Bạn đã thêm tin tức thành công');
     }
 
     /**
@@ -131,10 +131,10 @@ class TinTucController extends Controller
 
             $name = $file->getClientOriginalName();
             $hinh_anh = str_random(4)."_".$name;
-            while(file_exists("assets/upload/tin-tuc/".$hinh_anh)){
+            while(file_exists("assets/upload/tin_tuc/".$hinh_anh)){
                 $hinh_anh = str_random(4)."_".$name;
             }
-            $file->move("assets/upload/tin-tuc",$hinh_anh);
+            $file->move("assets/upload/tin_tuc",$hinh_anh);
             $tin_tuc->hinh_anh = $hinh_anh;
         }
         else{

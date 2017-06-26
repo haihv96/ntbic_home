@@ -17,7 +17,7 @@ class LoaiTinController extends Controller
      */
     public function index() {
     	$loai_tin = DB::table('loai_tin')->paginate(10);
-    	return view('admin.manager_data.loai-tin.index',['loaitin' => $loai_tin]);
+    	return view('admin.manager_data.loai_tin.index',['loaitin' => $loai_tin]);
     }
 
     /**
@@ -26,7 +26,7 @@ class LoaiTinController extends Controller
      * @return Response
      */
     public function create() {
-    	return view('admin.manager_data.loai-tin.create');
+    	return view('admin.manager_data.loai_tin.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class LoaiTinController extends Controller
     	$loai_tin->ten_khong_dau = changeTitle($request->ten);
 
     	$loai_tin->save();
-    	return redirect()->route('loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
+    	return redirect()->route('loai_tin.index')->with('message','Bạn đã thêm loại tin thành công');
     }
 
     /**
@@ -59,7 +59,7 @@ class LoaiTinController extends Controller
      */
     public function edit($id) {
        $loai_tin = loai_tin::find($id);
-    	return view('admin.manager_data.loai-tin.edit', ['loaitin' => $loai_tin]);
+    	return view('admin.manager_data.loai_tin.edit', ['loaitin' => $loai_tin]);
     } 
 
     /**

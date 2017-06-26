@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('tin_tuc')!!}" class="active">Tin tức</a>
+Sự kiện
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Bảng tin tức</span>
+                    <span class="caption-subject bold uppercase"> Bảng sự kiện</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green btn-outline" href="{!! url('admin/tin-tuc/create') !!}"><span class="fa fa-pencil"></span> Thêm tin tức</a>
+                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('su_kien') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -53,32 +53,34 @@
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
-                        	<th> STT </th>
-                            <th> Tin tức</th>
-                            <th> Tóm tắt </th>
+                            <th> STT </th>
+                            <th> Sự kiện</th>
+                            <th> Nội dung </th>
                             <th> Hình ảnh </th>
-                            <th> Loại tin</th>
+                            <th> Ngày bắt đầu</th>
+                            <th> Ngày kết thúc</th>
                             <th> Xem </th>
-		                    <th> Sửa </th>
-		                    <th> Xóa </th>
+                            <th> Sửa </th>
+                            <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($tintuc as $item)
+                    @foreach($sukien as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{{$item->ten}}</td>
-                            <td>{!! $item->tom_tat !!}</td>
-                            <td><img src="assets/upload/tin-tuc/{{$item->hinh_anh}}" height="100"></td>
-                            <td>{{\App\loai_tin::find($item->id_loai_tin)->ten}}</td>
-                    		<td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a href="{!! url('admin/tin-tuc/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td>{{$item->noi_dung}}</td>
+                            <td>{{$item->hinh_anh}}</td>
+                            <td>{{$item->ngay_bat_dau}}</td>
+                            <td>{{$item->ngay_ket_thuc}}</td>
+                            <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
+                            <td class="center"><div ><a href="{!! url('admin/su-kien/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
-                    @endforeach
+                        @endforeach
                     </tbody>
                 </table>
-                {!! $tintuc->links() !!}
+                {!! $sukien->links() !!}
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -89,13 +91,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Xóa loại tin</h4>
+                <h4 class="modal-title">Xóa sự kiện</h4>
             </div>
             <div class="modal-body"> 
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa loại tin? 
+                    Bạn chắc chắn muốn xóa sự kiện? 
                 </form>
             </div>
             <div class="modal-footer">
@@ -112,13 +114,13 @@
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/tin-tutin_tuc
+            var url_delete = 'admin/su_kien/'+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',
                     dataType: 'json',
                     url: url_delete,
-                    data:{
+                    data: {
                         '_token': $('input[name=_token]').val(),
                         'id': id
                     },
