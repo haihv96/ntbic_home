@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('tin_tuc')!!}" class="active">Tin tức</a>
+<a id="namepage" href="#" class="active">Tin tức</a>
 @endsection
 
 @section('main')
@@ -17,7 +17,7 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="{!! url('admin/tin-tuc/'.$tintuc->id) !!}" method="POST" id="form_sample_3" class="form-horizontal" enctype="multipart/form-data">
+                <form action="#" method="POST" id="editForm" class="form-horizontal" enctype="multipart/form-data">
                     {{ method_field('PUT') }}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
@@ -47,7 +47,11 @@
                             <div class="col-md-4">
                                 <select class="form-control select2me" name="loai_tin">
                                     @foreach($loaitin as $item)
-                                    <option value="{{$item->id}}">{{$item->ten}}</option>
+                                        @if($item->id == $tintuc->id_loai_tin)
+                                            <option value="{{$item->id}}" selected>{{$item->ten}}</option>
+                                        @else
+                                            <option value="{{$item->id}}" selected>{{$item->ten}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 <span class="required"> {{$errors->first('loai_tin')}}</span>
@@ -79,7 +83,7 @@
                                 <label for="exampleInputFile" class="col-md-3 control-label">Hình ảnh
                                 </label>
                                 <div class="col-md-9">
-                                    <img src="assets/upload/tin-tuc/{{$tintuc->hinh_anh}}" width="150" height="150">
+                                    <img src="assets/upload/tin_tuc/{{$tintuc->hinh_anh}}" width="150" height="150">
                                     <input type="file" name="hinh_anh" class="form-control" multiple>
                                     <span class="required"> {{$errors->first('hinh_anh')}}</span>
                                 </div>
@@ -120,4 +124,15 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log(window.location.pathname);
+            var pathname = window.location.pathname;
+            $('#namepage').attr('href', pathname.substr(0,pathname.length-7));
+            var create_path = pathname.substr(0,pathname.length-5);
+            $('#editForm').attr('action',create_path);
+        });
+    </script>
 @endsection

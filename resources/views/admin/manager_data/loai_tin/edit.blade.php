@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/loai-tin')!!}" class="active">Loại tin</a>
+<a id="namepage" href="#" class="active">Loại tin</a>
 @endsection
 
 @section('main')
@@ -17,7 +17,7 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="{!! url('admin/loai-tin/'.$loaitin->id) !!}" method="POST" id="form_sample_3" class="form-horizontal">
+                <form action="#" method="POST" id="editForm" class="form-horizontal">
                     {{ method_field('PUT') }}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
@@ -55,4 +55,15 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log(window.location.pathname);
+            var pathname = window.location.pathname;
+            $('#namepage').attr('href', pathname.substr(0,pathname.length-7));
+            var create_path = pathname.substr(0,pathname.length-5);
+            $('#editForm').attr('action',create_path);
+        });
+    </script>
 @endsection

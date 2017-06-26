@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('tin_tuc')!!}" class="active">Tin tức</a>
+<a id="namepage" href="#" class="active">Tin tức</a>
 @endsection
 
 @section('main')
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green btn-outline" href="{!! url('admin/tin-tuc/create') !!}"><span class="fa fa-pencil"></span> Thêm tin tức</a>
+                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm tin tức</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -53,14 +53,14 @@
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
-                        	<th> STT </th>
+                            <th> STT </th>
                             <th> Tin tức</th>
                             <th> Tóm tắt </th>
                             <th> Hình ảnh </th>
                             <th> Loại tin</th>
                             <th> Xem </th>
-		                    <th> Sửa </th>
-		                    <th> Xóa </th>
+                            <th> Sửa </th>
+                            <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,10 +69,10 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->ten}}</td>
                             <td>{!! $item->tom_tat !!}</td>
-                            <td><img src="assets/upload/tin-tuc/{{$item->hinh_anh}}" height="100"></td>
+                            <td><img src="assets/upload/tin_tuc/{{$item->hinh_anh}}" height="100"></td>
                             <td>{{\App\loai_tin::find($item->id_loai_tin)->ten}}</td>
-                    		<td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a href="{!! url('admin/tin-tuc/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
+                            <td class="center"><div ><a class='edit' href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                     @endforeach
@@ -112,7 +112,8 @@
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/tin-tutin_tuc
+            var pathname = window.location.pathname+'/';
+            var url_delete = pathname+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',
@@ -128,5 +129,23 @@
                 });
             });
         });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log(window.location.pathname);
+            var pathname = window.location.pathname;
+            $('#namepage').attr('href',pathname);
+            var create_path = pathname+'/create';
+            $('#create').attr('href',create_path);
+        });
+
+         $(document).ready(function() {
+            $('.edit').click(function() {
+                var pathname = window.location.pathname + '/';
+                var id = $(this).data("id");
+                $(this).attr('href',pathname+id+'/edit');
+            });
+         });
     </script>
 @endsection

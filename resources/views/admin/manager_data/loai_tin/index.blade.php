@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/loai-tin')!!}" class="active">Loại tin</a>
+<a id="namepage" href="#" class="active">Loại tin</a>
 @endsection
 
 @section('main')
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green btn-outline" href="{!! url('loai_tin') !!}"><span class="fa fa-pencil"></span> Thêm loại tin</a>
+                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm loại tin</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -64,7 +64,7 @@
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{{$item->ten}}</td>
-                            <td class="center"><div ><a href="{!! url('admin/loai-tin/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                     @endforeach
@@ -120,5 +120,23 @@
                 });
             });
         });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log(window.location.pathname);
+            var pathname = window.location.pathname;
+            $('#namepage').attr('href',pathname);
+            var create_path = pathname+'/create';
+            $('#create').attr('href',create_path);
+        });
+
+        $(document).ready(function() {
+            $('.edit').click(function() {
+                var pathname = window.location.pathname + '/';
+                var id = $(this).data("id");
+                $(this).attr('href',pathname+id+'/edit');
+            });
+         });
     </script>
 @endsection
