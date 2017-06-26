@@ -13,11 +13,11 @@ class CongNgheController extends Controller
 {
     public function index() {
     	$cong_nghe = DB::table('cong_nghe')->paginate(10);
-    	return view('admin.manager_data.cong-nghe.index')->with(['congnghe'=>$cong_nghe]);
+    	return view('admin.manager_data.cong_nghe.index')->with(['congnghe'=>$cong_nghe]);
     }
 
     public function create() {
-    	return view('admin.manager_data.cong-nghe.create');
+    	return view('admin.manager_data.cong_nghe.create');
     }
 
     public function store(Request $request) {
@@ -36,6 +36,7 @@ class CongNgheController extends Controller
     		$cong_nghe = new cong_nghe();
     		$cong_nghe->ten = $request->ten;
     		$cong_nghe->noi_dung = $request->noi_dung;
+            $cong_nghe->ten_khong_dau = changeTitle($request->ten);
 
     		$cong_nghe->save();
     		return Redirect::to('admin/cong-nghe')->withInput()->with('status','Đã thêm thành công!');
@@ -44,7 +45,7 @@ class CongNgheController extends Controller
 
     public function edit($id) {
     	$cong_nghe = cong_nghe::find($id);
-    	return view('admin.manager_data.cong-nghe.edit')->with(['congnghe'=>$cong_nghe]);
+    	return view('admin.manager_data.cong_nghe.edit')->with(['congnghe'=>$cong_nghe]);
     }
 
     public function update(Request $request, $id) {
@@ -61,6 +62,7 @@ class CongNgheController extends Controller
     		$cong_nghe = cong_nghe::find($id);
     		$cong_nghe->ten = $request->ten;
     		$cong_nghe->noi_dung = $request->noi_dung;
+            $cong_nghe->ten_khong_dau = changeTitle($request->ten);
 
     		$cong_nghe->save();
     		return Redirect::back()->withInput()->with('status','Đã sửa thành công!');
