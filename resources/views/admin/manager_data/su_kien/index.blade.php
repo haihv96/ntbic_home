@@ -150,4 +150,9 @@
             });
          });
     </script>
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-su-kien").addClass("active");
+    </script>
 @endsection

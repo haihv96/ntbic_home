@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('su_kien')!!}" class="active">Sự kiện</a>
+<a id="namepage" href="#" class="active">Sự kiện</a>
 @endsection
 
 @section('main')
@@ -112,7 +112,6 @@
          <!-- BEGIN PAGE LEVEL PLUGINS -->
         <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-         <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
@@ -137,5 +136,10 @@
             var create_path = pathname.substr(0,pathname.length-7);
             $('#createForm').attr('action',create_path);
         });
+    </script>
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-su-kien").addClass("active");
     </script>
 @endsection

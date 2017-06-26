@@ -110,8 +110,8 @@
                                 </div>
                             </form>
                         </li>
-                        <li class="nav-item start active open">
-                            <a href="javascript:;" class="nav-link nav-toggle">
+                        <li class="nav-item" id="active-trang-chu">
+                            <a href="{{url('admin')}}" class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
                                 <span class="title">Trang chủ</span>
                             </a>
@@ -127,36 +127,56 @@
                                 <span class="title">Quản trị người dùng</span>
                             </a>
                         </li>
-                        <li class="nav-item  ">
+                        <li class="nav-item" id="sub-menu-manager-data">
                             <a href="?p=" class="nav-link nav-toggle">
                                 <i class="icon-wallet"></i>
                                 <span class="title">Quản trị dữ liệu</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item  ">
+                                <li class="nav-item" id="active-loai-tin">
                                     <a href="{!! url('admin/loai-tin') !!}" class="nav-link ">
                                         <span class="title">Loại tin</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
-                                    <a href="{!! url('tin_tuc') !!}" class="nav-link ">
+                                <li class="nav-item" id="active-tin-tuc">
+                                    <a href="{!! url('admin/tin-tuc') !!}" class="nav-link ">
                                         <span class="title">Tin tức</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item" id="active-su-kien">
                                     <a href="{!! url('admin/su-kien') !!}" class="nav-link ">
                                         <span class="title">Sự kiện</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
-                                    <a href="{!! url('doi_tac') !!}" class="nav-link ">
+                                <li class="nav-item" id="active-doi-tac">
+                                    <a href="{!! url('admin/doi-tac') !!}" class="nav-link ">
                                         <span class="title">Đối tác</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item" id="active-cong-nghe">
                                     <a href="{!! url('admin/cong-nghe') !!}" class="nav-link ">
                                         <span class="title">Công nghệ</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="active-to-chuc">
+                                    <a href="{!! url('admin/to-chuc') !!}" class="nav-link ">
+                                        <span class="title">Tổ chức</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="active-chuyen-gia">
+                                    <a href="{!! url('admin/chuyen-gia') !!}" class="nav-link ">
+                                        <span class="title">Chuyên gia</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="active-cau-hoi-thuong-gap">
+                                    <a href="{!! url('admin/cau-hoi-thuong-gap') !!}" class="nav-link ">
+                                        <span class="title">Câu hỏi thường gặp</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="active-tuyen-dung">
+                                    <a href="{!! url('admin/tuyen-dung') !!}" class="nav-link ">
+                                        <span class="title">Tuyển dụng</span>
                                     </a>
                                 </li>
                             </ul>
