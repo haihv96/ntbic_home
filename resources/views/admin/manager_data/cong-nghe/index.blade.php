@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('cong_nghe')!!}" class="active">Công nghệ</a>
+<a href="{!!url('admin/cong-nghe')!!}" class="active">Công nghệ</a>
 @endsection
 
 @section('main')
