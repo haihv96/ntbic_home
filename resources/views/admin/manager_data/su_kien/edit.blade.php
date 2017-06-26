@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('admin/su-kien')!!}" class="active">Sự kiện</a>
+<a id="namepage" href="#" class="active">Sự kiện</a>
 @endsection
 
 @section('main')
@@ -21,7 +21,7 @@
             @endif
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="{!! url('admin/su-kien/'.$sukien->id) !!}" id="form_sample_3" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                <form action="#" id="editForm" class="form-horizontal" method="POST" enctype="multipart/form-data">
                 {{ method_field('PUT') }}
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
@@ -107,8 +107,8 @@
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Thêm</button>
-                                <a type="button" class="btn default" href="{!!url('loai_tin')!!}">Hủy</a>
+                                <button type="submit" class="btn green">Lưu</button>
+                                <a class="btn default" href="#" onclick="history.go(-1)">Hủy</a>
                             </div>
                         </div>
                     </div>
@@ -152,6 +152,14 @@
                 });
             });
         </script>
-   
+     <script type="text/javascript">
+        $(document).ready(function() {
+            console.log(window.location.pathname);
+            var pathname = window.location.pathname;
+            $('#namepage').attr('href', pathname.substr(0,pathname.length-7));
+            var create_path = pathname.substr(0,pathname.length-5);
+            $('#editForm').attr('action',create_path);
+        });
+    </script>
         <!-- END PAGE LEVEL SCRIPTS -->
 @endsection

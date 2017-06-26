@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-Sự kiện
+<a id="namepage" href="#" class="active">Sự kiện</a>
 @endsection
 
 @section('main')
@@ -20,7 +20,7 @@ Sự kiện
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('admin/su-kien/create') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
+                                <a id="create" class="btn sbold green " href="#"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -74,7 +74,7 @@ Sự kiện
                             <td>{{$item->ngay_bat_dau}}</td>
                             <td>{{$item->ngay_ket_thuc}}</td>
                             <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a href="{!! url('admin/su-kien/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td class="center"><div ><a class="edit" href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                         @endforeach
@@ -114,13 +114,14 @@ Sự kiện
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/su-kien/'+id;
+            var pathname = window.location.pathname+'/';
+            var url_delete = pathname+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',
                     dataType: 'json',
                     url: url_delete,
-                    data: {
+                    data:{
                         '_token': $('input[name=_token]').val(),
                         'id': id
                     },
@@ -130,5 +131,23 @@ Sự kiện
                 });
             });
         });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log(window.location.pathname);
+            var pathname = window.location.pathname;
+            $('#namepage').attr('href',pathname);
+            var create_path = pathname+'/create';
+            $('#create').attr('href',create_path);
+        });
+
+         $(document).ready(function() {
+            $('.edit').click(function() {
+                var pathname = window.location.pathname + '/';
+                var id = $(this).data("id");
+                $(this).attr('href',pathname+id+'/edit');
+            });
+         });
     </script>
 @endsection

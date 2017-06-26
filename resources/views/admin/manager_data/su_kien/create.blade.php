@@ -17,7 +17,7 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="admin/su-kien" id="form_sample_3" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                <form action="#" id="createForm" class="form-horizontal" method="POST" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button>Lỗi !!!</div>
@@ -95,7 +95,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Thêm</button>
-                                <a type="button" class="btn default" href="{!!url('admin/loai-tin')!!}">Hủy</a>
+                                <a class="btn default" href="#" onclick="history.go(-1)" >Hủy</a>
                             </div>
                         </div>
                     </div>
@@ -129,4 +129,13 @@
         <script src="../assets/pages/scripts/form-validation.js" type="text/javascript"></script>
         
         <!-- END PAGE LEVEL SCRIPTS -->
+        <script type="text/javascript">
+        $(document).ready(function() {
+            console.log(window.location.pathname);
+            var pathname = window.location.pathname;
+            $('#namepage').attr('href', pathname.substr(0,pathname.length-7));
+            var create_path = pathname.substr(0,pathname.length-7);
+            $('#createForm').attr('action',create_path);
+        });
+    </script>
 @endsection
