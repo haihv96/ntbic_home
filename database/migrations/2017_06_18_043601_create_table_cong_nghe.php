@@ -16,6 +16,7 @@ class CreateTableCongNghe extends Migration
         Schema::create('cong_nghe', function(Blueprint $table) {
             $table->increments('id');
             $table->string('ten');
+            $table->string('ten_khong_dau');
             $table->longText('noi_dung');
             $table->timestamps();
         });
