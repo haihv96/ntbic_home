@@ -20,7 +20,7 @@ Sự kiện
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('su_kien') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
+                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('admin/su-kien/create') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -114,7 +114,7 @@ Sự kiện
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/su_kien/'+id;
+            var url_delete = 'admin/su-kien/'+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',

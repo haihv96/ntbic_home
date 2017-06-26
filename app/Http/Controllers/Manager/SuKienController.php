@@ -67,7 +67,7 @@ class SuKienController extends Controller
             $su_kien->hinh_anh = "";
         }
         $su_kien->save();
-       return redirect()->route('su_kien.index')->with('message','Bạn đã thêm sự kiện thành công');
+       return redirect()->route('su-kien.index')->with('message','Bạn đã thêm sự kiện thành công');
     }
 
     /**
