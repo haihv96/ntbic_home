@@ -78,7 +78,7 @@ class TinTucController extends Controller
         }
 
         $tin_tuc->save();
-        return redirect()->route('tin_tuc.index')->with('message', 'Bạn đã thêm tin tức thành công');
+        return redirect()->route('tin-tuc.index')->with('message', 'Bạn đã thêm tin tức thành công');
     }
 
     /**

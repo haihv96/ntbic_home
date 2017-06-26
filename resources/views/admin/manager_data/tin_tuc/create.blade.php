@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="{!!url('tin_tuc')!!}" class="active">Tin tức</a>
+<a id="namepage" href="#" class="active">Tin tức</a>
 @endsection
 
 @section('main')
@@ -17,7 +17,7 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="admin/tin-tuc" method="POST" id="form_sample_3" class="form-horizontal" enctype="multipart/form-data">
+                <form action="#" method="POST" id="createForm" class="form-horizontal" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
                         @if(count($errors) > 0)
@@ -105,4 +105,15 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log(window.location.pathname);
+            var pathname = window.location.pathname;
+            $('#namepage').attr('href', pathname.substr(0,pathname.length-7));
+            var create_path = pathname.substr(0,pathname.length-7);
+            $('#createForm').attr('action',create_path);
+        });
+    </script>
 @endsection

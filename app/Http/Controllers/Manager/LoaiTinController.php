@@ -48,7 +48,7 @@ class LoaiTinController extends Controller
     	$loai_tin->ten_khong_dau = changeTitle($request->ten);
 
     	$loai_tin->save();
-    	return redirect()->route('loai_tin.index')->with('message','Bạn đã thêm loại tin thành công');
+    	return redirect()->route('loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
     }
 
     /**
