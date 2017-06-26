@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('doi-tac/create') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
+                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('admin/doi-tac/create') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -67,9 +67,8 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->ten}}</td>
                             <td><img src="assets/upload/doi-tac/{{$item->hinh_anh}}" height="100"></td>
-                            <td>{{$item->noi_dung}}</td>
                             <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a href="{!! url('doi_tac'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td class="center"><div ><a href="{!! url('admin/doi-tac/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                         @endforeach
