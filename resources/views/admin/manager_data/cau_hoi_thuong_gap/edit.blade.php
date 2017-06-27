@@ -47,7 +47,7 @@
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Thêm</button>
+                                <button type="submit" class="btn green">Sửa</button>
                                 <a type="button" class="btn default" href="{!!url('admin/cau-hoi-thuong-gap')!!}">Hủy</a>
                             </div>
                         </div>

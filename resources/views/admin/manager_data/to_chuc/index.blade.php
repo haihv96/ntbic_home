@@ -19,7 +19,7 @@ Tổ chức
                             <a href="#tab_1_1" data-toggle="tab" aria-expanded="true">Thông tin chi tiết</a>
                         </li>
                         <li class="">
-                            <a href="#tab_1_2" data-toggle="tab" aria-expanded="false">  Chỉnh sửa</a>
+                            <a href="#tab_1_2" data-toggle="tab" aria-expanded="false">Chỉnh sửa</a>
                         </li>
                     </ul>
                 </div>
@@ -98,16 +98,16 @@ Tổ chức
                                         </div>
                                         <div class="portlet-body">
                                             <!-- BEGIN FORM-->
-                                            <form action="{!!url('admin/to-chuc/edit')!!}" id="form_sample_3" class="form-horizontal" method="POST">
-                                                {{method_field('POST')}}
+                                            <form action="" id="form_sample_3" class="form-horizontal" method="">
+                                               <!-- {{method_field('PUT')}}-->
                                                 <div class="form-body">
-                                                    @if(session('message'))
+                                                <!--    @if(session('message'))
                                                     <div class="alert alert-success display-hide">
                                                         <button class="close" data-close="alert"></button> {{session('message')}}
                                                         </div>
                                                     @endif
                                                         {{csrf_field()}}
-                                                       
+                                                -->       
                                                     <div class="form-group last">
                                                         <label class="control-label col-md-3">Giới thiệu chung
                                                             <span class="required"> * </span>

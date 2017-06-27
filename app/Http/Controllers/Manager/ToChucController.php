@@ -64,7 +64,8 @@ class ToChucController extends Controller
      */
     public function edit($id)
     {  
-        $to_chuc_edit =to_chuc::find($id);
+       // $to_chuc_edit =to_chuc::find($id);
+        $to_chuc_edit=DB::table('to_chuc')->where('id','1')->get();
         return view('admin.manager_data.to_chuc.index', ['tochucedit' => $to_chuc_edit]);
     }
 
@@ -77,7 +78,7 @@ class ToChucController extends Controller
      */
     public function update(ToChucRequest $request, $id)
     {
-        //$cau_hoi_thuong_gap = cau_hoi_thuong_gap::find($id);
+        
         $to_chuc = to_chuc::find($id);
         $to_chuc->gioithieuchung=$request->gioithieuchung;
         $to_chuc->vitrichucnang=$request->vitrichucnang;

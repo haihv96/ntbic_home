@@ -43,10 +43,10 @@ class CauHoiThuongGapController extends Controller
     public function store(CauHoiThuongGapRequest $request)
     {
         $cauhoithuonggap = new cau_hoi_thuong_gap;
-        $cau_hoi_thuong_gap->cau_hoi = $request->cau_hoi;
-        $cau_hoi_thuong_gap->cau_hoi_khong_dau = changeTitle($request->cau_hoi);
-        $cau_hoi_thuong_gap->cau_tra_loi = $request->cau_tra_loi;
-        $cau_hoi_thuong_gap->save();
+        $cauhoithuonggap->cau_hoi = $request->cau_hoi;
+        $cauhoithuonggap->cau_hoi_khong_dau = changeTitle($request->cau_hoi);
+        $cauhoithuonggap->cau_tra_loi = $request->cau_tra_loi;
+        $cauhoithuonggap->save();
        return redirect()->route('cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thành công');
     }
 
