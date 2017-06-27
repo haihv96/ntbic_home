@@ -57,5 +57,5 @@
 </div>
 @endsection
 @section('js')
-    <script src="/js/path.js"></script>
+    <script src="/js/pathEdit.js"></script>
 @endsection

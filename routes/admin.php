@@ -11,3 +11,4 @@ Route::resource('doi-tac','Manager\DoiTacController');
 Route::resource('to-chuc','Manager\TochucController');
 Route::resource('cau-hoi-thuong-gap','Manager\CauhoithuonggapController');
 Route::resource('tuyen-dung','Manager\TuyenDungController');
+Route::resource('chuyen-gia','Manager\ChuyenGiaController');
