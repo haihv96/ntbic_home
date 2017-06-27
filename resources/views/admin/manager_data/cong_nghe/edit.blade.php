@@ -17,7 +17,7 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="#" id="createForm" method="POST" id="form_sample_3" class="form-horizontal">
+                <form action="#" method="POST" id="editForm" class="form-horizontal">
                         {{ method_field('PUT') }}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-body">
@@ -58,5 +58,5 @@
 </div>
 @endsection
 @section('js')
-    <script src="/js/path.js"></script>
+    <script src="/js/pathEdit.js"></script>
 @endsection

@@ -65,7 +65,7 @@ class CongNgheController extends Controller
             $cong_nghe->ten_khong_dau = changeTitle($request->ten);
 
     		$cong_nghe->save();
-    		return Redirect::back()->withInput()->with('status','Đã sửa thành công!');
+    		return Redirect::to('admin/cong-nghe')->withInput()->with('status','Đã sửa thành công!');
     	}
     }
 
