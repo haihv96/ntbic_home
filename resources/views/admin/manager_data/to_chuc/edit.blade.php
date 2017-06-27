@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-Tổ chức
+<a href="{!!url('admin/to-chuc')!!}" class="active">Thông tin tổ chức</a>
 @endsection
 
 @section('main')
@@ -12,68 +12,91 @@ Tổ chức
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">Bảng Tổ chức Bộ Khoa học và Công nghệ</span>
+                    <span class="caption-subject font-dark sbold uppercase"> Sửa thông tin tổ chức</span>
                 </div>
             </div>
+             @if (session('message'))
+                <div class="alert alert-success">
+                    <button class="close" data-close="alert"></button>{{session('message')}}</div>
+            @endif
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="#" id="form_sample_3" class="form-horizontal">
+                <form action="{!! url('admin/cau-hoi-thuong-gap/'.$cauhoithuonggap->id) !!}" id="form_sample_3" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                {{ method_field('PUT') }}
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
-                        <div class="alert alert-danger display-hide">
-                            <button class="close" data-close="alert"></button>Lỗi !!!</div>
-                        <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Thành công! </div>
-                        <div class="form-group last">
-                            <label class="control-label col-md-3">Giới thiệu chung
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Câu hỏi
                                 <span class="required"> * </span>
                             </label>
-                            <div class="col-md-9">
-                                <textarea class="ckeditor form-control" name="editor2" rows="6" id="editor"></textarea>
-                                <div id="editor2_error"> </div>
+                            <div class="col-md-4">
+                                <input type="text" name="cau_hoi" data-required="1" class="form-control" value="{{$cauhoithuonggap->cau_hoi}}" /> 
+                                <span class="required"> {{$errors->first('cau_hoi')}}</span>
                             </div>
                         </div>
                         <div class="form-group last">
-                            <label class="control-label col-md-3">Vị trí chức năng
+                            <label class="control-label col-md-3">Câu trả lời
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <textarea class="ckeditor form-control" name="editor2" rows="6" data-error-container="#editor2_error"></textarea>
-                                <div id="editor2_error"> </div>
+                                <textarea class="ckeditor form-control" name="cau_tra_loi" rows="6" id="editor">{{$cauhoithuonggap->cau_tra_loi}}</textarea>
+                                <span class="required"> {{$errors->first('cau_tra_loi')}}</span>
                             </div>
-                        </div>
-                        <div class="form-group last">
-                            <label class="control-label col-md-3">Sứ mệnh tầm nhìn
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-9">
-                                <textarea class="ckeditor form-control" name="editor2" rows="6" data-error-container="#editor2_error"></textarea>
-                                <div id="editor2_error"> </div>
+
+                            <div class="form-group last">
+                                <label class="control-label col-md-3">Giới thiệu chung
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <textarea class="ckeditor form-control" name="gioithieuchung" rows="6" id="editor" ></textarea>
+                                    <span class="required">{{$errors->first('gioithieuchung')}}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group last">
-                            <label class="control-label col-md-3">Cơ cấu
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-9">
-                                <textarea class="ckeditor form-control" name="editor2" rows="6" data-error-container="#editor2_error"></textarea>
-                                <div id="editor2_error"> </div>
+                             
+                            <div class="form-group last">
+                                <label class="control-label col-md-3">Vị trí chức năng
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <textarea class="ckeditor form-control" name="gioithieuchung" rows="6" 
+                                    ></textarea>
+                                     <span class="required">{{$errors->first('vitrichucnang')}}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group last">
-                            <label class="control-label col-md-3">Đội ngũ trung tâm
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-9">
-                                <textarea class="ckeditor form-control" name="editor2" rows="6" data-error-container="#editor2_error"></textarea>
-                                <div id="editor2_error"> </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-3">Sứ mệnh tầm nhìn
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <textarea class="ckeditor form-control" name="sumenhtamnhin" rows="6" ></textarea>
+                                     <span class="required">{{$errors->first('sumenhtamnhin')}}</span>
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-3">Cơ cấu
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <textarea class="ckeditor form-control" name="cocau" rows="6" ></textarea>
+                                     <span class="required">{{$errors->first('cocau')}}</span>
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-3">Đội ngũ trung tâm
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <textarea class="ckeditor form-control" name="doingutrungtam" rows="6"></textarea>
+                                     <span class="required">{{$errors->first('doingutrungtam')}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Lưu</button>
-                                <button type="button" class="btn default">Hủy</button>
+                                <button type="submit" class="btn green">Sửa</button>
+                                <a type="button" class="btn default" href="{!!url('admin/cau-hoi-thuong-gap')!!}">Hủy</a>
                             </div>
                         </div>
                     </div>
@@ -84,4 +107,26 @@ Tổ chức
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+    <!-- BEGIN CORE PLUGINS -->
+         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+         <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+        <script src="./../assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="../assets/pages/scripts/form-validation.min.js" type="text/javascript"></script>
+        <script src="../assets/pages/scripts/form-validation.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
 @endsection

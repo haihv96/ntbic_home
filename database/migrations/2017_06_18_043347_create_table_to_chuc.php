@@ -15,9 +15,11 @@ class CreateTableToChuc extends Migration
     {
         Schema::create('to_chuc', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('ten');
-            $table->string('ten_khong_dau');
-            $table->longText('noi_dung');
+            $table->longText('gioi_thieu_chung')->nullable();
+            $table->longText('vi_tri_chuc_nang')->nullable();
+            $table->longText('su_menh_tam_nhin')->nullable();
+            $table->longText('co_cau')->nullable();
+            $table->longText('doi_ngu_trung_tam')->nullable();
             $table->timestamps();
         });
     }
