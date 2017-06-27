@@ -125,7 +125,6 @@
          <!-- BEGIN PAGE LEVEL PLUGINS -->
         <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-         <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
@@ -160,6 +159,11 @@
             var create_path = pathname.substr(0,pathname.length-5);
             $('#editForm').attr('action',create_path);
         });
+    </script>
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-su-kien").addClass("active");
     </script>
         <!-- END PAGE LEVEL SCRIPTS -->
 @endsection
