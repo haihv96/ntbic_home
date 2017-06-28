@@ -70,7 +70,7 @@
                                 </li>
                                 <li class="divider"> </li>
                                 <li>
-                                    <a href="page_user_login_1.html">
+                                    <a href="/logout">
                                         <i class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
@@ -120,13 +120,14 @@
                         <li class="heading">
                             <h3 class="uppercase">Nội dung </h3>
                         </li>
-                        
+                        @if(Auth::user()->level == 1)
                         <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-briefcase"></i>
                                 <span class="title">Quản trị người dùng</span>
                             </a>
                         </li>
+                        @endif
                         <li class="nav-item" id="sub-menu-manager-data">
                             <a href="?p=" class="nav-link nav-toggle">
                                 <i class="icon-wallet"></i>
