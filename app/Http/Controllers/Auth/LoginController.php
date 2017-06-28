@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -18,14 +21,13 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+  //  use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -35,5 +37,37 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function getLogin() {
+        return view('auth.login');
+    }
+
+    public function postLogin(Request $request) {
+        $this->validate($request,
+            [
+                'username'=>'required|exists:users,username',
+                'password'=>'required'
+            ],
+            [
+                'username.required'=>'Bạn chưa nhập username',
+                'username.exists' => 'Tài khoản hoặc mật khẩu không đúng!',
+                'password.required'=>'Bạn chưa nhập password',
+            ]);
+
+       if (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>1])) {
+            return redirect('admin');
+        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>2])) {
+            return redirect('moderator');
+        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>3])) {
+            return redirect('/');
+        } else {
+            return redirect()->back()->withInput();
+        } 
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect('login');
     }
 }
