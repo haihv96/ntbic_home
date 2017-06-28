@@ -66,7 +66,7 @@
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{{$item->ten}}</td>
-                            <td><img src="assets/upload/doi-tac/{{$item->hinh_anh}}" height="100"></td>
+                            <td><img src="assets/upload/doi_tac/{{$item->hinh_anh}}" height="100"></td>
                             <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
                             <td class="center"><div ><a href="{!! url('admin/doi-tac/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
