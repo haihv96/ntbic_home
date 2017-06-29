@@ -26,14 +26,14 @@
                             </label>
                             <div class="col-md-4">
                                 <span class="required"> {{$errors->first('ten')}} </span>
-                                <input type="text" name="ten" data-required="1" class="form-control" /> </div>
+                                <input type="text" name="ten" data-required="1" class="form-control" value="{{ old('ten') }}"/> </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Chức vụ <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
                                 <span class="required"> {{$errors->first('chuc_vu')}} </span>
-                                <input type="text" name="chuc_vu" data-required="1" class="form-control" />
+                                <input type="text" name="chuc_vu" data-required="1" class="form-control" value="{{ old('chuc_vu') }}" />
                             </div>
                         </div>
                        <div class="form-group">
@@ -41,14 +41,15 @@
                                 </label>
                                 <div class="col-md-4">
                                     <span class="required"> {{$errors->first('hinh_anh')}}</span>
-                                    <input type="file" name="hinh_anh" class="form-control">
+                                    <input type="file" name="hinh_anh" class="form-control" value="{{ old('hinh_anh') }}" id="profile-img">
+                                    <img src="" id="profile-img-tag" width="150px" />
                                 </div>
                         </div>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Thêm</button>
-                                <a class="btn default" href="#" onclick="history.go(-1)">Hủy</a>
+                                <a class="btn default" href="{!!url('admin/chuyen-gia')!!}">Hủy</a>
                             </div>
                         </div>
                     </div>
@@ -63,4 +64,20 @@
 @endsection
 @section('js')
     <script src="/js/path.js"></script>
+    
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#profile-img-tag').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#profile-img").change(function(){
+            readURL(this);
+        });
+    </script>
 @endsection
