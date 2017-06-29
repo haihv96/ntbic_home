@@ -26,21 +26,21 @@
                             </label>
                             <div class="col-md-4">
                                 <span class="required"> {{$errors->first('ten')}} </span>
-                                <input type="text" name="ten" data-required="1" class="form-control" /> </div>
+                                <input type="text" name="ten" data-required="1" class="form-control" value="{{old('ten')}}"/> </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Giới thiệu chung <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
                                 <span class="required"> {{$errors->first('noi_dung')}} </span>
-                                <textarea name="noi_dung" data-required="1" class="form-control ckeditor" rows="4"></textarea>
+                                <textarea name="noi_dung" data-required="1" class="form-control ckeditor" rows="4">{{old('noi_dung')}}</textarea>
                             </div>
                         </div>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Thêm</button>
-                                <a class="btn default" href="#" onclick="history.go(-1)">Hủy</a>
+                                <a class="btn default" href="{!!url('admin/cong-nghe')!!}">Hủy</a>
                             </div>
                         </div>
                     </div>

@@ -118,10 +118,8 @@ class ChuyenGiaController extends Controller
               }
               $file->move("assets/upload/chuyen_gia/",$hinh_anh);
               $chuyen_gia->hinh_anh = $hinh_anh;
-        } else {
-          $chuyen_gia->hinh_anh = "";
         }
-
+        
         $chuyen_gia->save();
         return Redirect::back()->with('status','Sửa thành công!');
       }
@@ -132,8 +130,8 @@ class ChuyenGiaController extends Controller
      *
      */
    	public function destroy($id) {
-      $doi_tac = chuyen_gia::find($id);
-        $doi_tac->delete();
-        return $doi_tac->toJson();
+      $chuyen_gia = chuyen_gia::find($id);
+        $chuyen_gia->delete();
+        return $chuyen_gia->toJson();
    	}
 }

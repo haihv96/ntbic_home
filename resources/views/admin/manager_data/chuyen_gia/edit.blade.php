@@ -52,7 +52,9 @@
                                     <li><a href="#home" data-toggle="tab">Thay đổi ảnh</a></li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane" id="home"><input type="file" name="hinh_anh" multiple /></div>
+                                    <div class="tab-pane" id="home"><input type="file" name="hinh_anh" multiple id="profile-img"/>
+                                    <img src="" id="profile-img-tag" width="150px" />
+                                    </div>
                                     
                                 </div>
                                 <span class="error">&nbsp;&nbsp;{{$errors->first('file-anh')}}</span>
@@ -62,7 +64,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Sửa</button>
-                                <a type="button" class="btn default" href="#" onclick="history.go(-1)">Hủy</a>
+                                <a type="button" class="btn default" href="{!!url('admin/chuyen-gia')!!}">Hủy</a>
                             </div>
                         </div>
                     </div>
@@ -76,4 +78,20 @@
 @endsection
 @section('js')
     <script src="/js/pathEdit.js"></script>
+
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#profile-img-tag').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#profile-img").change(function(){
+            readURL(this);
+        });
+    </script>
 @endsection

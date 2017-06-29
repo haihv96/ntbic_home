@@ -49,9 +49,11 @@ class CongNgheController extends Controller
     }
 
     public function update(Request $request, $id) {
-    	$rules = array('ten'=>'required',);
+    	$rules = array('ten'=>'required',
+                        'noi_dung' => 'required',);
     	$messages = [
     		'ten.required' => 'Chưa nhập tên cho đề tài, dự án!',
+            'noi_dung.required' => 'Chưa nhập nội dung',
     	];
 
     	$validator = Validator::make($request->all(), $rules, $messages);
