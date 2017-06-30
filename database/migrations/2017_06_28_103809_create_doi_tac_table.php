@@ -17,8 +17,8 @@ class CreateDoiTacTable extends Migration
             $table->increments('id');
             $table->text('HinhAnh');
             $table->string('slug');
-            $table->integer('idLoaiDoiTac')->unsigned();
-            $table->foreign('idLoaiDoiTac')->references('id')->on('loai_doi_tac') ->onDelete('cascade');;
+            $table->integer('loai_doi_tac_id')->unsigned();
+            $table->foreign('loai_doi_tac_id')->references('id')->on('loai_doi_tac') ->onDelete('cascade');;
             $table->timestamps();
         });
     }

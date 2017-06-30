@@ -17,10 +17,10 @@ class CreateTinTucTable extends Migration
             $table->increments('id');
             $table->text('HinhAnh');
             $table->string('slug');
-            $table->integer('idLoaiTinTuc')->unsigned();
-            $table->foreign('idLoaiTinTuc')->references('id')->on('loai_tin') ->onDelete('cascade');;
-            $table->integer('idUser')->unsigned();
-            $table->foreign('idUser')->references('id')->on('users') ->onDelete('cascade');
+            $table->integer('loai_tin_id')->unsigned();
+            $table->foreign('loai_tin_id')->references('id')->on('loai_tin')->onDelete('cascade');
+            $table->integer('users_id')->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

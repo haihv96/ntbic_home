@@ -13,13 +13,14 @@ class CreateChuyenGiaTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('chuyen_gia_translation', function (Blueprint $table) {
+        Schema::create('chuyen_gia_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idChuyenGia')->unsigned();
+            $table->integer('chuyen_gia_id')->unsigned();
             $table->string('Ten');
             $table->string('ChucVu')->nullable();
             $table->string('locale');
-            $table->foreign('idChuyenGia')->references('id')->on('chuyen_gia')->onDelete('cascade');
+            $table->unique(['chuyen_gia_id','locale']);
+            $table->foreign('chuyen_gia_id')->references('id')->on('chuyen_gia')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateChuyenGiaTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chuyen_gia_translation');
+        Schema::dropIfExists('chuyen_gia_translations');
     }
 }

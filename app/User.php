@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public tintuc() {
+        return $this->hasMany('App\TinTuc','users_id','id');
+    }
+
+    public sukien() {
+        return $this->hasMany('App\SuKien','users_id','id');
+    }
+
+    public comment() {
+        return $this->hasMany('App\comment','users_id','id');
+    }
 }

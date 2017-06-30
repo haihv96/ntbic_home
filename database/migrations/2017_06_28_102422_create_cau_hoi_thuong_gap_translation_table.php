@@ -13,13 +13,13 @@ class CreateCauHoiThuongGapTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('cau_hoi_thuong_gap_translation', function (Blueprint $table) {
+        Schema::create('cau_hoi_thuong_gap_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idCauHoiThuongGap')->unsigned();
+            $table->integer('cau_hoi_thuong_gap_id')->unsigned()->unique();
             $table->longtext('CauHoi');
             $table->longtext('CauTraLoi')->nullable();
-            $table->string('locale');
-            $table->foreign('idCauHoiThuongGap')->references('id')->on('cau_hoi_thuong_gap')->onDelete('cascade');
+            $table->string('locale')->unique();
+            $table->foreign('cau_hoi_thuong_gap_id')->references('id')->on('cau_hoi_thuong_gap')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateCauHoiThuongGapTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cau_hoi_thuong_gap_translation');
+        Schema::dropIfExists('cau_hoi_thuong_gap_translations');
     }
 }

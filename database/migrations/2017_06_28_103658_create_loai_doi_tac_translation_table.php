@@ -13,12 +13,13 @@ class CreateLoaiDoiTacTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('loai_doi_tac_translation', function (Blueprint $table) {
+        Schema::create('loai_doi_tac_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idLoaiDoiTac')->unsigned();
+            $table->integer('loai_doi_tac_id')->unsigned();
             $table->string('Ten');
             $table->string('locale');
-            $table->foreign('idLoaiDoiTac')->references('id')->on('loai_doi_tac') ->onDelete('cascade');;
+            $table->unique(['loai_doi_tac_id','locale']);
+            $table->foreign('loai_doi_tac_id')->references('id')->on('loai_doi_tac') ->onDelete('cascade');;
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateLoaiDoiTacTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loai_doi_tac_translation');
+        Schema::dropIfExists('loai_doi_tac_translations');
     }
 }

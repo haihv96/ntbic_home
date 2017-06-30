@@ -13,12 +13,13 @@ class CreateLoaiTinTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('loai_tin_translation', function (Blueprint $table) {
+        Schema::create('loai_tin_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idLoaiTin')->unsigned();
+            $table->integer('loai_tin_id')->unsigned();
             $table->string('Ten');
             $table->string('locale');
-            $table->foreign('idLoaiTin')->references('id')->on('loai_tin') ->onDelete('cascade');
+            $table->unique(['loai_tin_id','locale']);
+            $table->foreign('loai_tin_id')->references('id')->on('loai_tin') ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateLoaiTinTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loai_tin_translation');
+        Schema::dropIfExists('loai_tin_translations');
     }
 }

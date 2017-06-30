@@ -13,9 +13,9 @@ class CreateToChucTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('to_chuc_translation', function (Blueprint $table) {
+        Schema::create('to_chuc_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idToChuc')->unsigned();
+            $table->integer('to_chuc_id')->unsigned();
             $table->longText('GioiThieuChung');
             $table->longText('ViTriChucNang')->nullable();
             $table->longText('SuMenhTamNhin')->nullable();
@@ -23,7 +23,8 @@ class CreateToChucTranslationTable extends Migration
             $table->longText('DoiNguTrungTam')->nullable();
             $table->string('slug');
             $table->string('locale');
-            $table->foreign('idToChuc')->references('id')->on('to_chuc') ->onDelete('cascade');;
+            $table->unique(['to_chuc_id','locale']);
+            $table->foreign('to_chuc_id')->references('id')->on('to_chuc')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -35,6 +36,6 @@ class CreateToChucTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('to_chuc_translation');
+        Schema::dropIfExists('to_chuc_translations');
     }
 }
