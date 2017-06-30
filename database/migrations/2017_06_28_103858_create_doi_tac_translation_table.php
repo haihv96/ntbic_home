@@ -13,13 +13,14 @@ class CreateDoiTacTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('doi_tac_translation', function (Blueprint $table) {
+        Schema::create('doi_tac_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idDoiTac')->unsigned();
+            $table->integer('doi_tac_id')->unsigned();
             $table->string('Ten');
             $table->longText('NoiDung');
             $table->string('locale');
-            $table->foreign('idDoiTac')->references('id')->on('doi_tac') ->onDelete('cascade');;
+            $table->unique(['doi_tac_id','locale']);
+            $table->foreign('doi_tac_id')->references('id')->on('doi_tac')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateDoiTacTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doi_tac_translation');
+        Schema::dropIfExists('doi_tac_translations');
     }
 }

@@ -13,13 +13,14 @@ class CreateCongNgheTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('cong_nghe_translation', function (Blueprint $table) {
+        Schema::create('cong_nghe_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idCongNghe')->unsigned();
+            $table->integer('cong_nghe_id')->unsigned();
             $table->string('Ten');
             $table->longText('NoiDung');
             $table->string('locale');
-            $table->foreign('idCongNghe')->references('id')->on('cong_nghe')->onDelete('cascade');
+            $table->unique(['cong_nghe_id','locale']);
+            $table->foreign('cong_nghe_id')->references('id')->on('cong_nghe')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateCongNgheTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cong_nghe_translation');
+        Schema::dropIfExists('cong_nghe_translations');
     }
 }

@@ -19,8 +19,8 @@ class CreateSuKienTable extends Migration
             $table->date('NgayBatDau');
             $table->date('NgayKetThuc');
             $table->string('slug');
-            $table->integer('idUser')->unsigned();
-            $table->foreign('idUser')->references('id')->on('users') ->onDelete('cascade');
+            $table->integer('users_id')->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

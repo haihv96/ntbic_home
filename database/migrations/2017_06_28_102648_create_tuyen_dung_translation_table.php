@@ -13,12 +13,14 @@ class CreateTuyenDungTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('tuyen_dung_translation', function (Blueprint $table) {
+        Schema::create('tuyen_dung_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idTuyenDung')->unsigned();
+            $table->integer('tuyen_dung_id')->unsigned();
             $table->string('MoTa');
             $table->longtext('NoiDungTuyenDung');
-            $table->foreign('idTuyenDung')->references('id')->on('tuyen_dung')->onDelete('cascade');
+            $table->string('locale');
+            $table->unique(['tuyen_dung_id','locale']);
+            $table->foreign('tuyen_dung_id')->references('id')->on('tuyen_dung')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateTuyenDungTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tuyen_dung_translation');
+        Schema::dropIfExists('tuyen_dung_translations');
     }
 }

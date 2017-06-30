@@ -13,14 +13,16 @@ class CreateTinTucTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('tin_tuc_translation', function (Blueprint $table) {
+        Schema::create('tin_tuc_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idTinTuc')->unsigned();
+            $table->integer('tin_tuc_id')->unsigned();
             $table->string('Ten');
             $table->longText('NoiDung');
             $table->text('TomTat');
             $table->boolean('status')->default(false);
-            $table->foreign('idTinTuc')->references('id')->on('tin_tuc') ->onDelete('cascade');
+            $table->string('locale');
+            $table->unique(['tin_tuc_id','locale']);
+            $table->foreign('tin_tuc_id')->references('id')->on('tin_tuc')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateTinTucTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tin_tuc_translation');
+        Schema::dropIfExists('tin_tuc_translations');
     }
 }

@@ -13,13 +13,15 @@ class CreateSuKienTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('su_kien_translation', function (Blueprint $table) {
+        Schema::create('su_kien_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idSuKien')->unsigned();
+            $table->integer('su_kien_id')->unsigned();
             $table->string('Ten');
             $table->longText('NoiDung');
             $table->text('TomTat');
-            $table->foreign('idSuKien')->references('id')->on('su_kien') ->onDelete('cascade');
+            $table->string('locale');
+            $table->unique(['su_kien_id','locale']);
+            $table->foreign('su_kien_id')->references('id')->on('su_kien')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateSuKienTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('su_kien_translation');
+        Schema::dropIfExists('su_kien_translations');
     }
 }
