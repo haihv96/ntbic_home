@@ -13,7 +13,7 @@ class DoiTac extends Model
 
     public $translatedAttributes = ['Ten', 'NoiDung'];
 
-    public loaidoitac() {
+    public function loaidoitac() {
     	return $this->belongsTo('App\LoaiDoiTac', 'loai_doi_tac_id', 'id');
     }
 }
