@@ -8,7 +8,7 @@ class comment extends Model
 {
     protected $table = 'comment';
 
-    public user() {
+    public function user() {
     	return $this->belongsTo('App\User','users_id','id');
     }
 }

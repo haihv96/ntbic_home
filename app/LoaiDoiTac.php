@@ -13,7 +13,7 @@ class LoaiDoiTac extends Model
 
     public $translatedAttributes = ['Ten'];
 
-    public doitac() {
+    public function doitac() {
     	return $this->hasMany('App\DoiTac', 'loai_doi_tac_id', 'id');
     }
 }

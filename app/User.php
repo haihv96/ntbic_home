@@ -27,15 +27,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public tintuc() {
+    public function tintuc() {
         return $this->hasMany('App\TinTuc','users_id','id');
     }
 
-    public sukien() {
+    public function sukien() {
         return $this->hasMany('App\SuKien','users_id','id');
     }
 
-    public comment() {
+    public function comment() {
         return $this->hasMany('App\comment','users_id','id');
     }
 }
