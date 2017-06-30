@@ -16,13 +16,12 @@ class CreateSuKienTranslationTable extends Migration
         Schema::create('su_kien_translation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idSuKien')->unsigned();
-            $table->string('Ten')->nullable();
-            $table->string('slug')->nullable();
-            $table->longText('NoiDung')->nullable();
-            $table->text('TomTat')->nullable();
+            $table->string('Ten');
+            $table->longText('NoiDung');
+            $table->text('TomTat');
             $table->text('HinhAnh')->nullable();
-            $table->date('NgayBatDau')->nullable();
-            $table->date('NgayKetThuc')->nullable();
+            $table->date('NgayBatDau');
+            $table->date('NgayKetThuc');
             $table->foreign('idSuKien')->references('id')->on('su_kien') ->onDelete('cascade');
             $table->timestamps();
         });

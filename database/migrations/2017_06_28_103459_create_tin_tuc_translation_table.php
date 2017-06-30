@@ -17,7 +17,6 @@ class CreateTinTucTranslationTable extends Migration
             $table->increments('id');
             $table->integer('idTinTuc')->unsigned();
             $table->string('Ten');
-            $table->string('slug');
             $table->longText('NoiDung');
             $table->text('TomTat');
             $table->text('HinhAnh');

@@ -16,10 +16,9 @@ class CreateCauHoiThuongGapTranslationTable extends Migration
         Schema::create('cau_hoi_thuong_gap_translation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idCauHoiThuongGap')->unsigned();
-            $table->longtext('CauHoi')->nullable();
-            $table->longtext('slug')->nullable();
+            $table->longtext('CauHoi');
             $table->longtext('CauTraLoi')->nullable();
-            $table->string('locale')->nullable();
+            $table->string('locale');
             $table->foreign('idCauHoiThuongGap')->references('id')->on('cau_hoi_thuong_gap')->onDelete('cascade');
             $table->timestamps();
         });

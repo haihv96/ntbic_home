@@ -16,11 +16,10 @@ class CreateChuyenGiaTranslationTable extends Migration
         Schema::create('chuyen_gia_translation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idChuyenGia')->unsigned();
-            $table->string('Ten')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('Ten');
             $table->string('ChucVu')->nullable();
             $table->string('HinhAnh')->nullable();
-            $table->string('locale')->nullable();
+            $table->string('locale');
             $table->foreign('idChuyenGia')->references('id')->on('chuyen_gia')->onDelete('cascade');
             $table->timestamps();
         });

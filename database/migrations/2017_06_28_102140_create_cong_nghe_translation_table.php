@@ -16,10 +16,9 @@ class CreateCongNgheTranslationTable extends Migration
         Schema::create('cong_nghe_translation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idCongNghe')->unsigned();
-            $table->string('Ten')->nullable();
-            $table->string('slug')->nullable();
-            $table->longText('NoiDung')->nullable();
-            $table->string('locale')->nullable();
+            $table->string('Ten');
+            $table->longText('NoiDung');
+            $table->string('locale');
             $table->foreign('idCongNghe')->references('id')->on('cong_nghe')->onDelete('cascade');
             $table->timestamps();
         });

@@ -15,6 +15,7 @@ class CreateChuyenGiaTable extends Migration
     {
         Schema::create('chuyen_gia', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->timestamps();
         });
     }

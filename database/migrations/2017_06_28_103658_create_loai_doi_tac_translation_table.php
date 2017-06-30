@@ -16,9 +16,8 @@ class CreateLoaiDoiTacTranslationTable extends Migration
         Schema::create('loai_doi_tac_translation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idLoaiDoiTac')->unsigned();
-            $table->string('Ten')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('locale')->nullable();
+            $table->string('Ten');
+            $table->string('locale');
             $table->foreign('idLoaiDoiTac')->references('id')->on('loai_doi_tac') ->onDelete('cascade');;
             $table->timestamps();
         });

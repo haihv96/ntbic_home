@@ -16,13 +16,13 @@ class CreateToChucTranslationTable extends Migration
         Schema::create('to_chuc_translation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idToChuc')->unsigned();
-            $table->longText('GioiThieuChung')->nullable();
+            $table->longText('GioiThieuChung');
             $table->longText('ViTriChucNang')->nullable();
             $table->longText('SuMenhTamNhin')->nullable();
             $table->longText('CoCau')->nullable();
             $table->longText('DoiNguTrungTam')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('locale')->nullable();
+            $table->string('slug');
+            $table->string('locale');
             $table->foreign('idToChuc')->references('id')->on('to_chuc') ->onDelete('cascade');;
             $table->timestamps();
         });

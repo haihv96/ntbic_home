@@ -15,6 +15,7 @@ class CreateLoaiDoiTacTable extends Migration
     {
         Schema::create('loai_doi_tac', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->timestamps();
         });
     }
