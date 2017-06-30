@@ -15,6 +15,7 @@ class CreateToChucTable extends Migration
     {
         Schema::create('to_chuc', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->timestamps();
         });
     }

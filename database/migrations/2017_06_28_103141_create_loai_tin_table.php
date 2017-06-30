@@ -15,6 +15,7 @@ class CreateLoaiTinTable extends Migration
     {
         Schema::create('loai_tin', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->timestamps();
         });
     }

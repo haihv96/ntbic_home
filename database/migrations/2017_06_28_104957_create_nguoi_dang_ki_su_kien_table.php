@@ -16,6 +16,9 @@ class CreateNguoiDangKiSuKienTable extends Migration
         Schema::create('nguoi_dang_ki_su_kien', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idSuKien')->unsigned();
+            $table->string('Ten');
+            $table->string('email')->unique();
+            $table->string('phone')->unique();
             $table->foreign('idSuKien')->references('id')->on('su_kien')->onDelete('cascade');
             $table->timestamps();
         });

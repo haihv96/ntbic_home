@@ -15,6 +15,7 @@ class CreateCongNgheTable extends Migration
     {
         Schema::create('cong_nghe', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->timestamps();
         });
     }

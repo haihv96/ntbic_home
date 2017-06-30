@@ -17,7 +17,6 @@ class CreateTuyenDungTranslationTable extends Migration
             $table->increments('id');
             $table->integer('idTuyenDung')->unsigned();
             $table->string('MoTa');
-            $table->string('slug');
             $table->longtext('NoiDungTuyenDung');
             $table->datetime('NgayBatDau');
             $table->datetime('NgayKetThuc');

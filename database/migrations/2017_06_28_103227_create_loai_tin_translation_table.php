@@ -16,9 +16,8 @@ class CreateLoaiTinTranslationTable extends Migration
         Schema::create('loai_tin_translation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idLoaiTin')->unsigned();
-            $table->string('Ten')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('locale')->nullable();
+            $table->string('Ten');
+            $table->string('locale');
             $table->foreign('idLoaiTin')->references('id')->on('loai_tin') ->onDelete('cascade');
             $table->timestamps();
         });

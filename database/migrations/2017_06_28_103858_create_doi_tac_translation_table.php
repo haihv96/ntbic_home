@@ -16,11 +16,10 @@ class CreateDoiTacTranslationTable extends Migration
         Schema::create('doi_tac_translation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idDoiTac')->unsigned();
-            $table->string('Ten')->nullable();
-            $table->longText('NoiDung')->nullable();
+            $table->string('Ten');
+            $table->longText('NoiDung');
             $table->string('HinhAnh')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('locale')->nullable();
+            $table->string('locale');
             $table->foreign('idDoiTac')->references('id')->on('doi_tac') ->onDelete('cascade');;
             $table->timestamps();
         });

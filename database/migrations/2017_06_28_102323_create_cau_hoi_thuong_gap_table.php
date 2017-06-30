@@ -15,6 +15,7 @@ class CreateCauHoiThuongGapTable extends Migration
     {
         Schema::create('cau_hoi_thuong_gap', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->timestamps();
         });
     }

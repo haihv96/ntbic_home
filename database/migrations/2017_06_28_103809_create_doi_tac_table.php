@@ -15,6 +15,7 @@ class CreateDoiTacTable extends Migration
     {
         Schema::create('doi_tac', function(Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->integer('idLoaiDoiTac')->unsigned();
             $table->foreign('idLoaiDoiTac')->references('id')->on('loai_doi_tac') ->onDelete('cascade');;
             $table->timestamps();
