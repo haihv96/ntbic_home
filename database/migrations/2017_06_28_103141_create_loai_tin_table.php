@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableDoiTac extends Migration
+class CreateLoaiTinTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateTableDoiTac extends Migration
      */
     public function up()
     {
-        Schema::create('doi_tac', function(Blueprint $table) {
+        Schema::create('loai_tin', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ten');
-            $table->string('hinh_anh');
-            $table->string('ten_khong_dau');
-            $table->longText('noi_dung');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateTableDoiTac extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doi_tac');
+        Schema::dropIfExists('loai_tin');
     }
 }

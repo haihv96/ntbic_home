@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableChuyenGia extends Migration
+class CreateCongNgheTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateTableChuyenGia extends Migration
      */
     public function up()
     {
-        Schema::create('chuyen_gia', function(Blueprint $table){
+        Schema::create('cong_nghe', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ten');
-            $table->string('ten_khong_dau');
-            $table->string('chuc_vu');
-            $table->string('hinh_anh');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateTableChuyenGia extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chuyen_gia');
+        Schema::dropIfExists('cong_nghe');
     }
 }
