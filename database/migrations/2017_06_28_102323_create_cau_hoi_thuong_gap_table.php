@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableCauhoithuonggap extends Migration
+class CreateCauHoiThuongGapTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class CreateTableCauhoithuonggap extends Migration
      * @return void
      */
     public function up()
-    {   
-        Schema::create('cau_hoi_thuong_gap', function(Blueprint $table) {
+    {
+        Schema::create('cau_hoi_thuong_gap', function (Blueprint $table) {
             $table->increments('id');
-            $table->longtext('cau_hoi');
-            $table->longtext('cau_hoi_khong_dau');
-            $table->longtext('cau_tra_loi');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateTableCauhoithuonggap extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cau_hoi_thuong_gap');
     }
 }

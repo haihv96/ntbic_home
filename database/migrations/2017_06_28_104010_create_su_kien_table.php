@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableCongNghe extends Migration
+class CreateSuKienTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTableCongNghe extends Migration
      */
     public function up()
     {
-        Schema::create('cong_nghe', function(Blueprint $table) {
+        Schema::create('su_kien', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('ten');
-            $table->string('ten_khong_dau');
-            $table->longText('noi_dung');
+            $table->integer('idUser')->unsigned();
+            $table->foreign('idUser')->references('id')->on('users') ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateTableCongNghe extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cong_nghe');
+        Schema::dropIfExists('su_kien');
     }
 }

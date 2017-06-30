@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableLoaiTin extends Migration
+class CreateDoiTacTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTableLoaiTin extends Migration
      */
     public function up()
     {
-        Schema::create('loai_tin', function(Blueprint $table) {
+        Schema::create('doi_tac', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('ten');
-            $table->string('ten_khong_dau');
+            $table->integer('idLoaiDoiTac')->unsigned();
+            $table->foreign('idLoaiDoiTac')->references('id')->on('loai_doi_tac') ->onDelete('cascade');;
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateTableLoaiTin extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loai_tin');
+        Schema::dropIfExists('doi_tac');
     }
 }
