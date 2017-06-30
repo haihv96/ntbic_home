@@ -15,6 +15,8 @@ class CreateTuyenDungTable extends Migration
     {
         Schema::create('tuyen_dung', function (Blueprint $table) {
             $table->increments('id');
+            $table->datetime('NgayBatDau');
+            $table->datetime('NgayKetThuc');
             $table->string('slug');
             $table->timestamps();
         });

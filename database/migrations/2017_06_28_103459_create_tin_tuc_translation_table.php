@@ -19,7 +19,6 @@ class CreateTinTucTranslationTable extends Migration
             $table->string('Ten');
             $table->longText('NoiDung');
             $table->text('TomTat');
-            $table->text('HinhAnh');
             $table->boolean('status')->default(false);
             $table->foreign('idTinTuc')->references('id')->on('tin_tuc') ->onDelete('cascade');
             $table->timestamps();
