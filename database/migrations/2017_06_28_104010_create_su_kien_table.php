@@ -15,6 +15,9 @@ class CreateSuKienTable extends Migration
     {
         Schema::create('su_kien', function(Blueprint $table) {
             $table->increments('id');
+            $table->text('HinhAnh')->nullable();
+            $table->date('NgayBatDau');
+            $table->date('NgayKetThuc');
             $table->string('slug');
             $table->integer('idUser')->unsigned();
             $table->foreign('idUser')->references('id')->on('users') ->onDelete('cascade');

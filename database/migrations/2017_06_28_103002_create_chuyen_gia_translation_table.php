@@ -18,7 +18,6 @@ class CreateChuyenGiaTranslationTable extends Migration
             $table->integer('idChuyenGia')->unsigned();
             $table->string('Ten');
             $table->string('ChucVu')->nullable();
-            $table->string('HinhAnh')->nullable();
             $table->string('locale');
             $table->foreign('idChuyenGia')->references('id')->on('chuyen_gia')->onDelete('cascade');
             $table->timestamps();

@@ -15,6 +15,7 @@ class CreateTinTucTable extends Migration
     {
         Schema::create('tin_tuc', function(Blueprint $table) {
             $table->increments('id');
+            $table->text('HinhAnh');
             $table->string('slug');
             $table->integer('idLoaiTinTuc')->unsigned();
             $table->foreign('idLoaiTinTuc')->references('id')->on('loai_tin') ->onDelete('cascade');;

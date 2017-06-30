@@ -18,7 +18,6 @@ class CreateDoiTacTranslationTable extends Migration
             $table->integer('idDoiTac')->unsigned();
             $table->string('Ten');
             $table->longText('NoiDung');
-            $table->string('HinhAnh')->nullable();
             $table->string('locale');
             $table->foreign('idDoiTac')->references('id')->on('doi_tac') ->onDelete('cascade');;
             $table->timestamps();

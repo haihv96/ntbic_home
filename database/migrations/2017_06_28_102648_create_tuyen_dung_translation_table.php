@@ -18,8 +18,6 @@ class CreateTuyenDungTranslationTable extends Migration
             $table->integer('idTuyenDung')->unsigned();
             $table->string('MoTa');
             $table->longtext('NoiDungTuyenDung');
-            $table->datetime('NgayBatDau');
-            $table->datetime('NgayKetThuc');
             $table->foreign('idTuyenDung')->references('id')->on('tuyen_dung')->onDelete('cascade');
             $table->timestamps();
         });

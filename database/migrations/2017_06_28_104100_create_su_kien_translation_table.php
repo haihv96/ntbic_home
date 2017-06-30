@@ -19,9 +19,6 @@ class CreateSuKienTranslationTable extends Migration
             $table->string('Ten');
             $table->longText('NoiDung');
             $table->text('TomTat');
-            $table->text('HinhAnh')->nullable();
-            $table->date('NgayBatDau');
-            $table->date('NgayKetThuc');
             $table->foreign('idSuKien')->references('id')->on('su_kien') ->onDelete('cascade');
             $table->timestamps();
         });
