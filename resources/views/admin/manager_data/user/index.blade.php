@@ -70,7 +70,7 @@
                             <td>{{$item->username}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
-                            <td><img src="assets/upload/user/{{$item->hinh_anh}}" height="100"></td>
+                            <td><img src="assets/upload/users/{{$item->hinh_anh}}" height="100"></td>
                             @if($item->level == 1)
                                 <td>Admin</td>
                             @elseif ($item->level == 2)
