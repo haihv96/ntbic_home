@@ -21,3 +21,8 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('abc',function(){
 	 return bcrypt('123456');
 });
+
+Route::get('trangchu','PageController\PageController@TrangChu');
+Route::get('tintuc','PageController\PageController@TinTuc');
+Route::get('lienhe','PageController\PageController@LienHe');
+Route::get('detail','PageController\PageController@Detail');
