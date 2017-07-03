@@ -1,5 +1,5 @@
 @extends('pages.layout.index')
-
+<html ... xmlns:fb="http://ogp.me/ns/fb#">
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
@@ -68,6 +68,7 @@
 	    		<h4 id="name-div-other-news">
 	    			Bình luận
 	    		</h4>
+	    		<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="auto" data-numposts="1"></div>
     		</div>
     	</div>
     	<!--other news-->
@@ -126,3 +127,11 @@
 	</div>
 </div>
 @endsection
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
