@@ -3,8 +3,8 @@
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
-			<li><a href="#">Trang chủ</a></li>
-			<li><a href="#">Tin tức - Sự kiện</a></li>
+		<li><a href="#">Trang chủ</a></li>
+		<li><a href="#">Tin tức - Sự kiện</a></li>
 		<li><a href="#">Tin tổng hợp</a></li>
 	</ul>
 	<div class=" col-md-12 col-sm-12  detailsNew">
@@ -47,7 +47,7 @@
     			Thực hiện Kế hoạch số 01-KH/TW ngày 06/5/2016 của Ban Chấp hành Trung ương Đảng về việc tổ chức các hoạt động kỷ niệm 40 năm ngày ký Hiệp ước Hữu nghị hợp tác (1977 – 2017) và 55 năm ngày thiết lập mối quan hệ ngoại giao Việt Nam – Lào (1962 – 2017), Bộ Khoa học và Công nghệ/</p>
     		</div>
     	</div>
-    	<!--other news-->
+    	<!--footer news-->
     	<div class="row" >
     		<div class="footer-detail-news">
     			<div  class="share-detail-news">
@@ -62,13 +62,23 @@
 		    	</div>	
     		</div>
     	</div>
+    	<!--coment-->
+    	<div class="other-news">
+    		<div class=row>
+	    		<h4 id="name-div-other-news">
+	    			Bình luận
+	    		</h4>
+    		</div>
+    	</div>
+    	<!--other news-->
     	<div class="other-news">
     		<div class=row>
 	    		<h4 id="name-div-other-news">
 	    			TIN LIÊN QUAN
 	    		</h4>
     		</div>
-    		<div class="row">	    		
+    	</div>
+    	<div class="row">
     		<div class="row list-other-news">	    		
 				<div class="col-md-3 ">
 				    <div class="thumbnail ">
@@ -112,6 +122,7 @@
 				</div>				
     		</div>	
     	</div>
-    </div>
+
+	</div>
 </div>
 @endsection

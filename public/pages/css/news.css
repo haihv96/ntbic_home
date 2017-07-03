@@ -29,13 +29,13 @@
 	
 }
 .listnews_item{
-	padding-left: 0px;
+	padding-left: 0px!important;
+	padding-right: 0px!important;
 }
 .img_listnews{
-	padding-left:0px;
 	margin-top:4px;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding-left: 0px!important;
+	padding-right: 0px!important;
 	
 }
 ul.breadcrumb {
