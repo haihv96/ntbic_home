@@ -34,3 +34,4 @@ Route::get('trangchu','PageController\PageController@TrangChu');
 Route::get('tintuc','PageController\PageController@TinTuc');
 Route::get('lienhe','PageController\PageController@LienHe');
 Route::get('detail','PageController\PageController@Detail');
+Route::get('cauhoithuonggap','PageController\PageController@Cauhoithuonggap');

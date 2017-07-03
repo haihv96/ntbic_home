@@ -20,4 +20,7 @@ class PageController extends Controller
 	public function Detail(){
 		return view('pages.details_tintuc');
 	}
+	public function Cauhoithuonggap(){
+		return view('pages.cauhoithuonggap');
+	}
 }
