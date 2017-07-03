@@ -1,5 +1,5 @@
 .bg-body{
-	background: #FFFFFF url('/image/bg-image.jpg') no-repeat top center fixed !important;
+	background: #FFFFFF url('http://ntbic.dev/public/pages/image/bg-image.jpg') no-repeat top center fixed !important;
 }
 .bg-content{
 	background-color: #fff;
@@ -25,8 +25,8 @@
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
 	background-color: #1d5a86!important;
 }
-#header{
-	background: url('/image/banner.jpg');
+.header{
+	background: url("http://ntbic.dev/public/pages/image/banner.jpg");
 	width: 100%;
     height: 115px;
 }
@@ -225,4 +225,7 @@ background: #428bca;
 }
 .top_news a img{
 	width: 100%;
+}
+.home-icon img{
+	padding-top: 5px;
 }
