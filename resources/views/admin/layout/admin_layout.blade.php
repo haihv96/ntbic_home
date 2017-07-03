@@ -122,7 +122,7 @@
                         </li>
                         @if(Auth::user()->level == 1)
                         <li class="nav-item  ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
+                            <a href="{{route('users.index')}}" class="nav-link nav-toggle">
                                 <i class="icon-briefcase"></i>
                                 <span class="title">Quản trị người dùng</span>
                             </a>
