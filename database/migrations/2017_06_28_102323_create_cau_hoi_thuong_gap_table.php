@@ -13,7 +13,7 @@ class CreateCauHoiThuongGapTable extends Migration
      */
     public function up()
     {
-        Schema::create('cau_hoi_thuong_gap', function (Blueprint $table) {
+        Schema::create('cau_hoi', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateCauHoiThuongGapTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cau_hoi_thuong_gap');
+        Schema::dropIfExists('cau_hoi');
     }
 }
