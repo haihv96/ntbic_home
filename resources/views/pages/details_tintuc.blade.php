@@ -68,6 +68,7 @@
 	    		<h4 id="name-div-other-news">
 	    			Bình luận
 	    		</h4>
+	    		<!--plugin comment facebook-->
 	    		<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="auto" data-numposts="1"></div>
     		</div>
     	</div>
