@@ -14,6 +14,10 @@ Câu hỏi thường gặp
                     <i class="icon-settings font-dark"></i>
                     <span class="caption-subject bold uppercase"> Bảng câu hỏi thường gặp</span>
                 </div>
+                <div style="float:right">
+                    <img src="assets/upload/flag/vn.png" alt="">
+                    <img src="assets/upload/flag/en.png" alt="">
+                </div>
             </div>
             <div class="portlet-body">
                 <div class="table-toolbar">
@@ -61,18 +65,7 @@ Câu hỏi thường gặp
                             <th> Xóa </th>
                         </tr>
                     </thead>
-                    <tbody>
-                    @foreach($cauhoithuonggap as $item)
-                        <tr class="odd gradeX">
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->cau_hoi}}</td>
-                            <td>{{$item->cau_tra_loi}}</td>
-                            <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a href="{!! url('admin/cau-hoi-thuong-gap/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
-                            <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
+                  
                 </table>
                 {!! $cauhoithuonggap->links() !!}
             </div>
