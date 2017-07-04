@@ -13,3 +13,5 @@ Route::resource('cau-hoi-thuong-gap','Manager\CauhoithuonggapController');
 Route::resource('tuyen-dung','Manager\TuyenDungController');
 Route::resource('chuyen-gia','Manager\ChuyenGiaController');
 Route::resource('users','Manager\UserController');
+
+Route::post('/change-language','SessionController@changeLanguage');
