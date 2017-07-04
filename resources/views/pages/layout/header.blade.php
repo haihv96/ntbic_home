@@ -43,3 +43,8 @@
 	    </div>
   	</div>
 </nav> <!-- navigation -->
+ <!-- flag of pages -->
+<div style="float:right">
+	<img src="assets/upload/flag/vn.png" alt="">
+    <img src="assets/upload/flag/en.png" alt="">
+</div>

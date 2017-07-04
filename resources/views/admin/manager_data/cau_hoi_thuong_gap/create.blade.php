@@ -14,6 +14,10 @@
                     <i class="icon-settings font-dark"></i>
                     <span class="caption-subject font-dark sbold uppercase"> Thêm câu hỏi thường gặp</span>
                 </div>
+                <div style="float:left">
+                    <img src="upload/flag/vn.png" alt="">
+                    <img src="upload/flag/en,png" alt="">
+                </div>
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
