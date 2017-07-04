@@ -25,23 +25,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="btn-group pull-right">
-                                <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Print
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-print"></i> Print </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-excel-o"></i> Export to Excel </a>
-                                    </li>
-                                </ul>
+                                <select id="locale" class="form-control select2me btn green  btn-outline dropdown-toggle" name="locale" data-locale="{{$locale}}">Print
+                                    <option id='vi' value="vi">Tiếng Việt</option>
+                                    <option id='en' value="en">Tiếng Anh</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -53,7 +40,7 @@
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
-                        	<th> STT </th>
+                        	<th> ID </th>
                             <th> Loại tin</th>
 		                    <th> Sửa </th>
 		                    <th> Xóa </th>
@@ -63,14 +50,14 @@
                     @foreach($loaitin as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
-                            <td>{{$item->ten}}</td>
+                            <td>{{$item->Ten}}</td>
                             <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {!! $loaitin->links() !!}
+                {!! $loaitin->links() !!} 
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -123,4 +110,5 @@
     </script>
 
    <script src="/js/pathIndex.js"></script>
+   <script src="/js/ajaxRequestLocale.js"></script>
 @endsection
