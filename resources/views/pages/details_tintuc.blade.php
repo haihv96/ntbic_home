@@ -1,5 +1,5 @@
 @extends('pages.layout.index')
-
+<html ... xmlns:fb="http://ogp.me/ns/fb#">
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
@@ -55,7 +55,7 @@
 	  					<li id="plug">
 	  						<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=154&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="154" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 	  					</li>
-	  					<i class="fa fa-pencil" aria-hidden="true"> Bo khoa hoc Cong nghe va phat trien</i>
+	  					<i class="fa fa-pencil" aria-hidden="true"> Bộ khoa học và Công nghệ</i>
 					</ul>
 		    	</div>
 		    	<div class="people-write">
@@ -68,6 +68,8 @@
 	    		<h4 id="name-div-other-news">
 	    			Bình luận
 	    		</h4>
+	    		<!--plugin comment facebook-->
+	    		<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="auto" data-numposts="1"></div>
     		</div>
     	</div>
     	<!--other news-->
@@ -126,3 +128,11 @@
 	</div>
 </div>
 @endsection
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
