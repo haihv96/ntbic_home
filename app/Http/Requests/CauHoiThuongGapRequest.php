@@ -19,14 +19,14 @@ class CauHoiThuongGapRequest extends FormRequest
      */
     public function rules(){
         return [
-            'cau_hoi' => 'required',
-            'cau_tra_loi' => 'required',
+            'CauHoi' => 'required',
+            'CauTraLoi' => 'required',
         ];
     }
     public function messages() {
         return [
-            'cau_hoi.required' => 'Bạn cần nhập câu hỏi',
-            'cau_tra_loi.required' => 'Bạn cần nhập câu trả lời',
+            'CauHoi.required' => 'Bạn cần nhập câu hỏi',
+            'CauTraLoi.required' => 'Bạn cần nhập câu trả lời',
         ];
     }
 }

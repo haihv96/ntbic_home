@@ -13,14 +13,24 @@ class CreateCauHoiThuongGapTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('cau_hoi_thuong_gap_translations', function (Blueprint $table) {
+        Schema::create('cau_hoi_translations', function (Blueprint $table) {
+
             $table->increments('id');
-            $table->integer('cau_hoi_thuong_gap_id')->unsigned();
+            $table->integer('cau_hoi_id')->unsigned();
             $table->longtext('CauHoi');
-            $table->longtext('CauTraLoi')->nullable();
-            $table->string('locale')->unique();
-            $table->foreign('cau_hoi_thuong_gap_id')->references('id')->on('cau_hoi_thuong_gap')->onDelete('cascade');
+            $table->longtext('CauTraLoi');
+            $table->string('locale');
+            $table->unique(['cau_hoi_id','locale']);
+            $table->foreign('cau_hoi_id')->references('id')->on('cau_hoi') ->onDelete('cascade');
             $table->timestamps();
+
+//            $table->increments('id');
+  //          $table->integer('cau_hoi_thuong_gap_id')->unsigned();
+    //        $table->longtext('CauHoi');
+      //      $table->longtext('CauTraLoi')->nullable();
+        //    $table->string('locale')->unique();
+          //  $table->foreign('cau_hoi_thuong_gap_id')->references('id')->on('cau_hoi_thuong_gap')->onDelete('cascade');
+            //$table->timestamps();
         });
     }
 
@@ -31,6 +41,6 @@ class CreateCauHoiThuongGapTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cau_hoi_thuong_gap_translations');
+        Schema::dropIfExists('cau_hoi_translations');
     }
 }
