@@ -8,5 +8,5 @@ class TuyenDungTranslation extends Model
 {
     protected $timestamp = false;
 
-    protected $fillable = ['MoTa', 'NoiDungTuyenChon'];
+    protected $fillable = ['MoTa', 'NoiDungTuyenDung'];
 }

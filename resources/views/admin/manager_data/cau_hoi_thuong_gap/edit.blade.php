@@ -24,7 +24,7 @@
                         @if(count($errors) > 0)
                             <div class="alert alert-danger">
                             <button class="close" data-close="alert"></button>
-                                  Lỗi
+                                Lỗi!
                             </div>
                         @endif
                         @if (session('message'))
