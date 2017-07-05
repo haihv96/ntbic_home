@@ -19,7 +19,6 @@ class CreateTinTucTranslationTable extends Migration
             $table->string('Ten');
             $table->longText('NoiDung');
             $table->text('TomTat');
-            $table->boolean('status')->default(false);
             $table->string('locale');
             $table->unique(['tin_tuc_id','locale']);
             $table->foreign('tin_tuc_id')->references('id')->on('tin_tuc')->onDelete('cascade');
