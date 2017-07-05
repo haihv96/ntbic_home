@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-Câu hỏi thường gặp
+<a id="namepage" href="#" class="active">Câu hỏi thường gặp</a>
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@ Câu hỏi thường gặp
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Bảng câu hỏi thường gặp</span>
+                    <span class="caption-subject bold uppercase"> Câu hỏi thường gặp</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -20,61 +20,46 @@ Câu hỏi thường gặp
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('admin/cau-hoi-thuong-gap/create') !!}"><span class="fa fa-pencil"></span> Thêm câu hỏi thường gặp</a>
+                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm câu hỏi thường gặp</a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="btn-group pull-right">
-                                <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Print
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-print"></i> Print </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-excel-o"></i> Export to Excel </a>
-                                    </li>
-                                </ul>
+                                <select id="locale" class="form-control select2me btn green  btn-outline dropdown-toggle" name="locale" data-locale="{{$locale}}">Print
+                                    <option id='vi' value="vi">Tiếng Việt</option>
+                                    <option id='en' value="en">Tiếng Anh</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
-              @if (session('message'))
+                @if (session('message'))
                     <div class="alert alert-success">
                     <button class="close" data-close="alert"></button>{{session('message')}}</div>
                 @endif
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
-                            <th> STT </th>
+                            <th> ID </th>
                             <th> Câu hỏi</th>
-                            <th> Câu trả lời </th>
-                            <th> Xem </th>
+                            <th> Câu trả lời</th>
                             <th> Sửa </th>
                             <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($cauhoithuonggap as $item)
+                    @foreach($cauhoi as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
-                            <td>{{$item->cau_hoi}}</td>
-                            <td>{{$item->cau_tra_loi}}</td>
-                            <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a href="{!! url('admin/cau-hoi-thuong-gap/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td>{{$item->CauHoi}}</td>
+                            <td>{!!$item->CauTraLoi!!}</td>
+                            <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
-                        @endforeach
+                    @endforeach
                     </tbody>
                 </table>
-                {!! $cauhoithuonggap->links() !!}
+                {!! $cauhoi->links() !!} 
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -85,13 +70,13 @@ Câu hỏi thường gặp
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Xóa câu hỏi</h4>
+                <h4 class="modal-title">Xóa câu hỏi thường gặp</h4>
             </div>
             <div class="modal-body"> 
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa câu hỏi này? 
+                    Bạn chắc chắn muốn xóa câu hỏi thường gặp? 
                 </form>
             </div>
             <div class="modal-footer">
@@ -125,4 +110,7 @@ Câu hỏi thường gặp
             });
         });
     </script>
+
+   <script src="/js/pathIndex.js"></script>
+   <script src="/js/ajaxRequestLocale.js"></script>
 @endsection

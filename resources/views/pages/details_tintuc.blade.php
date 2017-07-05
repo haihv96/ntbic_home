@@ -1,5 +1,6 @@
 @extends('pages.layout.index')
 <html ... xmlns:fb="http://ogp.me/ns/fb#">
+<meta property="fb:admins" content="vanltt138"/>
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
