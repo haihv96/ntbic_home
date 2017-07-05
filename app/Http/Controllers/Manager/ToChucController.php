@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\to_chuc;
+use App\ToChuc;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ToChucRequest;
 use File;
@@ -16,87 +16,88 @@ class ToChucController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
-    {
-        $to_chuc =DB::table('to_chuc')->paginate(10);
-        return view('admin.manager_data.to_chuc.index',['tochuc' => $to_chuc]);
+    public function index() {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $cau_hoi = CauHoi::paginate(10);
+        return view('admin.manager_data.cau_hoi_thuong_gap.index',['cauhoi' => $cau_hoi, 'locale'=>$locale]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        return view('admin.manager_data.cau_hoi_thuong_gap.create',['locale'=>$locale]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(CauHoiThuongGapRequest $request) {
+        app()->setlocale($request->locale);
+        $cau_hoi = new CauHoi;
+        $cau_hoi->CauHoi = $request->CauHoi;
+        $cau_hoi->Slug = changeTitle($request->CauHoi);
+        $cau_hoi->CauTraLoi = $request->CauTraLoi;
+        $cau_hoi->save();
+        return redirect()->route('cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show($id)
-    {
-        //
-    }
+    public function edit($id) {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {  
-       // $to_chuc_edit =to_chuc::find($id);
-        $to_chuc_edit=DB::table('to_chuc')->where('id','1')->get();
-        return view('admin.manager_data.to_chuc.index', ['tochucedit' => $to_chuc_edit]);
-    }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $cau_hoi = CauHoi::find($id);
+        return view('admin.manager_data.cau_hoi_thuong_gap.edit', ['cauhoi' => $cau_hoi, 'locale'=>$locale]);
+    } 
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(ToChucRequest $request, $id)
-    {
-        
-        $to_chuc = to_chuc::find($id);
-        $to_chuc->gioithieuchung=$request->gioithieuchung;
-        $to_chuc->vitrichucnang=$request->vitrichucnang;
-        $to_chuc->sumenhtamnhin=$request->sumenhtamnhin;
-        $to_chuc->cocau=$request->cocau;
-        $to_chuc->doingutrungtam=$request->doingutrungtam;
-        $to_chuc->save();
-        return Redirect::back()->with('message', 'Bạn đã sửa thông tin tổ chức thành công');
+    public function update(CauHoiThuongGapRequest $request,$id) {
+        app()->setlocale($request->locale);
+        $cau_hoi = CauHoi::find($id);
+        $cau_hoi->CauHoi = $request->CauHoi;
+        $cau_hoi->Slug = changeTitle($request->CauHoi);
+        $cau_hoi->CauTraLoi = $request->CauTraLoi;
+        $cau_hoi->save();
+
+        return Redirect::back()->with('message', 'Bạn đã sửa câu hỏi thường gặp thành công');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+       
     }
 }

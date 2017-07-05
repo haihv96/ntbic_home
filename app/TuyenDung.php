@@ -11,5 +11,5 @@ class TuyenDung extends Model
 
     protected $fillable = ['slug', 'NgayBatDau', 'NgayKetThuc'];
 
-    public $translatedAttributes = ['MoTa', 'NoiDungTuyenChon'];
+    public $translatedAttributes = ['MoTa', 'NoiDungTuyenDung'];
 }
