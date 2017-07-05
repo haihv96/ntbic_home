@@ -25,8 +25,8 @@ class ToChucController extends Controller
 
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $cau_hoi = CauHoi::paginate(10);
-        return view('admin.manager_data.cau_hoi_thuong_gap.index',['cauhoi' => $cau_hoi, 'locale'=>$locale]);
+        $to_chuc = ToChuc::paginate(10);
+        return view('admin.manager_data.to_chuc.index',['tochuc' => $to_chuc, 'locale'=>$locale]);
     }
 
     /**

@@ -106,8 +106,8 @@
 </div>
 @endsection
 @section('js')
-    <script src="/js/path.js"></script>
-    <script src="/js/ajaxRequestLocale.js"></script>
+    <script src="{{ URL::asset('js/path.js') }}"></script>
+    <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
     <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
          <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
