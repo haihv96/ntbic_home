@@ -25,23 +25,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="btn-group pull-right">
-                                <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Print
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-print"></i> Print </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-excel-o"></i> Export to Excel </a>
-                                    </li>
-                                </ul>
+                                <select id="locale" class="form-control select2me btn green  btn-outline dropdown-toggle" name="locale" data-locale="{{$locale}}">Print
+                                    <option id='vi' value="vi">Tiếng Việt</option>
+                                    <option id='en' value="en">Tiếng Anh</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -55,7 +42,7 @@
                         <tr>
                             <th> STT </th>
                             <th> Sự kiện</th>
-                            <th> Nội dung </th>
+                            <th> Tóm tắt </th>
                             <th> Hình ảnh </th>
                             <th> Ngày bắt đầu</th>
                             <th> Ngày kết thúc</th>
@@ -68,11 +55,11 @@
                     @foreach($sukien as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
-                            <td>{{$item->ten}}</td>
-                            <td>{{$item->noi_dung}}</td>
-                            <td>{{$item->hinh_anh}}</td>
-                            <td>{{$item->ngay_bat_dau}}</td>
-                            <td>{{$item->ngay_ket_thuc}}</td>
+                            <td>{!! $item->Ten !!}</td>
+                            <td>{!! $item->TomTat !!}</td>
+                            <td>{{$item->HinhAnh}}</td>
+                            <td>{{$item->NgayBatDau}}</td>
+                            <td>{{$item->NgayKetThuc}}</td>
                             <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
                             <td class="center"><div ><a class="edit" href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
@@ -111,17 +98,16 @@
 </div>
 @endsection
 @section('js')
-    <script type="text/javascript">
+     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var pathname = window.location.pathname+'/';
-            var url_delete = pathname+id;
+            var url_delete = 'admin/su-kien/'+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',
                     dataType: 'json',
                     url: url_delete,
-                    data:{
+                    data: {
                         '_token': $('input[name=_token]').val(),
                         'id': id
                     },
@@ -133,23 +119,8 @@
         });
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            console.log(window.location.pathname);
-            var pathname = window.location.pathname;
-            $('#namepage').attr('href',pathname);
-            var create_path = pathname+'/create';
-            $('#create').attr('href',create_path);
-        });
-
-         $(document).ready(function() {
-            $('.edit').click(function() {
-                var pathname = window.location.pathname + '/';
-                var id = $(this).data("id");
-                $(this).attr('href',pathname+id+'/edit');
-            });
-         });
-    </script>
+    <script src="/js/pathIndex.js"></script>
+    <script src="/js/ajaxRequestLocale.js"></script>
     <script type="text/javascript">
       $(".sub-menu").css('display','block');
       $("#sub-menu-manager-data").addClass("active");
