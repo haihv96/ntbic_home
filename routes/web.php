@@ -29,7 +29,6 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('abc',function(){
 	 return bcrypt('123456');
 });
-
 Route::get('trangchu','PageController\PageController@TrangChu');
 Route::get('tintuc','PageController\PageController@TinTuc');
 Route::get('lienhe','PageController\PageController@LienHe');

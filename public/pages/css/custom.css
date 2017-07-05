@@ -26,7 +26,7 @@
 	background-color: #1d5a86!important;
 }
 .header{
-	background: url("http://ntbic.dev/public/pages/image/banner.jpg");
+	background: url("http://ntbic.dev/public/pages/image/banner.png");
 	width: 100%;
     height: 115px;
 }
@@ -215,6 +215,9 @@ background: #428bca;
 	padding-top: 10px;
 }
 .news_top{
+	width: 100%;
+}
+.news_top a img{
 	width: 100%;
 }
 .img-sidebar a img{
