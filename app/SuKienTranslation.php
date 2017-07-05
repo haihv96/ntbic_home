@@ -11,6 +11,7 @@ class SuKienTranslation extends Model
     protected $fillable = [
     	'Ten',
     	'TomTat',
-    	'NoiDung'
+    	'NoiDung',
+    	'locale'
     ];
 }

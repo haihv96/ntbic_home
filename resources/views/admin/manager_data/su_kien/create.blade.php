@@ -91,6 +91,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label">Ngôn ngữ</label>
+                        
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <select  name="locale" id="form1Url" class="form-control" value="{{old('locale')}}">
+                                <option >en</option>
+                                <option >vn</option>
+                            </select>                     
+                        </div>
+                      </div>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
