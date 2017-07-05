@@ -2,70 +2,74 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+//Validator facade used in validator method
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+
+//Seller Model
+use App\User;
+
+//Auth Facade used in guard
+use Auth;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
 
-    use RegistersUsers;
+    protected $redirectPath = 'trangchu';
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    //shows registration form to seller
+    public function showRegistrationForm()
     {
-        $this->middleware('guest');
+        return view('auth.Register');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+  //Handles registration request for seller
+    public function register(Request $request)
+    {
+
+       //Validates data
+        $this->validator($request->all())->validate();
+
+       //Create seller
+        $users = $this->create($request->all());
+
+        //Authenticates seller
+        $this->guard()->login($users);
+
+       //Redirects sellers
+        return redirect($this->redirectPath);
+    }
+
+    //Validates user's Input
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'name' => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
+    //Create a new seller instance after a validation.
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
+            'hinh_anh' => '',
             'password' => bcrypt($data['password']),
+            'level' => 3,
         ]);
     }
+
+    //Get the guard to authenticate Seller
+   protected function guard()
+   {
+       return Auth::guard('web');
+   }
+
 }

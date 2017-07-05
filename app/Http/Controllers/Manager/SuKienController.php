@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Manager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\su_kien;
+use App\SuKien;
+use App\SuKienTranslation;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\SuKienRequest;
 use File;
@@ -20,7 +21,8 @@ class SuKienController extends Controller
     public function index()
     {
         $su_kien = DB::table('su_kien')->paginate(10);
-        return view('admin.manager_data.su_kien.index',['sukien' => $su_kien]);
+        $su_kien_translations = DB::table('su_kien_translations')->paginate(10);
+        return view('admin.manager_data.su_kien.index',['sukien' => $su_kien, 'sukientranslations'=>$su_kien_translations]);
     }
 
     /**
