@@ -93,7 +93,7 @@ $style = [
                                                             style="{{ $fontFamily }} {{ $style['button'] }} {{ $style[$actionColor] }}"
                                                             class="button"
                                                             target="_blank">
-                                                            Verify
+                                                            Kích hoạt
                                                         </a>
                                                     </td>
                                                 </tr>
