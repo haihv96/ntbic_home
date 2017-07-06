@@ -65,6 +65,7 @@ class RegisterController extends Controller
             'hinh_anh' => '',
             'password' => bcrypt($data['password']),
             'level' =>3,
+            'email_token' => $data['token'],
         ]);
     }
 
@@ -74,8 +75,14 @@ class RegisterController extends Controller
     }
     public function verify($token)
     {
-       User::where('email_token', $token)->firstOrFail()->verified();
-       Session::flash('message', 'Bạn đăng ký thành công! Hãy đăng nhập tại đây.');
-       return redirect('login');
+        $useractive = User::where('email_token', $token)->first();
+        if($useractive == null) {
+            Session::flash('message','Tài khoản đã kích hoạt!!!');
+        } else {
+            $useractive->verified();
+            Session::flash('message', 'Bạn đăng ký thành công! Hãy đăng nhập tại đây.');
+        }
+       
+       return redirect()->route('login');
     }
 }
