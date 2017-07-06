@@ -1,7 +1,7 @@
 <?php
 Route::get('/', function() {
 	return view('admin.index');
-});
+})->name('admin_dashboard');
 		
 Route::resource('tin-tuc', 'Manager\TinTucController');
 Route::resource('loai-tin','Manager\LoaiTinController');

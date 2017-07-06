@@ -4,45 +4,48 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-//Validator facade used in validator method
 use Illuminate\Support\Facades\Validator;
-
-//Seller Model
 use App\User;
-
-//Auth Facade used in guard
 use Auth;
+use Mail;
+use DB;
+use Session;
+use App\Mail\EmailVerification;
 
 class RegisterController extends Controller
 {
 
-    protected $redirectPath = 'trangchu';
-
-    //shows registration form to seller
+    protected $redirectPath = 'login';
     public function showRegistrationForm()
     {
-        return view('auth.Register');
+        if (!Auth::check()) {
+            return view('auth.Register');
+        }else{
+            return redirect()->route('home');
+        }     
     }
-
-  //Handles registration request for seller
     public function register(Request $request)
     {
-
-       //Validates data
-        $this->validator($request->all())->validate();
-
-       //Create seller
-        $users = $this->create($request->all());
-
-        //Authenticates seller
-        $this->guard()->login($users);
-
-       //Redirects sellers
-        return redirect($this->redirectPath);
+        $validator = $this->validator($request->all());
+        if($validator->fails()){
+            $this->throwValidationException($request, $validator);
+        }
+        DB::beginTransaction();
+        try{
+            $user = $this->create($request->all());
+            $email = new EmailVerification(new User(['email_token' => $user->email_token]));
+            Mail::to($user->email)->send($email);
+            DB::commit();
+            Session::flash('message', 'Bạn đã nhận được mail xác nhận đăng ký tài khoản');
+            return back();
+        }
+        catch(Exception $e)
+        {
+            DB::rollback(); 
+            return back();
+        }
     }
 
-    //Validates user's Input
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -53,7 +56,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    //Create a new seller instance after a validation.
     protected function create(array $data)
     {
         return User::create([
@@ -62,14 +64,18 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'hinh_anh' => '',
             'password' => bcrypt($data['password']),
-            'level' => 3,
+            'level' =>3,
         ]);
     }
 
-    //Get the guard to authenticate Seller
-   protected function guard()
-   {
-       return Auth::guard('web');
-   }
-
+    protected function guard()
+    {
+        return Auth::guard('web');
+    }
+    public function verify($token)
+    {
+       User::where('email_token', $token)->firstOrFail()->verified();
+       Session::flash('message', 'Bạn đăng ký thành công! Hãy đăng nhập tại đây.');
+       return redirect('login');
+    }
 }

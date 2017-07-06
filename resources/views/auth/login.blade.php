@@ -5,9 +5,12 @@
 @section('content')
             <!-- BEGIN LOGIN FORM -->
             
-            <form class="login-form"  method="post">
+            <form class="login-form"  method="post" action="{{url('login')}}">
             <input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden="">
                 <h3 class="form-title font-green">Đăng nhập</h3>
+                @if (Session::has('message'))
+                  <div class="alert alert-info">{{ Session::get('message') }}</div>
+               @endif
                 @if(count($errors) > 0)
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $err)
