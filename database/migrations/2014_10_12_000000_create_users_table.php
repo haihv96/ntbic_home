@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('hinh_anh');
             $table->integer('level');
+            $table->tinyInteger('verified')->default(0);
+            $table->string('email_token')->index()->nullable();
             $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();

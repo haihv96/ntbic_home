@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Http\Requests;
+
 use Illuminate\Foundation\Http\FormRequest;
+
 class ChuyenGiaRequest extends FormRequest
 {
     /**
@@ -12,6 +15,7 @@ class ChuyenGiaRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -21,15 +25,14 @@ class ChuyenGiaRequest extends FormRequest
         return [
             'ten' => 'required',
             'chuc_vu' => 'required',
-            'hinh_anh' => 'required|mimes:jpeg,bmp,png,jpg',
+            'hinh_anh' => 'mimes:jpeg,bmp,png',
         ];
     }
-    public function messages() {
+     public function messages() {
         return [
-            'ten.required' => 'Bạn cần nhập tên tin tức',
-            'chuc_vu.required' => 'Bạn cần nhập nội dung tin tức',
-            'hinh_anh.required' => 'Bạn chưa chọn file ảnh nào',
-            'hinh_anh.mimes' => 'Bạn chỉ được chọn file (jpeg,bmp,png,jpg)',
+            'ten.required' => 'Bạn cần nhập tên chuyên gia',
+            'chuc_vu.required' => 'Bạn cần nhập chức vụ chuyên gia',
+            'hinh_anh.mimes' => 'Bạn chỉ được chọn file (jpeg,bmp,png)',
         ];
     }
 }

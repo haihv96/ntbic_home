@@ -129,9 +129,9 @@
             console.log(level);
             if (level == 1) {
                 $('#lv1').attr('selected','selected');
-            } else {
+            } else(level==2){
                 $('#lv2').attr('selected','selected');
-            }
+            } 
         });
     </script>
 @endsection

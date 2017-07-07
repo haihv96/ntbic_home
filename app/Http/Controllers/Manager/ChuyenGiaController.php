@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Manager;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -9,6 +11,7 @@ use App\Http\Requests\ChuyenGiaRequest;
 use File;
 use App\User;
 use Auth;
+
 class ChuyenGiaController extends Controller
 {
     /**
@@ -20,11 +23,17 @@ class ChuyenGiaController extends Controller
         if (!session()->has('language')) {
             session(['language'=>'vi']);
         }
+
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $chuyen_gia = ChuyenGia::paginate(10);
+        if(Auth::user()->level == 1) {
+            $chuyen_gia = ChuyenGia::paginate(10);
+        } elseif (Auth::user()->level == 2) {
+            $chuyen_gia = ChuyenGia::where('users_id', Auth::user()->id)->paginate(10);
+        } 
         return view('admin.manager_data.chuyen_gia.index',['chuyengia' => $chuyen_gia, 'locale'=>$locale]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -36,8 +45,11 @@ class ChuyenGiaController extends Controller
             session(['language'=>'vi']);
         }
         $locale = session()->get('language');
-        return view('admin.manager_data.chuyen_gia.create',['locale'=>$locale]);
+        app()->setlocale($locale);
+        $chuyen_gia = ChuyenGia::all();
+        return view('admin.manager_data.chuyen_gia.create',['chuyengia' => $chuyen_gia, 'locale'=>$locale]);
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -50,13 +62,14 @@ class ChuyenGiaController extends Controller
         $chuyen_gia = new ChuyenGia;
         $chuyen_gia->Ten = $request->ten;
         $chuyen_gia->slug= changeTitle($request->ten);
-        $chuyen_gia->ChucVu = $request->chuc_vuhu;
+        $chuyen_gia->ChucVu=$request->chuc_vu;
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
             $duoi = $file->getClientOriginalExtension();
             if( $duoi != 'jpg' && $duoi !='png' && $duoi !='jpeg'){
                 return redirect::back()->with('message','Bạn chỉ được chọn file (jpg,png,jpeg)');
             }
+
             $name = $file->getClientOriginalName();
             $hinh_anh = str_random(4)."_".$name;
             while(file_exists("assets/upload/chuyen_gia/".$hinh_anh)){
@@ -71,6 +84,7 @@ class ChuyenGiaController extends Controller
         $chuyen_gia->save();
        return redirect()->route('chuyen-gia.index')->with('message','Bạn đã thêm chuyên gia thành công');
     }
+
     /**
      * Display the specified resource.
      *
@@ -81,6 +95,7 @@ class ChuyenGiaController extends Controller
     {
         //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -97,6 +112,7 @@ class ChuyenGiaController extends Controller
         $chuyen_gia = ChuyenGia::find($id);
         return view('admin.manager_data.chuyen_gia.edit', ['chuyengia' => $chuyen_gia, 'locale'=>$locale]);
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -109,8 +125,8 @@ class ChuyenGiaController extends Controller
         app()->setlocale($request->locale);
         $chuyen_gia = ChuyenGia::find($id);
         $chuyen_gia->Ten = $request->ten;
-        $chuyen_gia->slug = changeTitle($request->ten);
-        $chuyen_gia->ChucVu = $request->chuc_vu;
+        $chuyen_gia->slug= changeTitle($request->ten);
+        $chuyen_gia->ChucVu=$request->chuc_vu;
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
             $duoi = $file->getClientOriginalExtension();
@@ -132,9 +148,10 @@ class ChuyenGiaController extends Controller
            $chuyen_gia->HinhAnh = "";
            
        }
-        $chuyen_gia->save();
-       return redirect::back()->with('message','Bạn đã sửa chuyên gia thành công');
+       $chuyen_gia->save();
+       return redirect::back()->with('message','Bạn đã sửa sự kiện thành công');
     }
+
     /**
      * Remove the specified resource from storage.
      *

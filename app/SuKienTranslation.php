@@ -12,6 +12,5 @@ class SuKienTranslation extends Model
     	'Ten',
     	'TomTat',
     	'NoiDung',
-    	'locale'
     ];
 }

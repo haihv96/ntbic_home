@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','hinh_anh', 'username', 'email', 'password', 'level',
+        'name','hinh_anh', 'username', 'email', 'password', 'level','email_token', 'verified'
     ];
 
     /**
@@ -44,5 +44,11 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
+    }
+    public function verified()
+    {
+       $this->verified = 1;
+       $this->email_token = null;
+       $this->save();
     }
 }

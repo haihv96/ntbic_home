@@ -12,7 +12,7 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase"> Sửa Chuyên gia</span>
+                    <span class="caption-subject font-dark sbold uppercase"> Sửa chuyên gia</span>
                 </div>
             </div>
              @if (session('message'))
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Tên
+                            <label class="control-label col-md-3">Họ và tên
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
@@ -45,14 +45,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Chức Vụ
+                            <label class="control-label col-md-3">Chức vụ
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
                                 <input type="text" name="chuc_vu" data-required="1" class="form-control" value="{{$chuyengia->ChucVu}}" /> 
                                 <span class="required"> {{$errors->first('chuc_vu')}}</span>
                             </div>
-                        </div> 
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputFile" class="col-md-3 control-label">Hình ảnh
                             </label>
@@ -72,13 +72,7 @@
                                 <span class="error">&nbsp;&nbsp;{{$errors->first('hinh_anh')}}</span>
                             </div>
                         </div>     
-                        
                     </div>
-
-
-
-
-
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
@@ -97,6 +91,17 @@
 @endsection
 @section('js')
     <!-- BEGIN CORE PLUGINS -->
+         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+        <script src="./../assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->

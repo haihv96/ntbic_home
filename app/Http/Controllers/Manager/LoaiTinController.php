@@ -22,7 +22,7 @@ class LoaiTinController extends Controller
         }
 
         $locale = session()->get('language');
-        app()->setlocale($locale);
+        app()->setLocale($locale);
         $loai_tin = LoaiTin::paginate(10);
         return view('admin.manager_data.loai_tin.index',['loaitin' => $loai_tin, 'locale'=>$locale]);
     }

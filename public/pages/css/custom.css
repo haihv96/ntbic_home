@@ -1,5 +1,5 @@
 .bg-body{
-	background: #FFFFFF url('http://ntbichome.dev/pages/image/bg-image.jpg') no-repeat top center fixed !important;
+	background: #FFFFFF url('../image/bg-image.jpg') no-repeat top center fixed !important;
 }
 .bg-content{
 	background-color: #fff;
@@ -26,7 +26,11 @@
 	background-color: #1d5a86!important;
 }
 .header{
+<<<<<<< HEAD
 	background: url("http://ntbichome.dev/pages/image/banner.jpg");
+=======
+	background: url("../image/banner.png");
+>>>>>>> f4179e8eeda4a0fecd6711a6b701f11e699d75f7
 	width: 100%;
     height: 115px;
 }

@@ -109,6 +109,6 @@
         });
     </script>
 
-   <script src="/js/pathIndex.js"></script>
-   <script src="/js/ajaxRequestLocale.js"></script>
+   <script src="js/pathIndex.js"></script>
+   <script src="js/ajaxRequestLocale.js"></script>
 @endsection

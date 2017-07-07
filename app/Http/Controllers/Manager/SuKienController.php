@@ -10,6 +10,8 @@ use App\SuKienTranslation;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\SuKienRequest;
 use File;
+use App\User;
+use Auth;
 
 class SuKienController extends Controller
 {
@@ -18,11 +20,19 @@ class SuKienController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $su_kien = DB::table('su_kien')->paginate(10);
-        $su_kien_translations = DB::table('su_kien_translations')->paginate(10);
-        return view('admin.manager_data.su_kien.index',['sukien' => $su_kien, 'sukientranslations'=>$su_kien_translations]);
+    public function index() {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        if(Auth::user()->level == 1) {
+            $su_kien = SuKien::paginate(10);
+        } elseif (Auth::user()->level == 2) {
+            $su_kien = SuKien::where('users_id', Auth::user()->id)->paginate(10);
+        } 
+        return view('admin.manager_data.su_kien.index',['sukien' => $su_kien, 'locale'=>$locale]);
     }
 
     /**
@@ -32,7 +42,13 @@ class SuKienController extends Controller
      */
     public function create()
     {
-        return view('admin.manager_data.su_kien.create');
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $su_kien = SuKien::all();
+        return view('admin.manager_data.su_kien.create',['sukien' => $su_kien, 'locale'=>$locale]);
     }
 
     /**
@@ -43,13 +59,15 @@ class SuKienController extends Controller
      */
     public function store(SuKienRequest $request)
     {
-        $su_kien = new su_kien;
-        $su_kien->ten = $request->ten;
-        $su_kien->ten_khong_dau = changeTitle($request->ten);
-        $su_kien->noi_dung = $request->noi_dung;
-        $su_kien->tom_tat = $request->tom_tat;
-        $su_kien->ngay_bat_dau = date('Y-m-d', strtotime($request->ngay_bat_dau));
-        $su_kien->ngay_ket_thuc = date('Y-m-d', strtotime($request->ngay_ket_thuc));
+        app()->setlocale($request->locale);
+        $su_kien = new SuKien;
+        $su_kien ->users_id = Auth::guard('web')->user()->id;
+        $su_kien->Ten = $request->ten;
+        $su_kien->slug= changeTitle($request->ten);
+        $su_kien->NoiDung = $request->noi_dung;
+        $su_kien->TomTat = $request->tom_tat;
+        $su_kien->NgayBatDau = date('Y-m-d', strtotime($request->ngay_bat_dau));
+        $su_kien->NgayKetThuc = date('Y-m-d', strtotime($request->ngay_ket_thuc));
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
             $duoi = $file->getClientOriginalExtension();
@@ -63,10 +81,10 @@ class SuKienController extends Controller
                 $hinh_anh = str_random(4)."_".$name;
             }
             $file->move("assets/upload/su_kien",$hinh_anh);
-            $su_kien->hinh_anh = "assets/upload/su_kien/".$hinh_anh;
+            $su_kien->HinhAnh = "assets/upload/su_kien/".$hinh_anh;
         }
         else{
-            $su_kien->hinh_anh = "";
+            $su_kien->HinhAnh = "";
         }
         $su_kien->save();
        return redirect()->route('su-kien.index')->with('message','Bạn đã thêm sự kiện thành công');
@@ -91,8 +109,13 @@ class SuKienController extends Controller
      */
     public function edit($id)
     {
-        $su_kien = su_kien::find($id);
-        return view('admin.manager_data.su_kien.edit', ['sukien' => $su_kien]);
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $su_kien = SuKien::find($id);
+        return view('admin.manager_data.su_kien.edit', ['sukien' => $su_kien, 'locale'=>$locale]);
     }
 
     /**
@@ -104,13 +127,14 @@ class SuKienController extends Controller
      */
     public function update(SuKienRequest $request, $id)
     {
-        $su_kien = su_kien::find($id);
-        $su_kien->ten = $request->ten;
-        $su_kien->ten_khong_dau = changeTitle($request->ten);
-        $su_kien->noi_dung = $request->noi_dung;
-        $su_kien->tom_tat = $request->tom_tat;
-        $su_kien->ngay_bat_dau = date('Y-m-d', strtotime($request->ngay_bat_dau));
-        $su_kien->ngay_ket_thuc = date('Y-m-d', strtotime($request->ngay_ket_thuc));
+        app()->setlocale($request->locale);
+        $su_kien = SuKien::find($id);
+        $su_kien->Ten = $request->ten;
+        $su_kien->slug = changeTitle($request->ten);
+        $su_kien->NoiDung = $request->noi_dung;
+        $su_kien->TomTat = $request->tom_tat;
+        $su_kien->NgayBatDau = date('Y-m-d', strtotime($request->ngay_bat_dau));
+        $su_kien->NgayKetThuc = date('Y-m-d', strtotime($request->ngay_ket_thuc));
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
             $duoi = $file->getClientOriginalExtension();
@@ -123,13 +147,13 @@ class SuKienController extends Controller
                 $hinh_anh = str_random(4)."_".$name;
             }
             $file->move("assets/upload/su_kien/",$hinh_anh);
-            $su_kien->hinh_anh = "assets/upload/su_kien/".$hinh_anh;
+            $su_kien->HinhAnh = "assets/upload/su_kien/".$hinh_anh;
         }
-        if($request->delete_logo == "delete" && $su_kien->hinh_anh != ""){
-           $str = substr($su_kien->hinh_anh, 0);
+        if($request->delete_logo == "delete" && $su_kien->HinhAnh != ""){
+           $str = substr($su_kien->HinhAnh, 0);
           
              File::delete($str);
-           $su_kien->hinh_anh = "";
+           $su_kien->HinhAnh = "";
            
        }
         $su_kien->save();
@@ -144,7 +168,7 @@ class SuKienController extends Controller
      */
     public function destroy($id)
     {
-        $su_kien = su_kien::find($id);
+        $su_kien = SuKien::find($id);
         $su_kien->delete();
         return $su_kien->toJson();
     }

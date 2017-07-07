@@ -54,7 +54,9 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->Ten}}</td>
                             <td>{{$item->ChucVu}}</td>
-                            <td><img src="assets/upload/chuyen-gia/{{$item->HinhAnh}}" height="100"></td>
+                            <td>
+                            <img class="responsive-img " src="{{ URL::asset($item->HinhAnh) }}" alt="ảnh" class="img-circle" width="100px" height="100px">
+                            </td>
                             <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
@@ -115,4 +117,9 @@
 
    <script src="/js/pathIndex.js"></script>
    <script src="/js/ajaxRequestLocale.js"></script>
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-chuyen-gia").addClass("active");
+    </script>
 @endsection

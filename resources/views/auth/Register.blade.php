@@ -7,6 +7,9 @@
     {{ csrf_field() }}
     <input type="hidden" name="token" value="{{CSRF_TOKEN()}}">
     <h3 class="font-green">Đăng ký</h3>
+    @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @endif
     <div class="form-group">
         <label class="control-label visible-ie8 visible-ie9">Fullname</label>
         <input class="form-control placeholder-no-fix" type="text" placeholder="Fullname" name="name"   value="{{ old('name') }}" required autofocus/> 

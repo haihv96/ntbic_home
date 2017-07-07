@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Tên
+                            <label class="control-label col-md-3">Tên chuyên gia
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
@@ -49,7 +49,7 @@
                             </label>
                             <div class="col-md-4">
                                 <input type="text" name="chuc_vu" data-required="1" class="form-control" value="{{old('chuc_vu')}}" /> 
-                                <span class="required"> {{$errors->first('ten')}}</span>
+                                <span class="required"> {{$errors->first('chuc_vu')}}</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -78,16 +78,30 @@
 @endsection
 @section('js')
     <!-- BEGIN CORE PLUGINS -->
+         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+        <script src="./../assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="../assets/pages/scripts/form-validation.min.js" type="text/javascript"></script>
         <script src="../assets/pages/scripts/form-validation.js" type="text/javascript"></script>
         
         <!-- END PAGE LEVEL SCRIPTS -->
-        <script src="/js/pathEdit.js"></script>
+        <script src="/js/path.js"></script>
         <script src="/js/ajaxRequestLocale.js"></script>
         <script type="text/javascript">
           $(".sub-menu").css('display','block');
           $("#sub-menu-manager-data").addClass("active");
-          $("#active-su-kien").addClass("active");
+          $("#active-chuyen-gia").addClass("active");
         </script>
 @endsection
