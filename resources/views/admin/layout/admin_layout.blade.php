@@ -150,6 +150,11 @@
                                         <span class="title">Sự kiện</span>
                                     </a>
                                 </li>
+                                <li class="nav-item" id="active-loai-doi-tac">
+                                    <a href="{!! url('admin/loai-doi-tac') !!}" class="nav-link ">
+                                        <span class="title">Loại đối tác</span>
+                                    </a>
+                                </li>
                                 <li class="nav-item" id="active-doi-tac">
                                     <a href="{!! url('admin/doi-tac') !!}" class="nav-link ">
                                         <span class="title">Đối tác</span>
