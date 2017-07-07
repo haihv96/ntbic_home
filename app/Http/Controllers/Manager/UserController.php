@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Mail;
+use Session;
+use App\Mail\ActiveAccount;
 
 class UserController extends Controller
 {
@@ -47,9 +50,9 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->level = $request->level;
         $user->email = $request->email;
-
-        $pass = '123456';
-        $user->password = bcrypt($pass);
+        $user->email_token = str_random(10);
+        $pass = str_random(6);
+        $user->password = bcrypt($pass); 
 
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
@@ -66,9 +69,27 @@ class UserController extends Controller
         else{
             $user->hinh_anh = "";
         }
-
-        $user->save();
-        return redirect()->route('users.index')->with('message',"Bạn đã thêm user thành công");
+        DB::beginTransaction();
+        try{
+            $user->save();
+            $id=$user->id;
+            $user1 = User::find($id);
+             Mail::to($request->email)->send(new ActiveAccount(
+                $request->name,
+                $request->email,
+                $request->username,
+                $pass,
+                url('user/verify/'.$user1->email_token)
+                ));
+            DB::commit();
+            Session::flash('message', 'Bạn đã nhận được mail xác nhận đăng ký tài khoản');
+            return redirect()->route('users.index');
+        }
+        catch(Exception $e)
+        {
+            DB::rollback(); 
+            return back();
+        }
     }
 
     public function edit($id) {
@@ -129,5 +150,17 @@ class UserController extends Controller
     	$user = User::find($id);
     	$user->delete();
     	return $user->toJson();
+    }
+    public function verify_user_mo($token)
+    {
+        $useractive = User::where('email_token', $token)->first();
+        if($useractive == null) {
+            Session::flash('message','Tài khoản đã kích hoạt!!!');
+        } else {
+            $useractive->verified();
+            Session::flash('message', 'Bạn đã kích hoạt thành công. Hãy đăng nhập tại đây!!!');
+        }
+       
+       return redirect()->route('login');
     }
 }

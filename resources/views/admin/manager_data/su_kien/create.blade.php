@@ -138,7 +138,7 @@
         <script src="../assets/pages/scripts/form-validation.js" type="text/javascript"></script>
         
         <!-- END PAGE LEVEL SCRIPTS -->
-        <script src="/js/pathEdit.js"></script>
+        <script src="/js/path.js"></script>
         <script src="/js/ajaxRequestLocale.js"></script>
         <script type="text/javascript">
           $(".sub-menu").css('display','block');

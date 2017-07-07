@@ -25,6 +25,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('register','Auth\RegisterController@showRegistrationForm');
 Route::post('register','Auth\RegisterController@register');
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
+Route::get('user/verify/{token}', 'Manager\UserController@verify_user_mo');
 
 Route::get('abc',function(){
 	 return bcrypt('123456');
