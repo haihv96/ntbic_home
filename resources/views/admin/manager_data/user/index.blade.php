@@ -75,6 +75,8 @@
                                 <td>Admin</td>
                             @elseif ($item->level == 2)
                                 <td>Moderator</td>
+                            @elseif ($item->level == 3)
+                                <td>User</td>
                             @endif                            
                             <td class="center"><div ><a class='edit' href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>

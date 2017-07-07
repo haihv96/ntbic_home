@@ -33,7 +33,7 @@ class RegisterController extends Controller
         DB::beginTransaction();
         try{
             $user = $this->create($request->all());
-            $email = new EmailVerification(new User(['email_token' => $user->email_token]));
+            $email = new EmailVerification(new User(['email_token' => $user->email_token,'name'=>$user->name,'username'=>$user->username,'email'=>$user->email]));
             Mail::to($user->email)->send($email);
             DB::commit();
             Session::flash('message', 'Bạn đã nhận được mail xác nhận đăng ký tài khoản');
@@ -80,7 +80,7 @@ class RegisterController extends Controller
             Session::flash('message','Tài khoản đã kích hoạt!!!');
         } else {
             $useractive->verified();
-            Session::flash('message', 'Bạn đăng ký thành công! Hãy đăng nhập tại đây.');
+            Session::flash('message', 'Bạn đã kích hoạt thành công! Hãy đăng nhập tại đây.');
         }
        
        return redirect()->route('login');

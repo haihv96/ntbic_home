@@ -45,7 +45,6 @@
                                 <select class="form-control select2me" name="level">
                                     <option value="1">Admin</option>
                                     <option value="2">Moderator</option>
-                                    <option value="3">User</option>
                                 </select>
                                 <span class="required"> {{$errors->first('level')}}</span>
                             </div>

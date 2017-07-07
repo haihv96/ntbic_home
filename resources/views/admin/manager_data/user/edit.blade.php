@@ -50,7 +50,6 @@
                                 <select id='level' class="form-control select2me" name="level" data-id="{{$user->level}}">
                                     <option id="lv1" value="1">Admin</option>
                                     <option id="lv2" value="2">Moderator</option>
-                                    <option id="lv3" value="3">User</option>
                                 </select>
                                 <span class="required"> {{$errors->first('level')}}</span>
                             </div>
@@ -130,12 +129,9 @@
             console.log(level);
             if (level == 1) {
                 $('#lv1').attr('selected','selected');
-            } else if(level==2){
+            } else(level==2){
                 $('#lv2').attr('selected','selected');
-            }
-            else {
-                $('#lv3').attr('selected','selected');
-            }
+            } 
         });
     </script>
 @endsection
