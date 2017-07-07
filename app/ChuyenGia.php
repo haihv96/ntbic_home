@@ -11,5 +11,5 @@ class ChuyenGia extends Model
 
     protected $fillable = ['slug', 'HinhAnh'];
 
-    public $translatedAtributes = ['Ten', 'ChucVu'];
+    public $translatedAttributes = ['Ten', 'ChucVu'];
 }

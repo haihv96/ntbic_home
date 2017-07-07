@@ -113,4 +113,9 @@
 
    <script src="/js/pathIndex.js"></script>
    <script src="/js/ajaxRequestLocale.js"></script>
+   <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-cau-hoi-thuong-gap").addClass("active");
+    </script>
 @endsection

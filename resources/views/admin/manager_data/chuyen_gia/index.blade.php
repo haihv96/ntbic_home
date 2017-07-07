@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a href="#" class="active" id="namepage">Chuyên gia</a>
+<a id="namepage" href="#" class="active">Chuyên gia</a>
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Danh sách</span>
+                    <span class="caption-subject bold uppercase"> Chuyên gia</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -25,56 +25,43 @@
                         </div>
                         <div class="col-md-6">
                             <div class="btn-group pull-right">
-                                <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Print
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-print"></i> Print </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-excel-o"></i> Export to Excel </a>
-                                    </li>
-                                </ul>
+                                <select id="locale" class="form-control select2me btn green  btn-outline dropdown-toggle" name="locale" data-locale="{{$locale}}">Print
+                                    <option id='vi' value="vi">Tiếng Việt</option>
+                                    <option id='en' value="en">Tiếng Anh</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                @if (session('status'))
+                @if (session('message'))
                     <div class="alert alert-success">
-                    <button class="close" data-close="alert"></button>{{session('status')}}</div>
+                    <button class="close" data-close="alert"></button>{{session('message')}}</div>
                 @endif
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
-                        	<th> STT </th>
+                            <th> ID</th>
                             <th> Tên chuyên gia</th>
                             <th> Chức vụ</th>
                             <th> Hình ảnh</th>
-		                    <th> Sửa </th>
-		                    <th> Xóa </th>
+                            <th> Sửa </th>
+                            <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($chuyengia as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
-                            <td>{{$item->ten}}</td>
-                            <td>{{$item->chuc_vu}}</td>
-                            <td><img src="assets/upload/chuyen-gia/{{$item->hinh_anh}}" height="100"></td>
+                            <td>{{$item->Ten}}</td>
+                            <td>{{$item->ChucVu}}</td>
+                            <td><img src="assets/upload/chuyen-gia/{{$item->HinhAnh}}" height="100"></td>
                             <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {!! $chuyengia->links() !!}
+                {!! $chuyengia->links() !!} 
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -85,13 +72,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Xóa bài công nghệ</h4>
+                <h4 class="modal-title">Xóa chuyên gia</h4>
             </div>
             <div class="modal-body"> 
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa loại công nghệ này? 
+                    Bạn chắc chắn muốn xóa chuyên gia? 
                 </form>
             </div>
             <div class="modal-footer">
@@ -125,5 +112,7 @@
             });
         });
     </script>
-    <script src="/js/pathIndex.js"></script>
+
+   <script src="/js/pathIndex.js"></script>
+   <script src="/js/ajaxRequestLocale.js"></script>
 @endsection
