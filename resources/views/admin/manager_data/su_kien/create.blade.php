@@ -25,6 +25,16 @@
                             <button class="close" data-close="alert"></button> Thành công! </div>
                             {{csrf_field()}}
                         <div class="form-group">
+                            <label class="control-label col-md-3">Language
+                            </label>
+                            <div class="col-md-4">
+                                <select id="locale" class="form-control select" name="locale" data-locale="{{$locale}}">                                   
+                                    <option id="vi" value="vi">Tiếng Việt</option>
+                                    <option id="en" value="en">Tiếng Anh</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-3">Sự kiện
                                 <span class="required"> * </span>
                             </label>
@@ -128,18 +138,11 @@
         <script src="../assets/pages/scripts/form-validation.js" type="text/javascript"></script>
         
         <!-- END PAGE LEVEL SCRIPTS -->
+        <script src="/js/path.js"></script>
+        <script src="/js/ajaxRequestLocale.js"></script>
         <script type="text/javascript">
-        $(document).ready(function() {
-            console.log(window.location.pathname);
-            var pathname = window.location.pathname;
-            $('#namepage').attr('href', pathname.substr(0,pathname.length-7));
-            var create_path = pathname.substr(0,pathname.length-7);
-            $('#createForm').attr('action',create_path);
-        });
-    </script>
-    <script type="text/javascript">
-      $(".sub-menu").css('display','block');
-      $("#sub-menu-manager-data").addClass("active");
-      $("#active-su-kien").addClass("active");
-    </script>
+          $(".sub-menu").css('display','block');
+          $("#sub-menu-manager-data").addClass("active");
+          $("#active-su-kien").addClass("active");
+        </script>
 @endsection

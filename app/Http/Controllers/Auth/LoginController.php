@@ -55,12 +55,12 @@ class LoginController extends Controller
                 'password.required'=>'Bạn chưa nhập password',
             ]);
 
-       if (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>1])) {
+       if (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>1,'verified'=>1])) {
             return redirect('admin');
-        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>2])) {
+        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>2,'verified'=>1])) {
             return redirect('moderator');
-        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>3])) {
-            return redirect('/');
+        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>3,'verified'=>1])) {
+            return redirect()->route('home');
         } else {
             return redirect()->back()->withInput();
         } 
@@ -69,5 +69,13 @@ class LoginController extends Controller
     public function logout() {
         Auth::logout();
         return redirect('login');
+    }
+    public function credentials(Request $request)
+    {
+        return [
+            'email' => $request->email,
+            'password' => $request->password,
+            'verified' => 1,
+        ];
     }
 }

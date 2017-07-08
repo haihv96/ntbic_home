@@ -22,7 +22,7 @@ class TuyenDungRequest extends FormRequest
             'mo_ta' => 'required',
             'noi_dung_tuyen_dung' => 'required',
             'ngay_bat_dau'=>'required',
-            'ngay_ket_thuc'=>'required'
+            'ngay_ket_thuc'=>'required|after_or_equal:ngay_bat_dau',
         ];
     }
     public function messages() {
@@ -31,6 +31,7 @@ class TuyenDungRequest extends FormRequest
             'noi_dung_tuyen_dung.required' => 'Bạn cần nhập nội dung tuyển dụng',
             'ngay_bat_dau.required'=>'Bạn cần nhập ngày bắt đầu tuyển dụng',
             'ngay_ket_thuc.required'=>'Bạn cần nhập ngày kết thúc tuyển dụng',
+            'ngay_ket_thuc.after_or_equal'=>'Bạn cần nhập ngày kết thúc tuyển dụng lớn hơn hoặc bằng ngày bắt đầu',
         ];
     }
 }

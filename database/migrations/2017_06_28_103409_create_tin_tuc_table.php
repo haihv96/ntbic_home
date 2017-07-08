@@ -17,6 +17,7 @@ class CreateTinTucTable extends Migration
             $table->increments('id');
             $table->text('HinhAnh');
             $table->string('slug');
+            $table->boolean('status')->default(false);
             $table->integer('loai_tin_id')->unsigned();
             $table->foreign('loai_tin_id')->references('id')->on('loai_tin')->onDelete('cascade');
             $table->integer('users_id')->unsigned();

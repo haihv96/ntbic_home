@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Manager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\loai_tin;
+use App\LoaiTin;
+use App\LoaiTinTranslation;
 use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class LoaiTinController extends Controller
 {
@@ -16,8 +18,14 @@ class LoaiTinController extends Controller
      * @return Response
      */
     public function index() {
-    	$loai_tin = DB::table('loai_tin')->paginate(10);
-    	return view('admin.manager_data.loai_tin.index',['loaitin' => $loai_tin]);
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+
+        $locale = session()->get('language');
+        app()->setLocale($locale);
+        $loai_tin = LoaiTin::paginate(10);
+        return view('admin.manager_data.loai_tin.index',['loaitin' => $loai_tin, 'locale'=>$locale]);
     }
 
     /**
@@ -26,7 +34,11 @@ class LoaiTinController extends Controller
      * @return Response
      */
     public function create() {
-    	return view('admin.manager_data.loai_tin.create');
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+    	return view('admin.manager_data.loai_tin.create',['locale'=>$locale]);
     }
 
     /**
@@ -42,13 +54,18 @@ class LoaiTinController extends Controller
     	[
     		'ten.required' => 'Bạn chưa nhập tên loại tin'
     	]);
-
-    	$loai_tin = new loai_tin;
-    	$loai_tin->ten = $request->ten;
-    	$loai_tin->ten_khong_dau = changeTitle($request->ten);
+        
+        app()->setlocale($request->locale);
+    	$loai_tin = new LoaiTin;
+    	$loai_tin->Ten = $request->ten;
+    	$loai_tin->Slug = changeTitle($request->ten);
 
     	$loai_tin->save();
-    	return redirect()->route('loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
+        if (Auth::user()->level == 1) {
+            return redirect()->route('admin.loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
+        } elseif (Auth::user()->level == 2) {
+    	    return redirect()->route('loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
+        }
     }
 
     /**
@@ -58,8 +75,14 @@ class LoaiTinController extends Controller
      * @return Response
      */
     public function edit($id) {
-       $loai_tin = loai_tin::find($id);
-    	return view('admin.manager_data.loai_tin.edit', ['loaitin' => $loai_tin]);
+         if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $loai_tin = LoaiTin::find($id);
+    	return view('admin.manager_data.loai_tin.edit', ['loaitin' => $loai_tin, 'locale'=>$locale]);
     } 
 
     /**
@@ -76,9 +99,11 @@ class LoaiTinController extends Controller
     	[
     		'ten.required' => 'Bạn chưa nhập tên loại tin'
     	]);
-    	$loai_tin = loai_tin::find($id);
-    	$loai_tin->ten = $request->ten;
-    	$loai_tin->ten_khong_dau = changeTitle($request->ten);
+
+        app()->setlocale($request->locale);
+    	$loai_tin = LoaiTin::find($id);
+    	$loai_tin->Ten = $request->ten;
+    	$loai_tin->Slug = changeTitle($request->ten);
 
     	$loai_tin->save();
 
@@ -92,7 +117,7 @@ class LoaiTinController extends Controller
      * @return Response
      */
     public function destroy($id) {
-    	$loai_tin = loai_tin::find($id);
+    	$loai_tin = LoaiTin::find($id);
     	$loai_tin->delete();
     	return $loai_tin->toJson();
     }

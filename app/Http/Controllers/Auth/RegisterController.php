@@ -2,70 +2,87 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\User;
+use Auth;
+use Mail;
+use DB;
+use Session;
+use App\Mail\EmailVerification;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
 
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $redirectPath = 'login';
+    public function showRegistrationForm()
     {
-        $this->middleware('guest');
+        if (!Auth::check()) {
+            return view('auth.Register');
+        }else{
+            return redirect()->route('home');
+        }     
+    }
+    public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+        if($validator->fails()){
+            $this->throwValidationException($request, $validator);
+        }
+        DB::beginTransaction();
+        try{
+            $user = $this->create($request->all());
+            $email = new EmailVerification(new User(['email_token' => $user->email_token,'name'=>$user->name,'username'=>$user->username,'email'=>$user->email]));
+            Mail::to($user->email)->send($email);
+            DB::commit();
+            Session::flash('message', 'Bạn đã nhận được mail xác nhận đăng ký tài khoản');
+            return back();
+        }
+        catch(Exception $e)
+        {
+            DB::rollback(); 
+            return back();
+        }
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'name' => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
+            'hinh_anh' => '',
             'password' => bcrypt($data['password']),
+            'level' =>3,
+            'email_token' => $data['token'],
         ]);
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('web');
+    }
+    public function verify($token)
+    {
+        $useractive = User::where('email_token', $token)->first();
+        if($useractive == null) {
+            Session::flash('message','Tài khoản đã kích hoạt!!!');
+        } else {
+            $useractive->verified();
+            Session::flash('message', 'Bạn đã kích hoạt thành công! Hãy đăng nhập tại đây.');
+        }
+       
+       return redirect()->route('login');
     }
 }

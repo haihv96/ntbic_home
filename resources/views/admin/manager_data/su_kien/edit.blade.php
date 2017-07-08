@@ -26,11 +26,21 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
                         <div class="form-group">
+                            <label class="control-label col-md-3">Language
+                            </label>
+                            <div class="col-md-4">
+                                <select id="locale" class="form-control select" name="locale" data-locale="{{$locale}}">
+                                    <option id="vi" value="vi">Tiếng Việt</option>
+                                    <option id="en" value="en">Tiếng Anh</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-3">Sự kiện
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="ten" data-required="1" class="form-control" value="{{$sukien->ten}}" /> 
+                                <input type="text" name="ten" data-required="1" class="form-control" value="{{$sukien->Ten}}" /> 
                                 <span class="required"> {{$errors->first('ten')}}</span>
                             </div>
                         </div>
@@ -39,7 +49,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <textarea class="ckeditor form-control" name="tom_tat" rows="6" id="editor">{{$sukien->tom_tat}}</textarea>
+                                <textarea class="ckeditor form-control" name="tom_tat" rows="6" id="editor">{{$sukien->TomTat}}</textarea>
                                 <span class="required"> {{$errors->first('tom_tat')}}</span>
                             </div>
                         </div>
@@ -48,7 +58,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <textarea class="ckeditor form-control" name="noi_dung" rows="6" id="editor">{{$sukien->noi_dung}}</textarea>
+                                <textarea class="ckeditor form-control" name="noi_dung" rows="6" id="editor">{{$sukien->NoiDung}}</textarea>
                                 <span class="required">{{$errors->first('noi_dung')}}</span>
                             </div>
                         </div>
@@ -56,7 +66,7 @@
                             <label for="exampleInputFile" class="col-md-3 control-label">Hình ảnh
                             </label>
                             <div class="col-md-9">
-                                <img class="responsive-img " src="{{ URL::asset($sukien->hinh_anh) }}" alt="ảnh" class="img-circle" width="150px" height="150px">
+                                <img class="responsive-img " src="{{ URL::asset($sukien->HinhAnh) }}" alt="ảnh" class="img-circle" width="150px" height="150px">
                                 <br>
                                 <ul class="nav nav-tabs">
                                     <li><a href="#home" data-toggle="tab">Thay đổi ảnh</a></li>
@@ -68,7 +78,7 @@
                                         <button type="button" class="btn btn-danger btn-cons" id="delete_logo">Xóa ảnh</button>
                                     </div>
                                 </div>
-                                <span class="error">&nbsp;&nbsp;{{$errors->first('file-anh')}}</span>
+                                <span class="error">&nbsp;&nbsp;{{$errors->first('hinh_anh')}}</span>
                             </div>
                         </div>     
                         <div class="form-group">
@@ -77,7 +87,7 @@
                             </label>
                             <div class="col-md-4">
                                 <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-                                    <input type="text" class="form-control" readonly name="ngay_bat_dau" value="{{$sukien->ngay_bat_dau}}">
+                                    <input type="text" class="form-control" readonly name="ngay_bat_dau" value="{{$sukien->NgayBatDau}}">
                                     <span class="input-group-btn">
                                         <button class="btn default" type="button">
                                             <i class="fa fa-calendar"></i>
@@ -93,7 +103,7 @@
                             </label>
                             <div class="col-md-4">
                                 <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-                                    <input type="text" class="form-control" readonly name="ngay_ket_thuc" value="{{$sukien->ngay_ket_thuc}}">
+                                    <input type="text" class="form-control" readonly name="ngay_ket_thuc" value="{{$sukien->NgayKetThuc}}">
                                     <span class="input-group-btn">
                                         <button class="btn default" type="button">
                                             <i class="fa fa-calendar"></i>
@@ -151,15 +161,8 @@
                 });
             });
         </script>
-     <script type="text/javascript">
-        $(document).ready(function() {
-            console.log(window.location.pathname);
-            var pathname = window.location.pathname;
-            $('#namepage').attr('href', pathname.substr(0,pathname.length-7));
-            var create_path = pathname.substr(0,pathname.length-5);
-            $('#editForm').attr('action',create_path);
-        });
-    </script>
+      <script src="/js/pathEdit.js"></script>
+    <script src="/js/ajaxRequestLocale.js"></script>
     <script type="text/javascript">
       $(".sub-menu").css('display','block');
       $("#sub-menu-manager-data").addClass("active");

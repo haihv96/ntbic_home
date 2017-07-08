@@ -3,104 +3,101 @@
 namespace App\Http\Controllers\Manager;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\cau_hoi_thuong_gap;
-use App\Http\Requests\CauHoiThuongGapRequest;
+use App\CauHoi;
 use Illuminate\Support\Facades\Redirect;
-use File;
+use App\Http\Requests\CauHoiThuongGapRequest;
 
-class CauHoiThuongGapController extends Controller
+class CauhoithuonggapController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
-    {
-        $cau_hoi_thuong_gap =DB::table('cau_hoi_thuong_gap')->paginate(10);
-        return view('admin.manager_data.cau_hoi_thuong_gap.index',['cauhoithuonggap' => $cau_hoi_thuong_gap]);
+    public function index() {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $cau_hoi = CauHoi::paginate(10);
+        return view('admin.manager_data.cau_hoi_thuong_gap.index',['cauhoi' => $cau_hoi, 'locale'=>$locale]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function create()
-    {
-         return view('admin.manager_data.cau_hoi_thuong_gap.create');
+    public function create() {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        return view('admin.manager_data.cau_hoi_thuong_gap.create',['locale'=>$locale]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function store(CauHoiThuongGapRequest $request)
-    {
-        $cauhoithuonggap = new cau_hoi_thuong_gap;
-        $cauhoithuonggap->cau_hoi = $request->cau_hoi;
-        $cauhoithuonggap->cau_hoi_khong_dau = changeTitle($request->cau_hoi);
-        $cauhoithuonggap->cau_tra_loi = $request->cau_tra_loi;
-        $cauhoithuonggap->save();
-       return redirect()->route('cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thành công');
+    public function store(CauHoiThuongGapRequest $request) {
+        app()->setlocale($request->locale);
+        $cau_hoi = new CauHoi;
+        $cau_hoi->CauHoi = $request->CauHoi;
+        $cau_hoi->Slug = changeTitle($request->CauHoi);
+        $cau_hoi->CauTraLoi = $request->CauTraLoi;
+        $cau_hoi->save();
+        return redirect()->route('cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show($id)
-    {
-        //
-    }
+    public function edit($id) {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {  
-        $cau_hoi_thuong_gap = cau_hoi_thuong_gap::find($id);
-        return view('admin.manager_data.cau_hoi_thuong_gap.edit', ['cauhoithuonggap' => $cau_hoi_thuong_gap]);
-    }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $cau_hoi = CauHoi::find($id);
+        return view('admin.manager_data.cau_hoi_thuong_gap.edit', ['cauhoi' => $cau_hoi, 'locale'=>$locale]);
+    } 
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(CauHoiThuongGapRequest $request, $id)
-    {
-        $cau_hoi_thuong_gap = cau_hoi_thuong_gap::find($id);
-        $cau_hoi_thuong_gap->cau_hoi = $request->cau_hoi;
-        $cau_hoi_thuong_gap->cau_hoi_khong_dau = changeTitle($request->cau_hoi);
-        $cau_hoi_thuong_gap->cau_tra_loi = $request->cau_tra_loi;
-        $cau_hoi_thuong_gap->save();
-       return redirect::back()->with('message','Bạn đã sửa câu hỏi thành công');
+    public function update(CauHoiThuongGapRequest $request,$id) {
+        app()->setlocale($request->locale);
+        $cau_hoi = CauHoi::find($id);
+        $cau_hoi->CauHoi = $request->CauHoi;
+        $cau_hoi->Slug = changeTitle($request->CauHoi);
+        $cau_hoi->CauTraLoi = $request->CauTraLoi;
+        $cau_hoi->save();
+
+        return Redirect::back()->with('message', 'Bạn đã sửa câu hỏi thường gặp thành công');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function destroy($id)
-    {
-        //
-        $cau_hoi_thuong_gap = cau_hoi_thuong_gap::find($id);
-        $cau_hoi_thuong_gap->delete();
-        return $cau_hoi_thuong_gap->toJson();
+    public function destroy($id) {
+        $cau_hoi = CauHoi::find($id);
+        $cau_hoi->delete();
+        return $cau_hoi->toJson();
     }
 }
