@@ -5,7 +5,10 @@ use App\TinTuc;
 use App\LoaiTin;
 use App\CauHoi;
 use App\ToChuc;
+use App\ToChucTranslation;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
 
 class PageController extends Controller
 {
@@ -40,8 +43,44 @@ class PageController extends Controller
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $to_chuc = ToChuc::paginate(1);
+        $to_chuc= ToChuc::first();
 		return view('pages.gioithieuchung',['tochuc'=>$to_chuc,'locale'=>$locale]);
+	}
+	public function ViTriChucNang(){
+		if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $to_chuc= ToChuc::first();
+		return view('pages.vitrichucnang',['tochuc'=>$to_chuc,'locale'=>$locale]);
+	}
+	public function SuMenhTamNhin(){
+		if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $to_chuc= ToChuc::first();
+		return view('pages.sumenhtamnhin',['tochuc'=>$to_chuc,'locale'=>$locale]);
+	}
+	public function CoCau(){
+		if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $to_chuc= ToChuc::first();
+		return view('pages.cocau',['tochuc'=>$to_chuc,'locale'=>$locale]);
+	}
+	public function DoiNguTrungTam(){
+		if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $to_chuc= ToChuc::first();
+		return view('pages.doingutrungtam',['tochuc'=>$to_chuc,'locale'=>$locale]);
 	}
 
 }

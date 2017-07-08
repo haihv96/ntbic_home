@@ -5,10 +5,10 @@
 	<ul class="breadcrumb">
 			<li><a href="#">Trang chủ</a></li>
 			<li><a href="#">Tổ chức</a></li>
-			<li>Giới thiệu chung</li>
+			<li>Cơ cấu</li>
 	</ul>
 	<div class=" col-md-12 col-sm-12  introduced">
-		<p>gioi thieu chung ve ntbic</p>
+		{!!$tochuc->CoCau!!}
 	</div>
 </div>
 @endsection

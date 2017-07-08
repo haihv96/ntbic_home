@@ -9,6 +9,8 @@
 	</ul>
 	<div class=" col-md-12 col-sm-12  introduced">
 		
+		{!!$tochuc->GioiThieuChung!!}
+	
 	</div>
 </div>
 @endsection
