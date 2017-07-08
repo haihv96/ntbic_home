@@ -13,4 +13,4 @@
 		</div>
 	</div>
 </footer>
- <script src="/js/ajaxRequestLocale.js"></script>
+ <!--<script src="/js/ajaxRequestLocale.js"></script>-->
