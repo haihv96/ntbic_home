@@ -15,7 +15,18 @@
 	    </div>
 	    <div class="collapse navbar-collapse"  id="myNavbar">
 		    <ul class="nav navbar-nav">
-		      	<li><a href="#">Tổ chức</a></li>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tổ chức<span class="caret"></span></a>
+			        <ul class="dropdown-menu">
+			          <li><a href="#">Giới thiệu chung</a></li>
+			          <li><a href="#">Vị trí chức năng</a></li>
+			          <li><a href="#">Sứ mệnh tầm nhìn</a></li>
+			          <li><a href="#">Cơ cấu</a></li>
+			          <li><a href="#">Đội ngũ trung tâm</a></li>
+			          <li><a href="#">Chuyên gia</a></li>
+			          <li><a href="#">Câu hỏi thường gặp</a></li>
+			           <li><a href="#">Tuyển dụng</a></li>
+			        </ul>
+				</li>
 		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tin tức <span class="caret"></span></a>
 			        <ul class="dropdown-menu">
 			          <li><a href="tintuc">Page 1-1</a></li>
@@ -29,6 +40,12 @@
 		      	<li><a href="#">Ươm tạo</a></li>
 		      	<li><a href="#">Công nghệ</a></li>
 		      	<li><a href="lienhe">Liên hệ</a></li>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Đ<span class="caret"></span></a>
+			        <ul class="dropdown-menu">
+			          <li><a href="tintuc">Đăng nhập</a></li>
+			          <li><a href="/logout">Đăng xuẩt</a></li>
+			        </ul>
+				</li>
 		    </ul>
 		    <form class="navbar-form navbar-left">
 		      <div class="input-group">

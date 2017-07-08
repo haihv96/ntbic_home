@@ -14,6 +14,7 @@ class CreateChuyenGiaTranslationTable extends Migration
     public function up()
     {
         Schema::create('chuyen_gia_translations', function (Blueprint $table) {
+
             $table->increments('id');
             $table->integer('chuyen_gia_id')->unsigned();
             $table->string('Ten');

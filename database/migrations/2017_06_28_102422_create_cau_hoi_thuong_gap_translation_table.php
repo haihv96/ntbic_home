@@ -23,14 +23,6 @@ class CreateCauHoiThuongGapTranslationTable extends Migration
             $table->unique(['cau_hoi_id','locale']);
             $table->foreign('cau_hoi_id')->references('id')->on('cau_hoi') ->onDelete('cascade');
             $table->timestamps();
-
-//            $table->increments('id');
-  //          $table->integer('cau_hoi_thuong_gap_id')->unsigned();
-    //        $table->longtext('CauHoi');
-      //      $table->longtext('CauTraLoi')->nullable();
-        //    $table->string('locale')->unique();
-          //  $table->foreign('cau_hoi_thuong_gap_id')->references('id')->on('cau_hoi_thuong_gap')->onDelete('cascade');
-            //$table->timestamps();
         });
     }
 
