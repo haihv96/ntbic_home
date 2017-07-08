@@ -74,8 +74,8 @@
 </div>
 @endsection
 @section('js')
-    <script src="/js/path.js"></script>
-    <script src="/js/ajaxRequestLocale.js"></script>
+    <script src="{{ URL::asset('js/path.js') }}"></script>
+    <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
     <script type="text/javascript">
       $(".sub-menu").css('display','block');
       $("#sub-menu-manager-data").addClass("active");
