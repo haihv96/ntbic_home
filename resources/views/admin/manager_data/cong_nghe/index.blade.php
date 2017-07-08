@@ -110,4 +110,9 @@
     </script>
     <script src="{{ URL::asset('js/pathIndex.js') }}"></script>
     <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
+    <script type="text/javascript">
+        $(".sub-menu").css('display','block');
+        $("#sub-menu-manager-data").addClass("active");
+        $("#active-chuyen-gia").addClass("active");
+    </script>
 @endsection

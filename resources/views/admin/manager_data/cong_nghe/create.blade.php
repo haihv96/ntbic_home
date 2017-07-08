@@ -43,7 +43,7 @@
                         </label>
                         <div class="col-md-9">
                             <span class="required"> {{$errors->first('NoiDung')}} </span>
-                            <textarea name="NoiDung" data-required="1" class="form-control ckeditor" rows="4">{{old('noi_dung')}}</textarea>
+                            <textarea name="NoiDung" data-required="1" class="form-control ckeditor" rows="4">{{old('NoiDung')}}</textarea>
                         </div>
                     </div>
                     <div class="form-actions">
@@ -66,4 +66,9 @@
 @section('js')
     <script src="{{ URL::asset('js/path.js') }}"></script>
     <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
+    <script type="text/javascript">
+        $(".sub-menu").css('display','block');
+        $("#sub-menu-manager-data").addClass("active");
+        $("#active-chuyen-gia").addClass("active");
+    </script>
 @endsection
