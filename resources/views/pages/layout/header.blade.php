@@ -68,27 +68,23 @@
 
 				<li class="LI_Menu_Mini">|</li>
 				<li class="LI_Menu_Mini">
-					@if (!Auth::check())
-						<img src="pages/image/icon/poll.gif" /><a href="{{route('login')}}"> Đăng nhập</a>
-					@else
-						<img src="pages/image/icon/poll.gif" /><a href="{{route('logout')}}"> Logout </a>
-					@endif
+					<img src="pages/image/icon/poll.gif" /><a href="#"> Đăng nhập</a>
 				</li>
 
 				<li class="LI_Menu_Mini">|</li>
-				<!--<li class="LI_Menu_Mini">
+				<li class="LI_Menu_Mini">
+					<img src="pages/image/icon/vanban.gif" /><a href="#"> Đăng ký</a>
+				</li>
+
+				<li class="LI_Menu_Mini">|</li>
+				<li class="LI_Menu_Mini">
 					<img src="pages/image/icon/tienganh.gif" /><a href="/en"> Tiếng Anh </a>
 				</li>
 
-				<li class="LI_Menu_Mini">|</li>-->
-				<li class="LI_Menu_Mini" >
-					@if ($locale == 'en')
-						<img src="pages/image/icon/tiengviet.gif" /><a id="locale" href="#" data-locale="vi"> Tiếng việt </a>
-					@else
-						<img src="pages/image/icon/tienganh.gif" /><a id="locale" href="#" data-locale="en"> English </a>
-					@endif
-				</li>
 				<li class="LI_Menu_Mini">|</li>
+				<li class="LI_Menu_Mini">
+					<img src="pages/image/icon/tiengviet.gif" /><a href="/vi"> Tiếng việt </a>
+				</li>
 			</ul>
 	    </div>
 	</div>

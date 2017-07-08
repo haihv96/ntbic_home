@@ -10,14 +10,7 @@ use App\Http\Controllers\Controller;
 class PageController extends Controller
 {
 	public function TrangChu(){
-		if (!session()->has('language')) {
-            session(['language'=>'vi']);
-        }
-
-        $locale = session()->get('language');
-		app()->setlocale($locale);
-		return view('pages.trangchu')->with('locale',$locale);
-		//return $locale;
+		return view('pages.trangchu');
 	}
 
 	public function TinTuc(){
@@ -26,13 +19,7 @@ class PageController extends Controller
 	}
 
 	public function LienHe(){
-		if (!session()->has('language')) {
-            session(['language'=>'vi']);
-        }
-
-        $locale = session()->get('language');
-		app()->setlocale($locale);
-		return view('pages.lienhe')->with('locale',$locale);
+		return view('pages.lienhe');
 	}
 
 	public function Detail(){

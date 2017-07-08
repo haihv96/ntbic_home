@@ -20,29 +20,6 @@ $(document).ready(function(){
 		clickEvent = false;
 	});
 })
-$(document).ready(function() {
-	$.ajaxSetup({
-		headers: {
-			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		}
-	});
-	$('#locale').click(function() {
-		var locale = $(this).data('locale');
-		$(this).attr('href',location.href);
-		console.log(locale);
-		$.ajax({
-			type: 'post',
-			url: 'change-language',
-			dataType: 'json',
-			data: {
-				'locale': locale
-			},
-			success: function() {
-				location.reload();
-			}
-		});
-	});
-});
 
 $(window).load(function() {
     var boxheight = $('#myCarousel .carousel-inner').innerHeight();

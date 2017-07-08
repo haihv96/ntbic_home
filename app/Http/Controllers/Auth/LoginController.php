@@ -68,7 +68,7 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect('login');
     }
     public function credentials(Request $request)
     {
