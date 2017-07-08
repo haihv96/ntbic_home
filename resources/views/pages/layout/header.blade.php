@@ -43,3 +43,38 @@
 	    </div>
   	</div>
 </nav> <!-- navigation -->
+<div class="">
+	<div class="BG_Menu">
+	    <div class="UL_Menu_Date">
+	        Thứ bảy, 08/07/2017
+	    </div>
+	    <div class="Menu_Mini">
+	        <ul class="UL_Menu_Mini" style="display: block;">
+				<li class="LI_Menu_Mini">|</li>
+				<li class="LI_Menu_Mini">
+					<img src="pages/image/icon/hoidap.gif" /><a href="#"> Hỏi đáp</a>
+				</li>
+
+				<li class="LI_Menu_Mini">|</li>
+				<li class="LI_Menu_Mini">
+					<img src="pages/image/icon/poll.gif" /><a href="#"> Đăng nhập</a>
+				</li>
+
+				<li class="LI_Menu_Mini">|</li>
+				<li class="LI_Menu_Mini">
+					<img src="pages/image/icon/vanban.gif" /><a href="#"> Đăng ký</a>
+				</li>
+
+				<li class="LI_Menu_Mini">|</li>
+				<li class="LI_Menu_Mini">
+					<img src="pages/image/icon/tienganh.gif" /><a href="/en"> Tiếng Anh </a>
+				</li>
+
+				<li class="LI_Menu_Mini">|</li>
+				<li class="LI_Menu_Mini">
+					<img src="pages/image/icon/tiengviet.gif" /><a href="/vi"> Tiếng việt </a>
+				</li>
+			</ul>
+	    </div>
+	</div>
+</div>
