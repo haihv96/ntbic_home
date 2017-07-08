@@ -25,20 +25,30 @@
                             <div class="alert alert-success">
                             <button class="close" data-close="alert"></button>{{session('status')}}</div>
                         @endif
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Language
+                            </label>
+                            <div class="col-md-4">
+                                <select id="locale" class="form-control select2me" name="locale" data-locale="{{$locale}}">                                   
+                                    <option id="vi" value="vi">Tiếng Việt</option>
+                                    <option id="en" value="en">Tiếng Anh</option>
+                                </select>
+                            </div>
+                        </div>
                        <div class="form-group">
                             <label class="control-label col-md-3">Tên đề tài
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <span class="required"> {{$errors->first('ten')}} </span>
-                                <input type="text" name="ten" data-required="1" class="form-control" / value="{{$congnghe->ten}}"> </div>
+                                <span class="required"> {{$errors->first('Ten')}} </span>
+                                <input type="text" name="Ten" data-required="1" class="form-control" / value="{{$congnghe->Ten}}"> </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Giới thiệu chung <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <span class="required"> {{$errors->first('noi_dung')}} </span>
-                                <textarea name="noi_dung" data-required="1" class="form-control ckeditor" rows="4">{{$congnghe->noi_dung}}</textarea>
+                                <span class="required"> {{$errors->first('NoiDung')}} </span>
+                                <textarea name="NoiDung" data-required="1" class="form-control ckeditor" rows="4">{{$congnghe->NoiDung}}</textarea>
                             </div>
                         </div>
                     <div class="form-actions">
@@ -59,4 +69,5 @@
 @endsection
 @section('js')
     <script src="/js/pathEdit.js"></script>
+    <script src="/js/ajaxRequestLocale.js"></script>
 @endsection
