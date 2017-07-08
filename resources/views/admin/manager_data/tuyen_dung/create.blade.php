@@ -126,5 +126,10 @@
         <script src="../assets/pages/scripts/form-validation.js" type="text/javascript"></script>
         
         <!-- END PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-tuyen-dung").addClass("active");
+    </script>
 @endsection
 
