@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\LoaiTin;
 use App\LoaiTinTranslation;
 use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class LoaiTinController extends Controller
 {
@@ -60,7 +61,11 @@ class LoaiTinController extends Controller
     	$loai_tin->Slug = changeTitle($request->ten);
 
     	$loai_tin->save();
-    	return redirect()->route('loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
+        if (Auth::user()->level == 1) {
+            return redirect()->route('admin.loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
+        } elseif (Auth::user()->level == 2) {
+    	    return redirect()->route('loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
+        }
     }
 
     /**

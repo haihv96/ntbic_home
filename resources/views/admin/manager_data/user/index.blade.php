@@ -154,4 +154,8 @@
             });
          });
     </script>
+
+    <script type="text/javascript">
+      $("#active-user").addClass("active");
+    </script>
 @endsection

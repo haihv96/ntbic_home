@@ -97,7 +97,11 @@ class TinTucController extends Controller
         }
 
         $tin_tuc->save();
-        return redirect()->route('tin-tuc.index')->with('message', 'Bạn đã thêm tin tức thành công');
+        if (Auth::user()->level == 1) {
+            return redirect()->route('admin.tin-tuc.index')->with('message','Bạn đã thêm tin tức thành công');
+        } elseif (Auth::user()->level == 2) {
+    	    return redirect()->route('tin-tuc.index')->with('message','Bạn đã thêm tin tức thành công');
+        }
     }
 
     /**

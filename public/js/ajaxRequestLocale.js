@@ -6,13 +6,9 @@ $(document).ready(function() {
     });
     $('#locale').change(function() {
         var locale = $(this).val();
-        var path = window.location.pathname;
-        var split_path = path.split("/");
-        console.log(split_path[1]);
-        console.log(locale);
         $.ajax({
             type: 'post',
-            url: split_path[1]+'/change-language',
+            url: 'change-language',
             dataType: 'json',
             data: {
                 'locale': locale
