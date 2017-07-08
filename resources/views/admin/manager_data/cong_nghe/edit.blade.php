@@ -68,6 +68,6 @@
 </div>
 @endsection
 @section('js')
-    <script src="/js/pathEdit.js"></script>
-    <script src="/js/ajaxRequestLocale.js"></script>
+    <script src="{{ URL::asset('js/pathEdit.js') }}"></script>
+    <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
 @endsection
