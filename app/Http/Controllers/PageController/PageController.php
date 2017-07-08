@@ -40,7 +40,7 @@ class PageController extends Controller
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $cau_hoi = CauHoi::paginate(10);
+        $cau_hoi = CauHoi::paginate(10)->where('CauHoi','<>','');
 		return view('pages.cauhoithuonggap',['cauhoi'=>$cau_hoi,'locale'=>$locale]);
 	}
 	public function GioiThieuChung(){
