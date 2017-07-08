@@ -42,6 +42,6 @@ Route::get('gioithieuchung','PageController\PageController@GioiThieuChung');
 Route::get('vitrichucnang','PageController\PageController@ViTriChucNang');
 Route::get('sumenhtamnhin','PageController\PageController@SuMenhTamNhin');
 Route::get('doingutrungtam','PageController\PageController@DoiNguTrungTam');
-Route::get('cocau','PageController\PageController@CaoCau');
+Route::get('cocau','PageController\PageController@CoCau');
 Route::get('chuyengia','PageController\PageController@ChuyenGia');
 
