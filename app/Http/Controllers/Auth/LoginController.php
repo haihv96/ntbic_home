@@ -60,7 +60,7 @@ class LoginController extends Controller
         } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>2])) {
             return redirect('moderator');
         } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>3])) {
-            return redirect('/');
+            return redirect()->route('home');
         } else {
             return redirect()->back()->withInput();
         } 
@@ -69,5 +69,13 @@ class LoginController extends Controller
     public function logout() {
         Auth::logout();
         return redirect('login');
+    }
+    public function credentials(Request $request)
+    {
+        return [
+            'email' => $request->email,
+            'password' => $request->password,
+            'verified' => 1,
+        ];
     }
 }

@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-Đối tác
+<a id="namepage" href="#" class="active">Đối tác</a>
 @endsection
 
 @section('main')
@@ -20,28 +20,15 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="sample_editable_1_new" class="btn sbold green " href="{!! url('admin/doi-tac/create') !!}"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
+                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm loại tin</a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="btn-group pull-right">
-                                <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Print
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-print"></i> Print </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-file-excel-o"></i> Export to Excel </a>
-                                    </li>
-                                </ul>
+                                <select id="locale" class="form-control select2me btn green  btn-outline dropdown-toggle" name="locale" data-locale="{{$locale}}">Print
+                                    <option id='vi' value="vi">Tiếng Việt</option>
+                                    <option id='en' value="en">Tiếng Anh</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -53,28 +40,24 @@
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
-                            <th> STT </th>
-                            <th> Đối tác</th>
-                            <th>Hình ảnh</th>
-                            <th> Xem </th>
+                            <th> ID </th>
+                            <th> Loại tin</th>
                             <th> Sửa </th>
                             <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($doitac as $item)
+                    @foreach($loaitin as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
-                            <td>{{$item->ten}}</td>
-                            <td><img src="assets/upload/doi_tac/{{$item->hinh_anh}}" height="100"></td>
-                            <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a href="{!! url('admin/doi-tac/'.$item->id.'/edit') !!}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td>{{$item->Ten}}</td>
+                            <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
-                        @endforeach
+                    @endforeach
                     </tbody>
                 </table>
-                {!! $doitac->links() !!}
+                {!! $loaitin->links() !!} 
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -85,13 +68,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Xóa sự kiện</h4>
+                <h4 class="modal-title">Xóa loại tin</h4>
             </div>
             <div class="modal-body"> 
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa sự kiện? 
+                    Bạn chắc chắn muốn xóa loại tin? 
                 </form>
             </div>
             <div class="modal-footer">
@@ -108,7 +91,7 @@
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/doi-tac/'+id;
+            var url_delete = 'admin/loai-tin/'+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',
@@ -125,4 +108,7 @@
             });
         });
     </script>
+
+   <script src="js/pathIndex.js"></script>
+   <script src="js/ajaxRequestLocale.js"></script>
 @endsection

@@ -31,6 +31,16 @@
                         <div class="alert alert-success display-hide">
                             <button class="close" data-close="alert"></button> Thành công! </div>
                         <div class="form-group">
+                            <label class="control-label col-md-3">Language
+                            </label>
+                            <div class="col-md-4">
+                                <select id="locale" class="form-control select2me" name="locale" data-locale="{{$locale}}">                                   
+                                    <option id="vi" value="vi">Tiếng Việt</option>
+                                    <option id="en" value="en">Tiếng Anh</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-3">Loại tin
                                 <span class="required"> * </span>
                             </label>
@@ -55,5 +65,6 @@
 @endsection
 @section('js')
     <script src="/js/path.js"></script>
+    <script src="/js/ajaxRequestLocale.js"></script>
 @endsection
 

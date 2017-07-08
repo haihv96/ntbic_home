@@ -1,49 +1,46 @@
 @extends('auth.layouts.layout')
 @section('title')
-Đăng nhập
+Đăng ký
 @endsection
 @section('content')
-            <!-- BEGIN LOGIN FORM -->
-            @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    @foreach($errors->all() as $err)
-                        {{$err}}<br>
-                    @endforeach
-            </div>
-             @endif
-            <!-- END LOGIN FORM -->
-            <!-- BEGIN REGISTRATION FORM -->
-            <form class="register-form" action="3" method="post">
-            <input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden="">
-                <h3 class="font-green">Sign Up</h3>
-                <p class="hint"> Enter your personal details below: </p>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Full Name</label>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname" /> </div>
-                <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label visible-ie8 visible-ie9">Email</label>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" /> </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Username</label>
-                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Password</label>
-                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" /> </div>
-                <div class="form-group margin-top-20 margin-bottom-20">
-                    <label class="check">
-                        <input type="checkbox" name="tnc" /> I agree to the
-                        <a href="javascript:;"> Terms of Service </a> &
-                        <a href="javascript:;"> Privacy Policy </a>
-                    </label>
-                    <div id="register_tnc_error"> </div>
-                </div>
-                <div class="form-actions">
-                    <button type="button" id="register-back-btn" class="btn btn-default">Back</button>
-                    <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
-                </div>
-            </form>
+<form class="form-horizontal" role="form" method="POST" action="{{ url('register') }}">
+    {{ csrf_field() }}
+    <input type="hidden" name="token" value="{{CSRF_TOKEN()}}">
+    <h3 class="font-green">Đăng ký</h3>
+    @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @endif
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Fullname</label>
+        <input class="form-control placeholder-no-fix" type="text" placeholder="Fullname" name="name"   value="{{ old('name') }}" required autofocus/> 
+        <span class="required" style="font-size:14px;"> {{$errors->first('name')}}</span>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Username</label>
+        <input class="form-control placeholder-no-fix" type="text" placeholder="Username" name="username"   value="{{  old('username') }}" required /> 
+        <span class="required" style="font-size:14px;"> {{$errors->first('username')}}</span>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Email</label>
+        <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"   value="{{ $email or old('email') }}" required /> 
+        <span class="required" style="font-size:14px;"> {{$errors->first('email')}}</span>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Password</label>
+        <input class="form-control placeholder-no-fix" type="password" placeholder="Password" name="password" required />
+        <span class="required" style="font-size:14px;"> {{$errors->first('password')}}</span>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Re-Password</label>
+        <input class="form-control placeholder-no-fix" type="password" placeholder="Re-password" name="password_confirmation" required />
+        <span class="required" style="font-size:14px;"> {{$errors->first('password_confirmation')}}</span>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6 col-md-offset-4">
+            <button type="submit" class="btn btn-primary">
+                Lưu
+            </button>
+        </div>
+    </div>
+</form>
 @endsection

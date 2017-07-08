@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Mail;
+use Session;
+use App\Mail\ActiveAccount;
 
 class UserController extends Controller
 {
@@ -33,6 +36,7 @@ class UserController extends Controller
             [
                 'username.required' => 'Bạn cần nhập username',
                 'username.unique' => 'username đã tồn tại',
+                'name.required' => 'Bạn cần nhập tên',
                 'email.required' => 'Bạn cần nhập email',
                 'email.unique' => 'email đã được sử dụng',
                 'email.email' => 'Định dạng email không hợp lệ',
@@ -40,21 +44,123 @@ class UserController extends Controller
                 'hinh_anh.mimes' => "Bạn chỉ có thể chọn ảnh có định dạng: jpeg,bmp,png,jpg",
                 'level.required' => 'Cần chọn quyền của người dùng'
             ]);
-    
+
+        $user = new User;
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->level = $request->level;
+        $user->email = $request->email;
+        $user->email_token = str_random(10);
+        $pass = str_random(6);
+        $user->password = bcrypt($pass); 
+
+        if($request->hasFile('hinh_anh')){
+            $file = $request->file('hinh_anh');
+            $duoi = $file->getClientOriginalExtension();
+
+            $name = $file->getClientOriginalName();
+            $hinh_anh = str_random(4)."_".$name;
+            while(file_exists("assets/upload/users".$hinh_anh)){
+                $hinh_anh = str_random(4)."_".$name;
+            }
+            $file->move("assets/upload/users",$hinh_anh);
+            $user->hinh_anh = $hinh_anh;
+        }
+        else{
+            $user->hinh_anh = "";
+        }
+        DB::beginTransaction();
+        try{
+            $user->save();
+            $id=$user->id;
+            $user1 = User::find($id);
+             Mail::to($request->email)->send(new ActiveAccount(
+                $request->name,
+                $request->email,
+                $request->username,
+                $pass,
+                url('user/verify/'.$user1->email_token)
+                ));
+            DB::commit();
+            Session::flash('message', 'Bạn đã nhận được mail xác nhận đăng ký tài khoản');
+            return redirect()->route('users.index');
+        }
+        catch(Exception $e)
+        {
+            DB::rollback(); 
+            return back();
+        }
     }
 
     public function edit($id) {
     	$user = User::find($id);
-    	return view('admin.user.sua', ['user' => $user]);
+    	return view('admin.manager_data.user.edit', ['user' => $user]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request, $id) {
+        $this->validate($request,
+            [
+                'username' => 'required',
+                'email' => 'required|email',
+                'hinh_anh' => 'image|mimes:jpeg,bmp,png,jpg',
+                'name' => 'required',
+                'level' => 'required'
+            ],
+            [
+                'username.required' => 'Bạn cần nhập username',
+                'username.unique' => 'username đã tồn tại',
+                'name.required' => 'Bạn cần nhập tên',
+                'email.required' => 'Bạn cần nhập email',
+                'email.unique' => 'email đã được sử dụng',
+                'email.email' => 'Định dạng email không hợp lệ',
+                'hinh_anh.image' => 'Bạn cần chọn 1 ảnh',
+                'hinh_anh.mimes' => "Bạn chỉ có thể chọn ảnh có định dạng: jpeg,bmp,png,jpg",
+                'level.required' => 'Cần chọn quyền của người dùng'
+            ]);
 
+        $user = User::find($id);
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->level = $request->level;
+        $user->email = $request->email;
+
+        $pass = '123456';
+        $user->password = bcrypt($pass);
+
+        if($request->hasFile('hinh_anh')){
+            $file = $request->file('hinh_anh');
+            $duoi = $file->getClientOriginalExtension();
+
+            $name = $file->getClientOriginalName();
+            $hinh_anh = str_random(4)."_".$name;
+            while(file_exists("assets/upload/users".$hinh_anh)){
+                $hinh_anh = str_random(4)."_".$name;
+            }
+            $file->move("assets/upload/users",$hinh_anh);
+            $user->hinh_anh = $hinh_anh;
+        } else {
+            $user->hinh_anh = "";
+        }
+
+        $user->save();
+        return redirect()->back()->with('message',"Bạn đã sửa user thành công");
     }
 
     public function destroy($id) {
     	$user = User::find($id);
     	$user->delete();
-    	return redirect('admin/user/danh-sach');
+    	return $user->toJson();
+    }
+    public function verify_user_mo($token)
+    {
+        $useractive = User::where('email_token', $token)->first();
+        if($useractive == null) {
+            Session::flash('message','Tài khoản đã kích hoạt!!!');
+        } else {
+            $useractive->verified();
+            Session::flash('message', 'Bạn đã kích hoạt thành công. Hãy đăng nhập tại đây!!!');
+        }
+       
+       return redirect()->route('login');
     }
 }

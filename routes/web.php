@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/login', 'Auth\LoginController@getLogin')->name('login');
 Route::post('/login', 'Auth\LoginController@postLogin')->name('login');
@@ -24,14 +22,24 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-
+Route::get('register','Auth\RegisterController@showRegistrationForm');
+Route::post('register','Auth\RegisterController@register');
+Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
+Route::get('user/verify/{token}', 'Manager\UserController@verify_user_mo');
 
 Route::get('abc',function(){
 	 return bcrypt('123456');
 });
-
-Route::get('trangchu','PageController\PageController@TrangChu');
+Route::get('trangchu','PageController\PageController@TrangChu')->name('home');
 Route::get('tintuc','PageController\PageController@TinTuc');
 Route::get('lienhe','PageController\PageController@LienHe');
 Route::get('detail','PageController\PageController@Detail');
 Route::get('cauhoithuonggap','PageController\PageController@Cauhoithuonggap');
+
+Route::get('gioithieuchung','PageController\PageController@GioiThieuChung');
+Route::get('vitrichucnang','PageController\PageController@ViTriChucNang');
+Route::get('sumenhtamnhin','PageController\PageController@SuMenhTamNhin');
+Route::get('doingutrungtam','PageController\PageController@DoiNguTrungTam');
+Route::get('cocau','PageController\PageController@CaoCau');
+Route::get('chuyengia','PageController\PageController@ChuyenGia');
+Route::get('tuyendung','PageController\PageController@TuyenDung');

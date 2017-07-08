@@ -17,9 +17,8 @@
             <img id="profile-img" class="profile-img-card" src="/storage/app/public/media/logo.png" />
             <form id="auth_login" method="post" class="form-signin">
                 
-				<label>Link tạo mật khẩu mới đã gửi đến mail: <span class="text-success">{{$email}}</span></label>
-                <input name="_token" value="{{csrf_token()}}" hidden>
-                <a href="/dat-lai-mat-khau"><button id="dauth_login" class="btn btn-lg btn-primary btn-block btn-signin" type="button">Thực hiện lại</button></a>
+				<p class="text-success">Đã kích hoạt tài khoản <span class="semi-bold">{{$username}} thành công! </span> !</p>
+                <a href="{{url('ntbic-admin/dang-nhap')}}"><button id="dauth_login" class="btn btn-lg btn-danger btn-block btn-signin" type="button">Đăng nhập ngay</button></a>
             </form><!-- /form -->
         </div><!-- /card-container -->
     </div><!-- /container -->
@@ -27,3 +26,5 @@
 <script src="/public/js/my_jquery.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
+
+    

@@ -33,7 +33,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="username" data-required="1" class="form-control" />
+                                <input type="text" name="username" data-required="1" class="form-control" value="{{old('username')}}" />
                                 <span class="required"> {{$errors->first('username')}}</span>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <select class="form-control select2me" name="loai_tin">
+                                <select class="form-control select2me" name="level">
                                     <option value="1">Admin</option>
                                     <option value="2">Moderator</option>
                                 </select>
@@ -54,7 +54,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="name" data-required="1" class="form-control" />
+                                <input type="text" name="name" data-required="1" class="form-control" value="{{old('name')}}" />
                                 <span class="required"> {{$errors->first('name')}}</span>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="email" data-required="1" class="form-control" />
+                                <input type="text" name="email" data-required="1" class="form-control" value="{{old('email')}}" />
                                 <span class="required"> {{$errors->first('email')}}</span>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                 <label for="exampleInputFile" class="col-md-3 control-label">Avatar
                                 </label>
                                 <div class="col-md-9">
-                                    <input type="file" name="hinh_anh" class="form-control" multiple>
+                                    <input type="file" name="hinh_anh" class="form-control" value="{{old('hinh_anh')}}" multiple>
                                     <span class="required"> {{$errors->first('hinh_anh')}}</span>
                                 </div>
                         </div>

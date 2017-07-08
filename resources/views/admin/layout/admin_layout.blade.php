@@ -122,7 +122,7 @@
                         </li>
                         @if(Auth::user()->level == 1)
                         <li class="nav-item  ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
+                            <a href="{{route('users.index')}}" class="nav-link nav-toggle">
                                 <i class="icon-briefcase"></i>
                                 <span class="title">Quản trị người dùng</span>
                             </a>
@@ -148,6 +148,11 @@
                                 <li class="nav-item" id="active-su-kien">
                                     <a href="{!! url('admin/su-kien') !!}" class="nav-link ">
                                         <span class="title">Sự kiện</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="active-loai-doi-tac">
+                                    <a href="{!! url('admin/loai-doi-tac') !!}" class="nav-link ">
+                                        <span class="title">Loại đối tác</span>
                                     </a>
                                 </li>
                                 <li class="nav-item" id="active-doi-tac">

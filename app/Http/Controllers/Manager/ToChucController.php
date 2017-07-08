@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\to_chuc;
+use App\ToChuc;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ToChucRequest;
 use File;
@@ -16,76 +16,90 @@ class ToChucController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
-    {
-        $to_chuc =DB::table('to_chuc')->paginate(10);
-        return view('admin.manager_data.to_chuc.index',['tochuc' => $to_chuc]);
+    public function index() {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $to_chuc = ToChuc::paginate(10);
+         $count= DB::table('to_chuc')->count();
+        return view('admin.manager_data.to_chuc.index',['tochuc' => $to_chuc, 'count'=>$count,'locale'=>$locale]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $count= DB::table('to_chuc')->count();
+        if($count == 0){
+            if (!session()->has('language')) {
+                session(['language'=>'vi']);
+            }
+            $locale = session()->get('language');
+            return view('admin.manager_data.to_chuc.create',['locale'=>$locale]);
+        }
+        if($count >=1){
+            echo "Bạn đã khỏi tạo thông tin tổ chức.(Chỉ được 1 lần tạo)";
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(ToChucRequest $request) {
+        app()->setlocale($request->locale);
+        $to_chuc = new ToChuc;
+        $to_chuc->slug="ntbic";
+        $to_chuc->GioiThieuChung = $request->gioi_thieu_chung;
+        $to_chuc->ViTriChucNang=$request->vi_tri_chuc_nang;
+        $to_chuc->SuMenhTamNhin=$request->su_menh_tam_nhin;
+        $to_chuc->CoCau=$request->co_cau;
+        $to_chuc->DoiNguTrungTam=$request->doi_ngu_trung_tam;
+        $to_chuc->save();
+        return redirect()->route('to-chuc.index')->with('message','Bạn đã tạo thành công thông tin tổ chức');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show($id)
-    {
-        //
-    }
+    public function edit($id) {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {  
-       // $to_chuc_edit =to_chuc::find($id);
-        $to_chuc_edit=DB::table('to_chuc')->where('id','1')->get();
-        return view('admin.manager_data.to_chuc.index', ['tochucedit' => $to_chuc_edit]);
-    }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $to_chuc = ToChuc::find($id);
+        return view('admin.manager_data.to_chuc.edit', ['tochuc' => $to_chuc, 'locale'=>$locale]);
+    } 
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(ToChucRequest $request, $id)
-    {
-        
-        $to_chuc = to_chuc::find($id);
-        $to_chuc->gioithieuchung=$request->gioithieuchung;
-        $to_chuc->vitrichucnang=$request->vitrichucnang;
-        $to_chuc->sumenhtamnhin=$request->sumenhtamnhin;
-        $to_chuc->cocau=$request->cocau;
-        $to_chuc->doingutrungtam=$request->doingutrungtam;
+    public function update(ToChucRequest $request,$id) {
+        app()->setlocale($request->locale);
+        $to_chuc = ToChuc::find($id);
+        $to_chuc->GioiThieuChung = $request->gioi_thieu_chung;
+        $to_chuc->ViTriChucNang=$request->vi_tri_chuc_nang;
+        $to_chuc->SuMenhTamNhin=$request->su_menh_tam_nhin;
+        $to_chuc->CoCau=$request->co_cau;
+        $to_chuc->DoiNguTrungTam=$request->doi_ngu_trung_tam;
         $to_chuc->save();
+
         return Redirect::back()->with('message', 'Bạn đã sửa thông tin tổ chức thành công');
     }
 
@@ -93,10 +107,9 @@ class ToChucController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+       
     }
 }

@@ -21,7 +21,6 @@ class CreateToChucTranslationTable extends Migration
             $table->longText('SuMenhTamNhin')->nullable();
             $table->longText('CoCau')->nullable();
             $table->longText('DoiNguTrungTam')->nullable();
-            $table->string('slug');
             $table->string('locale');
             $table->unique(['to_chuc_id','locale']);
             $table->foreign('to_chuc_id')->references('id')->on('to_chuc')->onDelete('cascade');
