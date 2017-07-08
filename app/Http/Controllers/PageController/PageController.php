@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\DB;
 class PageController extends Controller
 {
 	public function TrangChu(){
-		return view('pages.trangchu');
+		if (!session()->has('language')) {
+             session(['language'=>'vi']);
+        }
+ 
+    	$locale = session()->get('language');
+ 		app()->setlocale($locale);
+ 		return view('pages.trangchu')->with('locale',$locale);
 	}
 
 	public function TinTuc(){
