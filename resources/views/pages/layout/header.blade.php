@@ -54,11 +54,3 @@
 	    </div>
   	</div>
 </nav> <!-- navigation -->
-<div class="row" style="float:right; background-color:#DCDCDC">
-	<div class="lang col-md-12" style="float:right; background-color:#DCDCDC; width:100%">
-        <select id="locale" class="form-control select2me" name="locale" data-locale="{{$locale}}">                  	    <option id="vi" value="vi">Tiếng Việt</option>
-            <option id="en" value="en">Tiếng Anh</option>
-        </select>
-    </div>
-</div>
- <!-- flag of pages -->
