@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a id="namepage" href="#" class="active">Thông tin tổ chức</a>
+<a id="namepage" href="#" class="active">Tổ chức</a>
 @endsection
 
 @section('main')
@@ -12,16 +12,18 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Bảng thông tin tổ chức</span>
+                    <span class="caption-subject bold uppercase"> Thông tin tổ chức</span>
                 </div>
             </div>
             <div class="portlet-body">
                 <div class="table-toolbar">
                     <div class="row">
                         <div class="col-md-6">
+                            @if ($count==0)
                             <div class="btn-group">
-                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm loại tin</a>
+                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Tạo thông tin tổ chức</a>
                             </div>
+                            @endif
                         </div>
                         <div class="col-md-6">
                             <div class="btn-group pull-right">
@@ -38,34 +40,49 @@
                     <button class="close" data-close="alert"></button>{{session('message')}}</div>
                 @endif
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
-                    <thead>
-                        <tr>
-                            <th> ID </th>
-                            <th> Loại tin</th>
-                            <th> Sửa </th>
-                            <th> Xóa </th>
-                        </tr>
-                    </thead>
                     <tbody>
-                    @foreach($loaitin as $item)
+                        @foreach($tochuc as $item)
                         <tr class="odd gradeX">
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->Ten}}</td>
-                            <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
-                            <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+                            <td ></td>
+                            <td style="float:right"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" > Chỉnh sửa</span></a></div></td>
                         </tr>
-                    @endforeach
-                    </tbody>
+                        <tr class="odd gradeX">
+                            <td width="200px">Giới thiệu chung</td>
+                            <td colspan="3">{{$item->GioiThieuChung}}</td> 
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td  width="200px">Vị trí chức năng</td>
+                            <td colspan="3">{{$item->ViTriChucNang}}</td> 
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td  width="200px">Sứ mệnh tầm nhìn</td>
+                            <td colspan="3">{{$item->SuMenhTamNhin}}</td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td  width="200px">Cơ cấu</td>
+                            <td colspan="3">{{$item->CoCau}}</td> 
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td  width="200px">Đội ngũ trung tâm</td>
+                            <td colspan="3">{{$item->DoiNguTrungTam}}</td>
+                        </tr>
+
+                        @endforeach
+                    </tbody> 
                 </table>
-                {!! $loaitin->links() !!} 
+                {!! $tochuc->links() !!} 
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-
 @endsection
 @section('js')
    <script src="/js/pathIndex.js"></script>
    <script src="/js/ajaxRequestLocale.js"></script>
+   <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-to-chuc").addClass("active");
+    </script>
 @endsection

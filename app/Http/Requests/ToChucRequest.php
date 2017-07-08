@@ -32,11 +32,11 @@ class ToChucRequest extends FormRequest
     }
      public function messages() {
         return [
-            'gioi_thieu_chung' => 'Bạn cần nhập Giới thiệu chung',
-            'vi_tri_chuc_nang' => 'Bạn cần nhập Vị trí, chức năng',
-            'su_menh_tam_nhin' => 'Bạn cần nhập Sứ mệnh tầm nhìn',
-            'co_cau' => 'Bạn cần nhập Cơ cấu',
-            'doi_ngu_trung_tam' => 'Bạn cần nhập Đội ngũ trung tâm',
+            'gioi_thieu_chung.required' => 'Bạn cần nhập Giới thiệu chung',
+            'vi_tri_chuc_nang.required' => 'Bạn cần nhập Vị trí, chức năng',
+            'su_menh_tam_nhin.required' => 'Bạn cần nhập Sứ mệnh tầm nhìn',
+            'co_cau.required' => 'Bạn cần nhập Cơ cấu',
+            'doi_ngu_trung_tam.required' => 'Bạn cần nhập Đội ngũ trung tâm',
         ];
     }
 }
