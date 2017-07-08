@@ -35,3 +35,4 @@ Route::get('tintuc','PageController\PageController@TinTuc');
 Route::get('lienhe','PageController\PageController@LienHe');
 Route::get('detail','PageController\PageController@Detail');
 Route::get('cauhoithuonggap','PageController\PageController@Cauhoithuonggap');
+Route::post('/change-language','SessionController@changeLanguage');

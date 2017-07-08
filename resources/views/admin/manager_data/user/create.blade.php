@@ -102,4 +102,8 @@
             $('#createForm').attr('action',create_path);
         });
     </script>
+
+    <script type="text/javascript">
+      $("#active-user").addClass("active");
+    </script>
 @endsection

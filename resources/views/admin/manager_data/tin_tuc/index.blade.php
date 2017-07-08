@@ -45,6 +45,7 @@
                             <th> Tóm tắt </th>
                             <th> Hình ảnh </th>
                             <th> Loại tin</th>
+                            <th> Nổi bật </th>
                             <th> Xem </th>
                             <th> Sửa </th>
                             <th> Xóa </th>
@@ -58,6 +59,11 @@
                             <td>{!! $item->TomTat !!}</td>
                             <td><img src="assets/upload/tin_tuc/{{$item->HinhAnh}}" height="100"></td>
                             <td>{{\App\LoaiTin::find($item->loai_tin_id)->Ten}}</td>
+                            @if($item->status == 1)
+                                <td> Có </td>
+                            @else
+                                <td> Không </td>
+                            @endif
                             <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
                             <td class="center"><div ><a class='edit' href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
@@ -116,6 +122,12 @@
                 });
             });
         });
+    </script>
+
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-tin-tuc").addClass("active");
     </script>
 
     <script src="/js/pathIndex.js"></script>

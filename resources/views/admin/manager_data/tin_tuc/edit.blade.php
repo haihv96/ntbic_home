@@ -161,4 +161,10 @@
             });
         });
     </script>
+
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-tin-tuc").addClass("active");
+    </script>
 @endsection

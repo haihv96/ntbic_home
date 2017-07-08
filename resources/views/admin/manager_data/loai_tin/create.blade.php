@@ -66,5 +66,11 @@
 @section('js')
     <script src="/js/path.js"></script>
     <script src="/js/ajaxRequestLocale.js"></script>
+
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-loai-tin").addClass("active");
+    </script>
 @endsection
 

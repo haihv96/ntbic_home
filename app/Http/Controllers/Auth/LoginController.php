@@ -55,11 +55,11 @@ class LoginController extends Controller
                 'password.required'=>'Bạn chưa nhập password',
             ]);
 
-       if (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>1])) {
+       if (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>1,'verified'=>1])) {
             return redirect('admin');
-        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>2])) {
+        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>2,'verified'=>1])) {
             return redirect('moderator');
-        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>3])) {
+        } elseif (Auth::attempt(['username' => $request->username, 'password' => $request->password,'level'=>3,'verified'=>1])) {
             return redirect()->route('home');
         } else {
             return redirect()->back()->withInput();

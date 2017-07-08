@@ -59,8 +59,8 @@
                         <!-- PROFILE -->
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="" class="img-circle" src="{{  URL::asset('assets/layouts/layout/img/avatar3_small.jpg') }}" />
-                                <span class="username username-hide-on-mobile"> Nick </span>
+                                <img alt="" class="img-circle" src="{!!  url('assets/upload/users/'.Auth::user()->hinh_anh) !!}" />
+                                <span class="username username-hide-on-mobile uppercase"> {{Auth::user()->name}} </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
@@ -121,7 +121,7 @@
                             <h3 class="uppercase">Nội dung </h3>
                         </li>
                         @if(Auth::user()->level == 1)
-                        <li class="nav-item  ">
+                        <li class="nav-item" id="active-user">
                             <a href="{{route('users.index')}}" class="nav-link nav-toggle">
                                 <i class="icon-briefcase"></i>
                                 <span class="title">Quản trị người dùng</span>
@@ -136,54 +136,114 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item" id="active-loai-tin">
-                                    <a href="{!! url('admin/loai-tin') !!}" class="nav-link ">
-                                        <span class="title">Loại tin</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.loai-tin.index')}}" class="nav-link ">
+                                            <span class="title">Loại tin</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('loai-tin.index')}}" class="nav-link ">
+                                            <span class="title">Loại tin</span>
+                                        </a>
+                                    @endif                                 
                                 </li>
                                 <li class="nav-item" id="active-tin-tuc">
-                                    <a href="{!! url('admin/tin-tuc') !!}" class="nav-link ">
-                                        <span class="title">Tin tức</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1) 
+                                        <a href="{{route('admin.tin-tuc.index')}}" class="nav-link ">
+                                            <span class="title">Tin tức</span>
+                                        </a>
+                                    @else 
+                                        <a href="{{route('tin-tuc.index')}}" class="nav-link ">
+                                            <span class="title">Tin tức</span>
+                                        </a>
+                                    @endif
                                 </li>
                                 <li class="nav-item" id="active-su-kien">
-                                    <a href="{!! url('admin/su-kien') !!}" class="nav-link ">
-                                        <span class="title">Sự kiện</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.su-kien.index')}}" class="nav-link ">
+                                            <span class="title">Sự kiện</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('su-kien.index')}}" class="nav-link ">
+                                            <span class="title">Sự kiện</span>
+                                        </a>
+                                    @endif
                                 </li>
                                 <li class="nav-item" id="active-loai-doi-tac">
-                                    <a href="{!! url('admin/loai-doi-tac') !!}" class="nav-link ">
-                                        <span class="title">Loại đối tác</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.loai-doi-tac.index')}}" class="nav-link ">
+                                            <span class="title">Loại đối tác</span>
+                                        </a>
+                                    @else
+                                        <a href="{{url('/loai-doi-tac.index')}}" class="nav-link ">
+                                            <span class="title">Loại đối tác</span>
+                                        </a>
+                                    @endif
                                 </li>
                                 <li class="nav-item" id="active-doi-tac">
-                                    <a href="{!! url('admin/doi-tac') !!}" class="nav-link ">
-                                        <span class="title">Đối tác</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.doi-tac.index')}}" class="nav-link ">
+                                            <span class="title">Đối tác</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('doi-tac.index')}}" class="nav-link ">
+                                            <span class="title">Đối tác</span>
+                                        </a>
+                                    @endif
                                 </li>
                                 <li class="nav-item" id="active-cong-nghe">
-                                    <a href="{!! url('admin/cong-nghe') !!}" class="nav-link ">
-                                        <span class="title">Công nghệ</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.cong-nghe.index')}}" class="nav-link ">
+                                            <span class="title">Công nghệ</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('cong-nghe.index')}}" class="nav-link ">
+                                            <span class="title">Công nghệ</span>
+                                        </a>
+                                    @endif
                                 </li>
                                 <li class="nav-item" id="active-to-chuc">
-                                    <a href="{!! url('admin/to-chuc') !!}" class="nav-link ">
-                                        <span class="title">Tổ chức</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.to-chuc.index')}}" class="nav-link ">
+                                            <span class="title">Tổ chức</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('to-chuc.index')}}" class="nav-link ">
+                                            <span class="title">Tổ chức</span>
+                                        </a>
+                                    @endif
                                 </li>
                                 <li class="nav-item" id="active-chuyen-gia">
-                                    <a href="{!! url('admin/chuyen-gia') !!}" class="nav-link ">
-                                        <span class="title">Chuyên gia</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.chuyen-gia.index')}}" class="nav-link ">
+                                            <span class="title">Chuyên gia</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('chuyen-gia.index')}}" class="nav-link ">
+                                            <span class="title">Chuyên gia</span>
+                                        </a>
+                                    @endif
                                 </li>
                                 <li class="nav-item" id="active-cau-hoi-thuong-gap">
-                                    <a href="{!! url('admin/cau-hoi-thuong-gap') !!}" class="nav-link ">
-                                        <span class="title">Câu hỏi thường gặp</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.cau-hoi-thuong-gap.index')}}" class="nav-link ">
+                                            <span class="title">Câu hỏi thường gặp</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('cau-hoi-thuong-gap.index')}}" class="nav-link ">
+                                            <span class="title">Câu hỏi thường gặp</span>
+                                        </a>
+                                    @endif
                                 </li>
                                 <li class="nav-item" id="active-tuyen-dung">
-                                    <a href="{!! url('admin/tuyen-dung') !!}" class="nav-link ">
-                                        <span class="title">Tuyển dụng</span>
-                                    </a>
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.tuyen-dung.index')}}" class="nav-link ">
+                                            <span class="title">Tuyển dụng</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('tuyen-dung.index')}}" class="nav-link ">
+                                            <span class="title">Tuyển dụng</span>
+                                        </a>
+                                    @endif
                                 </li>
                             </ul>
                         </li>
