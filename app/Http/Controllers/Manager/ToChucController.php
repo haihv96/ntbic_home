@@ -26,7 +26,8 @@ class ToChucController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $to_chuc = ToChuc::paginate(10);
-        return view('admin.manager_data.to_chuc.index',['tochuc' => $to_chuc, 'locale'=>$locale]);
+         $count= DB::table('to_chuc')->count();
+        return view('admin.manager_data.to_chuc.index',['tochuc' => $to_chuc, 'count'=>$count,'locale'=>$locale]);
     }
 
     /**
@@ -35,11 +36,17 @@ class ToChucController extends Controller
      * @return Response
      */
     public function create() {
-        if (!session()->has('language')) {
-            session(['language'=>'vi']);
+        $count= DB::table('to_chuc')->count();
+        if($count == 0){
+            if (!session()->has('language')) {
+                session(['language'=>'vi']);
+            }
+            $locale = session()->get('language');
+            return view('admin.manager_data.to_chuc.create',['locale'=>$locale]);
         }
-        $locale = session()->get('language');
-        return view('admin.manager_data.cau_hoi_thuong_gap.create',['locale'=>$locale]);
+        if($count >=1){
+            echo "Bạn đã khỏi tạo thông tin tổ chức.(Chỉ được 1 lần tạo)";
+        }
     }
 
     /**
@@ -47,14 +54,17 @@ class ToChucController extends Controller
      *
      * @return Response
      */
-    public function store(CauHoiThuongGapRequest $request) {
+    public function store(ToChucRequest $request) {
         app()->setlocale($request->locale);
-        $cau_hoi = new CauHoi;
-        $cau_hoi->CauHoi = $request->CauHoi;
-        $cau_hoi->Slug = changeTitle($request->CauHoi);
-        $cau_hoi->CauTraLoi = $request->CauTraLoi;
-        $cau_hoi->save();
-        return redirect()->route('cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
+        $to_chuc = new ToChuc;
+        $to_chuc->slug="ntbic";
+        $to_chuc->GioiThieuChung = $request->gioi_thieu_chung;
+        $to_chuc->ViTriChucNang=$request->vi_tri_chuc_nang;
+        $to_chuc->SuMenhTamNhin=$request->su_menh_tam_nhin;
+        $to_chuc->CoCau=$request->co_cau;
+        $to_chuc->DoiNguTrungTam=$request->doi_ngu_trung_tam;
+        $to_chuc->save();
+        return redirect()->route('to-chuc.index')->with('message','Bạn đã tạo thành công thông tin tổ chức');
     }
 
     /**
@@ -70,8 +80,8 @@ class ToChucController extends Controller
 
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $cau_hoi = CauHoi::find($id);
-        return view('admin.manager_data.cau_hoi_thuong_gap.edit', ['cauhoi' => $cau_hoi, 'locale'=>$locale]);
+        $to_chuc = ToChuc::find($id);
+        return view('admin.manager_data.to_chuc.edit', ['tochuc' => $to_chuc, 'locale'=>$locale]);
     } 
 
     /**
@@ -80,15 +90,17 @@ class ToChucController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(CauHoiThuongGapRequest $request,$id) {
+    public function update(ToChucRequest $request,$id) {
         app()->setlocale($request->locale);
-        $cau_hoi = CauHoi::find($id);
-        $cau_hoi->CauHoi = $request->CauHoi;
-        $cau_hoi->Slug = changeTitle($request->CauHoi);
-        $cau_hoi->CauTraLoi = $request->CauTraLoi;
-        $cau_hoi->save();
+        $to_chuc = ToChuc::find($id);
+        $to_chuc->GioiThieuChung = $request->gioi_thieu_chung;
+        $to_chuc->ViTriChucNang=$request->vi_tri_chuc_nang;
+        $to_chuc->SuMenhTamNhin=$request->su_menh_tam_nhin;
+        $to_chuc->CoCau=$request->co_cau;
+        $to_chuc->DoiNguTrungTam=$request->doi_ngu_trung_tam;
+        $to_chuc->save();
 
-        return Redirect::back()->with('message', 'Bạn đã sửa câu hỏi thường gặp thành công');
+        return Redirect::back()->with('message', 'Bạn đã sửa thông tin tổ chức thành công');
     }
 
     /**

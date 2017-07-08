@@ -35,3 +35,11 @@ Route::get('tintuc','PageController\PageController@TinTuc');
 Route::get('lienhe','PageController\PageController@LienHe');
 Route::get('detail','PageController\PageController@Detail');
 Route::get('cauhoithuonggap','PageController\PageController@Cauhoithuonggap');
+
+Route::get('gioithieuchung','PageController\PageController@GioiThieuChung');
+Route::get('vitrichucnang','PageController\PageController@ViTriChucNang');
+Route::get('sumenhtamnhin','PageController\PageController@SuMenhTamNhin');
+Route::get('doingutrungtam','PageController\PageController@DoiNguTrungTam');
+Route::get('cocau','PageController\PageController@CaoCau');
+Route::get('chuyengia','PageController\PageController@ChuyenGia');
+Route::get('tuyendung','PageController\PageController@TuyenDung');
