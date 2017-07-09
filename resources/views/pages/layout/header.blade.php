@@ -29,9 +29,9 @@
 				</li>
 		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tin tức <span class="caret"></span></a>
 			        <ul class="dropdown-menu">
-			          <li><a href="tintuc">Page 1-1</a></li>
-			          <li><a href="tintuc">Page 1-2</a></li>
-			          <li><a href="tintuc">Page 1-3</a></li>
+			          <li><a href="tintuc">Công nghệ</a></li>
+			          <li><a href="tintuc">Khởi nghiệp</a></li>
+			          <li><a href="tintuc">Doah nghiệp</a></li>
 			        </ul>
 				</li>
 		      	<li><a href="#">Sự kiện</a></li>

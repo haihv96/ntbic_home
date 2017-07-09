@@ -48,23 +48,23 @@
                         </tr>
                         <tr class="odd gradeX">
                             <td width="200px">Giới thiệu chung</td>
-                            <td colspan="3">{{$item->GioiThieuChung}}</td> 
+                            <td colspan="3">{!!$item->GioiThieuChung!!}</td> 
                         </tr>
                         <tr class="odd gradeX">
                             <td  width="200px">Vị trí chức năng</td>
-                            <td colspan="3">{{$item->ViTriChucNang}}</td> 
+                            <td colspan="3">{!!$item->ViTriChucNang!!}</td> 
                         </tr>
                         <tr class="odd gradeX">
                             <td  width="200px">Sứ mệnh tầm nhìn</td>
-                            <td colspan="3">{{$item->SuMenhTamNhin}}</td>
+                            <td colspan="3">{!!$item->SuMenhTamNhin!!}</td>
                         </tr>
                         <tr class="odd gradeX">
                             <td  width="200px">Cơ cấu</td>
-                            <td colspan="3">{{$item->CoCau}}</td> 
+                            <td colspan="3">{!!$item->CoCau!!}</td> 
                         </tr>
                         <tr class="odd gradeX">
                             <td  width="200px">Đội ngũ trung tâm</td>
-                            <td colspan="3">{{$item->DoiNguTrungTam}}</td>
+                            <td colspan="3">{!!$item->DoiNguTrungTam!!}</td>
                         </tr>
 
                         @endforeach

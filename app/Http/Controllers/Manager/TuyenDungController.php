@@ -23,7 +23,7 @@ class TuyendungController extends Controller
 
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $tuyen_dung= TuyenDung::paginate(10);
+        $tuyen_dung= TuyenDung::paginate(1);
         return view('admin.manager_data.tuyen_dung.index',['tuyendung' => $tuyen_dung, 'locale'=>$locale]);
     }
 

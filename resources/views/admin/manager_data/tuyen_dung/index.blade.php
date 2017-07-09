@@ -54,7 +54,7 @@
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{{$item->MoTa}}</td>
-                            <td>{{$item->NoiDungTuyenDung}}</td>
+                            <td>{!!$item->NoiDungTuyenDung!!}</td>
                             <td>{{$item->NgayBatDau}}</td>
                             <td>{{$item->NgayKetThuc}}</td>
                             <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
