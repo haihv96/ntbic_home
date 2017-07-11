@@ -52,7 +52,7 @@ Route::get('tin-tuc','PageController\TinTucController@allNews');
 // show all news of  a kind
 Route::get('tin-tuc/{slug}','PageController\TinTucController@newsOfKind');
 //show detail one new
-Route::get('{slug_loai_tin}/{slug_tin_tuc}','PageController\TinTucController@detailsNew');
+Route::get('tin-tuc/{slug_loai_tin}/{slug_tin_tuc}','PageController\TinTucController@detailsNew');
 //show all su kien
 Route::get('su-kien','PageController\SuKienController@danhSachSuKien');
 Route::get('su-kien/{slug}','PageController\SuKienController@detailsSuKien');
