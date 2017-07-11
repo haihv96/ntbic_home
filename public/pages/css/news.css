@@ -8,6 +8,8 @@
 }
 
 .img-responsive{	
+	width: 200px;
+	height: 300px;
 }
 .listnews_item_title {
 	font-size: 100%;

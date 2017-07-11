@@ -31,7 +31,7 @@ Route::get('abc',function(){
 	 return bcrypt('123456');
 });
 Route::get('trangchu','PageController\PageController@TrangChu')->name('home');
-Route::get('tintuc','PageController\PageController@TinTuc');
+//Route::get('tintuc','PageController\PageController@TinTuc');
 Route::get('lienhe','PageController\PageController@LienHe');
 Route::get('detail','PageController\PageController@Detail');
 Route::get('cauhoithuonggap','PageController\PageController@Cauhoithuonggap');
@@ -44,8 +44,16 @@ Route::get('sumenhtamnhin','PageController\PageController@SuMenhTamNhin');
 Route::get('doingutrungtam','PageController\PageController@DoiNguTrungTam');
 Route::get('cocau','PageController\PageController@CoCau');
 Route::get('chuyengia','PageController\PageController@ChuyenGia');
+
 Route::get('tuyendung','PageController\PageController@TuyenDung');
-//Route::resource('tuyendung','PageController\TuyenDungPageController',['names' => [
-//	'index' => 'tuyendung.index'
-//]]);
 Route::get('tuyendung/{slug}','PageController\PageController@DetailsTuyenDung');
+// show all news of all of kind
+Route::get('tintuc','PageController\TinTucController@allNews');
+// show all news of  a kind
+Route::get('tintuc/{slug}','PageController\TinTucController@newsOfKind');
+//show detail one new
+Route::get('tintuc/{slug_loai_tin}/{slug_tin_tuc}','PageController\TinTucController@detailsNew');
+//show all su kien
+
+Route::get('sukien','PageController\SuKienController@danhSachSuKien');
+Route::get('sukien/{slug}','PageController\SuKienController@detailsSuKien');

@@ -18,8 +18,8 @@
 	    	</div>
 	    	<div class="row">
 		    	<div class="date-detail-news">
-		    		<span>Ngày bắt đấu: 20/06/2017</span>
-		    		<span>Ngày kết thúc: 20/06/2017<span>
+		    		Ngày bắt đầu:<span> {{substr($tuyendung->NgayBatDau,0,11)}}     </span>  
+		    		Ngày kết thúc:<span> {{substr($tuyendung->NgayKetThuc,0,11)}}</span>
 		    	</div>
 	    	</div>
     	</div>

@@ -17,16 +17,15 @@ class PageController extends Controller
 		if (!session()->has('language')) {
              session(['language'=>'vi']);
         }
- 
     	$locale = session()->get('language');
  		app()->setlocale($locale);
  		return view('pages.trangchu')->with('locale',$locale);
 	}
 
-	public function TinTuc(){
+	// public function TinTuc(){
 
-		return view('pages.tintuc');
-	}
+	// 	return view('pages.tintuc');
+	// }
 
 	public function LienHe(){
 		return view('pages.lienhe');
@@ -41,8 +40,8 @@ class PageController extends Controller
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $cau_hoi = CauHoi::paginate(10)->where('CauHoi','<>','');
-		return view('pages.cauhoithuonggap',['cauhoi'=>$cau_hoi,'locale'=>$locale]);
+        $cau_hoi = CauHoi::paginate(10);
+		return view('pages.to_chuc.cauhoithuonggap',['cauhoi'=>$cau_hoi,'locale'=>$locale]);
 	}
 	public function GioiThieuChung(){
 		if (!session()->has('language')) {
@@ -51,7 +50,7 @@ class PageController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $to_chuc= ToChuc::first();
-		return view('pages.gioithieuchung',['tochuc'=>$to_chuc,'locale'=>$locale]);
+		return view('pages.to_chuc.gioithieuchung',['tochuc'=>$to_chuc,'locale'=>$locale]);
 	}
 	public function ViTriChucNang(){
 		if (!session()->has('language')) {
@@ -60,7 +59,7 @@ class PageController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $to_chuc= ToChuc::first();
-		return view('pages.vitrichucnang',['tochuc'=>$to_chuc,'locale'=>$locale]);
+		return view('pages.to_chuc.vitrichucnang',['tochuc'=>$to_chuc,'locale'=>$locale]);
 	}
 	public function SuMenhTamNhin(){
 		if (!session()->has('language')) {
@@ -69,7 +68,7 @@ class PageController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $to_chuc= ToChuc::first();
-		return view('pages.sumenhtamnhin',['tochuc'=>$to_chuc,'locale'=>$locale]);
+		return view('pages.to_chuc.sumenhtamnhin',['tochuc'=>$to_chuc,'locale'=>$locale]);
 	}
 	public function CoCau(){
 		if (!session()->has('language')) {
@@ -78,7 +77,7 @@ class PageController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $to_chuc= ToChuc::first();
-		return view('pages.cocau',['tochuc'=>$to_chuc,'locale'=>$locale]);
+		return view('pages.to_chuc.cocau',['tochuc'=>$to_chuc,'locale'=>$locale]);
 	}
 	public function DoiNguTrungTam(){
 		if (!session()->has('language')) {
@@ -87,7 +86,7 @@ class PageController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $to_chuc= ToChuc::first();
-		return view('pages.doingutrungtam',['tochuc'=>$to_chuc,'locale'=>$locale]);
+		return view('pages.to_chuc.doingutrungtam',['tochuc'=>$to_chuc,'locale'=>$locale]);
 	}
 	public function TuyenDung(){
 		if (!session()->has('language')) {
@@ -105,7 +104,6 @@ class PageController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $tuyen_dung= TuyenDung::where('slug', $slug)->first();
-;
 		return view('pages.tuyen_dung.show',['tuyendung'=>$tuyen_dung,'locale'=>$locale]);
 	}
 
