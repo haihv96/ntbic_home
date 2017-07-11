@@ -35,3 +35,8 @@ Route::resource('chuyen-gia','Manager\ChuyenGiaController',['names' => [
 ]]);
 Route::resource('users','Manager\UserController');
 
+Route::get('profile','Manager\UserController@getProfile')->name('admin.profile');
+Route::post('profile-account','Manager\UserController@updateProfile');
+Route::post('profile-avatar','Manager\UserController@updateAvatar');
+Route::post('profile-password','Manager\UserController@updatePassword');
+

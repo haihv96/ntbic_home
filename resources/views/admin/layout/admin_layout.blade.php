@@ -21,6 +21,7 @@
         <link href="{{ URL::asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="{{ URL::asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') }}" rel="stylesheet" type="text/css" />        
         <link href="{{ URL::asset('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ URL::asset('assets/global/plugins/morris/morris.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('assets/global/plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" type="text/css" />
@@ -34,6 +35,7 @@
         <link href="{{ URL::asset('assets/layouts/layout/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ URL::asset('assets/layouts/layout/css/themes/darkblue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
         <link href="{{URL::asset('assets/layouts/layout/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{URL::asset('assets/pages/css/profile.min.css') }}" rel="stylesheet" type="text/css" />
         <script src="{{ URL::asset('ckeditor/ckeditor.js') }}"></script>
     </head>
     <!-- END HEAD -->
@@ -65,8 +67,13 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="page_user_profile_1.html">
+                                    @if (Auth::user()->level == 1)
+                                    <a href="{{route('admin.profile')}}">
                                         <i class="icon-user"></i> My Profile </a>
+                                    @else
+                                    <a href="{{route('moderator.profile')}}">
+                                        <i class="icon-user"></i> My Profile </a>
+                                    @endif
                                 </li>
                                 <li class="divider"> </li>
                                 <li>
@@ -95,7 +102,7 @@
                         <li class="sidebar-toggler-wrapper hide">
                             <div class="sidebar-toggler"> </div>
                         </li>
-                        <li class="sidebar-search-wrapper">
+                        <!--<li class="sidebar-search-wrapper">
                             <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
                                 <a href="javascript:;" class="remove">
                                     <i class="icon-close"></i>
@@ -109,7 +116,7 @@
                                     </span>
                                 </div>
                             </form>
-                        </li>
+                        </li>-->
                         <li class="nav-item" id="active-trang-chu">
                             <a href="{{url('admin')}}" class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
@@ -174,7 +181,7 @@
                                             <span class="title">Loại đối tác</span>
                                         </a>
                                     @else
-                                        <a href="{{url('/loai-doi-tac.index')}}" class="nav-link ">
+                                        <a href="{{url('loai-doi-tac.index')}}" class="nav-link ">
                                             <span class="title">Loại đối tác</span>
                                         </a>
                                     @endif
@@ -327,6 +334,8 @@
         <script src="{{  URL::asset('assets/layouts/layout/scripts/layout.min.js') }}" type="text/javascript"></script>
         <script src="{{  URL::asset('assets/layouts/layout/scripts/demo.min.js') }}" type="text/javascript"></script>
         <script src="{{  URL::asset('assets/layouts/global/scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
+        <script src="{{  URL::asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') }}" type="text/javascript"></script>
+        <script src="{{  URL::asset('assets/pages/scripts/profile.min.js') }}" type="text/javascript"></script>
         @yield('js');
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>

@@ -23,7 +23,7 @@
                                 <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm user</a>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!--<div class="col-md-6">
                             <div class="btn-group pull-right">
                                 <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Print
                                     <i class="fa fa-angle-down"></i>
@@ -43,7 +43,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 @if (session('message'))
@@ -59,6 +59,7 @@
                             <th> Email </th>
                             <th> Avatar </th>
                             <th> Level </th>
+                            <th> Active </th>
                             <th> Sửa </th>
                             <th> Xóa </th>
                         </tr>
@@ -77,7 +78,12 @@
                                 <td>Moderator</td>
                             @elseif ($item->level == 3)
                                 <td>User</td>
-                            @endif                            
+                            @endif
+                            @if($item->verified == 1)
+                                <td>Đã kích hoạt</td>
+                            @else
+                                <td>Chưa kích hoạt</td>
+                            @endif                      
                             <td class="center"><div ><a class='edit' href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
