@@ -13,28 +13,28 @@ class TinTuc extends Seeder
     {
         DB::table('tin_tuc')->insert([
         [
-        	'slug' => '1',
+        	'slug' => 'hoi-thao-gioi-thieu-va-ket-noi-cac-giai-phap-cong-nghe-xanh-cho-doanh-nghiep-vua-va-nho',
         	'loai_tin_id' => '1',
         	'users_id' => '1',
-        	'HinhAnh' => str_random(10),
+        	'HinhAnh' => 'W3Mn_RM-running-man-34478593-1023-506.png',
         ],
         [
-        	'slug' => '12',
-        	'loai_tin_id' => '2',
-        	'users_id' => '2',
-        	'HinhAnh' => str_random(10),
+            'slug' => 'hoi-thao-gioi-thieu-va-ket-noi-cac-giai-phap-cong-nghe-xanh-cho-doanh-nghiep-vua-va-nho',
+            'loai_tin_id' => '1',
+            'users_id' => '1',
+            'HinhAnh' => 'W3Mn_RM-running-man-34478593-1023-506.png',
         ],
         [
-        	'slug' => '123',
-        	'loai_tin_id' => '3',
-        	'users_id' => '3',
-        	'HinhAnh' => str_random(10),
+            'slug' => 'hoi-thao-gioi-thieu-va-ket-noi-cac-giai-phap-cong-nghe-xanh-cho-doanh-nghiep-vua-va-nho',
+            'loai_tin_id' => '1',
+            'users_id' => '1',
+            'HinhAnh' => 'W3Mn_RM-running-man-34478593-1023-506.png',
         ],
         [
-        	'slug' => '1234',
-        	'loai_tin_id' => '4',
-        	'users_id' => '4',
-        	'HinhAnh' => str_random(10),
+            'slug' => 'hoi-thao-gioi-thieu-va-ket-noi-cac-giai-phap-cong-nghe-xanh-cho-doanh-nghiep-vua-va-nho',
+            'loai_tin_id' => '1',
+            'users_id' => '1',
+            'HinhAnh' => 'W3Mn_RM-running-man-34478593-1023-506.png',
         ]
         ]);
     }

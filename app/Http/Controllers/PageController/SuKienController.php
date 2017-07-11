@@ -27,5 +27,18 @@ class SuKienController extends Controller
 		return view('pages.su_kien.detailssukien',['sukien'=>$su_kien, 'locale'=>$locale]);
 	}
 
-
+    public function NguoiDangKiSuKien($slug,NguoiDangKiSuKienRequest $request){
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $nguoi=new NguoiDangKiSuKien;
+        $nguoi->Ten=$request->ten;
+        $nguoi->email=$request->email;
+        $nguoi->phone=$request->phone;
+        $nguoi->save();
+        $chuyen_gia->save();
+        
+    }
 }

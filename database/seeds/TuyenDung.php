@@ -13,27 +13,9 @@ class TuyenDung extends Seeder
     {
         DB::table('tuyen_dung')->insert([
         [
-        	'slug' => '1',
-        	'NgayBatDau' => '2017-06-26',
-        	'NgayKetThuc' => '2017-06-26',
-        ],
-        [
-        	'slug' => '12',
-        	
-        	'NgayBatDau' => '2017-06-26',
-        	'NgayKetThuc' => '2017-06-26',
-        ],
-        [
-        	'slug' => '123',
-        	
-        	'NgayBatDau' => '2017-06-26',
-        	'NgayKetThuc' => '2017-06-26',
-        ],
-        [
-        	'slug' => '1234',
-        	
-        	'NgayBatDau' => '2017-06-26',
-        	'NgayKetThuc' => '2017-06-26',
+        	'slug' => 'tuyen-dung-truong-phong-nhan-su',
+        	'NgayBatDau' => '2017-06-25 00:00:00',
+        	'NgayKetThuc' => '2017-06-25 00:00:00',
         ]
         ]);
     }

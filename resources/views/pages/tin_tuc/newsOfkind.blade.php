@@ -21,7 +21,7 @@
 			</div>
 			<div class="listnews_item_date">
 				<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->updated_at,0,11)}}</i> | 
-				<a href="tintuc/{{$loaitin->slug}}/{{$item->slug}}">Xem thêm </a>
+				<a href="tin-tuc/{{$loaitin->slug}}/{{$item->slug}}">Xem thêm </a>
 			</div>
 		</div>
 	</div>	

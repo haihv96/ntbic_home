@@ -13,17 +13,15 @@ class CongNghe extends Seeder
     {
         DB::table('cong_nghe')->insert([
         [
-        	'slug' => '1',
+        	'slug' => 'san-xuat-thu-nghiem-mot-so-duoc-lieu-theo-huong-dan-gacp-tai-huyen-lac-thuy-tinh-hoa-binh',
         ],
-        [
-        	'slug' => '12',
+         [
+            'slug' => 'san-xuat-thu-nghiem-mot-so-duoc-lieu-theo-huong-dan-gacp-tai-huyen-lac-thuy-tinh-hoa-binh',
         ],
-        [
-        	'slug' => '123',
+         [
+            'slug' => 'san-xuat-thu-nghiem-mot-so-duoc-lieu-theo-huong-dan-gacp-tai-huyen-lac-thuy-tinh-hoa-binh',
         ],
-        [
-        	'slug' => '1234',
-        ]
+       
         ]);
     }
 }

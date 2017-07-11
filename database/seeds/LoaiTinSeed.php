@@ -14,23 +14,33 @@ class LoaiTinSeed extends Seeder
         DB::table('loai_tin_translations')->insert([
         [
         	'loai_tin_id' => '1',
-        	'Ten' => 'Hoang A',
+        	'Ten' => 'Công nghệ',
+        	'locale' => 'vi',
+        ],
+        [
+        	'loai_tin_id' => '1',
+        	'Ten' => 'Technology',
+        	'locale' => 'en',
+        ],
+        [
+        	'loai_tin_id' => '2',
+        	'Ten' => 'Khởi nghiệp',
         	'locale' => 'vi',
         ],
         [
         	'loai_tin_id' => '2',
-        	'Ten' => 'Hoàng B',
-        	'locale' => 'vi',
-        ],
-        [
-        	'loai_tin_id' => '3',
-        	'Ten' => 'Tom',
+        	'Ten' => 'Start up',
         	'locale' => 'en',
         ],
         [
-        	'loai_tin_id' => '4',
-        	'Ten' => 'Ton',
-        	'locale' => 'en',
+            'loai_tin_id' => '3',
+            'Ten' => 'Doanh nghiệp',
+            'locale' => 'vi',
+        ],
+        [
+            'loai_tin_id' => '3',
+            'Ten' => 'Company',
+            'locale' => 'en',
         ]
         ]);
     }

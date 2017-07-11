@@ -32,20 +32,47 @@
 				          <h4 class="modal-title">Đăng ký thông tin tham gia sự kiện</h4>
 				        </div>
 				        <div class="modal-body">
-				         	<form action="#">
-				                <div class="form-group">
-				                    <input type="text" placeholder="Họ tên" class="form-control input-md">
-				                </div>
-				                <div class="form-group">
-				                    <input type="text" placeholder="Email" class="form-control input-md">
-				                </div>
-				                <div class="form-group">
-				                    <input type="text" placeholder="Số điện thoại" class="form-control input-md">
-				                </div>
-
-				                <button type="submit" class="btn btn-primary">Đăng ký</button>
-				                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-				       		</form>
+				       		 <form action="#" method="POST" id="createForm" class="form-horizontal">
+			                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+			                    <div class="form-body">
+			                        <div class="form-group">
+			                            <label class="control-label col-md-3">Họ và tên
+			                                <span class="required"> * </span>
+			                            </label>
+			                            <div class="col-md-9">
+			                                <input type="text" name="ten" data-required="1" class="form-control" value={{old('ten')}}> 
+			                                 <span class="required"> {{$errors->first('ten')}}</span>
+			                            </div>
+			                        </div>
+			                        <div class="form-group">
+			                            <label class="control-label col-md-3">Email
+			                                <span class="required"> * </span>
+			                            </label>
+			                            <div class="col-md-9">
+			                                <input type="text" name="email" data-required="1" class="form-control" value={{old('email')}}> 
+			                                 <span class="required"> {{$errors->first('email')}}</span>
+			                            </div>
+			                        </div>
+			                        <div class="form-group">
+			                            <label class="control-label col-md-3">Số điện thoại
+			                                <span class="required"> * </span>
+			                            </label>
+			                            <div class="col-md-9">
+			                                <input type="text" name="email" data-required="1" class="form-control" value={{old('')}}> 
+			                                 <span class="required"> {{$errors->first('email')}}</span>
+			                            </div>
+			                        </div>
+			                         
+			                    </div>
+			                    <div class="form-actions">
+			                        <div class="row">
+			                            <div class="col-md-offset-3 col-md-9">
+			                                <button type="submit" class="btn green">Đăng ký</button>
+			                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </form>
 				        </div>
 			       	</div>
 			    </div>

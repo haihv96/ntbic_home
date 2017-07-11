@@ -13,16 +13,13 @@ class LoaiDoiTac extends Seeder
     {
         DB::table('loai_doi_tac')->insert([
         [
-        	'slug' => '1',
+        	'slug' => 'to-chuc',
         ],
         [
-        	'slug' => '12',
+        	'slug' => 'doanh-nghiep',
         ],
         [
-        	'slug' => '123',
-        ],
-        [
-        	'slug' => '1234',
+        	'slug' => 'ca-nhan',
         ]
         ]);
     }

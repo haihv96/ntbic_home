@@ -20,6 +20,6 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('123456'),
             'level' => 1
         ]
-        );
+        ); 
     }
 }

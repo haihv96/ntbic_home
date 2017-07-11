@@ -18,7 +18,7 @@
 			</div>
 			<div class="listnews_item_date">
 			<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->NgayBatDau,0,11)}}</i> | 
-			<a href="tuyendung/{{$item->slug}}">Xem thêm </a>
+			<a href="tuyen-dung/{{$item->slug}}">Xem thêm </a>
 			</div>
 		</div>
 	</div>

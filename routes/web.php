@@ -57,3 +57,4 @@ Route::get('tin-tuc/{slug_loai_tin}/{slug_tin_tuc}','PageController\TinTucContro
 
 Route::get('su-kien','PageController\SuKienController@danhSachSuKien');
 Route::get('su-kien/{slug}','PageController\SuKienController@detailsSuKien');
+Route::get('su-kien/{slug}/dang-ki','PageController\SuKienController@NguoiDangKiSuKien');
