@@ -2,57 +2,78 @@
 
 namespace App\Http\Controllers\Manager;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\DoiTac;
+use App\LoaiDoiTac;
+use Auth;
 use Illuminate\Support\Facades\Redirect;
-use App\doi_tac;
 
 class DoiTacController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
-    {
-        $doi_tac = DB::table('doi_tac')->paginate(10);
-        return view('admin.manager_data.doi_tac.index',['doitac' => $doi_tac]);
+    public function index() {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        if(Auth::user()->level == 1) {
+            $doi_tac = DoiTac::paginate(10);
+        } elseif (Auth::user()->level == 2) {
+            $doi_tac = DoiTac::where('users_id', Auth::user()->id)->paginate(10);
+        }        
+        return view('admin.manager_data.doi_tac.index',['doitac' => $doi_tac, 'locale'=>$locale]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function create()
-    {
-        return view('admin.manager_data.doi_tac.create');
-    }
+    public function create() {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
 
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $loai_doi_tac = LoaiDoiTac::all();
+        return view('admin.manager_data.doi_tac.create', ['loaidoitac' => $loai_doi_tac,'locale'=>$locale]);
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $this->validate($request,
         [
-            'ten' => 'required',
-            'noi_dung' => 'required'
+            'ten' => 'required|unique:doi_tac_translations,Ten',
+            'noi_dung' => 'required',
+            'hinh_anh' => 'image|mimes:jpeg,png,jpg'
         ],
         [
-            'ten.required' => 'Bạn chưa nhập tên loại tin',
-            'noi_dung' => 'Bạn chưa nhập nội dung'
+            'ten.required' => 'Bạn cần nhập tên đối tác',
+            'ten.unique' => 'Tên đối tác đã được dùng',
+            'noi_dung'  => 'Bạn chưa nhập nội dung',
+            'hinh_anh.mimes' => 'Bạn chỉ được chọn file (jpeg,png,jpg)',
+            'hinh_anh.image' => 'Bạn chỉ được chọn 1 file ảnh'
         ]);
 
-        $doi_tac = new doi_tac;
-        $doi_tac->ten = $request->ten;
-        $doi_tac->noi_dung = $request->noi_dung;
-        $doi_tac->ten_khong_dau = changeTitle($request->ten);
+        app()->setlocale($request->locale);
+        $doi_tac = new DoiTac;
+        $doi_tac->Ten = $request->ten;
+        $doi_tac->loai_doi_tac_id = $request->loaidoitac;
+        $doi_tac->slug = changeTitle($request->ten);
+        $doi_tac->NoiDung = $request->noi_dung;
 
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
@@ -64,63 +85,64 @@ class DoiTacController extends Controller
                 $hinh_anh = str_random(4)."_".$name;
             }
             $file->move("assets/upload/doi_tac",$hinh_anh);
-            $doi_tac->hinh_anh = $hinh_anh;
+            $doi_tac->HinhAnh = $hinh_anh;
         }
         else{
-            $doi_tac->hinh_anh = "";
+            $doi_tac->HinhAnh = "";
         }
 
         $doi_tac->save();
-        return redirect()->route('doi-tac.index')->with('message', 'Bạn đã thêm đối tác thành công');
+        if (Auth::user()->level == 1) {
+            return redirect()->route('admin.doi-tac.index')->with('message','Bạn đã thêm đối tác thành công');
+        } elseif (Auth::user()->level == 2) {
+            return redirect()->route('doi-tac.index')->with('message','Bạn đã thêm đối tác thành công');
+        }
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    // public function show($id)
-    // {
-    //     $doi_tac = doi_tac::find($id);
-    //     return view('admin.manager_data.doi_tac.edit', ['doitac' => $doi_tac]);
-    // }
+    public function edit($id) {
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $doi_tac = doi_tac::find($id);
-        return view('admin.manager_data.doi_tac.edit', ['doitac' => $doi_tac]);
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $loai_doi_tac = LoaiDoiTac::all();
+        $doi_tac = DoiTac::find($id);
+        return view('admin.manager_data.doi_tac.edit', ['loaidoitac' => $loai_doi_tac, 'doitac' => $doi_tac,'locale'=>$locale]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         $this->validate($request,
         [
             'ten' => 'required',
-            'noi_dung' => 'required'
+            'noi_dung' => 'required',
+            'hinh_anh' => 'image|mimes:jpeg,png,jpg'
         ],
         [
-            'ten.required' => 'Bạn chưa nhập tên loại tin',
-            'noi_dung' => 'Bạn chưa nhập nội dung'
+            'ten.required' => 'Bạn cần nhập tên đối tác',
+            'noi_dung.required' => 'Bạn cần nhập nội dung đối tác',
+            'hinh_anh.mimes' => 'Bạn chỉ được chọn file (jpeg,png,jpg)',
+            'hinh_anh.image' => 'Bạn chỉ được chọn 1 file ảnh'
         ]);
 
-        $doi_tac = doi_tac::find($id);
-        $doi_tac->ten = $request->ten;
-        $doi_tac->noi_dung = $request->noi_dung;
-        $doi_tac->ten_khong_dau = changeTitle($request->ten);
+        app()->setlocale($request->locale);
+        $doi_tac = DoiTac::find($id);
+
+        $doi_tac->Ten = $request->ten;
+        $doi_tac->NoiDung = $request->noi_dung;
+        $doi_tac->slug = changeTitle($request->ten);
 
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
@@ -132,25 +154,24 @@ class DoiTacController extends Controller
                 $hinh_anh = str_random(4)."_".$name;
             }
             $file->move("assets/upload/doi_tac",$hinh_anh);
-            $doi_tac->hinh_anh = $hinh_anh;
+            $doi_tac->HinhAnh = $hinh_anh;
         }
         else{
-            $doi_tac->hinh_anh = "";
+            $doi_tac->HinhAnh = "";
         }
 
         $doi_tac->save();
-        return Redirect::back()->with('message', 'Bạn đã sửa loại tin thành công');
+        return Redirect::back()->with('message', 'Bạn đã sửa đối tác thành công');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function destroy($id)
-    {
-        $doi_tac = doi_tac::find($id);
+    public function destroy($id) {
+        $doi_tac = DoiTac::find($id);
         $doi_tac->delete();
         return $doi_tac->toJson();
     }
