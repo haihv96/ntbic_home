@@ -18,23 +18,23 @@
 		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tổ chức<span class="caret"></span></a>
 			        <ul class="dropdown-menu">
 			          <li><a href="{!! url('gioithieuchung') !!}">Giới thiệu chung</a></li>
-			          <li><a href="vitrichucnang">Vị trí chức năng</a></li>
-			          <li><a href="sumenhtamnhin">Sứ mệnh tầm nhìn</a></li>
-			          <li><a href="cocau">Cơ cấu</a></li>
-			          <li><a href="doingutrungtam">Đội ngũ trung tâm</a></li>
-			          <li><a href="chuyengia">Chuyên gia</a></li>
+			          <li><a href="{!! url('vitrichucnang') !!}">Vị trí chức năng</a></li>
+			          <li><a href="{!! url('sumenhtamnhin') !!}">Sứ mệnh tầm nhìn</a></li>
+			          <li><a href="{!! url('cocau') !!}">Cơ cấu</a></li>
+			          <li><a href="{!! url('doingutrungtam') !!}">Đội ngũ trung tâm</a></li>
+			          <li><a href="{!! url('chuyengia') !!}">Chuyên gia</a></li>
 			          <li><a href="{!! url('cauhoithuonggap') !!}">Câu hỏi thường gặp</a></li>
-			           <li><a href="tuyendung">Tuyển dụng</a></li>
+			           <li><a href="{!! url('tuyendung') !!}">Tuyển dụng</a></li>
 			        </ul>
 				</li>
-		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tin tức <span class="caret"></span></a>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('tintuc') !!}">Tin tức <span class="caret"></span></a>
 			        <ul class="dropdown-menu">
-			          <li><a href="tintuc">Công nghệ</a></li>
-			          <li><a href="tintuc">Khởi nghiệp</a></li>
-			          <li><a href="tintuc">Doah nghiệp</a></li>
+			          <li><a href="{!! url('tintuc/cong-nghe') !!}">Công nghệ</a></li>
+			          <li><a href="{!! url('tintuc/khoi-nghiep') !!}">Khởi nghiệp</a></li>
+			          <li><a href="{!! url('tintuc/doanh-nghiep') !!}">Doah nghiệp</a></li>
 			        </ul>
 				</li>
-		      	<li><a href="#">Sự kiện</a></li>
+		      	<li><a href="{!! url('sukien') !!}">Sự kiện</a></li>
 		      	<li><a href="#">Đối tác</a></li>
 		      	<li><a href="#">Dữ liệu</a></li>
 		      	<li><a href="#">Ươm tạo</a></li>

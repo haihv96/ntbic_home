@@ -1,16 +1,24 @@
 <footer class="container footer-index">
-	<p class="text-center padding-top-20">	&copy; TRUNG TÂM ƯƠM TẠO CÔNG NGHỆ VÀ DOANH NGHIỆP KHOA HỌC CÔNG NGHỆ</p>
+	<p class="text-center padding-top-20" style="font-weight:bold">	&copy; TRUNG TÂM ƯƠM TẠO CÔNG NGHỆ VÀ DOANH NGHIỆP KHOA HỌC CÔNG NGHỆ</p>
 	<div class="row">
-		<div class="col-md-6 footer-left">
-			<p><b>Cơ quan chủ quản: Bộ Khoa học và Công nghệ (MOST).</b></p>
-			<p>Địa chỉ: 113 Trần Duy Hưng, Phường Trung Hòa, Quận Cầu Giấy, Hà Nội.</p>
-			<p>Bộ phận văn thư: (04) 3943 7056; Phòng Tổng hợp: (04) 3943 8970; Lễ tân: (04) 3556 0696.</p>
+		
+		<div class="  col-md-4">
+			<p style="font-weight:bold"><span>LIÊN HỆ</span></p>
+			<p>Địa chỉ: 25 Lê Thánh Tông, Hoàn Kiếm, Hà Nội.</p>
+			<p>Hotline: (04) 3933 6570</p>
+			<p>Email: info@ntbic.com.</p>
 		</div>
-		<div class="col-md-6 footer-right">
-			<p>Bản quyền thuộc: Trung tâm Tin học - Bộ Khoa học và Công nghệ.</p>
-			<p>Email: bbt@most.gov.vn. Điện thoại: (04) 3555 3845.</p>
-			<p>Ghi rõ nguồn từ “MOST” khi phát hành lại thông tin từ Cổng thông tin điện tử này.</p>
+		<div class="  col-md-4">
+			<p style="font-weight:bold"><span>LIÊN HỆ</span></p>
+			<p>Địa chỉ: 25 Lê Thánh Tông, Hoàn Kiếm, Hà Nội.</p>
+			<p>Hotline: (04) 3933 6570</p>
+			<p>Email: info@ntbic.com.</p>
 		</div>
+		<div class="  col-md-4 " style="font-weight:bold">
+			<p><span>FACEBOOK</span></p>
+			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTrung-t%25C3%25A2m-%25C6%25AF%25C6%25A1m-t%25E1%25BA%25A1o-C%25C3%25B4ng-ngh%25E1%25BB%2587-v%25C3%25A0-Doanh-nghi%25E1%25BB%2587p-Khoa-h%25E1%25BB%258Dc-C%25C3%25B4ng-ngh%25E1%25BB%2587-NTBIC-766485326795695%2F&tabs=timeline&width=300&height=210&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="210" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+		</div>
+		
 	</div>
 </footer>
  <script src="/js/ajaxRequestLocale.js"></script>
