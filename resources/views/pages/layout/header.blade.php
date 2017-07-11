@@ -9,7 +9,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>                        
 	     	 </button>
-	     	 <a class="home-icon" href="trangchu">
+	     	 <a class="home-icon" href="/">
 	     	 	<img src="pages/image/home.png" alt="">
 	     	 </a>
 	    </div>
@@ -17,41 +17,41 @@
 		    <ul class="nav navbar-nav">
 		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tổ chức<span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
-			          <li><a href="{!! url('gioithieuchung') !!}">Giới thiệu chung</a></li>
-			          <li><a href="{!! url('vitrichucnang') !!}">Vị trí chức năng</a></li>
-			          <li><a href="{!! url('sumenhtamnhin') !!}">Sứ mệnh tầm nhìn</a></li>
-			          <li><a href="{!! url('cocau') !!}">Cơ cấu</a></li>
-			          <li><a href="{!! url('doingutrungtam') !!}">Đội ngũ trung tâm</a></li>
-			          <li><a href="{!! url('chuyengia') !!}">Chuyên gia</a></li>
-			          <li><a href="{!! url('cauhoithuonggap') !!}">Câu hỏi thường gặp</a></li>
-			           <li><a href="{!! url('tuyendung') !!}">Tuyển dụng</a></li>
+			          <li><a href="{!! url('gioi-thieu-chung') !!}">Giới thiệu chung</a></li>
+			          <li><a href="{!! url('vi-tri-chuc-nang') !!}">Vị trí chức năng</a></li>
+			          <li><a href="{!! url('su-menh-tam-nhin') !!}">Sứ mệnh tầm nhìn</a></li>
+			          <li><a href="{!! url('co-cau') !!}">Cơ cấu</a></li>
+			          <li><a href="{!! url('doi-ngu-trung-tam') !!}">Đội ngũ trung tâm</a></li>
+			          <li><a href="{!! url('chuyen-gia') !!}">Chuyên gia</a></li>
+			          <li><a href="{!! url('cau-hoi-thuong-gap') !!}">Câu hỏi thường gặp</a></li>
+			           <li><a href="{!! url('tuyen-dung') !!}">Tuyển dụng</a></li>
 			        </ul>
 				</li>
-		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('tintuc') !!}">Tin tức <span class="caret"></span></a>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('tin-tuc') !!}">Tin tức <span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
-			          <li><a href="{!! url('tintuc/cong-nghe') !!}">Công nghệ</a></li>
-			          <li><a href="{!! url('tintuc/khoi-nghiep') !!}">Khởi nghiệp</a></li>
-			          <li><a href="{!! url('tintuc/doanh-nghiep') !!}">Doah nghiệp</a></li>
+			          <li><a href="{!! url('tin-tuc/cong-nghe') !!}">Công nghệ</a></li>
+			          <li><a href="{!! url('tin-tuc/khoi-nghiep') !!}">Khởi nghiệp</a></li>
+			          <li><a href="{!! url('tin-tuc/doanh-nghiep') !!}">Doah nghiệp</a></li>
 			        </ul>
 				</li>
-		      	<li><a href="{!! url('sukien') !!}">Sự kiện</a></li>
-		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('doitac') !!}">Đối tác <span class="caret"></span></a>
+		      	<li><a href="{!! url('su-kien') !!}">Sự kiện</a></li>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('doi-tac') !!}">Đối tác <span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
-			          <li><a href="{!! url('doitac/doi-tac-to-chuc') !!}">Đối tác tổ chức</a></li>
-			          <li><a href="{!! url('doitac/doi-tac-doanh-nghiep') !!}">Đối tác doanh nghiệp</a></li>
-			          <li><a href="{!! url('doitac/doi-tac-ca-nhan') !!}">Đối tác cá nhân</a></li>
+			          <li><a href="{!! url('doi-tac/doi-tac-to-chuc') !!}">Đối tác tổ chức</a></li>
+			          <li><a href="{!! url('doi-tac/doi-tac-doanh-nghiep') !!}">Đối tác doanh nghiệp</a></li>
+			          <li><a href="{!! url('doi-tac/doi-tac-ca-nhan') !!}">Đối tác cá nhân</a></li>
 			        </ul>
 				</li>
 		      	<li><a href="{!! url('http://csdl.ntbic.com/') !!}">Dữ liệu</a></li>
-		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('uomtao') !!}">Ươm tạo <span class="caret"></span></a>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('uom-tao') !!}">Ươm tạo <span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
-			          <li><a href="{!! url('uomtao/uom-tao-truc-tiep') !!}">Ươm tạo trực tiếp</a></li>
-			          <li><a href="{!! url('uomtao/uom-tao-ao') !!}">Ươm tạo ảo</a></li>
-			          <li><a href="{!! url('uomtao/thu-tuc-uom-tao') !!}">Thủ tục ươm tạo</a></li>
+			          <li><a href="{!! url('uom-tao/uom-tao-truc-tiep') !!}">Ươm tạo trực tiếp</a></li>
+			          <li><a href="{!! url('uom-tao/uom-tao-ao') !!}">Ươm tạo ảo</a></li>
+			          <li><a href="{!! url('uom-tao/thu-tuc-uom-tao') !!}">Thủ tục ươm tạo</a></li>
 			        </ul>
 				</li>
-		      	<li><a href="#">Công nghệ</a></li>
-		      	<li><a href="{!! url('lienhe') !!}">Liên hệ</a></li>
+		      	<li><a href="cong-nghe">Công nghệ</a></li>
+		      	<li><a href="{!! url('lien-he') !!}">Liên hệ</a></li>
 		    </ul>
 		    <form class="navbar-form navbar-left">
 		      <div class="input-group">
