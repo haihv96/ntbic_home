@@ -167,13 +167,13 @@
     	</div>
     	<div class="link-icon col-md-3 text-center">
     		<span>
-    			<a href="" title="">
+    			<a href="{!!url('cong-nghe')!!}" title="">
     				<img src="pages/image/hatnhan.png" alt="">
     			</a>
     		</span>
     		<br>
     		<span>
-    			<a href="" title="">Công nghệ</a>
+    			<a href="{!!url('cong-nghe')!!}" title="">Công nghệ</a>
     		</span>
     	</div>
     	<div class="link-icon col-md-3 text-center">

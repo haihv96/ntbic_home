@@ -11,13 +11,15 @@
 	<div class=" col-md-12 col-sm-12  listnews_item">
 		<div class="col-md-12 col-sm-12   ">
 			<div class="listnews_item_title">
-			<h3><a href="#">{{$item->MoTa}}</a></h3>
+			<h3><a href="tuyen-dung/{{$item->slug}}">{{$item->MoTa}}</a></h3>
 			</div>
 			<div class="listnews_item_description">
 			{!!$item->NoiDungTuyenDung!!}
 			</div>
 			<div class="listnews_item_date">
+
 			<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->NgayBatDau,0,11)}}</i> | 
+
 			<a href="tuyen-dung/{{$item->slug}}">Xem thêm </a>
 			</div>
 		</div>

@@ -12,6 +12,7 @@ use App\Http\Requests\SuKienRequest;
 use File;
 use App\User;
 use Auth;
+use App\NguoiDangKiSuKien;
 
 class SuKienController extends Controller
 {
@@ -98,7 +99,8 @@ class SuKienController extends Controller
      */
     public function show($id)
     {
-        //
+        $nguoi_dang_ky = NguoiDangKiSuKien::where('su_kien_id',$id)->paginate(10);
+        return view('admin.manager_data.su_kien.show',['dangky' => $nguoi_dang_ky]);
     }
 
     /**

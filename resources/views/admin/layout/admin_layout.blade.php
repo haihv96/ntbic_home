@@ -47,7 +47,7 @@
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a href="index.html">
+                    <a href="{{route('home')}}">
                         <img src="{{ URL::asset('assets/layouts/layout/img/logo.png') }}" alt="logo" class="logo-default" /> </a>
                     <div class="menu-toggler sidebar-toggler"> </div>
                 </div>
@@ -266,7 +266,7 @@
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="{{route('login')}}'">Home</a>
                                 <i class="fa fa-circle"></i>
                             </li>
                             <li>@yield('name_page')</li>

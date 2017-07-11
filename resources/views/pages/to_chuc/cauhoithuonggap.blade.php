@@ -11,7 +11,7 @@
     @if(!empty($item))
     <button class="accordion">{{$item->CauHoi}}</button>
     <div class="panel">
-      <p>{!!$item->CauTraLoi!!}</p>
+      <p style="padding-top:10px;">{!!$item->CauTraLoi!!}</p>
     </div>
     @endif
     @endforeach

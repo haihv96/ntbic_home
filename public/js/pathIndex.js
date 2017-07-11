@@ -14,3 +14,11 @@ $(document).ready(function() {
         $(this).attr('href',pathname+id+'/edit');
     });
 });
+
+$(document).ready(function() {
+    $('.show').click(function() {
+        var pathname = window.location.pathname + '/';
+        var id = $(this).data("id");
+        $(this).attr('href',pathname+id);
+    });
+});

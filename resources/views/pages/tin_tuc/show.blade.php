@@ -6,7 +6,7 @@
 	<ul class="breadcrumb">
 		<li><a href="#">Trang chủ</a></li>
 		<li><a href="#">Tin tức</a></li>
-		<li><a href="#">{{$loaitin->Ten}}</a></li>
+		<li><a href="#">{{$tintuc->Ten}}</a></li>
 	</ul>
 	<div class=" col-md-12 col-sm-12  detailsNew">
 		<!--header details news-->
