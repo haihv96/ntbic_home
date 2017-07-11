@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a id="namepage" href="#" class="active">Loại tin</a>
+<a id="namepage" href="#" class="active">Loại đối tác</a>
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">Sửa loại tin</span>
+                    <span class="caption-subject font-dark sbold uppercase">Sửa loại đối tác</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -44,11 +44,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Loại tin
+                            <label class="control-label col-md-3">Loại đối tác
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="ten" data-required="1" class="form-control" value="{{$loaitin->Ten}}" /> </div>
+                                <input type="text" name="ten" data-required="1" class="form-control" value="{{$loaidoitac->Ten}}" /> </div>
                         </div>
                     <div class="form-actions">
                         <div class="row">
@@ -67,6 +67,6 @@
 </div>
 @endsection
 @section('js')
-    <script src="/js/pathEdit.js"></script>
-    <script src="/js/ajaxRequestLocale.js"></script>
+    <script src="{{ URL::asset('js/pathEdit.js') }}"></script>
+    <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
 @endsection
