@@ -28,7 +28,7 @@ $(document).ready(function() {
  	});
  	$('#locale').click(function() {
  		var locale = $(this).data('locale');
-// 		$(this).attr('href',location.href);
+ 		$(this).attr('href',location.href);
  		console.log(locale);
  		$.ajax({
  			type: 'post',

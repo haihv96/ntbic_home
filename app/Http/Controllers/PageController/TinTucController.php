@@ -22,7 +22,7 @@ class TinTucController extends Controller
 	    $locale = session()->get('language');
 	    app()->setlocale($locale);
 		$tin_tuc=TinTuc::paginate(10);
-		return view('pages.tin_tuc.allNews',['tintuc'=>$tin_tuc]);
+		return view('pages.tin_tuc.allNews',['tintuc'=>$tin_tuc, 'locale'=>$locale]);
 	}
 	public function newsOfKind($slug){
 		if (!session()->has('language')) {
@@ -33,7 +33,7 @@ class TinTucController extends Controller
 	    $loai_tin=LoaiTin::where('slug',$slug)->first();
 	    $id=$loai_tin->id;
 	    $tin_tuc=TinTuc::where('loai_tin_id',$id)->paginate(10);
-	     return view('pages.tin_tuc.newsOfKind',['tintuc'=>$tin_tuc,'loaitin'=>$loai_tin]);
+	     return view('pages.tin_tuc.newsOfKind',['tintuc'=>$tin_tuc,'loaitin'=>$loai_tin, 'locale'=>$locale]);
 	}
 	public function detailsNew($slug_loai_tin,$slug_tin_tuc){
 		if (!session()->has('language')) {
@@ -51,7 +51,7 @@ class TinTucController extends Controller
         $tin_tuc=TinTuc::where('slug',$slug_tin_tuc)->first();
          //lấy các tin cùng lĩnh vực
         $tin_lien_quan=TinTuc::where([['loai_tin_id',$id],['id','<>',$tin_tuc->id]])->get();
-  	   return view('pages.tin_tuc.show',['tintuc'=>$tin_tuc,'loaitin'=>$loai_tin,'tinlienquan'=>$tin_lien_quan]);  	    
+  	   return view('pages.tin_tuc.show',['tintuc'=>$tin_tuc,'loaitin'=>$loai_tin,'tinlienquan'=>$tin_lien_quan, 'locale'=>$locale]);  	    
 	}
 	
 }

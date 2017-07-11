@@ -30,9 +30,9 @@ Route::get('user/verify/{token}', 'Manager\UserController@verify_user_mo');
 Route::get('abc',function(){
 	 return bcrypt('123456');
 });
-Route::get('trangchu','PageController\PageController@TrangChu')->name('home');
+Route::get('/','PageController\PageController@TrangChu')->name('home');
 //Route::get('tintuc','PageController\PageController@TinTuc');
-Route::get('lienhe','PageController\PageController@LienHe');
+Route::get('lien-he','PageController\PageController@LienHe');
 Route::get('detail','PageController\PageController@Detail');
 Route::get('cauhoithuonggap','PageController\PageController@Cauhoithuonggap');
 

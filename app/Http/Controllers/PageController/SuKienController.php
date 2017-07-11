@@ -15,7 +15,7 @@ class SuKienController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $su_kien=SuKien::paginate(10);
-		return view('pages.su_kien.danhSachSuKien',['sukien'=>$su_kien]);
+		return view('pages.su_kien.danhSachSuKien',['sukien'=>$su_kien, 'locale'=>$locale]);
 	}
 	public function detailsSuKien($slug){
 		if (!session()->has('language')) {
@@ -24,7 +24,7 @@ class SuKienController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $su_kien=SuKien::where('slug',$slug)->first();
-		return view('pages.su_kien.detailssukien',['sukien'=>$su_kien]);
+		return view('pages.su_kien.detailssukien',['sukien'=>$su_kien, 'locale'=>$locale]);
 	}
 
 
