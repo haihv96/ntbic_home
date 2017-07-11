@@ -7,8 +7,11 @@
 			<li><a href="#">Tổ chức</a></li>
 			<li>Đội ngũ trung tâm</li>
 	</ul>
+	<h3 style="color:#337ab7">Đội ngũ trung tâm</h3>
 	<div class=" col-md-12 col-sm-12  introduced">
-		{!!$tochuc->DoiNguTrungTam!!}
+		@if(count($tochuc) > 0)
+			{!!$tochuc->DoiNguTrungTam!!}
+		@endif
 	</div>
 </div>
 @endsection

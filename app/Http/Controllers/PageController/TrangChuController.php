@@ -9,9 +9,11 @@ use App\ToChucTranslation;
 use App\TuyenDung;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\LoaiDoiTac;
+use App\DoiTac;
 
 
-class PageController extends Controller
+class TrangChuController extends Controller
 {
 	public function TrangChu(){
 		if (!session()->has('language')) {
