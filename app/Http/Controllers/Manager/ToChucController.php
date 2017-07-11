@@ -64,7 +64,11 @@ class ToChucController extends Controller
         $to_chuc->CoCau=$request->co_cau;
         $to_chuc->DoiNguTrungTam=$request->doi_ngu_trung_tam;
         $to_chuc->save();
-        return redirect()->route('to-chuc.index')->with('message','Bạn đã tạo thành công thông tin tổ chức');
+        if (Auth::user()->level == 1) {
+            return redirect()->route('admin.to-chuc.index')->with('message','Bạn đã tạo thành công thông tin tổ chức');
+        } elseif (Auth::user()->level == 2) {
+            return redirect()->route('to-chuc.index')->with('message','Bạn đã tạo thành công thông tin tổ chức');
+        }
     }
 
     /**

@@ -54,7 +54,11 @@ class TuyendungController extends Controller
         $tuyen_dung->NgayBatDau=date('Y-m-d', strtotime($request->ngay_bat_dau));
         $tuyen_dung->NgayKetThuc=date('Y-m-d', strtotime($request->ngay_ket_thuc));
         $tuyen_dung->save();
-        return redirect()->route('tuyen-dung.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
+        if (Auth::user()->level == 1) {
+            return redirect()->route('admin.tuyen-dung.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
+        } elseif (Auth::user()->level == 2) {
+    	    return redirect()->route('tuyen-dung.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
+        }
     }
 
     /**

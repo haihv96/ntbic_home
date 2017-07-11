@@ -55,7 +55,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Sửa</button>
-                                <a type="button" class="btn default" href="{!!url('admin/cong-nghe')!!}">Hủy</a>
+                                <a type="button" class="btn default cancel" href="#">Hủy</a>
                             </div>
                         </div>
                     </div>
