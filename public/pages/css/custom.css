@@ -15,6 +15,12 @@
 	text-transform: uppercase; 
 	font-weight: bold;
 }
+.sub-menu li a{
+	text-transform: none!important;
+}
+.dropdown-menu>li>a:focus{
+	background-color: #337ab7!important;
+}
 .dropdown-menu{
 	background-color: #1d5a86!important;
 }
