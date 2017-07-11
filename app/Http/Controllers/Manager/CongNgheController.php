@@ -9,6 +9,7 @@ use App\CongNgheTranslation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Validator;
+use Auth;
 
 class CongNgheController extends Controller
 {
@@ -57,7 +58,12 @@ class CongNgheController extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if($validator->fails()){
-            return Redirect::to('admin/cong-nghe/create')->withInput()->withErrors($validator);
+            //return Redirect::to('admin/cong-nghe/create')->withInput()->withErrors($validator);
+            if (Auth::user()->level == 1) {
+            return redirect()->route('admin.cong-nghe.create')->withInput()->withErrors($validator);
+            } elseif (Auth::user()->level == 2) {
+                return redirect()->route('cong-nghe.create')->withInput()->withErrors($validator);
+            }
         } else {
             $cong_nghe = new CongNghe();
             $cong_nghe->Ten = $request->Ten;
@@ -65,7 +71,11 @@ class CongNgheController extends Controller
             $cong_nghe->slug = changeTitle($request->Ten);
 
             $cong_nghe->save();
-            return Redirect::to('admin/cong-nghe')->withInput()->with('status','Đã thêm thành công!');
+            if (Auth::user()->level == 1) {
+            return redirect()->route('admin.cong-nghe.index')->with('message','Bạn đã thêm công nghệ thành công');
+            } elseif (Auth::user()->level == 2) {
+                return redirect()->route('cong-nghe.index')->with('message','Bạn đã thêm công nghệ thành công');
+            }
         }
     }
 
@@ -112,7 +122,7 @@ class CongNgheController extends Controller
             $cong_nghe->slug = changeTitle($request->Ten);
 
             $cong_nghe->save();
-            return Redirect::to('admin/cong-nghe')->withInput()->with('status','Đã sửa thành công!');
+            return Redirect::back()->with('message', 'Bạn đã sửa công nghệ thành công');
         }
     }
 

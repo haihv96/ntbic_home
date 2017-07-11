@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\LoaiDoiTac;
 use App\LoaiDoiTacTranslation;
 use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class LoaiDoiTacController extends Controller
 {
@@ -60,7 +61,11 @@ class LoaiDoiTacController extends Controller
     	$loai_doi_tac->Slug = changeTitle($request->ten);
 
     	$loai_doi_tac->save();
-    	return redirect()->route('loai-doi-tac.index')->with('message','Bạn đã thêm loại đối tác thành công');
+    	if (Auth::user()->level == 1) {
+            return redirect()->route('admin.loai-doi-tac.index')->with('message','Bạn đã thêm loại đối tác thành công');
+        } elseif (Auth::user()->level == 2) {
+            return redirect()->route('loai-doi-tac.index')->with('message','Bạn đã thêm loại đối tác thành công');
+        }
     }
 
     /**
@@ -76,8 +81,8 @@ class LoaiDoiTacController extends Controller
 
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $loai_tin = LoaiTin::find($id);
-    	return view('admin.manager_data.loai_tin.edit', ['loaitin' => $loai_tin, 'locale'=>$locale]);
+        $loai_doi_tac = LoaiDoiTac::find($id);
+    	return view('admin.manager_data.loai_doi_tac.edit', ['loaidoitac' => $loai_doi_tac, 'locale'=>$locale]);
     } 
 
     /**
@@ -96,13 +101,13 @@ class LoaiDoiTacController extends Controller
     	]);
 
         app()->setlocale($request->locale);
-    	$loai_tin = LoaiTin::find($id);
-    	$loai_tin->Ten = $request->ten;
-    	$loai_tin->Slug = changeTitle($request->ten);
+    	$loai_doi_tac = LoaiDoiTac::find($id);
+    	$loai_doi_tac->Ten = $request->ten;
+    	$loai_doi_tac->Slug = changeTitle($request->ten);
 
-    	$loai_tin->save();
+    	$loai_doi_tac->save();
 
-    	return Redirect::back()->with('message', 'Bạn đã sửa loại tin thành công');
+    	return Redirect::back()->with('message', 'Bạn đã sửa loại đối tác thành công');
     }
 
     /**
@@ -112,8 +117,8 @@ class LoaiDoiTacController extends Controller
      * @return Response
      */
     public function destroy($id) {
-    	$loai_tin = LoaiTin::find($id);
-    	$loai_tin->delete();
-    	return $loai_tin->toJson();
+    	$loai_doi_tac = LoaiDoiTac::find($id);
+    	$loai_doi_tac->delete();
+    	return $loai_doi_tac->toJson();
     }
 }

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Mail;
 use Session;
 use App\Mail\ActiveAccount;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -162,5 +163,89 @@ class UserController extends Controller
         }
        
        return redirect()->route('login');
+    }
+
+    public function getProfile() {
+        $user = Auth::user();
+        return view('admin.manager_data.user.profile')->with('user',$user);
+    }
+
+    public function updateProfile(Request $request) {
+        $this->validate($request,
+            [
+                'email' => 'required|email',
+                'name' => 'required'
+            ],
+            [
+                'name.required' => 'Bạn cần nhập tên',
+                'email.required' => 'Bạn cần nhập email',
+                'email.unique' => 'email đã được sử dụng',
+                'email.email' => 'Định dạng email không hợp lệ',
+            ]);
+
+        $user = Auth::user();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+
+        return redirect()->back()->with('user',$user);
+    }
+
+    public function updateAvatar(Request $request) {
+        $this->validate($request,
+            [
+                'hinh_anh' => 'image|mimes:jpeg,bmp,png,jpg'
+            ],
+            [
+                'hinh_anh.image' => 'Bạn cần chọn 1 ảnh',
+                'hinh_anh.mimes' => "Bạn chỉ có thể chọn ảnh có định dạng: jpeg,bmp,png,jpg",
+            ]);
+
+        $user = Auth::user();
+
+        if($request->hasFile('hinh_anh')){
+            $file = $request->file('hinh_anh');
+            $duoi = $file->getClientOriginalExtension();
+
+            $name = $file->getClientOriginalName();
+            $hinh_anh = str_random(4)."_".$name;
+            while(file_exists("assets/upload/users".$hinh_anh)){
+                $hinh_anh = str_random(4)."_".$name;
+            }
+            $file->move("assets/upload/users",$hinh_anh);
+            $user->hinh_anh = $hinh_anh;
+        } else {
+            $user->hinh_anh = "a";
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('user',$user);
+    }
+
+    public function updatePassword(Request $request) {
+        $this->validate($request,
+            [
+                'current_pass' => 'required',
+                'new_pass' => 'required'
+            ],
+            [
+                'current_pass.required' => 'Bạn cần nhập password',
+                'new_pass.required' => 'Bạn cần nhập password mới'
+            ]);
+
+        $user = Auth::user();
+
+        if ($request->retype_pass != $request->new_pass) {
+            return redirect()->back()->withErrors('Password không trùng khớp');
+        } elseif(!Hash::check($request->current_pass, $user->password)) {
+            return redirect()->back()->withErrors('Password không chính xác');
+        } else {
+            $user->password = bcrypt($request->new_pass);
+            $user->save();
+
+            return redirect()->back()->with('user',$user);
+        }
     }
 }

@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm loại tin</a>
+                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm đối tác</a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -41,23 +41,29 @@
                     <thead>
                         <tr>
                             <th> ID </th>
-                            <th> Loại tin</th>
+                            <th> Đối tác</th>
+                            <th> Hình ảnh </th>
+                            <th> Loại đối tác</th>
+                            <th> Xem </th>
                             <th> Sửa </th>
                             <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($loaitin as $item)
+                    @foreach($doitac as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{{$item->Ten}}</td>
-                            <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
+                            <td><img src="assets/upload/doi_tac/{{$item->HinhAnh}}" height="100"></td>
+                            <td>{{$item->loaidoitac->Ten}}</td>
+                            <td class="center"><a target="_blank" href="#"><span class="fa fa-eye"></span></a></td>
+                            <td class="center"><div ><a class='edit' href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {!! $loaitin->links() !!} 
+                {!! $doitac->links() !!}
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -68,13 +74,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Xóa loại tin</h4>
+                <h4 class="modal-title">Xóa đối tác</h4>
             </div>
             <div class="modal-body"> 
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa loại tin? 
+                    Bạn chắc chắn muốn xóa đối tác? 
                 </form>
             </div>
             <div class="modal-footer">
@@ -91,13 +97,14 @@
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/loai-tin/'+id;
+            var pathname = window.location.pathname+'/';
+            var url_delete = pathname+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',
                     dataType: 'json',
                     url: url_delete,
-                    data: {
+                    data:{
                         '_token': $('input[name=_token]').val(),
                         'id': id
                     },
@@ -109,6 +116,12 @@
         });
     </script>
 
-   <script src="js/pathIndex.js"></script>
-   <script src="js/ajaxRequestLocale.js"></script>
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-doi-tac").addClass("active");
+    </script>
+
+    <script src="{{ URL::asset('js/pathIndex.js') }}"></script>
+    <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
 @endsection

@@ -88,7 +88,7 @@
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa loại tin? 
+                    Bạn chắc chắn muốn xóa tin tức? 
                 </form>
             </div>
             <div class="modal-footer">

@@ -15,13 +15,11 @@ class PageController extends Controller
 {
 	public function TrangChu(){
 		if (!session()->has('language')) {
-            session(['language'=>'vi']);
+             session(['language'=>'vi']);
         }
-        $locale = session()->get('language');
-        app()->setlocale($locale);
-
-		$loai_tin=LoaiTin::all();
-		return view('pages.trangchu',['loaitin'=>$loai_tin,'locale'=>$locale]);
+    	$locale = session()->get('language');
+ 		app()->setlocale($locale);
+ 		return view('pages.trangchu')->with('locale',$locale);
 	}
 
 	// public function TinTuc(){
