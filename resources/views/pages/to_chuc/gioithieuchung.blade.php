@@ -7,10 +7,11 @@
 			<li><a href="tochuc">Tổ chức</a></li>
 			<li>Giới thiệu chung</li>
 	</ul>
+	<h3 style="color:#337ab7">Giới thiệu chung</h3>
 	<div class=" col-md-12 col-sm-12  introduced">
-		
-		{!!$tochuc->GioiThieuChung!!}
-	
+		@if(count($tochuc) > 0)
+			{!!$tochuc->GioiThieuChung!!}
+		@endif
 	</div>
 </div>
 @endsection

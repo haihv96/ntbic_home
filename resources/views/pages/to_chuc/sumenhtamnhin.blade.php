@@ -7,10 +7,11 @@
 			<li><a href="tochuc">Tổ chức</a></li>
 			<li>Sứ mệnh tầm nhìn</li>
 	</ul>
+	<h3 style="color:#337ab7">Sứ mệnh tầm nhìn</h3>
 	<div class=" col-md-12 col-sm-12  introduced">
-		
-		{!!$tochuc->SuMenhTamNhin!!}
-	
+		@if(count($tochuc) > 0)
+			{!!$tochuc->SuMenhTamNhin!!}
+		@endif
 	</div>
 </div>
 @endsection

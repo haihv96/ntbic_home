@@ -29,17 +29,22 @@
 				</li>
 		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('tin-tuc') !!}">Tin tức <span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
-			          <li><a href="{!! url('tin-tuc/cong-nghe') !!}">Công nghệ</a></li>
-			          <li><a href="{!! url('tin-tuc/khoi-nghiep') !!}">Khởi nghiệp</a></li>
-			          <li><a href="{!! url('tin-tuc/doanh-nghiep') !!}">Doah nghiệp</a></li>
+								@foreach($loaitin as $item)
+			          <li><a href="{!! url('tin-tuc/'.$item->slug) !!}">{{$item->Ten}}</a></li>
+			          <!--<li><a href="{!! url('tin-tuc/khoi-nghiep') !!}">Khởi nghiệp</a></li>
+			          <li><a href="{!! url('tin-tuc/doanh-nghiep') !!}">Doah nghiệp</a></li>-->
+								@endforeach
 			        </ul>
 				</li>
 		      	<li><a href="{!! url('su-kien') !!}">Sự kiện</a></li>
 		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('doi-tac') !!}">Đối tác <span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
-			          <li><a href="{!! url('doi-tac/doi-tac-to-chuc') !!}">Đối tác tổ chức</a></li>
+			          <!--<li><a href="{!! url('doi-tac/doi-tac-to-chuc') !!}">Đối tác tổ chức</a></li>
 			          <li><a href="{!! url('doi-tac/doi-tac-doanh-nghiep') !!}">Đối tác doanh nghiệp</a></li>
-			          <li><a href="{!! url('doi-tac/doi-tac-ca-nhan') !!}">Đối tác cá nhân</a></li>
+			          <li><a href="{!! url('doi-tac/doi-tac-ca-nhan') !!}">Đối tác cá nhân</a></li>-->
+								@foreach($loaidoitac as $item)
+			          <li><a href="{!! url('doi-tac/'.$item->slug) !!}">{{$item->Ten}}</a></li>
+								@endforeach
 			        </ul>
 				</li>
 		      	<li><a href="{!! url('http://csdl.ntbic.com/') !!}">Dữ liệu</a></li>
