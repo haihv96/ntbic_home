@@ -13,16 +13,13 @@ class LoaiTin extends Seeder
     {
         DB::table('loai_tin')->insert([
         [
-        	'slug' => '1',
+        	'slug' => 'cong-nghe',
         ],
         [
-        	'slug' => '12',
+        	'slug' => 'khoi-nghiep',
         ],
         [
-        	'slug' => '123',
-        ],
-        [
-        	'slug' => '1234',
+        	'slug' => 'doanh-nghiep',
         ]
         ]);
     }

@@ -19,7 +19,9 @@
 			{!! $item->TomTat !!}
 			</div>
 			<div class="listnews_item_date">
-				<i class="fa fa-calendar" aria-hidden="true"> {{$item->updated_at}}</i> | 
+
+				<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->updated_at,0,11)}}</i> | 
+
 				<a href="su-kien/{{$item->slug}}">Xem thêm </a>
 			</div>
 		</div>

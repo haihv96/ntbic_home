@@ -17,7 +17,9 @@
 			{!!$item->NoiDungTuyenDung!!}
 			</div>
 			<div class="listnews_item_date">
-			<i class="fa fa-calendar" aria-hidden="true"> {{$item->updated_at}}</i> | 
+
+			<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->NgayBatDau,0,11)}}</i> | 
+
 			<a href="tuyen-dung/{{$item->slug}}">Xem thêm </a>
 			</div>
 		</div>

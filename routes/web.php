@@ -56,6 +56,10 @@ Route::get('{slug_loai_tin}/{slug_tin_tuc}','PageController\TinTucController@det
 //show all su kien
 Route::get('su-kien','PageController\SuKienController@danhSachSuKien');
 Route::get('su-kien/{slug}','PageController\SuKienController@detailsSuKien');
+
+Route::get('su-kien/{slug}/dang-ki','PageController\SuKienController@NguoiDangKiSuKien');
+
 //show cong nghe
 Route::get('cong-nghe','PageController\PageController@CongNghe');
 Route::get('cong-nghe/{slug}','PageController\PageController@DeTailsCongNghe');
+

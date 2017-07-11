@@ -14,28 +14,136 @@ class CongNgheSeed extends Seeder
         DB::table('cong_nghe_translations')->insert([
         [
         	'cong_nghe_id' => '1',
-        	'Ten' => 'NTBIC',
-        	'NoiDung'=> 'Cơ sở ươm tạo tại Hưng Yên của NTBIC vừa được sửa chữa, nâng cấp hạ tầng, mua sắm trang thiết bị văn phòng, bao gồm 9 phòng phục vụ công tác ươm tạo, mỗi phòng rộng khoảng 20m2. Ngoài ra, cơ sở này còn có 2 phòng hội thảo, 1 phòng lễ tân, điều hành, hỗ trợ hoạt động ươm tạo chung. Tổng diện tích sàn của vườn ươm lên đến gần 400m2, với diện tích như vậy, NTBIC sẽ cung cấp cho các khách hàng ươm tạo của mình không gian làm việc đầy đủ tiện nghi cần thiết và các hỗ trợ về đào tạo nâng cao năng lực nhằm biến các ý tưởng KH&CN thành các sản phẩm mẫu và thương mại hóa thành công trên thị trường.',
+        	'Ten' => 'Sản xuất thử nghiệm một số dược liệu theo hướng dẫn GACP tại huyện Lạc Thủy, tỉnh Hòa Bình',
+        	'NoiDung'=> '<p><strong>M&ocirc; tả chung về đề t&agrave;i, dự &aacute;n KH&amp;CN</strong></p>
+
+            <p>Mục ti&ecirc;u thực hiện:</p>
+
+            <p>(1) Ho&agrave;n thiện được quy tr&igrave;nh nh&acirc;n giống, sản xuất c&aacute;c dược liệu H&agrave; thủ &ocirc; đỏ (Fallopia multiflora (Thunb. ex Murray) Haraldson), Đảng s&acirc;m Việt Nam (Codonopsis javanica (Blume) Hook.f.), Đinh lăng (Polyscias fruticosa (L.)Harms), Giảo cổ lam (Gynostemma pentaphyllum (Thunb.) Makino) theo hướng dẫn GACP ph&ugrave; hợp với điều kiện của huyện Lạc Thủy.<br />
+            (2) X&acirc;y dựng được c&aacute;c m&ocirc; h&igrave;nh thực nghiệm sản xuất 04 loại dược liệu tr&ecirc;n (mỗi dược liệu 10-20 ha).<br />
+            (3) X&acirc;y dựng được vườn nh&acirc;n giống cho c&aacute;c dược liệu đủ quy m&ocirc; ph&aacute;t triển v&ugrave;ng trồng 100 ha mỗi loại.</p>
+
+            <p>C&aacute;c sản phẩm ch&iacute;nh:</p>
+
+            <p>1. B&aacute;o c&aacute;o điều kiện sinh th&aacute;i, thổ nhưỡng của v&ugrave;ng trồng từng loại dược liệu<br />
+            2. M&ocirc; h&igrave;nh thực nghiệm sản xuất giống dược liệu H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam, Đinh lăng, Giảo cổ lam (5ha bao gồm: Vườn ươm nh&acirc;n giống (0,4 ha); Vườn huấn luyện v&agrave; th&iacute; nghiệm (2,9 ha); Vườn giống gốc v&agrave; vườn c&acirc;y mẹ (1,7 ha). C&aacute;c c&acirc;y giống đủ ti&ecirc;u chuẩn về số lượng v&agrave; chất lượng để đưa ra ruộng sản xuất.<br />
+            3. M&ocirc; h&igrave;nh thực nghiệm sản xuất c&aacute;c dược liệu theo hướng dẫn GACP: 20 ha( bao gồm Đinh lăng: 20 ha, Giảo cổ lam: 10 ha, H&agrave; thủ &ocirc; đỏ: 20 ha v&agrave; Đảng s&acirc;m Việt Nam: 20 ha)<br />
+            4. Dược liệu đạt theo ti&ecirc;u chuẩn Dược điển Việt Nam hiện h&agrave;nh: Đinh lăng: 180 tấn, Giảo cổ lam: 80 tấn, H&agrave; thủ &ocirc; đỏ: 25 tấn v&agrave; Đảng s&acirc;m Việt Nam: 25 tấn&nbsp;<br />
+            5. B&aacute;o c&aacute;o kết quả theo d&otilde;i sinh trưởng, ph&aacute;t triển, năng suất, chất lượng của c&aacute;c dược liệu tại v&ugrave;ng dự &aacute;n theo GACP<br />
+            6. Quy tr&igrave;nh nh&acirc;n giống c&aacute;c c&acirc;y thuốc Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam tại huyện Lạc Thủy tỉnh H&ograve;a B&igrave;nh<br />
+            7. Qui tr&igrave;nh sản xuất dược liệu Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam theo GACP tại huyện Lạc Thủy, tỉnh H&ograve;a B&igrave;nh</p>',
         	'locale' => 'vi',
         ],
-        [
-        	'cong_nghe_id' => '2',
-        	'Ten' => 'Trung tâm Ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ',
-        	'NoiDung'=> '(NTBIC) là đơn vị sự nghiệp khoa học và công lập trực thuộc Viện Ứng dụng Công nghệ (Nacentech) – Bộ Khoa học và Công nghệ (Bộ KH&CN). NTBIC được thành lập vào năm 2014 với nhiệm vụ chính là hỗ trợ  việc thành lập các doanh nghiệp khởi nghiệp và phát triển lớn mạnh trên thị trường. Đạt được mục tiêu đề ra này, NTBIC sẽ góp phần tạo công ăn việc làm cho người lao động, giúp tăng trưởng kinh tế trong khu vực.',
-        	'locale' => 'vi',
+          [
+            'cong_nghe_id' => '1',
+            'Ten' => 'Sản xuất thử nghiệm một số dược liệu theo hướng dẫn GACP tại huyện Lạc Thủy, tỉnh Hòa Bình',
+            'NoiDung'=> '<p><strong>M&ocirc; tả chung về đề t&agrave;i, dự &aacute;n KH&amp;CN</strong></p>
+
+            <p>Mục ti&ecirc;u thực hiện:</p>
+
+            <p>(1) Ho&agrave;n thiện được quy tr&igrave;nh nh&acirc;n giống, sản xuất c&aacute;c dược liệu H&agrave; thủ &ocirc; đỏ (Fallopia multiflora (Thunb. ex Murray) Haraldson), Đảng s&acirc;m Việt Nam (Codonopsis javanica (Blume) Hook.f.), Đinh lăng (Polyscias fruticosa (L.)Harms), Giảo cổ lam (Gynostemma pentaphyllum (Thunb.) Makino) theo hướng dẫn GACP ph&ugrave; hợp với điều kiện của huyện Lạc Thủy.<br />
+            (2) X&acirc;y dựng được c&aacute;c m&ocirc; h&igrave;nh thực nghiệm sản xuất 04 loại dược liệu tr&ecirc;n (mỗi dược liệu 10-20 ha).<br />
+            (3) X&acirc;y dựng được vườn nh&acirc;n giống cho c&aacute;c dược liệu đủ quy m&ocirc; ph&aacute;t triển v&ugrave;ng trồng 100 ha mỗi loại.</p>
+
+            <p>C&aacute;c sản phẩm ch&iacute;nh:</p>
+
+            <p>1. B&aacute;o c&aacute;o điều kiện sinh th&aacute;i, thổ nhưỡng của v&ugrave;ng trồng từng loại dược liệu<br />
+            2. M&ocirc; h&igrave;nh thực nghiệm sản xuất giống dược liệu H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam, Đinh lăng, Giảo cổ lam (5ha bao gồm: Vườn ươm nh&acirc;n giống (0,4 ha); Vườn huấn luyện v&agrave; th&iacute; nghiệm (2,9 ha); Vườn giống gốc v&agrave; vườn c&acirc;y mẹ (1,7 ha). C&aacute;c c&acirc;y giống đủ ti&ecirc;u chuẩn về số lượng v&agrave; chất lượng để đưa ra ruộng sản xuất.<br />
+            3. M&ocirc; h&igrave;nh thực nghiệm sản xuất c&aacute;c dược liệu theo hướng dẫn GACP: 20 ha( bao gồm Đinh lăng: 20 ha, Giảo cổ lam: 10 ha, H&agrave; thủ &ocirc; đỏ: 20 ha v&agrave; Đảng s&acirc;m Việt Nam: 20 ha)<br />
+            4. Dược liệu đạt theo ti&ecirc;u chuẩn Dược điển Việt Nam hiện h&agrave;nh: Đinh lăng: 180 tấn, Giảo cổ lam: 80 tấn, H&agrave; thủ &ocirc; đỏ: 25 tấn v&agrave; Đảng s&acirc;m Việt Nam: 25 tấn&nbsp;<br />
+            5. B&aacute;o c&aacute;o kết quả theo d&otilde;i sinh trưởng, ph&aacute;t triển, năng suất, chất lượng của c&aacute;c dược liệu tại v&ugrave;ng dự &aacute;n theo GACP<br />
+            6. Quy tr&igrave;nh nh&acirc;n giống c&aacute;c c&acirc;y thuốc Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam tại huyện Lạc Thủy tỉnh H&ograve;a B&igrave;nh<br />
+            7. Qui tr&igrave;nh sản xuất dược liệu Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam theo GACP tại huyện Lạc Thủy, tỉnh H&ograve;a B&igrave;nh</p>',
+            'locale' => 'en',
         ],
-        [
-        	'cong_nghe_id' => '3',
-        	'Ten' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        	'NoiDung'=> 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-        	'locale' => 'en',
+          [
+            'cong_nghe_id' => '2',
+            'Ten' => 'Sản xuất thử nghiệm một số dược liệu theo hướng dẫn GACP tại huyện Lạc Thủy, tỉnh Hòa Bình',
+            'NoiDung'=> '<p><strong>M&ocirc; tả chung về đề t&agrave;i, dự &aacute;n KH&amp;CN</strong></p>
+
+            <p>Mục ti&ecirc;u thực hiện:</p>
+
+            <p>(1) Ho&agrave;n thiện được quy tr&igrave;nh nh&acirc;n giống, sản xuất c&aacute;c dược liệu H&agrave; thủ &ocirc; đỏ (Fallopia multiflora (Thunb. ex Murray) Haraldson), Đảng s&acirc;m Việt Nam (Codonopsis javanica (Blume) Hook.f.), Đinh lăng (Polyscias fruticosa (L.)Harms), Giảo cổ lam (Gynostemma pentaphyllum (Thunb.) Makino) theo hướng dẫn GACP ph&ugrave; hợp với điều kiện của huyện Lạc Thủy.<br />
+            (2) X&acirc;y dựng được c&aacute;c m&ocirc; h&igrave;nh thực nghiệm sản xuất 04 loại dược liệu tr&ecirc;n (mỗi dược liệu 10-20 ha).<br />
+            (3) X&acirc;y dựng được vườn nh&acirc;n giống cho c&aacute;c dược liệu đủ quy m&ocirc; ph&aacute;t triển v&ugrave;ng trồng 100 ha mỗi loại.</p>
+
+            <p>C&aacute;c sản phẩm ch&iacute;nh:</p>
+
+            <p>1. B&aacute;o c&aacute;o điều kiện sinh th&aacute;i, thổ nhưỡng của v&ugrave;ng trồng từng loại dược liệu<br />
+            2. M&ocirc; h&igrave;nh thực nghiệm sản xuất giống dược liệu H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam, Đinh lăng, Giảo cổ lam (5ha bao gồm: Vườn ươm nh&acirc;n giống (0,4 ha); Vườn huấn luyện v&agrave; th&iacute; nghiệm (2,9 ha); Vườn giống gốc v&agrave; vườn c&acirc;y mẹ (1,7 ha). C&aacute;c c&acirc;y giống đủ ti&ecirc;u chuẩn về số lượng v&agrave; chất lượng để đưa ra ruộng sản xuất.<br />
+            3. M&ocirc; h&igrave;nh thực nghiệm sản xuất c&aacute;c dược liệu theo hướng dẫn GACP: 20 ha( bao gồm Đinh lăng: 20 ha, Giảo cổ lam: 10 ha, H&agrave; thủ &ocirc; đỏ: 20 ha v&agrave; Đảng s&acirc;m Việt Nam: 20 ha)<br />
+            4. Dược liệu đạt theo ti&ecirc;u chuẩn Dược điển Việt Nam hiện h&agrave;nh: Đinh lăng: 180 tấn, Giảo cổ lam: 80 tấn, H&agrave; thủ &ocirc; đỏ: 25 tấn v&agrave; Đảng s&acirc;m Việt Nam: 25 tấn&nbsp;<br />
+            5. B&aacute;o c&aacute;o kết quả theo d&otilde;i sinh trưởng, ph&aacute;t triển, năng suất, chất lượng của c&aacute;c dược liệu tại v&ugrave;ng dự &aacute;n theo GACP<br />
+            6. Quy tr&igrave;nh nh&acirc;n giống c&aacute;c c&acirc;y thuốc Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam tại huyện Lạc Thủy tỉnh H&ograve;a B&igrave;nh<br />
+            7. Qui tr&igrave;nh sản xuất dược liệu Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam theo GACP tại huyện Lạc Thủy, tỉnh H&ograve;a B&igrave;nh</p>',
+            'locale' => 'vi',
         ],
-        [
-        	'cong_nghe_id' => '4',
-        	'Ten' => 'it is a long established fact that a reader will be distracted by the readabi',
-        	'NoiDung'=> 'The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
-        	'locale' => 'en',
-        ]
+          [
+            'cong_nghe_id' => '2',
+            'Ten' => 'Sản xuất thử nghiệm một số dược liệu theo hướng dẫn GACP tại huyện Lạc Thủy, tỉnh Hòa Bình',
+            'NoiDung'=> '<p><strong>M&ocirc; tả chung về đề t&agrave;i, dự &aacute;n KH&amp;CN</strong></p>
+
+            <p>Mục ti&ecirc;u thực hiện:</p>
+
+            <p>(1) Ho&agrave;n thiện được quy tr&igrave;nh nh&acirc;n giống, sản xuất c&aacute;c dược liệu H&agrave; thủ &ocirc; đỏ (Fallopia multiflora (Thunb. ex Murray) Haraldson), Đảng s&acirc;m Việt Nam (Codonopsis javanica (Blume) Hook.f.), Đinh lăng (Polyscias fruticosa (L.)Harms), Giảo cổ lam (Gynostemma pentaphyllum (Thunb.) Makino) theo hướng dẫn GACP ph&ugrave; hợp với điều kiện của huyện Lạc Thủy.<br />
+            (2) X&acirc;y dựng được c&aacute;c m&ocirc; h&igrave;nh thực nghiệm sản xuất 04 loại dược liệu tr&ecirc;n (mỗi dược liệu 10-20 ha).<br />
+            (3) X&acirc;y dựng được vườn nh&acirc;n giống cho c&aacute;c dược liệu đủ quy m&ocirc; ph&aacute;t triển v&ugrave;ng trồng 100 ha mỗi loại.</p>
+
+            <p>C&aacute;c sản phẩm ch&iacute;nh:</p>
+
+            <p>1. B&aacute;o c&aacute;o điều kiện sinh th&aacute;i, thổ nhưỡng của v&ugrave;ng trồng từng loại dược liệu<br />
+            2. M&ocirc; h&igrave;nh thực nghiệm sản xuất giống dược liệu H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam, Đinh lăng, Giảo cổ lam (5ha bao gồm: Vườn ươm nh&acirc;n giống (0,4 ha); Vườn huấn luyện v&agrave; th&iacute; nghiệm (2,9 ha); Vườn giống gốc v&agrave; vườn c&acirc;y mẹ (1,7 ha). C&aacute;c c&acirc;y giống đủ ti&ecirc;u chuẩn về số lượng v&agrave; chất lượng để đưa ra ruộng sản xuất.<br />
+            3. M&ocirc; h&igrave;nh thực nghiệm sản xuất c&aacute;c dược liệu theo hướng dẫn GACP: 20 ha( bao gồm Đinh lăng: 20 ha, Giảo cổ lam: 10 ha, H&agrave; thủ &ocirc; đỏ: 20 ha v&agrave; Đảng s&acirc;m Việt Nam: 20 ha)<br />
+            4. Dược liệu đạt theo ti&ecirc;u chuẩn Dược điển Việt Nam hiện h&agrave;nh: Đinh lăng: 180 tấn, Giảo cổ lam: 80 tấn, H&agrave; thủ &ocirc; đỏ: 25 tấn v&agrave; Đảng s&acirc;m Việt Nam: 25 tấn&nbsp;<br />
+            5. B&aacute;o c&aacute;o kết quả theo d&otilde;i sinh trưởng, ph&aacute;t triển, năng suất, chất lượng của c&aacute;c dược liệu tại v&ugrave;ng dự &aacute;n theo GACP<br />
+            6. Quy tr&igrave;nh nh&acirc;n giống c&aacute;c c&acirc;y thuốc Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam tại huyện Lạc Thủy tỉnh H&ograve;a B&igrave;nh<br />
+            7. Qui tr&igrave;nh sản xuất dược liệu Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam theo GACP tại huyện Lạc Thủy, tỉnh H&ograve;a B&igrave;nh</p>',
+            'locale' => 'en',
+        ],
+          [
+            'cong_nghe_id' => '3',
+            'Ten' => 'Sản xuất thử nghiệm một số dược liệu theo hướng dẫn GACP tại huyện Lạc Thủy, tỉnh Hòa Bình',
+            'NoiDung'=> '<p><strong>M&ocirc; tả chung về đề t&agrave;i, dự &aacute;n KH&amp;CN</strong></p>
+
+            <p>Mục ti&ecirc;u thực hiện:</p>
+
+            <p>(1) Ho&agrave;n thiện được quy tr&igrave;nh nh&acirc;n giống, sản xuất c&aacute;c dược liệu H&agrave; thủ &ocirc; đỏ (Fallopia multiflora (Thunb. ex Murray) Haraldson), Đảng s&acirc;m Việt Nam (Codonopsis javanica (Blume) Hook.f.), Đinh lăng (Polyscias fruticosa (L.)Harms), Giảo cổ lam (Gynostemma pentaphyllum (Thunb.) Makino) theo hướng dẫn GACP ph&ugrave; hợp với điều kiện của huyện Lạc Thủy.<br />
+            (2) X&acirc;y dựng được c&aacute;c m&ocirc; h&igrave;nh thực nghiệm sản xuất 04 loại dược liệu tr&ecirc;n (mỗi dược liệu 10-20 ha).<br />
+            (3) X&acirc;y dựng được vườn nh&acirc;n giống cho c&aacute;c dược liệu đủ quy m&ocirc; ph&aacute;t triển v&ugrave;ng trồng 100 ha mỗi loại.</p>
+
+            <p>C&aacute;c sản phẩm ch&iacute;nh:</p>
+
+            <p>1. B&aacute;o c&aacute;o điều kiện sinh th&aacute;i, thổ nhưỡng của v&ugrave;ng trồng từng loại dược liệu<br />
+            2. M&ocirc; h&igrave;nh thực nghiệm sản xuất giống dược liệu H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam, Đinh lăng, Giảo cổ lam (5ha bao gồm: Vườn ươm nh&acirc;n giống (0,4 ha); Vườn huấn luyện v&agrave; th&iacute; nghiệm (2,9 ha); Vườn giống gốc v&agrave; vườn c&acirc;y mẹ (1,7 ha). C&aacute;c c&acirc;y giống đủ ti&ecirc;u chuẩn về số lượng v&agrave; chất lượng để đưa ra ruộng sản xuất.<br />
+            3. M&ocirc; h&igrave;nh thực nghiệm sản xuất c&aacute;c dược liệu theo hướng dẫn GACP: 20 ha( bao gồm Đinh lăng: 20 ha, Giảo cổ lam: 10 ha, H&agrave; thủ &ocirc; đỏ: 20 ha v&agrave; Đảng s&acirc;m Việt Nam: 20 ha)<br />
+            4. Dược liệu đạt theo ti&ecirc;u chuẩn Dược điển Việt Nam hiện h&agrave;nh: Đinh lăng: 180 tấn, Giảo cổ lam: 80 tấn, H&agrave; thủ &ocirc; đỏ: 25 tấn v&agrave; Đảng s&acirc;m Việt Nam: 25 tấn&nbsp;<br />
+            5. B&aacute;o c&aacute;o kết quả theo d&otilde;i sinh trưởng, ph&aacute;t triển, năng suất, chất lượng của c&aacute;c dược liệu tại v&ugrave;ng dự &aacute;n theo GACP<br />
+            6. Quy tr&igrave;nh nh&acirc;n giống c&aacute;c c&acirc;y thuốc Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam tại huyện Lạc Thủy tỉnh H&ograve;a B&igrave;nh<br />
+            7. Qui tr&igrave;nh sản xuất dược liệu Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam theo GACP tại huyện Lạc Thủy, tỉnh H&ograve;a B&igrave;nh</p>',
+            'locale' => 'vi',
+        ],
+          [
+            'cong_nghe_id' => '3',
+            'Ten' => 'Sản xuất thử nghiệm một số dược liệu theo hướng dẫn GACP tại huyện Lạc Thủy, tỉnh Hòa Bình',
+            'NoiDung'=> '<p><strong>M&ocirc; tả chung về đề t&agrave;i, dự &aacute;n KH&amp;CN</strong></p>
+
+            <p>Mục ti&ecirc;u thực hiện:</p>
+
+            <p>(1) Ho&agrave;n thiện được quy tr&igrave;nh nh&acirc;n giống, sản xuất c&aacute;c dược liệu H&agrave; thủ &ocirc; đỏ (Fallopia multiflora (Thunb. ex Murray) Haraldson), Đảng s&acirc;m Việt Nam (Codonopsis javanica (Blume) Hook.f.), Đinh lăng (Polyscias fruticosa (L.)Harms), Giảo cổ lam (Gynostemma pentaphyllum (Thunb.) Makino) theo hướng dẫn GACP ph&ugrave; hợp với điều kiện của huyện Lạc Thủy.<br />
+            (2) X&acirc;y dựng được c&aacute;c m&ocirc; h&igrave;nh thực nghiệm sản xuất 04 loại dược liệu tr&ecirc;n (mỗi dược liệu 10-20 ha).<br />
+            (3) X&acirc;y dựng được vườn nh&acirc;n giống cho c&aacute;c dược liệu đủ quy m&ocirc; ph&aacute;t triển v&ugrave;ng trồng 100 ha mỗi loại.</p>
+
+            <p>C&aacute;c sản phẩm ch&iacute;nh:</p>
+
+            <p>1. B&aacute;o c&aacute;o điều kiện sinh th&aacute;i, thổ nhưỡng của v&ugrave;ng trồng từng loại dược liệu<br />
+            2. M&ocirc; h&igrave;nh thực nghiệm sản xuất giống dược liệu H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam, Đinh lăng, Giảo cổ lam (5ha bao gồm: Vườn ươm nh&acirc;n giống (0,4 ha); Vườn huấn luyện v&agrave; th&iacute; nghiệm (2,9 ha); Vườn giống gốc v&agrave; vườn c&acirc;y mẹ (1,7 ha). C&aacute;c c&acirc;y giống đủ ti&ecirc;u chuẩn về số lượng v&agrave; chất lượng để đưa ra ruộng sản xuất.<br />
+            3. M&ocirc; h&igrave;nh thực nghiệm sản xuất c&aacute;c dược liệu theo hướng dẫn GACP: 20 ha( bao gồm Đinh lăng: 20 ha, Giảo cổ lam: 10 ha, H&agrave; thủ &ocirc; đỏ: 20 ha v&agrave; Đảng s&acirc;m Việt Nam: 20 ha)<br />
+            4. Dược liệu đạt theo ti&ecirc;u chuẩn Dược điển Việt Nam hiện h&agrave;nh: Đinh lăng: 180 tấn, Giảo cổ lam: 80 tấn, H&agrave; thủ &ocirc; đỏ: 25 tấn v&agrave; Đảng s&acirc;m Việt Nam: 25 tấn&nbsp;<br />
+            5. B&aacute;o c&aacute;o kết quả theo d&otilde;i sinh trưởng, ph&aacute;t triển, năng suất, chất lượng của c&aacute;c dược liệu tại v&ugrave;ng dự &aacute;n theo GACP<br />
+            6. Quy tr&igrave;nh nh&acirc;n giống c&aacute;c c&acirc;y thuốc Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam tại huyện Lạc Thủy tỉnh H&ograve;a B&igrave;nh<br />
+            7. Qui tr&igrave;nh sản xuất dược liệu Đinh lăng, Giảo cổ lam, H&agrave; thủ &ocirc; đỏ, Đảng s&acirc;m Việt Nam theo GACP tại huyện Lạc Thủy, tỉnh H&ograve;a B&igrave;nh</p>',
+            'locale' => 'en',
+        ],
         ]);
     }
 }

@@ -13,16 +13,16 @@ class ChuyenGia extends Seeder
     {
         DB::table('chuyen_gia')->insert([
         [
-        	'slug' => '1',
+        	'slug' => 'lai-thi-thao-van',
+              'HinhAnh'=>'W3Mn_RM-running-man-34478593-1023-506.png'
         ],
         [
-        	'slug' => '12',
+            'slug' => 'lai-thi-thao-van',
+              'HinhAnh'=>'W3Mn_RM-running-man-34478593-1023-506.png'
         ],
         [
-        	'slug' => '123',
-        ],
-        [
-        	'slug' => '1234',
+            'slug' => 'lai-thi-thao-van',
+              'HinhAnh'=>'W3Mn_RM-running-man-34478593-1023-506.png'
         ]
         ]);
     }

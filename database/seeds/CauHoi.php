@@ -13,29 +13,17 @@ class CauHoi extends Seeder
     {
         DB::table('cau_hoi')->insert([
         [
-        	'slug' => '1',
+            'slug' => 'ntbic-o-dau'
         ],
-        [
-        	'slug' => '12',
+         [
+            'slug' => 'ntbic-o-dau'
         ],
-        [
-        	'slug' => '123',
+         [
+            'slug' => 'ntbic-o-dau'
         ],
-        [
-        	'slug' => '1234',
-        ],
-        [
-        	'slug' => '12345',
-        ],
-        [
-        	'slug' => '123456',
-        ],
-        [
-        	'slug' => '1234567',
-        ],
-        [
-        	'slug' => '12345678',
-        ]]
-        );
+         [
+            'slug' => 'ntbic-o-dau'
+        ]
+        ]);
     }
 }

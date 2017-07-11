@@ -44,5 +44,18 @@ class SuKienController extends Controller
 											'tinnoibat'=>$tin_noi_bat]);
 	}
 
-
+    public function NguoiDangKiSuKien($slug,NguoiDangKiSuKienRequest $request){
+        if (!session()->has('language')) {
+            session(['language'=>'vi']);
+        }
+        $locale = session()->get('language');
+        app()->setlocale($locale);
+        $nguoi=new NguoiDangKiSuKien;
+        $nguoi->Ten=$request->ten;
+        $nguoi->email=$request->email;
+        $nguoi->phone=$request->phone;
+        $nguoi->save();
+        $chuyen_gia->save();
+        
+    }
 }

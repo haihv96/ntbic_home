@@ -14,28 +14,47 @@ class TuyenDungSeed extends Seeder
          DB::table('tuyen_dung_translations')->insert([
         [
         	'tuyen_dung_id' => '1',
-        	'MoTa' => 'NTBIC có cơ sở ươm',
-        	'NoiDungTuyenDung' => 'tại Thị trấn Bần Yên Nhân, Mỹ Hào, Hưng Yên, cách Hà Nội gần 30km. NTBIC có văn phòng đại diện tại Hà Nội thực hiện nhiệm vụ ươm tảo ảo và duy trì mối liên hệ với các đơn vị nghiên cứu KH&CN ở Hà Nội và trong cộng đồng KH&CN.',
+        	'MoTa' => 'tuyển dụng trưởng phòng nhân sự',
+        	'NoiDungTuyenDung' => '<p><strong><em>Sứ mạng:</em></strong></p>
+
+            <ul>
+                <li>Trở th&agrave;nh c&aacute;c nh&agrave; ph&aacute;t triển doanh nghiệp KHCN th&agrave;nh c&ocirc;ng nhất tại H&agrave; Nội.</li>
+                <li>N&acirc;ng cao sức cạnh tranh của nền kinh tế của Việt Nam bằng c&aacute;ch tạo ra một Trung t&acirc;m Đổi mới sẽ hoạt động như một cầu nối để đưa những &yacute; tưởng khoa học v&agrave; c&ocirc;ng nghệ v&agrave;o thị trường.</li>
+                <li>Hỗ trợ cho Bộ Khoa học v&agrave; C&ocirc;ng nghệ để quyết định c&aacute;c ch&iacute;nh s&aacute;ch v&agrave; thủ tục mới nhằm ph&aacute;t triển khung ph&aacute;p l&yacute; cho c&aacute;c doanh nghiệp KHCN v&agrave; Trung t&acirc;m Ươm tạo.</li>
+            </ul>
+
+            <p><strong><em>Tầm nh&igrave;n, mục ti&ecirc;u chủ đạo:</em></strong></p>
+
+            <ul>
+                <li>L&agrave; đường dẫn đưa c&aacute;c &yacute; tưởng khoa học c&ocirc;ng nghệ trong v&agrave; ngo&agrave;i nước ra thị trường</li>
+                <li>Tạo điều kiện thương mại h&oacute;a kết quả khoa học v&agrave; c&ocirc;ng nghệ v&agrave;o thị trường th&ocirc;ng qua ươm tạo</li>
+                <li>Cung cấp c&aacute;c dịch vụ hỗ trợ quản l&yacute; ph&aacute;t triển cho c&aacute;c doanh nghiệp KHCN tiềm năng</li>
+                <li>Hỗ trợ t&iacute;ch hợp li&ecirc;n kết c&aacute;c c&ocirc;ng nghệ v&agrave; &yacute; tưởng tới doanh nghiệp</li>
+            </ul>',
         	'locale' => 'vi',
         ],
-        [
-        	'tuyen_dung_id' => '2',
-        	'MoTa' => 'Cơ sở ươm tạo tại Hưng Yên của NTBIC',
-        	'NoiDungTuyenDung' => 'văn phòng, bao gồm 9 phòng phục vụ công tác ươm tạo, mỗi phòng rộng khoảng 20m2. Ngoài ra, cơ sở này còn có 2 phòng hội thảo, 1 phòng lễ tân, điều hành, hỗ trợ hoạt động ươm tạo chung. Tổng diện tích sàn của vườn ươm lên đến gần 400m2, với diện tích như vậy, NTBIC sẽ cung cấp cho các khách hàng ươm tạo của mình không gian làm việc đầy đủ tiện nghi cần thiết và các hỗ trợ về đào tạo nâng cao năng lực nhằm biến các ý',
-        	'locale' => 'vi',
-        ],
-        [
-        	'tuyen_dung_id' => '3',
-        	'MoTa' => 'Lorem Ipsum is simply dummy',
-        	'NoiDungTuyenDung' => 'ince the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur',
-        	'locale' => 'en',
-        ],
-        [
-        	'tuyen_dung_id' => '4',
-        	'MoTa' => 'e of classical Latin literature from 45 BC, making it over 2000 years old. ',
-        	'NoiDungTuyenDung' => 'since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letrase',
-        	'locale' => 'en',
+         [
+            'tuyen_dung_id' => '1',
+            'MoTa' => 'tuyển dụng trưởng phòng nhân sự',
+            'NoiDungTuyenDung' => '<p><strong><em>Sứ mạng:</em></strong></p>
+
+            <ul>
+                <li>Trở th&agrave;nh c&aacute;c nh&agrave; ph&aacute;t triển doanh nghiệp KHCN th&agrave;nh c&ocirc;ng nhất tại H&agrave; Nội.</li>
+                <li>N&acirc;ng cao sức cạnh tranh của nền kinh tế của Việt Nam bằng c&aacute;ch tạo ra một Trung t&acirc;m Đổi mới sẽ hoạt động như một cầu nối để đưa những &yacute; tưởng khoa học v&agrave; c&ocirc;ng nghệ v&agrave;o thị trường.</li>
+                <li>Hỗ trợ cho Bộ Khoa học v&agrave; C&ocirc;ng nghệ để quyết định c&aacute;c ch&iacute;nh s&aacute;ch v&agrave; thủ tục mới nhằm ph&aacute;t triển khung ph&aacute;p l&yacute; cho c&aacute;c doanh nghiệp KHCN v&agrave; Trung t&acirc;m Ươm tạo.</li>
+            </ul>
+
+            <p><strong><em>Tầm nh&igrave;n, mục ti&ecirc;u chủ đạo:</em></strong></p>
+
+            <ul>
+                <li>L&agrave; đường dẫn đưa c&aacute;c &yacute; tưởng khoa học c&ocirc;ng nghệ trong v&agrave; ngo&agrave;i nước ra thị trường</li>
+                <li>Tạo điều kiện thương mại h&oacute;a kết quả khoa học v&agrave; c&ocirc;ng nghệ v&agrave;o thị trường th&ocirc;ng qua ươm tạo</li>
+                <li>Cung cấp c&aacute;c dịch vụ hỗ trợ quản l&yacute; ph&aacute;t triển cho c&aacute;c doanh nghiệp KHCN tiềm năng</li>
+                <li>Hỗ trợ t&iacute;ch hợp li&ecirc;n kết c&aacute;c c&ocirc;ng nghệ v&agrave; &yacute; tưởng tới doanh nghiệp</li>
+            </ul>',
+            'locale' => 'en',
         ]
+        
         ]);
     }
 }

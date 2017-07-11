@@ -13,16 +13,7 @@ class ToChuc extends Seeder
     {
          DB::table('to_chuc')->insert([
         [
-        	'slug' => '1',
-        ],
-        [
-        	'slug' => '12',
-        ],
-        [
-        	'slug' => '123',
-        ],
-        [
-        	'slug' => '1234',
+        	'slug' => 'ntbic',
         ]
         ]);
     }
