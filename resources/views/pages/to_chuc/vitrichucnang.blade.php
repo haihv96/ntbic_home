@@ -7,7 +7,7 @@
 			<li><a href="#">Tổ chức</a></li>
 			<li>Vị trí chức năng</li>
 	</ul>
-	<h3 style="color:#337ab7">Vị trí chức năng</h3>
+	<div class=" tochuc col-md-12 col-sm-12"><h4 >Vị trí chức năng</h4></div>	
 	<div class=" col-md-12 col-sm-12  introduced">
 		@if(count($tochuc) > 0)
 			{!!$tochuc->ViTriChucNang!!}

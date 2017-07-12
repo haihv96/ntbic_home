@@ -7,7 +7,7 @@
 			<li><a href="#">Tổ chức</a></li>
 			<li>Đội ngũ trung tâm</li>
 	</ul>
-	<h3 style="color:#337ab7">Đội ngũ trung tâm</h3>
+	<div class=" tochuc col-md-12 col-sm-12"><h4 >Đội ngũ trung tâm</h4></div>
 	<div class=" col-md-12 col-sm-12  introduced">
 		@if(count($tochuc) > 0)
 			{!!$tochuc->DoiNguTrungTam!!}

@@ -6,8 +6,8 @@
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
-		<li><a href="#">Trang chủ</a></li>
-		<li><a href="#">Sự kiện</a></li>
+		<li><a href="{{route('home')}}">Trang chủ</a></li>
+		<li><a href="{{route('home/su-kien')}}">Sự kiện</a></li>
 	</ul>
 	<div class=" col-md-12 col-sm-12  detailsNew">
 		<!--header details news-->

@@ -54,6 +54,8 @@ class TinTucController extends Controller
 	    //take id loại tin, tên loại tin
 	     $loai_tin=LoaiTin::where('slug',$slug_loai_tin)->first();
 	     $id=$loai_tin->id;
+	     $lt=$loai_tin->slug;
+	     $tenlt=$loai_tin->Ten;
 	  
 	    $count= DB::table('to_chuc')->count();
 	   // echo $tin_lien_quan;
@@ -69,7 +71,9 @@ class TinTucController extends Controller
 										'loaitin' => $loai_tin_list, 
 										'locale'=>$locale, 
 										'loaidoitac'=>$loai_doi_tac,
-										'tinnoibat'=>$tin_noi_bat]);  	    
+										'tinnoibat'=>$tin_noi_bat,
+										'lt'=>$lt,
+										'tenlt'=>$tenlt]);  	    
 	}
 	
 }

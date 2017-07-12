@@ -7,11 +7,13 @@
 			<li><a href="#">Tổ chức</a></li>
 		<li>Tuyển dụng</li>
 	</ul>
+	<div class="line col-md-12 col-sm-12 ">
+	</div>
 	@foreach($tuyendung as $item)
 	<div class=" col-md-12 col-sm-12  listnews_item">
-		<div class="col-md-12 col-sm-12   ">
+		<div class=" col-md-12 col-sm-12 ">
 			<div class="listnews_item_title">
-			<h3><a href="tuyen-dung/{{$item->slug}}">{{$item->MoTa}}</a></h3>
+			<h4><a href="tuyen-dung/{{$item->slug}}">{{$item->MoTa}}</a></h4>
 			</div>
 			<div class="listnews_item_description">
 			{!!$item->NoiDungTuyenDung!!}

@@ -6,7 +6,7 @@
         <li><a href="#">Tổ chức</a></li>
         <li>Câu hỏi thường gặp</li>
     </ul>
-	<h3 style="color:#337ab7">Câu hỏi thường gặp</h3>
+	<div class=" tochuc col-md-12 col-sm-12"><h4 >Câu hỏi thường gặp</h4></div>
     @foreach( $cauhoi as $item)
     @if(!empty($item))
     <button class="accordion">{{$item->CauHoi}}</button>
