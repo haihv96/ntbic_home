@@ -4,26 +4,26 @@
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
-		<li><a href="#">Trang chủ</a></li>
-		<li><a href="#">Tin tức</a></li>
-		<li><a href="#">{{$tintuc->Ten}}</a></li>
+		<li><a href="{{route('home')}}">Trang chủ</a></li>
+		<li><a href="">Tin tức</a></li>
+		<li><a href="">{{$tenlt}}</a></li>
 	</ul>
 	<div class=" col-md-12 col-sm-12  detailsNew">
 		<!--header details news-->
     	<div class="header-news">
     		<div class="row">
-	    		<h3 class="title-detail-news">
+	    		<h3 class="title-detail-news col-md-12 col-sm-12">
 		    		{{$tintuc->Ten}}
 		    	</h3>
 	    	</div>
 	    	<div class="row">
-		    	<div class="date-detail-news">
+		    	<div class="date-detail-news col-md-12 col-sm-12">
 		    		<i class="fa fa-calendar" aria-hidden="true"></i>
 		    		<span>{{substr($tintuc->updated_at,0,11)}} | {{substr($tintuc->updated_at,11,13)}} GMT+7</span>
 		    	</div>
 	    	</div>
 	    	<div class="row">
-		    	<div  class="share-detail-news">
+		    	<div  class="share-detail-news col-md-12 col-sm-12">
 			    	<ul class="list-inline" >
 	  					<li id="plug">
 	  						<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=154&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="154" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
@@ -35,13 +35,13 @@
     	<!--content detail news-->
     	<!--<div class="content-detail-news">-->
     	<div class="row">
-    		<div class="content-detail-news">
+    		<div class="content-detail-news col-md-12 col-sm-12">
     			{!!$tintuc->NoiDung!!}
     		</div>
     	</div>
     	<!--footer news-->
     	<div class="row" >
-    		<div class="footer-detail-news">
+    		<div class="footer-detail-news col-md-12 col-sm-12">
     			<div  class="share-detail-news">
 			    	<ul class="list-inline" >
 	  					<li id="plug">
@@ -55,7 +55,7 @@
     		</div>
     	</div>
     	<!--coment-->
-    	<div class="other-news">
+    	<div class="other-news col-md-12 col-sm-12">
     		<div class=row>
 	    		<h4 id="name-div-other-news">
 	    			Bình luận
@@ -65,7 +65,7 @@
     		</div>
     	</div>
     	<!--other news-->
-    	<div class="other-news">
+    	<div class="other-news col-md-12 col-sm-12">
     		<div class=row>
 	    		<h4 id="name-div-other-news">
 	    			TIN LIÊN QUAN
@@ -73,16 +73,14 @@
     		</div>
     	</div>
     	<div class="row">
-    		<div class="row list-other-news">
+    		<div class="row list-other-news col-md-12 col-sm-12">
     			@foreach($tinlienquan as $item)    		
 				<div class="col-md-3 ">
-				    <div class="thumbnail ">
-				      <a href="#">
+				    <div class="thumbnail ">				      
 				        <img src="assets/upload/tin_tuc/{{$item->HinhAnh}}" alt="Lights" style="width:100%">
 				        <div class="caption">
-				          {{ $item->Ten }}
-				        </div>
-				      </a>
+				        <a href="tin-tuc/{{$lt}}/{{$item->slug}}">  <strong> {{ $item->Ten }} </strong></a>
+				        </div>    
 				    </div>
 				</div>
 				@endforeach

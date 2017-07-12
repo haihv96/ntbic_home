@@ -3,10 +3,12 @@
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
-			<li><a href="#">Trang chủ</a></li>
-			<li><a href="#">Tin tức</a></li>
+			<li><a href="{{route('home')}}">Trang chủ</a></li>
+			<li><a href="">Tin tức</a></li>
 			<li>{{$lt->Ten}}</li>
 	</ul>
+	<div class="line col-md-12 col-sm-12 ">
+	</div>
 	@foreach($tintuc as $item)
 	<div class=" col-md-12 col-sm-12  listnews_item">
 		<div class="col-md-3 col-sm-3   img_listnews">

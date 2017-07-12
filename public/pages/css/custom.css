@@ -289,3 +289,12 @@ background: #428bca;
 .text-center{
 	font-size:15px;
 }
+.tochuc{
+	border-top:  1px solid #d1d1d1;
+	color:#337ab7;
+}
+.line{
+	border-bottom:  1px solid #d1d1d1;
+	padding-bottom: 5px;
+	
+}

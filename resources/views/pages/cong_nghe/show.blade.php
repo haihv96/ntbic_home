@@ -9,15 +9,15 @@
 	</ul>
 	<div class=" col-md-12 col-sm-12  detailsNew">
         @if(count($congnghe) > 0)
-		<div class="header-news">
+		<div class="header-news col-md-12 col-sm-12">
     		<div class="row">
 	    		<h3 >
 		    		{{$congnghe->Ten}}
 		    	</h3>
 	    	</div>
     	</div>
-    	<div class="row">
-    		<div class="content-detail-congnghe">
+    	<div class="row ">
+    		<div class="content-detail-congnghe col-md-12 col-sm-12">
     			{!!$congnghe->NoiDung!!}
     		</div>
     	</div>
