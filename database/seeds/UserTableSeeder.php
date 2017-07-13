@@ -18,7 +18,8 @@ class UserTableSeeder extends Seeder
             'email' => 'mcboy.v@gmail.com',
             'email_token' => str_random(10),
             'password' => bcrypt('123456'),
-            'level' => 1
+            'level' => 1,
+            'verified' => 1,
         ]
         ); 
     }

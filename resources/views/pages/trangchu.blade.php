@@ -5,10 +5,10 @@
       <!-- Wrapper for slides -->
       	<div class="carousel-inner">
 	        @if(count($tintuc) > 0)
-		  	<?php
-				$tin1 = $tintuc->shift();
-				$loai_tin_1 = App\LoaiTin::find($tin1->loai_tin_id);
-			?>
+          <?php
+            $tin1 = $tintuc->shift();
+            $loai_tin_1 = App\LoaiTin::find($tin1->loai_tin_id);
+          ?>
 	        <div class="item active">
 	          	<a href="{!!url('tin-tuc/'.$loai_tin_1->slug.'/'.$tin1->slug)!!}"><img src="{!!url('assets/upload/tin_tuc/'.$tin1->HinhAnh) !!}"></a>
 	           	<div class="carousel-caption">
@@ -175,42 +175,19 @@
 		</div>
 		<div class="padding-top-20">
             <div id="Carousel" class="carousel slide">
-             
-                <ol class="carousel-indicators">
-                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#Carousel" data-slide-to="1"></li>
-                    <li data-target="#Carousel" data-slide-to="2"></li>
-                </ol>
                  
                 <!-- Carousel items -->
                 <div class="carousel-inner padding-top-20">
                     
 	                <div class="item active">
 	                	<div class="row">
-	                	  <div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                	  <div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                	  <div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                	  <div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                	  <div class="col-md-1 col-xs-1 "></div>
+	                	  @foreach($logodoitac as $item)
+	                	  <div class="col-md-2 col-xs-2 "><a href="{{url($item->Link)}}" class="thumbnail"><img src="{{url('assets/upload/logo_doitac/'.$item->HinhAnh)}}" alt="Image" style="max-width:100%;"></a></div>
+	                	  @endforeach
+	                	  
 	                	</div><!--.row-->
 	                </div><!--.item-->
-	                 
-	                <div class="item">
-	                	<div class="row">
-	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                	</div><!--.row-->
-	                </div><!--.item-->
-	                 
-	                <div class="item">
-	                	<div class="row">
-	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                	</div><!--.row-->
-	                </div><!--.item-->   
 	            </div> 
 	        </div>     
 		</div>

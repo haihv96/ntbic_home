@@ -11,6 +11,8 @@ use App\CongNghe;
 use App\ChuyenGia;
 use App\DoiTac;
 use App\LoaiDoiTac;
+use App\HinhSidebar;
+use App\LogoDoitac;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
@@ -18,6 +20,13 @@ use Illuminate\Support\Collection;
 
 class PageController extends Controller
 {
+	public function __construct()
+	{
+		$hinh_anh_sidebar = HinhSidebar::all();
+		$logo_doi_tac = LogoDoitac::all();
+		view()->share('hinhanhsidebar',$hinh_anh_sidebar);
+		view()->share('logodoitac',$logo_doi_tac);
+	}
 	public function TrangChu(){
 		if (!session()->has('language')) {
              session(['language'=>'vi']);
