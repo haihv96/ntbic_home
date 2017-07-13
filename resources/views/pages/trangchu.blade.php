@@ -8,6 +8,9 @@
 		$loai_tin_1 = App\LoaiTin::find($tin1->loai_tin_id);
 	  ?>
       	<div class="carousel-inner">
+      		<?php
+      		
+      		?>
 	        <div class="item active">
 	          	<a href="{!!url('tin-tuc/'.$loai_tin_1->slug.'/'.$tin1->slug)!!}"><img src="{!!url('assets/upload/tin_tuc/'.$tin1->HinhAnh) !!}"></a>
 	           	<div class="carousel-caption">
