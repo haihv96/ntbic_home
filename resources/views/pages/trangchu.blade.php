@@ -3,54 +3,37 @@
 <div class="col-md-9 main-left">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
+	  <?php
+	  	$tin1 = $tintuc->shift();
+		$loai_tin_1 = App\LoaiTin::find($tin1->loai_tin_id);
+	  ?>
       	<div class="carousel-inner">
 	        <div class="item active">
-	          	<img src="pages/image/fjords.jpg">
+	          	<a href="{!!url('tin-tuc/'.$loai_tin_1->slug.'/'.$tin1->slug)!!}"><img src="{!!url('assets/upload/tin_tuc/'.$tin1->HinhAnh) !!}"></a>
 	           	<div class="carousel-caption">
-		            <h4><a href="#">Lorem ipsum dolor sit amet consetetur sadipscing</a></h4>
-		            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+		            <h4><a href="{!!url('tin-tuc/'.$loai_tin_1->slug.'/'.$tin1->slug)!!}">{{$tin1->Ten}}</a></h4>
+		            <p>{!!$tin1->TomTat!!}</p>
 	          	</div>
 	        </div><!-- End Item -->
-	 
+	 		@foreach($tintuc as $item)
+			<?php
+				$loai_tin = App\LoaiTin::find($item->loai_tin_id);
+			?>
 	         <div class="item">
-	          	<img src="pages/image/lights.jpg">
+	          	<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug)!!}"><img src="{!!url('assets/upload/tin_tuc/'.$item->HinhAnh) !!}"></a>
 	           	<div class="carousel-caption">
-		            <h4><a href="#">consetetur sadipscing elitr, sed diam nonumy eirmod</a></h4>
-		            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+		            <h4><a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$tin1->slug)!!}">{{$item->Ten}}</a></h4>
+					<p>{!!$item->TomTat!!}</p>
 	          	</div>
 	        </div><!-- End Item -->
-	        
-	        <div class="item">
-	          	<img src="pages/image/nature.jpg">
-	           	<div class="carousel-caption">
-		            <h4><a href="#">tempor invidunt ut labore et dolore</a></h4>
-		            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-	          	</div>
-	        </div><!-- End Item -->
-	        
-	        <div class="item">
-	          	<img src="http://placehold.it/760x400/999999/cccccc">
-	           	<div class="carousel-caption">
-		            <h4><a href="#">magna aliquyam erat, sed diam voluptua</a></h4>
-		            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-	          	</div>
-	        </div><!-- End Item -->
-	 
-	        <div class="item">
-	          	<img src="http://placehold.it/760x400/dddddd/333333">
-	           	<div class="carousel-caption">
-		            <h4><a href="#">tempor invidunt ut labore et dolore magna aliquyam erat</a></h4>
-		            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-	          	</div>
-	        </div><!-- End Item -->          
+			@endforeach         
       	</div><!-- End Carousel Inner -->
 	 
 	    <ul class="list-group col-sm-4">
-		    <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><div>Lorem ipsum dolor sit amet consetetur sadipscing</div></li>
-		    <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><div>Lorem ipsum dolor sit amet consetetur sadipscing</div></li>
-		    <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><div>Lorem ipsum dolor sit amet consetetur sadipscing</div></li>
-		    <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><div>Lorem ipsum dolor sit amet consetetur sadipscing</div></li>
-		    <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><div>Lorem ipsum dolor sit amet consetetur sadipscing</div></li>
+		    <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><div>{{$tin1->Ten}}</div></li>
+		    @for($i = 0; $i < count($tintuc); $i++)
+		    <li data-target="#myCarousel" data-slide-to="{{$i+1}}" class="list-group-item"><div>{{$tintuc[$i]->Ten}}</div></li>
+			@endfor
 	    </ul>
  
       <!-- Controls -->

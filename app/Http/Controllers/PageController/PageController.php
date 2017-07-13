@@ -28,7 +28,7 @@ class PageController extends Controller
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$doi_tac = DoiTac::take(4);
-		$tin_tuc = TinTuc::orderBy('created_at','desc')->take(5);
+		$tin_tuc = TinTuc::all()->sortByDesc('created_at')->take(5);
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
  		return view('pages.trangchu', [ 'loaitin' => $loai_tin, 
 										'locale'=>$locale, 
