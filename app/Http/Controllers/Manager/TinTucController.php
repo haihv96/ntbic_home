@@ -157,18 +157,24 @@ class TinTucController extends Controller
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
             $duoi = $file->getClientOriginalExtension();
-
+            if( $duoi != 'jpg' && $duoi !='png' && $duoi !='jpeg'){
+                return redirect::back()->with('message','Bạn chỉ được chọn file (jpg,png,jpeg)');
+            }
             $name = $file->getClientOriginalName();
             $hinh_anh = str_random(4)."_".$name;
             while(file_exists("assets/upload/tin_tuc/".$hinh_anh)){
                 $hinh_anh = str_random(4)."_".$name;
             }
-            $file->move("assets/upload/tin_tuc",$hinh_anh);
-            $tin_tuc->HinhAnh = $hinh_anh;
+            $file->move("assets/upload/tin_tuc/",$hinh_anh);
+            $tin_tuc->HinhAnh = "assets/upload/tin_tuc/".$hinh_anh;
         }
-        else{
-            $tin_tuc->HinhAnh = "";
-        }
+        if($request->delete_logo == "delete" && $tin_tuc->HinhAnh != ""){
+           $str = substr($tin_tuc->HinhAnh, 0);
+          
+             File::delete($str);
+           $tin_tuc->HinhAnh = "";
+           
+       }
 
         $tin_tuc->save();
         return Redirect::back()->with('message', 'Bạn đã sửa tin tức thành công');

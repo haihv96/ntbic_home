@@ -154,7 +154,7 @@
 		</div>
 	</div>
     <div class="link-home margintop">
-    	<div class="link-icon col-md-3 text-center">
+    	<div class="link-icon col-xs-3 col-md-3 text-center">
     		<span>
     			<a href="" title="">
     				<img src="pages/image/book.png" alt="">
@@ -165,7 +165,7 @@
     			<a href="" title="">Ươm tạo</a>
     		</span>
     	</div>
-    	<div class="link-icon col-md-3 text-center">
+    	<div class="link-icon col-xs-3 col-md-3 text-center">
     		<span>
     			<a href="{!!url('cong-nghe')!!}" title="">
     				<img src="pages/image/hatnhan.png" alt="">
@@ -176,7 +176,7 @@
     			<a href="{!!url('cong-nghe')!!}" title="">Công nghệ</a>
     		</span>
     	</div>
-    	<div class="link-icon col-md-3 text-center">
+    	<div class="link-icon col-xs-3 col-md-3 text-center">
     		<span>
     			<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="">
     				<img src="pages/image/uomtao.png" alt="">
@@ -187,7 +187,7 @@
     			<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="">Khởi nghiệp</a>
     		</span>
     	</div>
-    	<div class="link-icon col-md-3 text-center">
+    	<div class="link-icon col-xs-3 col-md-3 text-center">
     		<span>
     			<a href="http://csdl.ntbic.com" title="">
     				<img src="pages/image/dulieu.png" alt="">
@@ -219,28 +219,28 @@
                     
 	                <div class="item active">
 	                	<div class="row">
-	                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                	  <div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                	  <div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                	  <div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                	  <div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
 	                	</div><!--.row-->
 	                </div><!--.item-->
 	                 
 	                <div class="item">
 	                	<div class="row">
-	                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
 	                	</div><!--.row-->
 	                </div><!--.item-->
 	                 
 	                <div class="item">
 	                	<div class="row">
-	                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-	                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+	                		<div class="col-md-3 col-xs-3 "><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
 	                	</div><!--.row-->
 	                </div><!--.item-->   
 	            </div> 

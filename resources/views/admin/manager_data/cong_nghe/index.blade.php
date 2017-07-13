@@ -113,6 +113,6 @@
     <script type="text/javascript">
         $(".sub-menu").css('display','block');
         $("#sub-menu-manager-data").addClass("active");
-        $("#active-chuyen-gia").addClass("active");
+        $("#active-cong-nghe").addClass("active");
     </script>
 @endsection

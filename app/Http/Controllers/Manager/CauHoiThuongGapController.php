@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\CauHoi;
+use Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\CauHoiThuongGapRequest;
 
@@ -55,7 +56,7 @@ class CauhoithuonggapController extends Controller
         if (Auth::user()->level == 1) {
             return redirect()->route('admin.cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
         } elseif (Auth::user()->level == 2) {
-            return redirect()->route('cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
+             return redirect()->route('cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
         }
     }
 
