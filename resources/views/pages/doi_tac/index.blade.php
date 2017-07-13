@@ -10,10 +10,10 @@
 	<div class="line col-md-12 col-sm-12 ">
 	</div>
 	@foreach($doitac as $item)
-	<div class="col-md-3 col-mx-3">
+	<div class="col-md-3 col-sm-3">
 		<div class="gallery">
 		  <a target="_blank" href="doi-tac/{{$ldt->slug}}/{{$item->slug}}">
-		    <img src="assets/upload/doi_tac/{{$item->HinhAnh}}" alt="" width="250" height="250">
+		    <img src="assets/upload/doi_tac/{{$item->HinhAnh}}" class="img-responsive" alt="" width="250" height="250">
 		  </a>
 		  <div class="desc">{{$item->Ten}}</div>
 		</div>
