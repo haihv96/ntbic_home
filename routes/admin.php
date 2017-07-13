@@ -33,6 +33,15 @@ Route::resource('tuyen-dung','Manager\TuyenDungController',['names' => [
 Route::resource('chuyen-gia','Manager\ChuyenGiaController',['names' => [
 	'index' => 'admin.chuyen-gia.index'
 ]]);
+Route::resource('logo-doi-tac','Manager\LogoDoiTacController',['names' => [
+	'index' => 'admin.logo-doi-tac.index'
+]]);
+Route::resource('anh-sidebar','Manager\AnhSideBarController',['names' => [
+	'index' => 'admin.anh-sidebar.index'
+]]);
+
+
+
 Route::resource('users','Manager\UserController');
 
 Route::get('profile','Manager\UserController@getProfile')->name('admin.profile');
