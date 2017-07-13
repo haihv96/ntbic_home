@@ -3,11 +3,12 @@
 <div class="col-md-9 main-left">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
-	  <?php
-	  	$tin1 = $tintuc->shift();
-		$loai_tin_1 = App\LoaiTin::find($tin1->loai_tin_id);
-	  ?>
       	<div class="carousel-inner">
+	        @if(count($tintuc) > 0)
+		  	<?php
+				$tin1 = $tintuc->shift();
+				$loai_tin_1 = App\LoaiTin::find($tin1->loai_tin_id);
+			?>
 	        <div class="item active">
 	          	<a href="{!!url('tin-tuc/'.$loai_tin_1->slug.'/'.$tin1->slug)!!}"><img src="{!!url('assets/upload/tin_tuc/'.$tin1->HinhAnh) !!}"></a>
 	           	<div class="carousel-caption">
@@ -45,7 +46,7 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
           	</a>
       	</div>
- 
+		  @endif
     </div><!-- End Carousel -->
     <div class="clearfix"></div>
     <div class="advert margintop">
@@ -58,82 +59,66 @@
 				<a href="{!!url('tin-tuc/doanh-nghiep')!!}" title="" class="group_header_link">Tin doanh nghiệp</a>
 				<a href="{!!url('tin-tuc/doanh-nghiep')!!}" title="" class="A_ViewMore">Xem thêm</a>
 			</div>
+			@if(count($tin_doanh_nghiep) > 0)
+			<?php
+				$tin_dn_1  = $tin_doanh_nghiep->shift();
+			?>
 			<div class="news_header">
 				<div class="col-md-6 link_img">
-					<a href="" title="">
-						<img src="pages/image/fjords.jpg" alt="">
+					<a href="{!!url('tin-tuc/doanh-nghiep/'.$tin_dn_1->slug)!!}" title="">
+						<img src="{!!url('assets/upload/tin_tuc'.$tin_dn_1->HinhAnh)!!}" alt="">
 					</a>
 				</div>
 				<div class="col-md-6 link_title">
-					<a href="" title="">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					<a href="{!!url('tin-tuc/doanh-nghiep/'.$tin_dn_1->slug)!!}" title="">
+						<p>{{$tin_dn_1->Ten}}</p>
 					</a>
 				</div>
 			</div>
 			<div class="clearfix"></div>
 			<div class="list_news">
+				@foreach ($tin_doanh_nghiep as $item)
 				<li>
-					<a href="" title="">
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+					<a href="{!!url('tin-tuc/doanh-nghiep/'.$item->slug)!!}" title="">
+						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>{{$item->Ten}}</span>
 					</a>
 				</li>
-				<li>
-					<a href="" title="">
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-					</a>
-				</li>
-				<li>
-					<a href="" title="">
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-					</a>
-				</li>
-				<li>
-					<a href="" title="">
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-					</a>
-				</li>
+				@endforeach
 			</div>
+			@endif
 		</div>
 		<div class="col-md-6 news_2">
 			<div class="header-blue">
 				<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="" class="group_header_link">Tin khởi nghiệp</a>
 				<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="" class="A_ViewMore">Xem thêm</a>
 			</div>
+			@if(count($tin_khoi_nghiep) > 0)
+			<?php
+				$tin_kn_1  = $tin_khoi_nghiep->shift();
+			?>
 			<div class="news_header">
 				<div class="col-md-6 link_img">
-					<a href="" title="">
-						<img src="pages/image/fjords.jpg" alt="">
+					<a href="{!!url('tin-tuc/khoi-nghiep/'.$tin_kn_1->slug)!!}" title="">
+						<img src="{!!url('assets/upload/tin_tuc'.$tin_kn_1->HinhAnh)!!}" alt="">
 					</a>
 				</div>
 				<div class="col-md-6 link_title">
-					<a href="" title="">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					<a href="{!!url('tin-tuc/khoi-nghiep/'.$tin_kn_1->slug)!!}" title="">
+						<p>{{$tin_kn_1->Ten}}</p>
 					</a>
-				</div>
-				<div class="clearfix"></div>
-				<div class="list_news">
-				<li>
-					<a href="" title="">
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-					</a>
-				</li>
-				<li>
-					<a href="" title="">
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-					</a>
-				</li>
-				<li>
-					<a href="" title="">
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-					</a>
-				</li>
-				<li>
-					<a href="" title="">
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-					</a>
-				</li>
 				</div>
 			</div>
+			<div class="clearfix"></div>
+			<div class="list_news">
+				@foreach ($tin_khoi_nghiep as $item)
+				<li>
+					<a href="{!!url('tin-tuc/khoi-nghiep/'.$item->slug)!!}" title="">
+						<i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>{{$item->Ten}}</span>
+					</a>
+				</li>
+				@endforeach
+			</div>
+			@endif
 		</div>
 	</div>
     <div class="link-home margintop">
