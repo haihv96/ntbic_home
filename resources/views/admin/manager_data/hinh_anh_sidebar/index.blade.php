@@ -44,7 +44,7 @@
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{{$item->Link}}</td>
-                            <td>{{$item->HinhAnh}}</td>
+                            <td><img src="{{ URL::asset($item->HinhAnh) }}" height="100"></td>
                             <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>

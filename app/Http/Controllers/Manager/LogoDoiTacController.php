@@ -94,7 +94,7 @@ class LogoDoiTacController extends Controller
      * @param  \App\LogoDoiTac  $logoDoiTac
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LogoDoiTac $logoDoiTac)
+    public function update(Request $request, $id)
     {
         $this->validate($request,
         [

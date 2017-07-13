@@ -66,7 +66,7 @@
 			<div class="news_header">
 				<div class="col-md-6 link_img">
 					<a href="{!!url('tin-tuc/doanh-nghiep/'.$tin_dn_1->slug)!!}" title="">
-						<img src="{!!url('assets/upload/tin_tuc'.$tin_dn_1->HinhAnh)!!}" alt="">
+						<img src="{!!url('assets/upload/tin_tuc/'.$tin_dn_1->HinhAnh)!!}" alt="">
 					</a>
 				</div>
 				<div class="col-md-6 link_title">
@@ -99,7 +99,7 @@
 			<div class="news_header">
 				<div class="col-md-6 link_img">
 					<a href="{!!url('tin-tuc/khoi-nghiep/'.$tin_kn_1->slug)!!}" title="">
-						<img src="{!!url('assets/upload/tin_tuc'.$tin_kn_1->HinhAnh)!!}" alt="">
+						<img src="{!!url('assets/upload/tin_tuc/'.$tin_kn_1->HinhAnh)!!}" alt="">
 					</a>
 				</div>
 				<div class="col-md-6 link_title">
@@ -174,22 +174,13 @@
 			<a href="" title="">Đối tác</a>
 		</div>
 		<div class="padding-top-20">
-            <div id="Carousel" class="carousel slide">
-                 
-                <!-- Carousel items -->
-                <div class="carousel-inner padding-top-20">
-                    
-	                <div class="item active">
-	                	<div class="row">
-	                	  <div class="col-md-1 col-xs-1 "></div>
-	                	  @foreach($logodoitac as $item)
-	                	  <div class="col-md-2 col-xs-2 "><a href="{{url($item->Link)}}" class="thumbnail"><img src="{{url('assets/upload/logo_doitac/'.$item->HinhAnh)}}" alt="Image" style="max-width:100%;"></a></div>
-	                	  @endforeach
-	                	  
-	                	</div><!--.row-->
-	                </div><!--.item-->
-	            </div> 
-	        </div>     
+			<div class="clearfix"></div>
+        	<div class="row padding-top-20"">
+        	  <div class="col-md-1 col-xs-1 "></div>
+        	  @foreach($logodoitac as $item)
+        	  <div class="col-md-2 col-xs-2 "><a href="{{url($item->Link)}}" class="thumbnail"><img src="{{url('assets/upload/logo_doitac/'.$item->HinhAnh)}}" alt="Image" style="max-width:100%;"></a></div>
+        	  @endforeach       	  
+        	</div><!--.row-->  
 		</div>
 	</div>
 </div>

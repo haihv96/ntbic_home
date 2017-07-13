@@ -50,9 +50,9 @@
 		      	<li><a href="{!! url('http://csdl.ntbic.com/') !!}">Dữ liệu</a></li>
 		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('uom-tao') !!}">Ươm tạo <span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
-			          <li><a href="{!! url('uom-tao/uom-tao-truc-tiep') !!}">Ươm tạo trực tiếp</a></li>
-			          <li><a href="{!! url('uom-tao/uom-tao-ao') !!}">Ươm tạo ảo</a></li>
-			          <li><a href="{!! url('uom-tao/thu-tuc-uom-tao') !!}">Thủ tục ươm tạo</a></li>
+			          <li><a href="{!! url('http://ntbic.com/') !!}">Ươm tạo trực tiếp</a></li>
+			          <li><a href="{!! url('http://ntbic.com/') !!}">Ươm tạo ảo</a></li>
+			          <li><a href="{!! url('http://ntbic.com/') !!}">Thủ tục ươm tạo</a></li>
 			        </ul>
 				</li>
 		      	<li><a href="cong-nghe">Công nghệ</a></li>
@@ -73,9 +73,6 @@
 </nav> <!-- navigation -->
 <div class="">
 	<div class="BG_Menu">
-	    <div class="UL_Menu_Date">
-	        Thứ bảy, 08/07/2017
-	    </div>
 	    <div class="Menu_Mini">
 	        <ul class="UL_Menu_Mini" style="display: block;">
 				<li class="LI_Menu_Mini">|</li>
