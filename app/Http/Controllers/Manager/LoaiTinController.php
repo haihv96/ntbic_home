@@ -103,7 +103,6 @@ class LoaiTinController extends Controller
         app()->setlocale($request->locale);
     	$loai_tin = LoaiTin::find($id);
     	$loai_tin->Ten = $request->ten;
-        $loai_tin->Slug = changeTitle($request->ten);
     	$loai_tin->save();
 
     	return Redirect::back()->with('message', 'Bạn đã sửa loại tin thành công');

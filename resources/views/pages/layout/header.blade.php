@@ -80,7 +80,7 @@
 	        <ul class="UL_Menu_Mini" style="display: block;">
 				<li class="LI_Menu_Mini">|</li>
 				<li class="LI_Menu_Mini">
-					<img src="pages/image/icon/hoidap.gif" /><a href="#"> Hỏi đáp</a>
+					<img src="pages/image/icon/hoidap.gif" /><a href="{!!url('cau-hoi-thuong-gap')!!}"> Hỏi đáp</a>
 				</li>
 
 				<li class="LI_Menu_Mini">|</li>

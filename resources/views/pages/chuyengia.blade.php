@@ -9,7 +9,7 @@
 	@foreach($chuyengia as $item)
 	<div class=" col-md-12 col-sm-12  listnews_item">
 		<div class="col-md-3 col-sm-3   img_listnews">
-			<img class="img-responsive" src="{{ URL::asset($item->HinhAnh) }}">
+			<img class="img-responsive" src="{{ URL::asset('assets/upload/chuyen_gia/'.$item->HinhAnh) }}">
 		</div>
 		<div class="col-md-9 col-sm-9   ">
 			<div class="listnews_item_title">
