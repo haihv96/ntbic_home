@@ -11,12 +11,19 @@ use App\CongNghe;
 use App\ChuyenGia;
 use App\DoiTac;
 use App\LoaiDoiTac;
+use App\HinhSidebar;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 
 class PageController extends Controller
 {
+	public function __construct()
+	{
+		$hinh_anh_sidebar = HinhSidebar::all();
+		view()->share('hinhanhsidebar',$hinh_anh_sidebar);
+
+	}
 	public function TrangChu(){
 		if (!session()->has('language')) {
              session(['language'=>'vi']);
@@ -28,6 +35,7 @@ class PageController extends Controller
 		$loai_doi_tac = LoaiDoiTac::all();
 		$doi_tac = DoiTac::take(4);
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		
  		return view('pages.trangchu', [ 'loaitin' => $loai_tin, 
 										'locale'=>$locale, 
 										'loaidoitac'=>$loai_doi_tac,

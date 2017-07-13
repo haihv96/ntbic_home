@@ -1,31 +1,10 @@
 <div class="col-md-3 main-right">
-	<div class="news_top">
-		<a href="" title="">
-			<img src="pages/image/budweiser.gif" alt="">
-		</a>
-	</div>
 	<div class="img-sidebar padding-top-20">
-		<a href="" title="">
-			<img src="pages/image/sidebar/anh1.png" alt="">
+	@foreach($hinhanhsidebar as $item)
+		<a href="{{url($item->Link)}}" title="">
+			<img src="{{url($item->HinhAnh)}}" alt="">
 		</a>
-		<a href="" title="">
-			<img src="pages/image/sidebar/anh2.png" alt="">
-		</a>
-		<a href="" title="">
-			<img src="pages/image/sidebar/anh3.png" alt="">
-		</a>
-		<a href="" title="">
-			<img src="pages/image/sidebar/anh4.png" alt="">
-		</a>
-		<a href="" title="">
-			<img src="pages/image/sidebar/anh5.png" alt="">
-		</a>
-		<a href="" title="">
-			<img src="pages/image/sidebar/anh6.png" alt="">
-		</a>
-		<a href="" title="">
-			<img src="pages/image/sidebar/anh1.png" alt="">
-		</a>
+	@endforeach	
 	</div>
 	<div class="clearfix padding-top-20"></div>
 	<div class="header-blue">
