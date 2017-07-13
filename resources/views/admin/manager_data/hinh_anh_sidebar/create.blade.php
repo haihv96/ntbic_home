@@ -60,7 +60,7 @@
     <script type="text/javascript">
       $(".sub-menu").css('display','block');
       $("#sub-menu-manager-data").addClass("active");
-      $("#active-hinh-anh-sidebar").addClass("active");
+      $("#active-anh-sidebar").addClass("active");
     </script>
 @endsection
 
