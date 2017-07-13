@@ -34,10 +34,10 @@ class TinTucController extends Controller
 		
 	    $loai_tin=LoaiTin::where('slug',$slug)->first();
 	    $id=$loai_tin->id;
-	    $tin_tuc= TinTuc::paginate(10)->where('loai_tin_id',$id);
+	    $tin_tuc= TinTuc::orderBy('created_at','desc')->paginate(10)->where('loai_tin_id',$id);
 		$loai_tin_list = LoaiTin::all();
 	    $loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
  		return view('pages.tin_tuc.newsOfKind', [ 'tintuc' => $tin_tuc,
 		 											'lt' => $loai_tin,
 													'loaitin' => $loai_tin_list, 
@@ -65,7 +65,7 @@ class TinTucController extends Controller
         $tin_lien_quan=TinTuc::where([['loai_tin_id',$id],['id','<>',$tin_tuc->id]])->get();
 		$loai_tin_list = LoaiTin::all();
 	    $loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
   	   return view('pages.tin_tuc.show',['tintuc'=>$tin_tuc,
 										'tinlienquan'=>$tin_lien_quan,
 										'loaitin' => $loai_tin_list, 
