@@ -16,14 +16,14 @@
 		    		{{$tintuc->Ten}}
 		    	</h3>
 	    	</div>
-	    	<div class="row">
-		    	<div class="date-detail-news col-md-12 col-sm-12">
+	    	<div class="row col-md-12 col-sm-12">
+		    	<div class="date-detail-news ">
 		    		<i class="fa fa-calendar" aria-hidden="true"></i>
 		    		<span>{{substr($tintuc->updated_at,0,11)}} | {{substr($tintuc->updated_at,11,13)}} GMT+7</span>
 		    	</div>
 	    	</div>
-	    	<div class="row">
-		    	<div  class="share-detail-news col-md-12 col-sm-12">
+	    	<div class="row col-md-12 col-sm-12">
+		    	<div  class="share-detail-news ">
 			    	<ul class="list-inline" >
 	  					<li id="plug">
 	  						<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=154&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="154" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
@@ -34,14 +34,14 @@
     	</div>
     	<!--content detail news-->
     	<!--<div class="content-detail-news">-->
-    	<div class="row">
-    		<div class="content-detail-news col-md-12 col-sm-12">
+    	<div class="row col-md-12 col-sm-12">
+    		<div class="content-detail-news ">
     			{!!$tintuc->NoiDung!!}
     		</div>
     	</div>
     	<!--footer news-->
-    	<div class="row" >
-    		<div class="footer-detail-news col-md-12 col-sm-12">
+    	<div class="row col-md-12 col-sm-12" >
+    		<div class="footer-detail-news">
     			<div  class="share-detail-news">
 			    	<ul class="list-inline" >
 	  					<li id="plug">

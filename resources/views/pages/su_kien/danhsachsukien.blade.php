@@ -20,7 +20,7 @@
 			</div>
 			<div class="listnews_item_date">
 
-				<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->updated_at,0,11)}}</i> | 
+				<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->created_at,0,11)}}</i> | 
 
 				<a href="su-kien/{{$item->slug}}">Xem thêm </a>
 			</div>

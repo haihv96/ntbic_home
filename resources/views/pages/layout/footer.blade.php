@@ -1,12 +1,10 @@
 <footer class="container footer-index">
 	<p class="text-center padding-top-20" style="font-weight:bold">	&copy; TRUNG TÂM ƯƠM TẠO CÔNG NGHỆ VÀ DOANH NGHIỆP KHOA HỌC CÔNG NGHỆ</p>
-	<div class="row">
+	<div class="row padding-top-20">
 		
 		<div class="  col-md-4">
-			<p style="font-weight:bold"><span>LIÊN HỆ</span></p>
-			<p>Địa chỉ: 25 Lê Thánh Tông, Hoàn Kiếm, Hà Nội.</p>
-			<p>Hotline: (04) 3933 6570</p>
-			<p>Email: info@ntbic.com.</p>
+			<p style="font-weight:bold"><span>Giới thiệu</span></p>
+			<p>Trung tâm ươm tạo công nghệ và doanh nghiệp khoa học công nghệ là đơn vị sự nghiệp khoa học và công lập trực thuộc Viện Ứng dụng Công nghệ – Bộ KHCN, giúp Viện trưởng thực hiện chức năng ươm tạo công nghệ, ươm tạo doanh nghiệp khoa học và công nghệ trong các lĩnh vực thuộc chức năng của Viện.</p>
 		</div>
 		<div class="  col-md-4">
 			<p style="font-weight:bold"><span>LIÊN HỆ</span></p>
