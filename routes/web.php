@@ -63,3 +63,6 @@ Route::get('su-kien/{slug}/dang-ki','PageController\SuKienController@NguoiDangKi
 Route::get('cong-nghe','PageController\PageController@CongNghe');
 Route::get('cong-nghe/{slug}','PageController\PageController@DeTailsCongNghe');
 
+//show doi tac
+Route::get('doi-tac/{slug_ldt}','PageController\DoiTacController@LoaiDoiTac');
+Route::get('doi-tac/{slug_ldt}/{slug_dt}','PageController\DoiTacController@DeTailsDoiTac');
