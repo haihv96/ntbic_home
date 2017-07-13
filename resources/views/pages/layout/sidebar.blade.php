@@ -11,6 +11,7 @@
 		<a href="" title="" class="group_header_link">Tin nổi bật</a>
 		<a href="" title="" class="A_ViewMore">Xem thêm</a>
 	</div>
+	<div class="clearfix padding-top-20"></div>
 	@foreach($tinnoibat as $item)
 	<?php
 		$loai_tin = App\LoaiTin::find($item->loai_tin_id);
