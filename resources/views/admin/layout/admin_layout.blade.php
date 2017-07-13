@@ -252,6 +252,28 @@
                                         </a>
                                     @endif
                                 </li>
+                                <li class="nav-item" id="active-logo-doi-tac">
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.logo-doi-tac.index')}}" class="nav-link ">
+                                            <span class="title">Logo đối tác</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('logo-doi-tac.index')}}" class="nav-link ">
+                                            <span class="title">Logo đối tác</span>
+                                        </a>
+                                    @endif
+                                </li>
+                                <li class="nav-item" id="active-anh-sidebar">
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.anh-sidebar.index')}}" class="nav-link ">
+                                            <span class="title">Ảnh sidebar</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('anh-sidebar.index')}}" class="nav-link ">
+                                            <span class="title">Ảnh sidebar</span>
+                                        </a>
+                                    @endif
+                                </li>
                             </ul>
                         </li>
                     </ul>
