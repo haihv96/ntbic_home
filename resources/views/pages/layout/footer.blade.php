@@ -3,7 +3,7 @@
 	<div class="row padding-top-20">
 		
 		<div class="  col-md-4">
-			<p style="font-weight:bold"><span>Giới thiệu</span></p>
+			<p style="font-weight:bold"><span>GIỚI THIỆU</span></p>
 			<p>Trung tâm ươm tạo công nghệ và doanh nghiệp khoa học công nghệ là đơn vị sự nghiệp khoa học và công lập trực thuộc Viện Ứng dụng Công nghệ – Bộ KHCN, giúp Viện trưởng thực hiện chức năng ươm tạo công nghệ, ươm tạo doanh nghiệp khoa học và công nghệ trong các lĩnh vực thuộc chức năng của Viện.</p>
 		</div>
 		<div class="  col-md-4">
