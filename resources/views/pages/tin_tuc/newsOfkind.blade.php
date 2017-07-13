@@ -16,14 +16,14 @@
 		</div>
 		<div class="col-md-9 col-sm-9   ">
 			<div class="listnews_item_title">
-				<a href="{{$lt->slug}}/{{$item->slug}}">{{ $item->Ten }}</a>
+				<a href="tin-tuc/{{$lt->slug}}/{{$item->slug}}">{{ $item->Ten }}</a>
 			</div>
 			<div class="listnews_item_description">
 			{!! $item->TomTat !!}
 			</div>
 			<div class="listnews_item_date">
 
-				<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->updated_at,0,11)}}</i> | 
+				<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->created_at,0,11)}}</i> | 
 				<a href="tin-tuc/{{$lt->slug}}/{{$item->slug}}">Xem thêm </a>
 
 			</div>

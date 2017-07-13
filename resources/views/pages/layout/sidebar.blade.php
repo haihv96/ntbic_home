@@ -33,7 +33,11 @@
 		<a href="" title="" class="A_ViewMore">Xem thêm</a>
 	</div>
 	@foreach($tinnoibat as $item)
+	<?php
+		$loai_tin = App\LoaiTin::find($item->loai_tin_id);
+	?>
 	<div class="row padding-top-10">
+
 		<div class="col-md-5 col-xs-5 top_news">
 			<a href="{!!url('tin-tuc/'.$item->slug) !!}" title="">
 				<img src="{!!url('assets/upload/tin_tuc/'.$item->HinhAnh)!!}" alt="">

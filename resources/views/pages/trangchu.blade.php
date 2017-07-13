@@ -72,8 +72,8 @@
 	<div class="margintop">
 		<div class="col-md-6 news_1">
 			<div class="header-blue">
-				<a href="" title="" class="group_header_link">Tin doanh nghiệp</a>
-				<a href="" title="" class="A_ViewMore">Xem thêm</a>
+				<a href="{!!url('tin-tuc/doanh-nghiep')!!}" title="" class="group_header_link">Tin doanh nghiệp</a>
+				<a href="{!!url('tin-tuc/doanh-nghiep')!!}" title="" class="A_ViewMore">Xem thêm</a>
 			</div>
 			<div class="news_header">
 				<div class="col-md-6 link_img">
@@ -113,8 +113,8 @@
 		</div>
 		<div class="col-md-6 news_2">
 			<div class="header-blue">
-				<a href="" title="" class="group_header_link">Tin khởi nghiệp</a>
-				<a href="" title="" class="A_ViewMore">Xem thêm</a>
+				<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="" class="group_header_link">Tin khởi nghiệp</a>
+				<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="" class="A_ViewMore">Xem thêm</a>
 			</div>
 			<div class="news_header">
 				<div class="col-md-6 link_img">
@@ -178,24 +178,24 @@
     	</div>
     	<div class="link-icon col-xs-3 col-md-3 text-center">
     		<span>
-    			<a href="" title="">
+    			<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="">
     				<img src="pages/image/uomtao.png" alt="">
     			</a>
     		</span>
     		<br>
     		<span>
-    			<a href="" title="">Khởi nghiệp</a>
+    			<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="">Khởi nghiệp</a>
     		</span>
     	</div>
     	<div class="link-icon col-xs-3 col-md-3 text-center">
     		<span>
-    			<a href="" title="">
+    			<a href="http://csdl.ntbic.com" title="">
     				<img src="pages/image/dulieu.png" alt="">
     			</a>
     		</span>
     		<br>
     		<span>
-    			<a href="" title="">Cơ sở dữ liệu</a>
+    			<a href="http://csdl.ntbic.com" title="">Cơ sở dữ liệu</a>
     		</span>
     	</div>
     </div>

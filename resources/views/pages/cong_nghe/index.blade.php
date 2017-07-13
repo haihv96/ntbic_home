@@ -15,7 +15,7 @@
 			    <h4><a href="cong-nghe/{{$item->slug}}">{{$item->Ten}}</a></h4>
 			</div>
 			<div class="listnews_item_date">
-			<i class="fa fa-calendar" aria-hidden="true"> {{$item->updated_at}}</i> | 
+			<i class="fa fa-calendar" aria-hidden="true"> {{$item->created_at}}</i> | 
 			<a href="cong-nghe/{{$item->slug}}">Xem thêm </a>
 			</div>
 		</div>

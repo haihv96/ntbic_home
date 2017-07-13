@@ -13,6 +13,7 @@ use App\DoiTac;
 use App\LoaiDoiTac;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 
 class PageController extends Controller
@@ -27,12 +28,14 @@ class PageController extends Controller
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$doi_tac = DoiTac::take(4);
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_tuc = TinTuc::orderBy('created_at','desc')->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
  		return view('pages.trangchu', [ 'loaitin' => $loai_tin, 
 										'locale'=>$locale, 
 										'loaidoitac'=>$loai_doi_tac,
 										'doitac'=>$doi_tac,
-										'tinnoibat'=>$tin_noi_bat]);
+										'tinnoibat'=>$tin_noi_bat,
+										'tintuc'=>$tin_tuc]);
 	}
 
 	// public function TinTuc(){
@@ -96,7 +99,7 @@ class PageController extends Controller
         $to_chuc= ToChuc::first();
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.to_chuc.vitrichucnang',['tochuc'=>$to_chuc,
 													'locale'=>$locale,
 													'loaitin' => $loai_tin, 
@@ -112,7 +115,7 @@ class PageController extends Controller
         $to_chuc= ToChuc::first();
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.to_chuc.sumenhtamnhin',['tochuc'=>$to_chuc,
 													'locale'=>$locale,
 													'loaitin' => $loai_tin, 
@@ -128,7 +131,7 @@ class PageController extends Controller
         $to_chuc= ToChuc::first();
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.to_chuc.cocau',['tochuc'=>$to_chuc,
 													'locale'=>$locale,
 													'loaitin' => $loai_tin, 
@@ -144,7 +147,7 @@ class PageController extends Controller
         $to_chuc= ToChuc::first();
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.to_chuc.doingutrungtam',['tochuc'=>$to_chuc,
 													'locale'=>$locale,
 													'loaitin' => $loai_tin, 
@@ -157,10 +160,10 @@ class PageController extends Controller
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $tuyen_dung= TuyenDung::paginate(10)->where('NoiDungTuyenDung','<>','');
+        $tuyen_dung= TuyenDung::orderBy('created_at','desc')->paginate(10)->where('NoiDungTuyenDung','<>','');
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.tuyen_dung.index',['tuyendung'=>$tuyen_dung,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
@@ -176,7 +179,7 @@ class PageController extends Controller
         $tuyen_dung= TuyenDung::where('slug', $slug)->first();
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.tuyen_dung.show',['tuyendung'=>$tuyen_dung,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
@@ -190,10 +193,10 @@ class PageController extends Controller
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $cong_nghe= CongNghe::paginate(10)->where('NoiDung','<>','');
+        $cong_nghe= CongNghe::orderBy('created_at','desc')->paginate(10)->where('NoiDung','<>','');
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.cong_nghe.index',['congnghe'=>$cong_nghe,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
@@ -209,7 +212,7 @@ class PageController extends Controller
         $cong_nghe= CongNghe::where('slug', $slug)->first();
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.cong_nghe.show',['congnghe'=>$cong_nghe,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
@@ -227,7 +230,7 @@ class PageController extends Controller
 		$chuyen_gia = ChuyenGia::paginate(10)->where('Ten','<>','');
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
-		$tin_noi_bat = TinTuc::all()->where('status',1)->take(5);
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		return view('pages.chuyengia',['chuyengia'=>$chuyen_gia,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
