@@ -8,9 +8,18 @@ use App\SuKien;
 use App\LoaiDoiTac;
 use App\TinTuc;
 use App\LoaiTin;
+use App\HinhSidebar;
+use App\LogoDoitac;
 
 class SuKienController extends Controller
 {
+	public function __construct()
+	{
+		$hinh_anh_sidebar = HinhSidebar::all();
+		$logo_doi_tac = LogoDoitac::all();
+		view()->share('hinhanhsidebar',$hinh_anh_sidebar);
+		view()->share('logodoitac',$logo_doi_tac);
+	}
     public function danhSachSuKien(){
 		if (!session()->has('language')) {
             session(['language'=>'vi']);
