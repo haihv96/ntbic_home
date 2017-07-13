@@ -9,6 +9,8 @@ use App\CauHoi;
 use App\ToChuc;
 use App\ToChucTranslation;
 use App\TuyenDung;
+use App\HinhSidebar;
+use App\LogoDoitac;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use  Illuminate\Database\Eloquent\Builder;
@@ -16,6 +18,13 @@ use  Illuminate\Database\Eloquent\Builder;
 
 class DoiTacController extends Controller
 {
+	public function __construct()
+	{
+		$hinh_anh_sidebar = HinhSidebar::all();
+		$logo_doi_tac = LogoDoitac::all();
+		view()->share('hinhanhsidebar',$hinh_anh_sidebar);
+		view()->share('logodoitac',$logo_doi_tac);
+	}
 	
 	public function LoaiDoiTac($slug){
 		if (!session()->has('language')) {
