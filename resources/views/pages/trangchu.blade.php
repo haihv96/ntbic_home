@@ -4,6 +4,9 @@
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
       	<div class="carousel-inner">
+      		<?php
+      		
+      		?>
 	        <div class="item active">
 	          	<img src="pages/image/fjords.jpg">
 	           	<div class="carousel-caption">
