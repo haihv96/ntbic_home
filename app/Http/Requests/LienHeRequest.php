@@ -13,7 +13,7 @@ class LienHeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -34,7 +34,7 @@ class LienHeRequest extends FormRequest
         return[
             'hoten.required'=>'Bạn cần nhập họ tên',
             'email.required'=>'Bạn cần nhập email',
-            'email.email'=>'Bạn cần nhập đúng định dạng email'
+            'email.email'=>'Bạn cần nhập đúng định dạng email',
             'sodienthoai.required'=>'Bạn cần nhập số điện thoại',
             'message.required'=>"Bạn cần nhập nội dụng liên hệ",
         ];

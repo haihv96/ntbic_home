@@ -17,13 +17,13 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="#" method="POST" id="createForm" class="form-horizontal">
+                <form action="lien-he" method="POST" id="createForm" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
-                        @if(count($errors) > 0)
-                            <div class="alert alert-danger">
+                        @if(count($errors) = 0)
+                            <div class="alert alert-sucess">
                             <button class="close" data-close="alert"></button>
-                                Lỗi!
+                                Bạn đã gửi liên hệ thành công!
                             </div>
                         @endif
                         <div class="alert alert-success display-hide">
@@ -73,13 +73,5 @@
     </div>
 </div>
 @endsection
-@section('js')
-    <script src="{{ URL::asset('js/path.js') }}"></script>
-    <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
-    <script type="text/javascript">
-      $(".sub-menu").css('display','block');
-      $("#sub-menu-manager-data").addClass("active");
-      $("#active-cau-hoi-thuong-gap").addClass("active");
-    </script>
-@endsection
+
 

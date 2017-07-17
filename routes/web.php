@@ -68,3 +68,4 @@ Route::get('doi-tac/{slug_ldt}','PageController\DoiTacController@LoaiDoiTac');
 Route::get('doi-tac/{slug_ldt}/{slug_dt}','PageController\DoiTacController@DeTailsDoiTac');
 //lien he
 Route::get('lien-he','PageController\LienHeController@create');
+Route::post('lien-he','PageController\LienHeController@store');

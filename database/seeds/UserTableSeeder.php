@@ -22,5 +22,31 @@ class UserTableSeeder extends Seeder
             'verified' => 1,
         ]
         ); 
+        DB::table('menu')->insert([
+        [
+            'slug' => 'to-chuc',
+        ],
+        [
+            'slug' => 'tin-tuc',
+        ],
+        [
+            'slug' => 'su-kien',
+        ],
+        [
+            'slug' => 'doi-tac',
+        ],
+        [
+            'slug' => 'du-lieu',
+        ],
+        [
+            'slug' => 'uom-tao',
+        ],
+        [
+            'slug' => 'cong-nghe',
+        ],
+        [
+            'slug' => 'lien-he',
+        ]
+        ]);
     }
 }
