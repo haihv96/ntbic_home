@@ -31,8 +31,7 @@
 			        <ul class="dropdown-menu sub-menu">
 								@foreach($loaitin as $item)
 			          <li><a href="{!! url('tin-tuc/'.$item->slug) !!}">{{$item->Ten}}</a></li>
-			          <!--<li><a href="{!! url('tin-tuc/khoi-nghiep') !!}">Khởi nghiệp</a></li>
-			          <li><a href="{!! url('tin-tuc/doanh-nghiep') !!}">Doah nghiệp</a></li>-->
+			          
 								@endforeach
 			        </ul>
 				</li>

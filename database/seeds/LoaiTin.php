@@ -14,12 +14,15 @@ class LoaiTin extends Seeder
         DB::table('loai_tin')->insert([
         [
         	'slug' => 'cong-nghe',
+            'menu_id' => '2',
         ],
         [
         	'slug' => 'khoi-nghiep',
+            'menu_id' => '2',
         ],
         [
         	'slug' => 'doanh-nghiep',
+            'menu_id' => '2',
         ]
         ]);
     }

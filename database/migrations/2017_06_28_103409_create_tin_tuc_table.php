@@ -15,7 +15,6 @@ class CreateTinTucTable extends Migration
     {
         Schema::create('tin_tuc', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('menu_id')->unsigned();
             $table->text('HinhAnh');
             $table->string('slug');
             $table->boolean('status')->default(false);
@@ -23,7 +22,6 @@ class CreateTinTucTable extends Migration
             $table->foreign('loai_tin_id')->references('id')->on('loai_tin')->onDelete('cascade');
             $table->integer('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('menu_id')->references('id')->on('menu') ->onDelete('cascade');
             $table->timestamps();
         });
     }

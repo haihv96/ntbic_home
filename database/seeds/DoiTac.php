@@ -16,25 +16,21 @@ class DoiTac extends Seeder
         	'slug' => 'dai-hoc-cong-nghe',
         	'HinhAnh' => 'W3Mn_RM-running-man-34478593-1023-506.png',
         	'loai_doi_tac_id' => '1',
-            'menu_id' => '4',
         ],
         [
             'slug' => 'dai-hoc-cong-nghe',
             'HinhAnh' => 'W3Mn_RM-running-man-34478593-1023-506.png',
             'loai_doi_tac_id' => '1',
-            'menu_id' => '4',
         ],
         [
             'slug' => 'dai-hoc-cong-nghe',
             'HinhAnh' => 'W3Mn_RM-running-man-34478593-1023-506.png',
             'loai_doi_tac_id' => '1',
-            'menu_id' =>'4',
         ],
         [
             'slug' => 'dai-hoc-cong-nghe',
             'HinhAnh' => 'W3Mn_RM-running-man-34478593-1023-506.png',
             'loai_doi_tac_id' => '1',
-            'menu_id' => '4',
         ]
         
         ]);

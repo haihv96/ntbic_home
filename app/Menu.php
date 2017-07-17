@@ -13,10 +13,10 @@ class Menu extends Model
 
     public $translatedAttributes = ['Ten'];
 
-    public function tintuc(){
-    	return $this->hasMany('App\TinTuc','tin_tuc_id','id');
+    public function loaitin(){
+    	return $this->hasMany('App\LoaiTin','menu_id','id');
     }
-    public function doitac(){
-    	return $this->hasMany('App\DoiTac','doi_tac_id','id');
+    public function loaidoitac(){
+    	return $this->hasMany('App\LoaiDoiTac','menu_id','id');
     }
 }
