@@ -48,26 +48,13 @@ class LienHeController extends Controller
      * @return Response
      */
     public function store(LienHeRequest $request) {
-
-        if (!session()->has('language')) {
-            session(['language'=>'vi']);
-        }
-        $locale = session()->get('language');
-        app()->setlocale($locale);
-
-        $loai_tin = LoaiTin::all();
-        $loai_doi_tac = LoaiDoiTac::all();
-      
         $lien_he = new LienHe;
         $lien_he->HoTen = $request->hoten;
         $lien_he->Email=$request->email;
         $lien_he->SoDienThoai=$request->sodienthoai;
         $lien_he->NoiDung=$request->message;
         $lien_he->save();
-        // return redirect()->route('page.lien-he')->with('message','Bạn đã gửi thành công liên hệ');
-        return view('pages.lienhe', [ 'loaitin' => $loai_tin, 
-                                        'locale'=>$locale, 
-                                        'loaidoitac'=>$loai_doi_tac]);
+         return redirect::back();
     }
 
     /**
