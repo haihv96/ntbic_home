@@ -39,7 +39,9 @@ Route::resource('logo-doi-tac','Manager\LogoDoiTacController',['names' => [
 Route::resource('anh-sidebar','Manager\AnhSideBarController',['names' => [
 	'index' => 'admin.anh-sidebar.index'
 ]]);
-
+Route::resource('lien-he','Manager\LienHeController',['names' => [
+	'index' => 'admin.lien-he.index'
+]]);
 
 
 Route::resource('users','Manager\UserController');
