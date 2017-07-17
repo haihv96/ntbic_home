@@ -24,11 +24,11 @@
         	</div>
             <form action="#">
                 <div class="form-group">
-                    <input type="text" placeholder="Họ tên" class="form-control input-md"></div>
+                    <input type="text" placeholder="Họ tên" name="hoten" class="form-control input-md"></div>
                     <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control input-md"></div>
+                        <input type="text" placeholder="Email" name="email" class="form-control input-md"></div>
                     <div class="form-group">
-                        <input type="text" placeholder="Số điện thoại" class="form-control input-md">
+                        <input type="text" placeholder="Số điện thoại" name="sodienthoai" class="form-control input-md">
                     </div>
                     <div class="form-group">
                         <textarea rows="8" name="message" placeholder="Góp ý ..." class="form-control input-md">
