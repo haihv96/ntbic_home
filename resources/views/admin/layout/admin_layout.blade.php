@@ -274,6 +274,17 @@
                                         </a>
                                     @endif
                                 </li>
+                                <li class="nav-item" id="active-menu">
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.menu.index')}}" class="nav-link ">
+                                            <span class="title">Menu</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('menu.index')}}" class="nav-link ">
+                                            <span class="title">Menu</span>
+                                        </a>
+                                    @endif
+                                </li>
                             </ul>
                         </li>
                     </ul>

@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a id="namepage" href="#" class="active">Hình ảnh Sidebar</a>
+<a id="namepage" href="#" class="active">Menu</a>
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Bảng hình ảnh sidebar</span>
+                    <span class="caption-subject bold uppercase"> Bảng Menu</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -20,7 +20,15 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm hình ảnh sidebar</a>
+                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm menu</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group pull-right">
+                                <select id="locale" class="form-control select2me btn green  btn-outline dropdown-toggle" name="locale" data-locale="{{$locale}}">Language
+                                    <option id='vi' value="vi">Tiếng Việt</option>
+                                    <option id='en' value="en">Tiếng Anh</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -33,25 +41,23 @@
                     <thead>
                         <tr>
                         	<th> ID </th>
-                            <th> Link</th>
-                            <th> Hình ảnh</th>
+                            <th> Menu </th>
 		                    <th> Sửa </th>
 		                    <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($hinhanhsidebar as $item)
+                    @foreach($menu as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
-                            <td>{{$item->Link}}</td>
-                            <td><img src="{{ URL::asset($item->HinhAnh) }}" height="100"></td>
+                            <td>{{$item->Ten}}</td>
                             <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {!! $hinhanhsidebar->links() !!} 
+                {!! $menu->links() !!} 
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -62,13 +68,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Xóa hình ảnh sidebar</h4>
+                <h4 class="modal-title">Xóa menu</h4>
             </div>
             <div class="modal-body"> 
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa hình ảnh sidebar? 
+                    Bạn chắc chắn muốn xóa menu? 
                 </form>
             </div>
             <div class="modal-footer">
@@ -85,7 +91,7 @@
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/anh-sidebar/'+id;
+            var url_delete = 'admin/menu/'+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',
@@ -109,6 +115,6 @@
    <script type="text/javascript">
       $(".sub-menu").css('display','block');
       $("#sub-menu-manager-data").addClass("active");
-      $("#active-anh-sidebar").addClass("active");
+      $("#active-loai-tin").addClass("active");
     </script>
 @endsection

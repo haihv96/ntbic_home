@@ -17,7 +17,9 @@ class TinTuc extends Model
     public function user(){
     	return $this->belongsTo('App\User','users_id','id');
     }
-
+    public function menu(){
+        return $this->belongsTo('App\Menu','tin_tuc_id','id');
+    }
     protected $translatedAttributes = [
     	'Ten',
     	'TomTat',

@@ -13,6 +13,7 @@ use App\DoiTac;
 use App\LoaiDoiTac;
 use App\HinhSidebar;
 use App\LogoDoitac;
+use App\Menu;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;

@@ -44,6 +44,10 @@ Route::resource('lien-he','Manager\LienHeController',['names' => [
 ]]);
 
 
+Route::resource('menu','Manager\MenuController',['names' => [
+	'index' => 'admin.menu.index'
+]]);
+
 Route::resource('users','Manager\UserController');
 
 Route::get('profile','Manager\UserController@getProfile')->name('admin.profile');

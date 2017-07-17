@@ -20,7 +20,6 @@ class CreateDoiTacTable extends Migration
             $table->integer('loai_doi_tac_id')->unsigned();
             $table->foreign('loai_doi_tac_id')->references('id')->on('loai_doi_tac') ->onDelete('cascade');
             $table->integer('menu_id')->unsigned();
-            $table->unique(['menu_id']);
             $table->foreign('menu_id')->references('id')->on('menu') ->onDelete('cascade');
             $table->timestamps();
         });

@@ -22,7 +22,6 @@ class CreateTinTucTable extends Migration
             $table->integer('loai_tin_id')->unsigned();
             $table->foreign('loai_tin_id')->references('id')->on('loai_tin')->onDelete('cascade');
             $table->integer('users_id')->unsigned();
-            $table->unique(['menu_id']);
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('menu_id')->references('id')->on('menu') ->onDelete('cascade');
             $table->timestamps();
