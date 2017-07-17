@@ -32,7 +32,7 @@ Route::get('abc',function(){
 });
 Route::get('/','PageController\PageController@TrangChu')->name('home');
 //Route::get('tintuc','PageController\PageController@TinTuc');
-Route::get('lien-he','PageController\PageController@LienHe');
+// Route::get('lien-he','PageController\PageController@LienHe');
 Route::get('detail','PageController\PageController@Detail');
 Route::get('cau-hoi-thuong-gap','PageController\PageController@Cauhoithuonggap');
 
@@ -66,3 +66,5 @@ Route::get('cong-nghe/{slug}','PageController\PageController@DeTailsCongNghe');
 //show doi tac
 Route::get('doi-tac/{slug_ldt}','PageController\DoiTacController@LoaiDoiTac');
 Route::get('doi-tac/{slug_ldt}/{slug_dt}','PageController\DoiTacController@DeTailsDoiTac');
+//lien he
+Route::get('lien-he','PageController\LienHeController@create');

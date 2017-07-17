@@ -64,19 +64,19 @@ class PageController extends Controller
 	// 	return view('pages.tintuc');
 	// }
 
-	public function LienHe(){
-		if (!session()->has('language')) {
-            session(['language'=>'vi']);
-        }
-        $locale = session()->get('language');
-        app()->setlocale($locale);
+	// public function LienHe(){
+	// 	if (!session()->has('language')) {
+ //            session(['language'=>'vi']);
+ //        }
+ //        $locale = session()->get('language');
+ //        app()->setlocale($locale);
 
-		$loai_tin = LoaiTin::all();
-		$loai_doi_tac = LoaiDoiTac::all();
-		return view('pages.lienhe', [ 'loaitin' => $loai_tin, 
-										'locale'=>$locale, 
-										'loaidoitac'=>$loai_doi_tac]);
-	}
+	// 	$loai_tin = LoaiTin::all();
+	// 	$loai_doi_tac = LoaiDoiTac::all();
+	// 	return view('pages.lienhe', [ 'loaitin' => $loai_tin, 
+	// 									'locale'=>$locale, 
+	// 									'loaidoitac'=>$loai_doi_tac]);
+	// }
 
 	public function Detail(){
 		return view('pages.details_tintuc');

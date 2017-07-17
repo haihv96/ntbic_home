@@ -28,7 +28,15 @@ class LienHeRequest extends FormRequest
             'email'=>'required|email',
             'sodienthoai'=>'required',
             'message'=>'required',
-
+        ];
+    }
+    public function messages(){
+        return[
+            'hoten.required'=>'Bạn cần nhập họ tên',
+            'email.required'=>'Bạn cần nhập email',
+            'email.email'=>'Bạn cần nhập đúng định dạng email'
+            'sodienthoai.required'=>'Bạn cần nhập số điện thoại',
+            'message.required'=>"Bạn cần nhập nội dụng liên hệ",
         ];
     }
 }
