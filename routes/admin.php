@@ -42,6 +42,10 @@ Route::resource('anh-sidebar','Manager\AnhSideBarController',['names' => [
 
 
 
+Route::resource('menu','Manager\MenuController',['names' => [
+	'index' => 'admin.menu.index'
+]]);
+
 Route::resource('users','Manager\UserController');
 
 Route::get('profile','Manager\UserController@getProfile')->name('admin.profile');

@@ -16,4 +16,7 @@ class DoiTac extends Model
     public function loaidoitac() {
     	return $this->belongsTo('App\LoaiDoiTac', 'loai_doi_tac_id', 'id');
     }
+    public function menu(){
+    	return $this->belongsTo('App\Menu','doi_tac_id','id');
+    }
 }
