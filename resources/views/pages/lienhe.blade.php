@@ -22,8 +22,18 @@
                 <p class="c-font-lowercase">Gửi ý kiến, thắc mắc, góp ý đến Bộ Khoa học và Công nghệ
   				</p>
         	</div>
-            <form action="#">
+            <form action="#" method="POST" id="createForm" class="form-horizontal">
                 <div class="form-group">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    @if(count($errors) > 0)
+                        <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button>
+                            Lỗi!
+                        </div>
+                    @endif
+                    <div class="alert alert-success display-hide">
+                        <button class="close" data-close="alert"></button> Thành công! </div>
+                    <div class="form-group">
                     <input type="text" placeholder="Họ tên" name="hoten" class="form-control input-md"></div>
                     <div class="form-group">
                         <input type="text" placeholder="Email" name="email" class="form-control input-md"></div>

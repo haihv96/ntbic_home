@@ -27,7 +27,7 @@ class TinTucController extends Controller
 	public function allNews(){
 		if (!session()->has('language')) {
         session(['language'=>'vi']);
-   		 }
+   		}
 	    $locale = session()->get('language');
 	    app()->setlocale($locale);
 		$tin_tuc=TinTuc::paginate(10);
