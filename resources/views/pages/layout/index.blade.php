@@ -7,7 +7,7 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title></title>
 	<link href="{{ URL::asset('pages/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-	<link href="{{ URL::asset('pages/css/custom.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ URL::asset('spages/css/custom.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ URL::asset('pages/fonts/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
 	<link href="{{ URL::asset('pages/css/news.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ URL::asset('pages/css/detailsNew.css') }}" rel="stylesheet" type="text/css">

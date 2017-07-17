@@ -21,7 +21,7 @@ Route::resource('loai-doi-tac','Manager\LoaiDoiTacController',['names' => [
 Route::resource('doi-tac','Manager\DoiTacController',['names' => [
 	'index' => 'admin.doi-tac.index'
 ]]);
-Route::resource('to-chuc','Manager\TochucController',['names' => [
+Route::resource('to-chuc','Manager\ToChucController',['names' => [
 	'index' => 'admin.to-chuc.index'
 ]]);
 Route::resource('cau-hoi-thuong-gap','Manager\CauhoithuonggapController',['names' => [
