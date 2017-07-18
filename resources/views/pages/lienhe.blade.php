@@ -6,6 +6,7 @@
 		<div class="col-md-7">
 			<p><span class="glyphicon glyphicon-map-marker"></span> Địa chỉ: 25 Lê Thánh Tông, Quận Hoàn Kiếm, Hà Nội</p>
 			<p><span class="glyphicon glyphicon-phone"></span> Số điện thoại: (04) 3933 6570 </p>
+            
 		</div>
 		<div class="col-md-5">
 			<p><span class="glyphicon glyphicon-envelope"></span> Email: info@ntbic.com</p>
@@ -29,6 +30,14 @@
                             <div class="alert alert-danger">
                             <button class="close" data-close="alert"></button>
                                 Lỗi!
+                            </div>
+                        @endif
+                         @if (session('message'))
+                            <div class="alert alert-success">
+                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                {{session('message')}}
                             </div>
                         @endif
                         <div class="form-group">

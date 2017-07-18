@@ -54,7 +54,7 @@ class LienHeController extends Controller
         $lien_he->SoDienThoai=$request->sodienthoai;
         $lien_he->NoiDung=$request->message;
         $lien_he->save();
-         return redirect::back();
+         return redirect::back()->with('message','Bạn đã gửi liên hệ thành công');
     }
 
     /**
