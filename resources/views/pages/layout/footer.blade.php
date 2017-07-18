@@ -11,6 +11,8 @@
 			<p>Địa chỉ: 25 Lê Thánh Tông, Hoàn Kiếm, Hà Nội.</p>
 			<p>Hotline: (04) 3933 6570</p>
 			<p>Email: info@ntbic.com.</p>
+			<a href="#"><img src="{!! url('assets/upload/icon_social/google.png') !!}"></a> &nbsp 
+			<a href="#"><img src="{!! url('assets/upload/icon_social/skype.png') !!}"></a>
 		</div>
 		<div class="  col-md-4 " style="font-weight:bold">
 			<p><span>FACEBOOK</span></p>
