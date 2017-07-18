@@ -16,7 +16,4 @@ class LoaiDoiTac extends Model
     public function doitac() {
     	return $this->hasMany('App\DoiTac', 'loai_doi_tac_id', 'id');
     }
-    public function menu(){
-    	return $this->belongsTo('App\Menu','menu_id','id');
-    }
 }

@@ -15,9 +15,7 @@ class CreateLoaiTinTable extends Migration
     {
         Schema::create('loai_tin', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('menu_id')->unsigned();
             $table->string('slug');
-            $table->foreign('menu_id')->references('id')->on('menu') ->onDelete('cascade');
             $table->timestamps();
         });
     }
