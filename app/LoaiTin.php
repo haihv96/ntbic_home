@@ -16,8 +16,4 @@ class LoaiTin extends Model
     public function tintuc(){
     	return $this->hasMany('App\TinTuc','loai_tin_id','id');
     }
-
-    public function menu(){
-        return $this->belongsTo('App\Menu','menu_id','id');
-    }
 }
