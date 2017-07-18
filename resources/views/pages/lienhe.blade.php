@@ -4,10 +4,9 @@
 	<div class="address-company">
 		<h4>&nbspTrung tâm Ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ</h4>
 		<div class="col-md-7">
-			<p><i class="fa fa-home" aria-hidden="true" style="color:#777"></i> Địa chỉ: 25 Lê Thánh Tông, Quận Hoàn Kiếm, Hà Nội</p>
-			<p><i class="fa fa-phone-square" aria-hidden="true" style="color:#777"></i> Số điện thoại: (04) 3933 6570 </p>
-            <p><i class="fa fa-fax" aria-hidden="true" style="color:#777"></i> Fax: (84.4) 39330267</p>
-            
+			<p><i class="fa fa-home" aria-hidden="true" style="color:#5bc0de"></i> Địa chỉ: 25 Lê Thánh Tông, Quận Hoàn Kiếm, Hà Nội</p>
+			<p><i class="fa fa-phone-square" aria-hidden="true" style="color:#5bc0de"></i> Số điện thoại: (04) 3933 6570 </p>
+            <p><i class="fa fa-fax" aria-hidden="true" style="color:#5bc0de"></i> Fax: (84.4) 39330267</p>
 		</div>
 		<div class="col-md-5">
 			<p><span class="glyphicon glyphicon-envelope" style="color:#d9534f"></span> Email: info@ntbic.com</p>
@@ -22,7 +21,7 @@
             <div class="content-title-1">
                 <h3 class="uppercase">Gửi liên hệ</h3>
                 <div class="blue"></div>
-                <p class="c-font-lowercase">Gửi ý kiến, thắc mắc, góp ý đến Bộ Khoa học và Công nghệ
+                <p class="c-font-lowercase">Gửi ý kiến, thắc mắc, góp ý đến Trung tâm Ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ
   				</p>
         	</div>
              <form action="lien-he" method="POST" id="createForm" class="form-horizontal">
