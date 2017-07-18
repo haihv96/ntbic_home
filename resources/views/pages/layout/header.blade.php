@@ -15,7 +15,7 @@
 	    </div>
 	    <div class="collapse navbar-collapse"  id="myNavbar">
 		    <ul class="nav navbar-nav">
-		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tổ chức<span class="caret"></span></a>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">{{trans('messages.about')}}<span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
 			          <li><a href="{!! url('gioi-thieu-chung') !!}">Giới thiệu chung</a></li>
 			          <li><a href="{!! url('vi-tri-chuc-nang') !!}">Vị trí chức năng</a></li>
@@ -27,7 +27,7 @@
 			           <li><a href="{!! url('tuyen-dung') !!}">Tuyển dụng</a></li>
 			        </ul>
 				</li>
-		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('tin-tuc') !!}">Tin tức <span class="caret"></span></a>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('tin-tuc') !!}">{{trans('messages.news')}}<span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
 								@foreach($loaitin as $item)
 			          <li><a href="{!! url('tin-tuc/'.$item->slug) !!}">{{$item->Ten}}</a></li>
@@ -35,8 +35,8 @@
 								@endforeach
 			        </ul>
 				</li>
-		      	<li><a href="{!! url('su-kien') !!}">Sự kiện</a></li>
-		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('doi-tac') !!}">Đối tác <span class="caret"></span></a>
+		      	<li><a href="{!! url('su-kien') !!}">{{trans('messages.events')}}</a></li>
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('doi-tac') !!}">{{trans('messages.partners')}} <span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
 			          <!--<li><a href="{!! url('doi-tac/doi-tac-to-chuc') !!}">Đối tác tổ chức</a></li>
 			          <li><a href="{!! url('doi-tac/doi-tac-doanh-nghiep') !!}">Đối tác doanh nghiệp</a></li>
@@ -46,7 +46,7 @@
 								@endforeach
 			        </ul>
 				</li>
-		      	<li><a href="{!! url('http://csdl.ntbic.com/') !!}">Dữ liệu</a></li>
+		      	<li><a href="{!! url('http://csdl.ntbic.com/') !!}">{{trans('messages.datas')}}</a></li>
 		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('uom-tao') !!}">Ươm tạo <span class="caret"></span></a>
 			        <ul class="dropdown-menu sub-menu">
 			          <li><a href="{!! url('http://ntbic.com/') !!}">Ươm tạo trực tiếp</a></li>
@@ -54,8 +54,8 @@
 			          <li><a href="{!! url('http://ntbic.com/') !!}">Thủ tục ươm tạo</a></li>
 			        </ul>
 				</li>
-		      	<li><a href="cong-nghe">Công nghệ</a></li>
-		      	<li><a href="{!! url('lien-he') !!}">Liên hệ</a></li>
+		      	<li><a href="cong-nghe">{{trans('messages.technology')}}</a></li>
+		      	<li><a href="{!! url('lien-he') !!}">{{trans('messages.contact')}}</a></li>
 		    </ul>
 		    <form class="navbar-form navbar-left">
 		      <div class="input-group">
