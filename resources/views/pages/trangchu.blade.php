@@ -56,8 +56,8 @@
 	<div class="margintop">
 		<div class="col-md-6 news_1">
 			<div class="header-blue">
-				<a href="{!!url('tin-tuc/doanh-nghiep')!!}" title="" class="group_header_link">Tin doanh nghiệp</a>
-				<a href="{!!url('tin-tuc/doanh-nghiep')!!}" title="" class="A_ViewMore">Xem thêm</a>
+				<a href="{!!url('tin-tuc/doanh-nghiep')!!}" title="" class="group_header_link">{{trans('content.business_news')}}</a>
+				<a href="{!!url('tin-tuc/doanh-nghiep')!!}" title="" class="A_ViewMore">{{trans('sidebar.view_more')}}</a>
 			</div>
 			@if(count($tin_doanh_nghiep) > 0)
 			<?php
@@ -89,8 +89,8 @@
 		</div>
 		<div class="col-md-6 news_2">
 			<div class="header-blue">
-				<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="" class="group_header_link">Tin khởi nghiệp</a>
-				<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="" class="A_ViewMore">Xem thêm</a>
+				<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="" class="group_header_link">{{trans('content.start_up_news')}}</a>
+				<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="" class="A_ViewMore">{{trans('sidebar.view_more')}}</a>
 			</div>
 			@if(count($tin_khoi_nghiep) > 0)
 			<?php
@@ -130,7 +130,7 @@
     		</span>
     		<br>
     		<span>
-    			<a href="" title="">Ươm tạo</a>
+    			<a href="" title="">{{trans('content.incubate')}}</a>
     		</span>
     	</div>
     	<div class="link-icon col-xs-3 col-md-3 text-center">
@@ -141,7 +141,7 @@
     		</span>
     		<br>
     		<span>
-    			<a href="{!!url('cong-nghe')!!}" title="">Công nghệ</a>
+    			<a href="{!!url('cong-nghe')!!}" title="">{{trans('content.technology')}}</a>
     		</span>
     	</div>
     	<div class="link-icon col-xs-3 col-md-3 text-center">
@@ -152,7 +152,7 @@
     		</span>
     		<br>
     		<span>
-    			<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="">Khởi nghiệp</a>
+    			<a href="{!!url('tin-tuc/khoi-nghiep')!!}" title="">{{trans('content.start_up')}}</a>
     		</span>
     	</div>
     	<div class="link-icon col-xs-3 col-md-3 text-center">
@@ -163,7 +163,7 @@
     		</span>
     		<br>
     		<span>
-    			<a href="http://csdl.ntbic.com" title="">Cơ sở dữ liệu</a>
+    			<a href="http://csdl.ntbic.com" title="">{{trans('content.database')}}</a>
     		</span>
     	</div>
     </div>
@@ -171,7 +171,7 @@
     <!-- đối tác -->
 	<div class="padding-top-20">
 		<div class="doitac">
-			<a href="" title="">Đối tác</a>
+			<a href="" title="">{{trans('content.partner')}}</a>
 		</div>
 		<div class="padding-top-20">
 			<div class="clearfix"></div>

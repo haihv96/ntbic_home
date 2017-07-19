@@ -2,9 +2,9 @@
 @section('content')
 <div class="col-md-8">
 	<div class="address-company">
-		<h4>&nbspTrung tâm Ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ</h4>
+		<h4>&nbsp {{trans('contact.ntbic')}}</h4>
 		<div class="col-md-7">
-			<p><i class="fa fa-home" aria-hidden="true" style="color:#5bc0de"></i> Địa chỉ: 25 Lê Thánh Tông, Quận Hoàn Kiếm, Hà Nội</p>
+			<p><i class="fa fa-home" aria-hidden="true" style="color:#5bc0de"></i> {{trans('contact.address')}}</p>
 			<p><i class="fa fa-phone-square" aria-hidden="true" style="color:#5bc0de"></i> Số điện thoại: (04) 3933 6570 </p>
             <p><i class="fa fa-fax" aria-hidden="true" style="color:#5bc0de"></i> Fax: (84.4) 39330267</p>
 		</div>
@@ -19,9 +19,9 @@
 <div class="col-md-4">
 	 	<div class="contact">
             <div class="content-title-1">
-                <h3 class="uppercase">Gửi liên hệ</h3>
+                <h3 class="uppercase">{{trans('contact.post_contact')}}</h3>
                 <div class="blue"></div>
-                <p class="c-font-lowercase">Gửi ý kiến, thắc mắc, góp ý đến Trung tâm Ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ
+                <p class="c-font-lowercase">{{trans('contact.mess')}}
   				</p>
         	</div>
              <form action="lien-he" method="POST" id="createForm" class="form-horizontal">
@@ -43,7 +43,7 @@
                         @endif
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" name="hoten" placeholder="Họ tên" data-required="1" class="form-control" value={{old('hoten')}}> 
+                                <input type="text" name="hoten" placeholder="{{trans('contact.name')}}" data-required="1" class="form-control" value={{old('hoten')}}> 
                                  <span class="required"> {{$errors->first('hoten')}}</span>
                             </div>
                         </div>
@@ -55,20 +55,20 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" name="sodienthoai" placeholder="Số điện thoại" data-required="1" class="form-control" value={{old('sodienthoai')}}> 
+                                <input type="text" name="sodienthoai" placeholder="{{trans('contact.phone')}}" data-required="1" class="form-control" value={{old('sodienthoai')}}> 
                                  <span class="required"> {{$errors->first('sodienthoai')}}</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <textarea  name="message" placeholder="Gủi ý kiến liên hệ ..." rows="6" class="form-control" >{{old('message')}}</textarea>
+                                <textarea  name="message" placeholder="{{trans('contact.content')}}" rows="6" class="form-control" >{{old('message')}}</textarea>
                                <span class="required"> {{$errors->first('message')}}</span>
                             </div>
                         </div>
                     </div>
                     <div class="form-actions">
                         <div class="sol-md-12">
-                                <button type="submit" class="btn green">Gửi</button>
+                                <button type="submit" class="btn green">{{trans('contact.post')}}</button>
                                 
                         </div>
                     </div>
