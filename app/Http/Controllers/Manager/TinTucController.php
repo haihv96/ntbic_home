@@ -166,7 +166,7 @@ class TinTucController extends Controller
                 $hinh_anh = str_random(4)."_".$name;
             }
             $file->move("assets/upload/tin_tuc/",$hinh_anh);
-            $tin_tuc->HinhAnh = "assets/upload/tin_tuc/".$hinh_anh;
+            $tin_tuc->HinhAnh = $hinh_anh;
         }
         if($request->delete_logo == "delete" && $tin_tuc->HinhAnh != ""){
            $str = substr($tin_tuc->HinhAnh, 0);

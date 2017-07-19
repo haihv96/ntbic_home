@@ -19,12 +19,12 @@
 	<div class="row padding-top-10">
 
 		<div class="col-md-5 col-xs-5 top_news">
-			<a href="{!!url('tin-tuc/'.'$loai_tin->'slug'.'/'.$item->slug) !!}" title="">
+			<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug) !!}" title="">
 				<img src="{!!url('assets/upload/tin_tuc/'.$item->HinhAnh)!!}" alt="">
 			</a>
 		</div>
 		<div class="col-md-7 col-xs-7 top_news_right"> 
-			<a href="{!!url('tin-tuc/'.'$loai_tin->'slug'.'/'.$item->slug) !!}" title="">
+			<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug) !!}" title="">
 				<b>{{$item->Ten}}</b>
 			</a>
 		</div>

@@ -57,7 +57,7 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->Ten}}</td>
                             <td>{!! $item->TomTat !!}</td>
-                            <td><img src="assets/upload/tin_tuc/{{$item->HinhAnh}}" height="100"></td>
+                            <td><img src="{!!url('assets/upload/tin_tuc/'.$item->HinhAnh) !!}" height="100"></td>
                             <td>{{\App\LoaiTin::find($item->loai_tin_id)->Ten}}</td>
                             @if($item->status == 1)
                                 <td> Có </td>
