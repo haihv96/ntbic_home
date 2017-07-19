@@ -274,14 +274,14 @@
                                         </a>
                                     @endif
                                 </li>
-                                <li class="nav-item" id="active-menu">
+                                <li class="nav-item" id="active-lien-he">
                                     @if(Auth::user()->level == 1)
-                                        <a href="{{route('admin.menu.index')}}" class="nav-link ">
-                                            <span class="title">Menu</span>
+                                        <a href="{{route('admin.lien-he.index')}}" class="nav-link ">
+                                            <span class="title">Ý kiến phản hồi</span>
                                         </a>
                                     @else
-                                        <a href="{{route('menu.index')}}" class="nav-link ">
-                                            <span class="title">Menu</span>
+                                        <a href="{{route('lien-he.index')}}" class="nav-link ">
+                                            <span class="title">Ý kiến phản hồi</span>
                                         </a>
                                     @endif
                                 </li>
@@ -299,7 +299,7 @@
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li>
-                                <a href="{{route('login')}}'">Home</a>
+                                <a href="{{route('login')}}">Home</a>
                                 <i class="fa fa-circle"></i>
                             </li>
                             <li>@yield('name_page')</li>
