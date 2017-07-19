@@ -47,12 +47,12 @@
 			        </ul>
 				</li>
 		      	<li><a href="{!! url('http://csdl.ntbic.com/') !!}">{{trans('header.datas')}}</a></li>
-		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('uom-tao') !!}">{{trans('header.incubate')}}<span class="caret"></span></a>
-			        <ul class="dropdown-menu sub-menu">
+		      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{!! url('http://ntbic.com/') !!}">{{trans('header.incubate')}}<span class="caret"></span></a>
+			      <!--   <ul class="dropdown-menu sub-menu">
 			          <li><a href="{!! url('http://ntbic.com/') !!}">Ươm tạo trực tiếp</a></li>
 			          <li><a href="{!! url('http://ntbic.com/') !!}">Ươm tạo ảo</a></li>
 			          <li><a href="{!! url('http://ntbic.com/') !!}">Thủ tục ươm tạo</a></li>
-			        </ul>
+			        </ul> -->
 				</li>
 		      	<li><a href="cong-nghe">{{trans('header.technology')}}</a></li>
 		      	<li><a href="{!! url('lien-he') !!}">{{trans('header.contact')}}</a></li>

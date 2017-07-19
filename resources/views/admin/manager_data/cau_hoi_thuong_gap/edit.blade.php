@@ -46,7 +46,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <input type="text" name="CauHoi" data-required="1" class="form-control" value={{$cauhoi->CauHoi}}> 
+                                <input type="text" name="CauHoi" data-required="1" class="form-control" value="{{$cauhoi->CauHoi}}"> 
                                  <span class="required"> {{$errors->first('CauHoi')}}</span>
                             </div>
                         </div>

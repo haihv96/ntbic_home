@@ -10,6 +10,7 @@ use App\ToChuc;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ToChucRequest;
 use File;
+use Auth;
 
 class ToChucController extends Controller
 {

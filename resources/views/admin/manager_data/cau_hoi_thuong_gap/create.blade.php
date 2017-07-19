@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a id="namepage" href="#" class="active">Câu hỏi thường gặp</a>
+<a id="namepage" href="#" class="active">Loại tin</a>
 @endsection
 
 @section('main')
@@ -12,18 +12,20 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">Thêm câu hỏi thường gặp</span>
+                    <span class="caption-subject font-dark sbold uppercase">Thêm câu hỏi</span>
                 </div>
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="lien-he" method="POST" id="createForm" class="form-horizontal">
+                <form action="#" method="POST" id="createForm" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-body">
-                        @if(count($errors) = 0)
-                            <div class="alert alert-sucess">
+                        @if(count($errors) > 0)
+                            <div class="alert alert-danger">
                             <button class="close" data-close="alert"></button>
-                                Bạn đã gửi liên hệ thành công!
+                                    @foreach($errors->all() as $err)
+                                        {{$err}}<br>
+                                    @endforeach
                             </div>
                         @endif
                         <div class="alert alert-success display-hide">
@@ -38,7 +40,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                       <div class="form-group">
                             <label class="control-label col-md-3">Câu hỏi
                                 <span class="required"> * </span>
                             </label>
@@ -56,7 +58,6 @@
                                 <span class="required">{{$errors->first('CauTraLoi')}}</span>
                             </div>
                         </div>
-                    </div>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
@@ -73,5 +74,14 @@
     </div>
 </div>
 @endsection
+@section('js')
+    <script src="{{ URL::asset('js/path.js') }}"></script>
+    <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
 
+    <script type="text/javascript">
+      $(".sub-menu").css('display','block');
+      $("#sub-menu-manager-data").addClass("active");
+      $("#active-cau-hoi-thuong-gap").addClass("active");
+    </script>
+@endsection
 
