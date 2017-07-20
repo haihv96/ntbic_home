@@ -46,7 +46,7 @@ class TinTucController extends Controller
 		$loai_tin_list = LoaiTin::all();
 	    $loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
- 		return view('pages.tin_tuc.newsOfKind', [ 'tintuc' => $tin_tuc,
+ 		return view('pages.tin_tuc.news', [ 'tintuc' => $tin_tuc,
 		 											'lt' => $loai_tin,
 													'loaitin' => $loai_tin_list, 
 													'locale'=>$locale, 
