@@ -7,4 +7,5 @@
 		'technology' => 'CÔNG NGHỆ',
 		'start_up' => 'KHỞI NGHIỆP',
 		'database' => 'CƠ SỞ DỮ LIỆU',
+		'results' => 'kết quả',
 	];

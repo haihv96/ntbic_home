@@ -7,4 +7,5 @@
 		'technology' => 'TECHNOLOGY',
 		'start_up' => 'START UP',
 		'database' => 'DATABASE',
+		'results' => 'results',
 	];

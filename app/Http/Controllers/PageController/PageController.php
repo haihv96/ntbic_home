@@ -16,6 +16,7 @@ use App\LogoDoitac;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
+use Illuminate\Http\Request;
 
 
 class PageController extends Controller
@@ -208,13 +209,22 @@ class PageController extends Controller
 											'tinnoibat'=>$tin_noi_bat]);
 	}
 
-	public function CongNghe(){
+	public function CongNghe(Request $request){
+		$text_search = $request->text_search;
+		$per_page = 10;
 		if (!session()->has('language')) {
             session(['language'=>'vi']);
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $cong_nghe= CongNghe::orderBy('created_at','desc')->paginate(10)->where('NoiDung','<>','');
+
+		$cong_nghe = DB::table('cong_nghe')->join('cong_nghe_translations','cong_nghe_translations.cong_nghe_id','=','cong_nghe.id')
+                    ->where('locale',$locale)
+					->where('NoiDung','<>','')
+                    ->where('Ten','LIKE','%'.$text_search.'%')
+                    ->orWhere('NoiDung','LIKE','%'.$text_search.'%')
+					->orderBy('created_at','desc')->paginate($per_page);
+
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
@@ -222,7 +232,8 @@ class PageController extends Controller
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
 											'loaidoitac'=>$loai_doi_tac,
-											'tinnoibat'=>$tin_noi_bat]);
+											'tinnoibat'=>$tin_noi_bat,
+											'text_search'=>$text_search]);
 	}
 	public function DetailsCongNghe($slug){
 		if (!session()->has('language')) {

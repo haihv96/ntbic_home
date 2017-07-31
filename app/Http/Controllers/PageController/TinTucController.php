@@ -12,7 +12,8 @@ use App\HinhSidebar;
 use App\LogoDoitac;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use  Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 
 class TinTucController extends Controller
@@ -21,17 +22,34 @@ class TinTucController extends Controller
 	{
 		$hinh_anh_sidebar = HinhSidebar::all();
 		$logo_doi_tac = LogoDoitac::all();
+		$loai_tin_list = LoaiTin::all();
+	    $loai_doi_tac = LoaiDoiTac::all();
+		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
+		
 		view()->share('hinhanhsidebar',$hinh_anh_sidebar);
 		view()->share('logodoitac',$logo_doi_tac);
+		view()->share('loaitin', $loai_tin_list);
+		view()->share('loaidoitac', $loai_doi_tac);
+		view()->share('tinnoibat',$tin_noi_bat);
 	}
-	public function allNews(){
+
+	public function allNews(Request $request){
+		$text_search = $request->text_search;
+		$per_page = 10;
+
 		if (!session()->has('language')) {
         session(['language'=>'vi']);
    		}
 	    $locale = session()->get('language');
 	    app()->setlocale($locale);
-		$tin_tuc=TinTuc::paginate(10);
-		return view('pages.tin_tuc.allNews',['tintuc'=>$tin_tuc, 'locale'=>$locale]);
+
+		$tin_tuc = DB::table('tin_tuc')->join('tin_tuc_translations','tin_tuc_translations.tin_tuc_id','=','tin_tuc.id')
+                    ->where('locale',$locale)
+                    ->where('Ten','LIKE','%'.$text_search.'%')
+                    ->orWhere('TomTat','LIKE','%'.$text_search.'%')
+                    ->orWhere('NoiDung','LIKE','%'.$text_search.'%')->paginate($per_page);
+
+		return view('pages.tin_tuc.allNews',['tintuc'=>$tin_tuc, 'locale'=>$locale, 'text_search'=>$text_search]);
 	}
 	public function newsOfKind($slug){
 		if (!session()->has('language')) {
@@ -47,12 +65,21 @@ class TinTucController extends Controller
 	    $loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
  		return view('pages.tin_tuc.news', [ 'tintuc' => $tin_tuc,
-		 											'lt' => $loai_tin,
-													'loaitin' => $loai_tin_list, 
-													'locale'=>$locale, 
-													'loaidoitac'=>$loai_doi_tac,
-													'tinnoibat'=>$tin_noi_bat]);
+		 											'lt' => $loai_tin, 
+													'locale'=>$locale]);
 	}
+
+	public function getTinNoiBat() {
+		if (!session()->has('language')) {
+        session(['language'=>'vi']);
+   		}
+	    $locale = session()->get('language');
+	    app()->setlocale($locale);
+
+		$tin_tuc=TinTuc::paginate(10)->where('status',1);
+		return view('pages.tin_tuc.allNews',['tintuc'=>$tin_tuc, 'locale'=>$locale]);
+	}
+
 	public function detailsNew($slug_loai_tin,$slug_tin_tuc){
 		if (!session()->has('language')) {
         session(['language'=>'vi']);
@@ -76,10 +103,7 @@ class TinTucController extends Controller
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
   	   return view('pages.tin_tuc.show',['tintuc'=>$tin_tuc,
 										'tinlienquan'=>$tin_lien_quan,
-										'loaitin' => $loai_tin_list, 
 										'locale'=>$locale, 
-										'loaidoitac'=>$loai_doi_tac,
-										'tinnoibat'=>$tin_noi_bat,
 										'lt'=>$lt,
 										'tenlt'=>$tenlt]);  	    
 	}
