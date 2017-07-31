@@ -27,7 +27,8 @@
 		</div>
 	</div>	
 	@endforeach
-
-
+	<div>
+		{{$sukien->links()}}
+	</div>
 </div>
 @endsection
