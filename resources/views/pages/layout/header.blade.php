@@ -57,9 +57,9 @@
 		      	<li><a href="cong-nghe">{{trans('header.technology')}}</a></li>
 		      	<li><a href="{!! url('lien-he') !!}">{{trans('header.contact')}}</a></li>
 		    </ul>
-		    <form class="navbar-form navbar-left">
+		    <form action="{!! url('search') !!}" class="navbar-form navbar-left">
 		      <div class="input-group">
-		        <input type="text" class="form-control" placeholder="Search">
+		        <input type="text" class="form-control" name="text_search" placeholder="Search" value="@if(isset($text_search)){{$text_search}}@endif">
 		        <div class="input-group-btn">
 		          	<button class="btn btn-default" type="submit">
 		            	<i class="glyphicon glyphicon-search"></i>

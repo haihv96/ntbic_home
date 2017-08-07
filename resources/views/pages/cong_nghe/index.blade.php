@@ -21,5 +21,8 @@
 		</div>
 	</div>
 	@endforeach
+	<div>
+		{{$congnghe->links()}}
+	</div>
 </div>
 @endsection

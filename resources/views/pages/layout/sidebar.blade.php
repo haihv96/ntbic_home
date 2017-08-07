@@ -8,8 +8,8 @@
 	</div>
 	<div class="clearfix padding-top-20"></div>
 	<div class="header-blue">
-		<a href="" title="" class="group_header_link">{{trans('sidebar.hot_news')}}</a>
-		<a href="" title="" class="A_ViewMore">{{trans('sidebar.view_more')}}</a>
+		<a href="{!! url('tin-noi-bat') !!}" title="" class="group_header_link">{{trans('sidebar.hot_news')}}</a>
+		<a href="{!! url('tin-noi-bat') !!}" title="" class="A_ViewMore">{{trans('sidebar.view_more')}}</a>
 	</div>
 	<div class="clearfix padding-top-20"></div>
 	@foreach($tinnoibat as $item)
