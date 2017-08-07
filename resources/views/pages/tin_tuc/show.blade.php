@@ -78,9 +78,11 @@
 				<div class="col-md-3 ">
 				    <div class="thumbnail" style="height: 200px">				      
 				        <img src="assets/upload/tin_tuc/{{$item->HinhAnh}}" alt="Lights" style="width:100%; height: 100px;">
-				        <div class="caption">
-				        <a href="tin-tuc/{{$lt}}/{{$item->slug}}">  <strong> {{ $item->Ten }} </strong></a>
-				        </div>    
+			        	<h3>
+			        		<a href="tin-tuc/{{$lt}}/{{$item->slug}}">  <strong> {{ $item->Ten }} </strong></a>
+			        	</h3>
+			        	<p  class="date">
+			        	</p>
 				    </div>
 				</div>
 				@endforeach

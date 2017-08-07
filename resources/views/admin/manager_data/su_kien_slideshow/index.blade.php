@@ -1,7 +1,7 @@
 @extends('admin.layout.admin_layout')
 
 @section('name_page')
-<a id="namepage" href="#" class="active">Sự kiện</a>
+<a id="namepage" href="#" class="active">Hình ảnh sự kiện slideshow</a>
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Bảng sự kiện</span>
+                    <span class="caption-subject bold uppercase"> Bảng hình ảnh sự kiện slideshow</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -20,15 +20,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm sự kiện</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="btn-group pull-right">
-                                <select id="locale" class="form-control select2me btn green  btn-outline dropdown-toggle" name="locale" data-locale="{{$locale}}">Print
-                                    <option id='vi' value="vi">Tiếng Việt</option>
-                                    <option id='en' value="en">Tiếng Anh</option>
-                                </select>
+                                <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm hình ảnh slideshow</a>
                             </div>
                         </div>
                     </div>
@@ -40,34 +32,24 @@
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
-                            <th> STT </th>
-                            <th> Sự kiện</th>
-                            <th> Địa chỉ </th>
-                            <th> Hình ảnh </th>
-                            <th> Ngày bắt đầu</th>
-                            <th> Ngày kết thúc</th>
-                            <th> Người đăng ký tham gia </th>
-                            <th> Sửa </th>
-                            <th> Xóa </th>
+                        	<th> ID </th>
+                            <th> Hình ảnh</th>
+		                    <th> Sửa </th>
+		                    <th> Xóa </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($sukien as $item)
+                    @foreach($sukienslideshow as $item)
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
-                            <td>{!! $item->Ten !!}</td>
-                            <td>{!! $item->TomTat !!}</td>
                             <td><img src="{{ URL::asset($item->HinhAnh) }}" height="100"></td>
-                            <td>{{$item->NgayBatDau}}</td>
-                            <td>{{$item->NgayKetThuc}}</td>
-                            <td class="center"><a class="show" href="#" data-id="{{$item->id}}"><span class="fa fa-eye"></span></a></td>
-                            <td class="center"><div ><a class="edit" href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
+                            <td class="center"><div ><a href="#" class="edit" data-id="{{$item->id}}" ><span class="fa fa-pencil-square" ></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                         </tr>
-                        @endforeach
+                    @endforeach
                     </tbody>
                 </table>
-                {!! $sukien->links() !!}
+                {!! $sukienslideshow->links() !!} 
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -78,13 +60,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Xóa sự kiện</h4>
+                <h4 class="modal-title">Xóa hình ảnh sự kiện</h4>
             </div>
             <div class="modal-body"> 
                 <form>
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    Bạn chắc chắn muốn xóa sự kiện? 
+                    Bạn chắc chắn muốn xóa hình ảnh sự kiện? 
                 </form>
             </div>
             <div class="modal-footer">
@@ -98,10 +80,10 @@
 </div>
 @endsection
 @section('js')
-     <script type="text/javascript">
+    <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'admin/su-kien/'+id;
+            var url_delete = 'admin/su-kien-slideshow/'+id;
             $('#delete').click(function() {
                 $.ajax({
                     type: 'delete',
@@ -119,11 +101,12 @@
         });
     </script>
 
-    <script src="{{ URL::asset('js/pathIndex.js') }}"></script>
-    <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
-    <script type="text/javascript">
+   <script src="{{ URL::asset('js/pathIndex.js') }}"></script>
+   <script src="{{ URL::asset('js/ajaxRequestLocale.js') }}"></script>
+
+   <script type="text/javascript">
       $(".sub-menu").css('display','block');
       $("#sub-menu-manager-data").addClass("active");
-      $("#active-su-kien").addClass("active");
+      $("#active-su-kien-slideshow").addClass("active");
     </script>
 @endsection

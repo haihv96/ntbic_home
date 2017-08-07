@@ -42,7 +42,9 @@ Route::resource('anh-sidebar','Manager\AnhSideBarController',['names' => [
 Route::resource('lien-he','Manager\LienHeController',['names' => [
 	'index' => 'admin.lien-he.index'
 ]]);
-
+Route::resource('su-kien-slideshow','Manager\SuKienSlideshowController',['names' => [
+	'index' => 'admin.su-kien-slideshow.index'
+]]);
 
 Route::resource('menu','Manager\MenuController',['names' => [
 	'index' => 'admin.menu.index'

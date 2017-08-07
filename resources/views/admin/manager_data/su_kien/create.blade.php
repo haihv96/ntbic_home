@@ -53,11 +53,15 @@
                             </div>
                         </div>
                         <div class="form-group last">
-                            <label class="control-label col-md-3">Tóm tắt
+                            <label class="control-label col-md-3">Địa chỉ
                                 <span class="required"> * </span>
                             </label>
-                            <div class="col-md-9">
+                           <!--  <div class="col-md-9">
                                 <textarea class="ckeditor form-control" name="tom_tat" rows="6" id="editor">{{old('tom_tat')}}</textarea>
+                                <span class="required"> {{$errors->first('tom_tat')}}</span>
+                            </div> -->
+                            <div class="col-md-9">
+                                <input type="text" name="tom_tat" data-required="1" class="form-control" value="{{old('tom_tat')}}" /> 
                                 <span class="required"> {{$errors->first('tom_tat')}}</span>
                             </div>
                         </div>
