@@ -175,6 +175,17 @@
                                         </a>
                                     @endif
                                 </li>
+                                <li class="nav-item" id="active-su-kien">
+                                    @if(Auth::user()->level == 1)
+                                        <a href="{{route('admin.su-kien-slideshow.index')}}" class="nav-link ">
+                                            <span class="title">Sự kiện Slideshow</span>
+                                        </a>
+                                    @else
+                                        <a href="{{route('su-kien-slideshow.index')}}" class="nav-link ">
+                                            <span class="title">Sự kiện Slideshow</span>
+                                        </a>
+                                    @endif
+                                </li>
                                 <li class="nav-item" id="active-loai-doi-tac">
                                     @if(Auth::user()->level == 1)
                                         <a href="{{route('admin.loai-doi-tac.index')}}" class="nav-link ">

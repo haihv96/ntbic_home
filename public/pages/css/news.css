@@ -56,5 +56,17 @@ ul.breadcrumb li+li:before {
     color: black;
     content: "/";
 }
+.thumbnail {
+    padding: 0 0 15px 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-top: 30px;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
 
 
