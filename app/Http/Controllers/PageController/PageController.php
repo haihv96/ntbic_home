@@ -223,7 +223,7 @@ class PageController extends Controller
 					->where('NoiDung','<>','')
                     ->where('Ten','LIKE','%'.$text_search.'%')
                     ->orWhere('NoiDung','LIKE','%'.$text_search.'%')
-					->orderBy('created_at','desc')->paginate($per_page);
+					->orderBy('cong_nghe.created_at','desc')->paginate($per_page);
 
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
