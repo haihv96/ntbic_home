@@ -30,12 +30,12 @@ class SuKienController extends Controller
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-         $su_kien = DB::table('su_kien')->join('su_kien_translations','su_kien_translations.su_kien_id','=','su_kien.id')
+        $su_kien = DB::table('su_kien')->join('su_kien_translations','su_kien_translations.su_kien_id','=','su_kien.id')
                     ->where('locale',$locale)
 					->where('NoiDung','<>','')
                     ->where('Ten','LIKE','%'.$text_search.'%')
                     ->orWhere('TomTat','LIKE','%'.$text_search.'%')
-                    ->orWhere('NoiDung','LIKE','%'.$text_search.'%')->orderBy('created_at','desc')->paginate($per_page);
+                    ->orWhere('NoiDung','LIKE','%'.$text_search.'%')->orderBy('su_kien.created_at','desc')->paginate($per_page);
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
