@@ -49,12 +49,12 @@
                                 <span class="required"> * </span>
                             </label>
                             <!-- <div class="col-md-9">
-                                <textarea class="ckeditor form-control" name="tom_tat" rows="6" id="editor">{{$sukien->TomTat}}</textarea>
-                                <span class="required"> {{$errors->first('tom_tat')}}</span>
+                                <textarea class="ckeditor form-control" name="dia_chi" rows="6" id="editor">{{$sukien->DiaChi}}</textarea>
+                                <span class="required"> {{$errors->first('dia_chi')}}</span>
                             </div> -->
                             <div class="col-md-9">
-                                <input type="text" name="tom_tat" data-required="1" class="form-control" value="{{$sukien->TomTat}}" /> 
-                                <span class="required"> {{$errors->first('tom_tat')}}</span>
+                                <input type="text" name="dia_chi" data-required="1" class="form-control" value="{{$sukien->DiaChi}}" /> 
+                                <span class="required"> {{$errors->first('dia_chi')}}</span>
                             </div>
                         </div>
                         <div class="form-group last">
@@ -115,6 +115,26 @@
                                     </span>
                                 </div>
                                 <span class="required"> {{$errors->first('ngay_ket_thuc')}}</span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                        <label class="control-label col-md-3">Nổi bật
+                            <span class="required"> * </span>
+                        </label>
+                        <div class="col-md-4">
+                            <div class="radio-list" >
+                                @if($sukien->status == 0)
+                                    <label>
+                                        <input type="radio" name="status" value="1" /> Có </label>
+                                    <label>
+                                        <input type="radio" name="status" value="0" checked/> Không </label>
+                                @else
+                                    <label>
+                                        <input type="radio" name="status" value="1" checked/> Có </label>
+                                    <label>
+                                        <input type="radio" name="status" value="0" /> Không </label>
+                                @endif
+                                </div>
                             </div>
                         </div>
                     </div>

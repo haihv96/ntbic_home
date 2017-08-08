@@ -12,7 +12,8 @@ class SuKien extends Model
     	'slug',
     	'HinhAnh',
     	'NgayBatDau',
-    	'NgayKetThuc'
+    	'NgayKetThuc',
+        'status'
     ];
 
     public function dangkisukien() {
@@ -23,5 +24,5 @@ class SuKien extends Model
     	return $this->belongsTo('App\User','users_id','id');
     }
 
-    public $translatedAttributes = ['Ten', 'NoiDung', 'TomTat'];
+    public $translatedAttributes = ['Ten', 'NoiDung', 'TomTat','DiaChi'];
 }

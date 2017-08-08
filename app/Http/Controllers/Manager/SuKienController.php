@@ -66,7 +66,9 @@ class SuKienController extends Controller
         $su_kien->Ten = $request->ten;
         $su_kien->slug= changeTitle($request->ten);
         $su_kien->NoiDung = $request->noi_dung;
-        $su_kien->TomTat = $request->tom_tat;
+        // $su_kien->TomTat = $request->tom_tat;
+        $su_kien->DiaChi = $request->dia_chi;
+        $su_kien->status = $request->status;
         $su_kien->NgayBatDau = date('Y-m-d', strtotime($request->ngay_bat_dau));
         $su_kien->NgayKetThuc = date('Y-m-d', strtotime($request->ngay_ket_thuc));
         if($request->hasFile('hinh_anh')){
@@ -134,7 +136,9 @@ class SuKienController extends Controller
         $su_kien->Ten = $request->ten;
         $su_kien->slug = changeTitle($request->ten);
         $su_kien->NoiDung = $request->noi_dung;
-        $su_kien->TomTat = $request->tom_tat;
+        // $su_kien->TomTat = $request->tom_tat;
+        $su_kien->DiaChi = $request->dia_chi;
+        $su_kien->status = $request->status;
         $su_kien->NgayBatDau = date('Y-m-d', strtotime($request->ngay_bat_dau));
         $su_kien->NgayKetThuc = date('Y-m-d', strtotime($request->ngay_ket_thuc));
         if($request->hasFile('hinh_anh')){
