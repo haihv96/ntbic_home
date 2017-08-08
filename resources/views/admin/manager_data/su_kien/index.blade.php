@@ -46,6 +46,7 @@
                             <th> Hình ảnh </th>
                             <th> Ngày bắt đầu</th>
                             <th> Ngày kết thúc</th>
+                            <th> Nổi bật </th>
                             <th> Người đăng ký tham gia </th>
                             <th> Sửa </th>
                             <th> Xóa </th>
@@ -56,10 +57,15 @@
                         <tr class="odd gradeX">
                             <td>{{$item->id}}</td>
                             <td>{!! $item->Ten !!}</td>
-                            <td>{!! $item->TomTat !!}</td>
+                            <td>{!! $item->DiaChi !!}</td>
                             <td><img src="{{ URL::asset($item->HinhAnh) }}" height="100"></td>
                             <td>{{$item->NgayBatDau}}</td>
                             <td>{{$item->NgayKetThuc}}</td>
+                             @if($item->status == 1)
+                                <td> Có </td>
+                            @else
+                                <td> Không </td>
+                            @endif
                             <td class="center"><a class="show" href="#" data-id="{{$item->id}}"><span class="fa fa-eye"></span></a></td>
                             <td class="center"><div ><a class="edit" href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
                             <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>

@@ -18,7 +18,8 @@ class CreateSuKienTranslationTable extends Migration
             $table->integer('su_kien_id')->unsigned();
             $table->string('Ten');
             $table->longText('NoiDung');
-            $table->text('TomTat');
+            $table->text('TomTat')->nullable();;
+             $table->string('DiaChi');
             $table->string('locale');
             $table->unique(['su_kien_id','locale']);
             $table->foreign('su_kien_id')->references('id')->on('su_kien')->onDelete('cascade');

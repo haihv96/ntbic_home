@@ -25,21 +25,23 @@ class SuKienRequest extends FormRequest
         return [
             'ten' => 'required',
             'noi_dung' => 'required',
-            'tom_tat' => 'required',
+            // 'tom_tat' => 'required',
             'hinh_anh' => 'mimes:jpeg,bmp,png',
             'ngay_bat_dau' => 'required',
             'ngay_ket_thuc' => 'required|after_or_equal:ngay_bat_dau',
+            'dia_chi' => 'required',
         ];
     }
      public function messages() {
         return [
-            'ten.required' => 'Bạn cần nhập tên tin tức',
-            'noi_dung.required' => 'Bạn cần nhập nội dung tin tức',
-            'tom_tat.required' => 'Bạn cần nhập nội dung tóm tắt của tin tức',
+            'ten.required' => 'Bạn cần nhập tên sự kiện',
+            'noi_dung.required' => 'Bạn cần nhập nội dung sự kiện',
+            // 'tom_tat.required' => 'Bạn cần nhập nội dung tóm tắt của sự kiện',
             'hinh_anh.mimes' => 'Bạn chỉ được chọn file (jpeg,bmp,png)',
             'ngay_bat_dau.required' => 'Bạn cần chọn ngày',
             'ngay_ket_thuc.required' => 'Bạn cần chọn ngày',
             'ngay_ket_thuc.after_or_equal' =>'Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu',
+            'dia_chi.required'=>'Bạn cần chọn địa chỉ diễn ra sự kiện'
         ];
     }
 }

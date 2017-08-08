@@ -18,6 +18,7 @@ class CreateSuKienTable extends Migration
             $table->text('HinhAnh')->nullable();
             $table->date('NgayBatDau');
             $table->date('NgayKetThuc');
+            $table->boolean('status')->default(false);
             $table->string('slug');
             $table->integer('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
