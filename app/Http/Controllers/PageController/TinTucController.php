@@ -60,7 +60,7 @@ class TinTucController extends Controller
 		
 	    $loai_tin=LoaiTin::where('slug',$slug)->first();
 	    $id=$loai_tin->id;
-	    $tin_tuc= TinTuc::orderBy('created_at','desc')->paginate(10)->where('loai_tin_id',$id);
+	    $tin_tuc= TinTuc::orderBy('created_at','desc')->where('loai_tin_id',$id)->paginate(10);
 		$loai_tin_list = LoaiTin::all();
 	    $loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
@@ -76,7 +76,7 @@ class TinTucController extends Controller
 	    $locale = session()->get('language');
 	    app()->setlocale($locale);
 
-		$tin_tuc=TinTuc::paginate(10)->where('status',1);
+		$tin_tuc=TinTuc::orderBy('created_at','desc')->where('status',1)->paginate(10);
 		return view('pages.tin_tuc.allNews',['tintuc'=>$tin_tuc, 'locale'=>$locale]);
 	}
 
