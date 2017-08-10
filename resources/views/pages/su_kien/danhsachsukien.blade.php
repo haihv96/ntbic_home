@@ -15,16 +15,16 @@
 		    <!-- Wrapper for slides -->
 		    <div class="carousel-inner">
 			    <div class="item active">
-			        <img src="{!!url('assets/upload/su_kien/W7XS_banbe.laithithaovan.jpg')!!}" class="img-responsive" alt="Los Angeles" style="width:auto;">
+			        <img src="{!!url('assets/upload/su_kien/W7XS_banbe.laithithaovan.jpg')!!}" class="img-responsive" alt="Los Angeles" style="width:1147px;">
 			    </div>
 			    <div class="item">
 			        <img src="{!!url('assets/upload/tin_tuc/AvL3_thailq1.jpg')!!}" class="img-responsive" alt="Chicago" style="width:100%;">
 			    </div>
 			    <div class="item">
-			        <img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
+			        <img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:1147px;">
 			    </div>
 			    <div class="item">
-			        <img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
+			        <img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:1147px;">
 			    </div>
 		    </div>
 		    <!-- Left and right controls -->
@@ -75,11 +75,11 @@
 	</div>
 	<hr>
 	<!-- tong hop tat ca tin tuc -->
-	<div class="col-md-9 col-sm-9 events">
+	<div class="col-md-12 col-sm-12 events">
 		<h3>
-	        <span class="fa fa-caret-down"></span> Tổng hợp tất cả sự kiện
+	        <span class="fa fa-caret-down"></span> Danh sách sự kiện
 	    </h3>
-    	<div class="col-md-6 col-sm-6 event">
+    	<div class="col-md-4 col-sm-4 event">
     		<div class="mota">
 	        	<img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
 	        	<a href="#" title="angekkk" class="name">  <strong> Su kien 1 </strong></a>
@@ -89,50 +89,6 @@
 		        <i class="fa fa-map-marker" aria-hidden="true"> Cung Hữu Nghị Việt Xô, , Số 91, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</i>
 	        </div>
 	    </div>
-	    <div class="col-md-6 col-sm-6 event">
-    		<div class="mota">
-	        	<img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-	        	<a href="#" title="angekkk" class="name">  <strong> Su kien 1 </strong></a>
-	        	<br>
-	        	<i class="fa fa-clock-o" aria-hidden="true">  11/08/2017</i>
-	        	<br>
-		        <i class="fa fa-map-marker" aria-hidden="true"> Cung Hữu Nghị Việt Xô, , Số 91, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</i>
-	        </div>
-	    </div>
-	    <div class="col-md-6 col-sm-6 event">
-    		<div class="mota">
-	        	<img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-	        	<a href="#" title="angekkk" class="name">  <strong> Su kien 1 </strong></a>
-	        	<br>
-	        	<i class="fa fa-clock-o" aria-hidden="true">  11/08/2017</i>
-	        	<br>
-		        <i class="fa fa-map-marker" aria-hidden="true"> Cung Hữu Nghị Việt Xô, , Số 91, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</i>
-	        </div>
-	    </div>
-	   
-	</div>
-	<div class="col-md-3 sukiensapdienra">
-		<h3>
-	        Sự kiện sắp diễn ra
-	    </h3>
-		<div class="row">
-			<div class="col-md-12 col-ms-12">
-		        	<img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-		        	<a href="#" title="angekkk">  <strong> Su kien 1 </strong></a>
-		        	<br>
-		        	<i class="fa fa-clock-o" aria-hidden="true">  11/08/2017</i>
-		    </div>
-		</div>
-		<hr>
-		<br>
-		<div class="row">
-			<div class="col-md-12 col-ms-12">
-		        	<img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-		        	<a href="#" title="angekkk">  <strong> su kien 1 </strong></a>
-		        	<br>
-		        	<i class="fa fa-clock-o" aria-hidden="true">  11/08/2017</i>
-		        </div>
-		</div>
 	</div>
 </div>
 @endsection
