@@ -57,3 +57,7 @@ Route::post('profile-account','Manager\UserController@updateProfile');
 Route::post('profile-avatar','Manager\UserController@updateAvatar');
 Route::post('profile-password','Manager\UserController@updatePassword');
 
+//notificaiton
+Route::get('send-notification','Manager\UserController@getSendNotification')->name('send.notification');
+Route::post('send-notif','Manager\UserController@postSendNotification');
+Route::get('notification/{id}', 'Manager\UserController@getDetailNotification');

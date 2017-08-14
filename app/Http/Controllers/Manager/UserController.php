@@ -12,6 +12,8 @@ use Mail;
 use Session;
 use App\Mail\ActiveAccount;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications;
+use App\NotificationReceived;
 
 class UserController extends Controller
 {
@@ -247,5 +249,64 @@ class UserController extends Controller
 
             return redirect()->back()->with('user',$user);
         }
+    }
+
+    //send notification for all moderator users
+    public function getSendNotification() {
+        return view('admin.manager_data.user.send_notification');
+    }
+
+    public function postSendNotification(Request $request) {
+        if (Auth::check() && Auth::user()->level == 1) {
+            $this->validate($request,
+            [
+                'title' => 'required',
+                'content' => 'required'
+            ],
+            [
+                'title.required' => 'Bạn cần nhập tiêu đề thông báo',
+                'content.required' => 'Bạn cần nhập nội dung thông báo'
+            ]);
+
+            $admin = Auth::user();
+            $moderators = User::where('level', 2)->where('verified', 1)->get();
+
+            //create notification
+            $notif = new Notifications;
+
+            $notif->Title = $request->title;
+            $notif->Content = $request->content;
+            $notif->user_sent_id = $admin->id;
+
+            $notif->save();
+
+            //create receive user
+            foreach ($moderators as $mod) {
+                $notif_received = new NotificationReceived;
+
+                $notif_received->user_receive_id = $mod->id;
+                $notif_received->notification_id = $notif->id;
+                $notif_received->is_read = 0;
+                
+                $notif_received->save();
+            }
+
+            return redirect()->back()->with('message','Gửi thông báo thành công');
+        }
+        
+        return route('login');
+    }
+
+    public function getDetailNotification($id) {
+        $notif = Notifications::find($id);
+
+        $user = Auth::user();
+        $notif_received = NotificationReceived::where('user_receive_id', $user->id)->where('notification_id',$id)->first();
+        if (!is_null($notif_received)) {
+            $notif_received->is_read = 1;
+            $notif_received->save();    
+        }
+
+        return view('admin.notification_detail')->with(['notif' => $notif]);
     }
 }
