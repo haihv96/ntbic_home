@@ -14,8 +14,16 @@ Route::resource('cau-hoi-thuong-gap','Manager\CauhoithuonggapController');
 Route::resource('tuyen-dung','Manager\TuyenDungController');
 Route::resource('chuyen-gia','Manager\ChuyenGiaController');
 
+Route::resource('su-kien-slideshow','Manager\SuKienSlideshowController');
+Route::resource('logo-doi-tac','Manager\LogoDoiTacController');
+Route::resource('anh-sidebar','Manager\AnhSideBarController');
+Route::resource('lien-he','Manager\LienHeController');
+Route::resource('menu','Manager\MenuController');
+
 Route::get('profile','Manager\UserController@getProfile')->name('moderator.profile');	
 Route::post('profile-account','Manager\UserController@updateProfile');
 Route::post('profile-avatar','Manager\UserController@updateAvatar');
 Route::post('profile-password','Manager\UserController@updatePassword');
+
+Route::get('notification/{id}', 'Manager\UserController@getDetailNotification');
 

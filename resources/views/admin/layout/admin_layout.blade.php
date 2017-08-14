@@ -56,8 +56,54 @@
                 <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <!-- BEGIN TOP NAVIGATION MENU -->
+                <?php
+                    $user = Auth::user();
+                    $notifs_received = App\NotificationReceived::where('user_receive_id', $user->id)->where('is_read', 0)->get(); 
+                ?>
                 <div class="top-menu">
                     <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="icon-bell"></i>
+                                <span class="badge badge-default"> {{$notifs_received->count()}} </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3>
+                                        <span class="bold">{{$notifs_received->count()}}</span> thông báo
+                                    </h3>
+                                    <a href="page_user_profile_1.html">view all</a>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                        @foreach($notifs_received as $item)
+                                        <?php
+                                            $notif = App\Notifications::find($item->notification_id);
+                                        ?>
+                                        <li>
+                                            @if (Auth::user()->level == 1)
+                                            <a href="{!! url('admin/notification/'.$notif->id) !!}">
+                                                <span class="time">10 mins</span>
+                                                <span class="details">
+                                                    <span class="label label-sm label-icon label-warning">
+                                                        <i class="fa fa-bell-o"></i>
+                                                    </span> {{$notif->Title}} </span>
+                                            </a>
+                                            @elseif (Auth::user()->level == 2)
+                                            <a href="{!! url('moderator/notification/'.$notif->id) !!}">
+                                                <span class="time">10 mins</span>
+                                                <span class="details">
+                                                    <span class="label label-sm label-icon label-warning">
+                                                        <i class="fa fa-bell-o"></i>
+                                                    </span> {{$notif->Title}} </span>
+                                            </a>
+                                            @endif
+                                        </li>
+                                        @endforeach                   
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                         <!-- PROFILE -->
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">

@@ -23,6 +23,11 @@
                                 <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm user</a>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="btn-group pull-right">
+                                <a id="send-message" class="btn sbold green btn-outline" href="{{route('send.notification')}}"><span class="fa fa-pencil"></span> Gửi thông báo</a>
+                            </div>
+                        </div>
                         <!--<div class="col-md-6">
                             <div class="btn-group pull-right">
                                 <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Print
