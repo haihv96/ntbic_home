@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Mail;
 use Session;
 use App\Mail\ActiveAccount;
+use App\Mail\Notification;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications;
 use App\NotificationReceived;
@@ -278,8 +279,23 @@ class UserController extends Controller
             $notif->Content = $request->content;
             $notif->user_sent_id = $admin->id;
 
-            $notif->save();
-
+            DB::beginTransaction();
+            try{
+                $notif->save();
+                foreach($moderators as $item)
+                Mail::to($item->email)->send(new Notification(
+                    $item->name,
+                    $request->title,
+                    $request->content ));
+                DB::commit();
+                Session::flash('message', 'Bạn đã gửi thông báo thành công');
+                return redirect()->route('users.index');
+            }
+            catch(Exception $e)
+            {
+                DB::rollback(); 
+                return back();
+            }
             //create receive user
             foreach ($moderators as $mod) {
                 $notif_received = new NotificationReceived;
@@ -290,8 +306,6 @@ class UserController extends Controller
                 
                 $notif_received->save();
             }
-
-            return redirect()->back()->with('message','Gửi thông báo thành công');
         }
         
         return route('login');
