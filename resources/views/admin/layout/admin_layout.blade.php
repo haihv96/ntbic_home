@@ -59,6 +59,11 @@
                 <?php
                     $user = Auth::user();
                     $notifs_received = App\NotificationReceived::where('user_receive_id', $user->id)->where('is_read', 0)->get(); 
+                    if($user->level == 1) {
+                        $slug = 'admin/';
+                    } elseif($user->level == 2) {
+                        $slug = 'moderator/';
+                    }
                 ?>
                 <div class="top-menu">
                     <ul class="nav navbar-nav pull-right">
@@ -72,7 +77,7 @@
                                     <h3>
                                         <span class="bold">{{$notifs_received->count()}}</span> thông báo
                                     </h3>
-                                    <a href="page_user_profile_1.html">view all</a>
+                                    <a href="{!! url($slug.'profile') !!}">View all</a>
                                 </li>
                                 <li>
                                     <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
