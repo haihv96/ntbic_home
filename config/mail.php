@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 465),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'ttlanhuet@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@ntbic.com'),
         'name' => env('MAIL_FROM_NAME', 'NTBIC'),
     ],
 
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => 'ttlanhuet@gmail.com',
+    'username' => 'info@ntbic.com',
 
-    'password' => 'duanntbic',
+    'password' => '12345678',
 
     /*
     |--------------------------------------------------------------------------
