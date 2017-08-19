@@ -55,7 +55,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Gửi</button>
-                                <a class="btn default" href="#" onclick="{{route('users.index')}}">Hủy</a>
+                                <a class="btn default" href="{{route('users.index')}}" >Hủy</a>
                             </div>
                         </div>
                     </div>

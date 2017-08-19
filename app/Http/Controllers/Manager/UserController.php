@@ -288,8 +288,7 @@ class UserController extends Controller
                     $request->title,
                     $request->content ));
                 DB::commit();
-                Session::flash('message', 'Bạn đã gửi thông báo thành công');
-                return redirect()->route('users.index');
+                Session::flash('message', 'Bạn đã gửi thông báo thành công');                
             }
             catch(Exception $e)
             {
@@ -308,7 +307,7 @@ class UserController extends Controller
             }
         }
         
-        return route('login');
+        return redirect()->route('users.index');
     }
 
     public function getDetailNotification($id) {
