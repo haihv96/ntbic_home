@@ -48,7 +48,7 @@
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="{{route('home')}}">
-                        <img src="{{ URL::asset('assets/layouts/layout/img/logo.png') }}" alt="logo" class="logo-default" /> </a>
+                        <img src="{{ URL::asset('assets/layouts/layout/img/logo_ntbic.png') }}" width="86px" height="14px" alt="logo_ntbic" class="logo-default" /> </a>
                     <div class="menu-toggler sidebar-toggler"> </div>
                 </div>
                 <!-- END LOGO -->
