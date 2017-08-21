@@ -62,12 +62,12 @@
                             <?php
                                 $user = Auth::user();
                                 if ($user->level == 1) {
-                                    $notifs = App\Notifications::where('user_sent_id', $user->id)->get();
+                                    $notifs = App\Notifications::where('user_sent_id', $user->id)->orderBy("created_at","desc")->get();
                                     $slug = 'admin/';
                                 }
                                 elseif($user->level == 2) {
                                     $slug = 'moderator/';
-                                    $notif_receiveds = App\NotificationReceived::where('user_receive_id',$user->id)->get();       
+                                    $notif_receiveds = App\NotificationReceived::where('user_receive_id',$user->id)->orderBy("created_at","desc")->get();       
                                     $notifs = new Illuminate\Database\Eloquent\Collection;
                                     foreach ($notif_receiveds as $item) {
                                         $notif = App\Notifications::find($item->notification_id);
@@ -109,7 +109,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col2">
-                                                            <div class="date"> Just now </div>
+                                                            <div class="date" style="padding:0"> {{$notif->created_at}} </div>
                                                         </div>
                                                     </a>
                                                 </li>

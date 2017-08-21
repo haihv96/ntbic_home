@@ -61,3 +61,4 @@ Route::post('profile-password','Manager\UserController@updatePassword');
 Route::get('send-notification','Manager\UserController@getSendNotification')->name('send.notification');
 Route::post('send-notif','Manager\UserController@postSendNotification');
 Route::get('notification/{id}', 'Manager\UserController@getDetailNotification');
+Route::post('notification-delete/{id}','Manager\UserController@DeleteNotification');
