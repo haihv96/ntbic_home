@@ -16,7 +16,7 @@
                     <!-- <span class="caption-helper">monthly stats...</span> -->
                 </div>
                 <div class="actions">
-                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                    <a class="btn btn-circle btn-icon-only btn-default delete-modal" data-toggle="modal" href="#delete" data-id="{{$notif->id}}" data-level="{{Auth::user()->level}}" data-user="{{Auth::user()->id}}">
                         <i class="icon-trash"></i>
                     </a>
                     <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
@@ -31,7 +31,7 @@
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-<div class="modal fade bs-modal-sm" id="small" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade bs-modal-sm" id="delete" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -59,26 +59,37 @@
     <script type="text/javascript">
         $('.delete-modal').click(function() {
             var id = $(this).data("id");
-            var url_delete = 'notification/'+id;
+            var user_id = $(this).data("user");
+            var user_level = $(this).data("level");
+            var url_delete = '';
+            if (user_level == 1) {
+                url_delete = 'admin/notification-delete/' + id;
+            } else {
+                url_delete = 'moderator/notification-delete/' + id;
+            }
+            var href_profile = '';
+            if(user_level == 1) {
+                href_profile = 'admin/profile';
+            } else {
+                href_profile = 'moderator/profile';
+            }
             $('#delete').click(function() {
                 $.ajax({
-                    type: 'delete',
+                    type: 'post',
                     dataType: 'json',
                     url: url_delete,
                     data: {
                         '_token': $('input[name=_token]').val(),
-                        'id': id
+                        'id': id,
+                        'user_id': user_id,
+                        'user_level': user_level
                     },
                     success: function() {
+                        window.history.go(-1);
                         location.reload();
                     }
                 });
             });
         });
-    </script>
-    <script type="text/javascript">
-        $(".sub-menu").css('display','block');
-        $("#sub-menu-manager-data").addClass("active");
-        $("#active-cong-nghe").addClass("active");
     </script>
 @endsection

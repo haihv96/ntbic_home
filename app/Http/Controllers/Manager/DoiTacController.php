@@ -24,11 +24,8 @@ class DoiTacController extends Controller
 
         $locale = session()->get('language');
         app()->setlocale($locale);
-        if(Auth::user()->level == 1) {
-            $doi_tac = DoiTac::paginate(10);
-        } elseif (Auth::user()->level == 2) {
-            $doi_tac = DoiTac::where('users_id', Auth::user()->id)->paginate(10);
-        }        
+        $doi_tac = DoiTac::paginate(10);
+   
         return view('admin.manager_data.doi_tac.index',['doitac' => $doi_tac, 'locale'=>$locale]);
     }
 

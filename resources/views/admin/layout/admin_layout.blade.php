@@ -243,7 +243,7 @@
                                             <span class="title">Loại đối tác</span>
                                         </a>
                                     @else
-                                        <a href="{{url('loai-doi-tac.index')}}" class="nav-link ">
+                                        <a href="{{route('loai-doi-tac.index')}}" class="nav-link ">
                                             <span class="title">Loại đối tác</span>
                                         </a>
                                     @endif

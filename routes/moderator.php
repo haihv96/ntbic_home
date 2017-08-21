@@ -26,4 +26,4 @@ Route::post('profile-avatar','Manager\UserController@updateAvatar');
 Route::post('profile-password','Manager\UserController@updatePassword');
 
 Route::get('notification/{id}', 'Manager\UserController@getDetailNotification');
-
+Route::post('notification-delete/{id}','Manager\UserController@DeleteNotification');

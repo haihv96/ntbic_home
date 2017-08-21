@@ -322,4 +322,19 @@ class UserController extends Controller
 
         return view('admin.notification_detail')->with(['notif' => $notif]);
     }
+
+    public function DeleteNotification(Request $request, $id) {
+        if ($request->user_level == 1) {
+            $notif = Notifications::find($id);
+            $notif->delete();
+            return $notif->toJson();
+        }
+        elseif ($request->user_level == 2) {
+            $notif = NotificationReceived::where('notification_id', $id)->where('user_receive_id', $request->user_id)->first();
+            $notif->delete();
+            return $notif->toJson();
+        }
+
+        return redirect()->back();
+    }
 }
