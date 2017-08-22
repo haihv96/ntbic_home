@@ -17,8 +17,8 @@ class CreateNguoiDangKiSuKienTable extends Migration
             $table->increments('id');
             $table->integer('su_kien_id')->unsigned();
             $table->string('Ten');
-            $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('email');
+            $table->string('phone');
             $table->foreign('su_kien_id')->references('id')->on('su_kien')->onDelete('cascade');
             $table->timestamps();
         });

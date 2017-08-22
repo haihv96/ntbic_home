@@ -11,6 +11,9 @@ use App\TinTuc;
 use App\LoaiTin;
 use App\HinhSidebar;
 use App\LogoDoitac;
+use App\NguoiDangKiSuKien;
+use App\Http\Requests\NguoiDangKiSuKienRequest;
+use App\SuKienSlideshow;
 
 class SuKienController extends Controller
 {
@@ -23,29 +26,36 @@ class SuKienController extends Controller
 	}
     public function danhSachSuKien(Request $request){
 		$text_search = $request->text_search;
-		$per_page = 10;
+		$per_page = 12;
 
 		if (!session()->has('language')) {
             session(['language'=>'vi']);
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-        $su_kien = DB::table('su_kien')->join('su_kien_translations','su_kien_translations.su_kien_id','=','su_kien.id')
-                    ->where('locale',$locale)
+        $su_kien = DB::table('su_kien')->join('su_kien_translations','su_kien.id','=','su_kien_translations.su_kien_id')
+                    ->where('su_kien_translations.locale',$locale)
 					->where('NoiDung','<>','')
                     ->where('Ten','LIKE','%'.$text_search.'%')
                     ->orWhere('TomTat','LIKE','%'.$text_search.'%')
                     ->orWhere('NoiDung','LIKE','%'.$text_search.'%')->orderBy('su_kien.created_at','desc')->paginate($per_page);
+                  
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
+		$su_kien_noi_bat=SuKien::all()->where('status',1)->take(4);
+		$su_kien_slideshow = SuKienSlideshow::all();
+		// print_r($su_kien);
 		return view('pages.su_kien.danhsachsukien',['sukien'=>$su_kien,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
 											'loaidoitac'=>$loai_doi_tac,
 											'tinnoibat'=>$tin_noi_bat,
-											'text_search'=>$text_search]);
+											'text_search'=>$text_search,
+											'sukiennoibat'=>$su_kien_noi_bat,
+											'sukienslideshow' => $su_kien_slideshow]);
 	}
+
 	public function detailsSuKien($slug){
 		if (!session()->has('language')) {
             session(['language'=>'vi']);
@@ -53,6 +63,7 @@ class SuKienController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $su_kien=SuKien::where('slug',$slug)->first();
+        $su_kien_sap_dien_ra = SuKien::orderBy('NgayBatDau','desc')->take(4)->get();
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
@@ -60,15 +71,17 @@ class SuKienController extends Controller
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
 											'loaidoitac'=>$loai_doi_tac,
-											'tinnoibat'=>$tin_noi_bat]);
+											'tinnoibat'=>$tin_noi_bat,
+											'sukiensapdienra'=>$su_kien_sap_dien_ra]);
 	}
 
     public function NguoiDangKiSuKien($slug,NguoiDangKiSuKienRequest $request){
+        $su_kien=SuKien::where('slug',$slug)->first();
         $nguoi=new NguoiDangKiSuKien;
         $nguoi->Ten=$request->ten;
+        $nguoi->su_kien_id=1;
         $nguoi->email=$request->email;
         $nguoi->phone=$request->phone;
-        $nguoi->save();
-        $chuyen_gia->save();        
+        $nguoi->save();     
     }
 }
