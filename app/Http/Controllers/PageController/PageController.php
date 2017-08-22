@@ -224,7 +224,6 @@ class PageController extends Controller
                     ->where('Ten','LIKE','%'.$text_search.'%')
                     ->orWhere('NoiDung','LIKE','%'.$text_search.'%')
 					->orderBy('cong_nghe.created_at','desc')->paginate($per_page);
-
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);

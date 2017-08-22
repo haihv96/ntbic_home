@@ -24,18 +24,18 @@ class NguoiDangKiSuKienRequest extends FormRequest
     public function rules(){
         return [
             'ten' => 'required',
-            'email' => 'required|email|unique',
-            'phone' => 'required|unique',
+            'email' => 'required|email',
+            'phone' => 'required',
         ];
     }
      public function messages() {
         return [
             'ten.required' => 'Bạn cần nhập tên',
             'email.required' => 'Bạn cần nhập email',
-            'email.email'=>'Bạn chưa nhập đúng định dang email',
-            'email.unique'=>'Email đã tồn tại',
+            'email.email'=>'Bạn chưa nhập đúng định dạng email',
+            // 'email.unique'=>'Email đã tồn tại',
             'phone.required' => 'Bạn cần nhập số điện thoại',
-            'phone.unique'=>'Số điện thoại đã tồn tại',
+            // 'phone.unique'=>'Số điện thoại đã tồn tại',
         ];
     }
 }

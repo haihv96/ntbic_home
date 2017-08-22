@@ -48,7 +48,6 @@ class TinTucController extends Controller
                     ->where('Ten','LIKE','%'.$text_search.'%')
                     ->orWhere('TomTat','LIKE','%'.$text_search.'%')
                     ->orWhere('NoiDung','LIKE','%'.$text_search.'%')->paginate($per_page);
-
 		return view('pages.tin_tuc.allNews',['tintuc'=>$tin_tuc, 'locale'=>$locale, 'text_search'=>$text_search]);
 	}
 	public function newsOfKind($slug){

@@ -40,38 +40,16 @@
 	</div>
 	<!-- tin tuc noi bat -->
 	<div class="row">
+		@foreach($sukiennoibat as $item)
 	    <div class="col-md-3 col-sm-3">
 	      <div class="thumbnail">
-	        <img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-	        	<a href="#" title="angekkk">  <strong> Su kien 1 </strong></a>
-	        	<br>
-	        	<i class="fa fa-clock-o" aria-hidden="true"> 11/08/2017</i>
+	        <img src="{{ URL::asset($item->HinhAnh) }}"  class="img-responsive" alt="{{$item->Ten}}" style="width:100%;height:144px">
+	        <a href="su-kien/{{$item->slug}}" title="{{$item->Ten}}">  <strong> {{$item->Ten}} </strong></a>
+	        <br>
+	        <i class="fa fa-clock-o" aria-hidden="true"> {{$item->NgayBatDau}}</i>
 	        </div>
 	    </div>
-	    <div class="col-md-3 col-sm-3">
-	      	<div class="thumbnail">
-	        	<img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-	        	<a href="#" title="angekkk">  <strong> su kien 1 </strong></a>
-	        	<br>
-	        	<i class="fa fa-clock-o" aria-hidden="true"></i>
-	        </div>
-	    </div>
-	    <div class="col-md-3 col-sm-3">
-	      <div class="thumbnail">
-	        <img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-	        	<a href="#" title="angekkk">  <strong> Su kien 1 </strong></a>
-	        	<br>
-	        	<i class="fa fa-clock-o" aria-hidden="true"> 11/08/2017</i>
-	        </div>
-	    </div>
-	    <div class="col-md-3 col-sm-3">
-	      <div class="thumbnail">
-	        <img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-	        	<a href="#" title="angekkk">  <strong> Su kien 1 </strong></a>
-	        	<br>
-	        	<i class="fa fa-clock-o" aria-hidden="true"> 11/08/2017</i>
-	        </div>
-	    </div>
+	    @endforeach
 	</div>
 	<hr>
 	<!-- tong hop tat ca tin tuc -->
@@ -79,16 +57,18 @@
 		<h3>
 	        <span class="fa fa-caret-down"></span> Danh sách sự kiện
 	    </h3>
+	    @foreach($sukien as $item)
     	<div class="col-md-4 col-sm-4 event">
     		<div class="mota">
-	        	<img src="{!!url('assets/upload/su_kien/BeVR_704-1906341-205660-1461741547868.jpg')!!}"  class="img-responsive" alt="New York" style="width:100%;">
-	        	<a href="#" title="angekkk" class="name">  <strong> Su kien 1 </strong></a>
+	        	<img src="{{ URL::asset($item->HinhAnh) }}"  class="img-responsive" alt="{{$item->Ten}}" style="width:100%;height:179px">
+	        	<a href="su-kien/{{$item->slug}}" title="{{$item->Ten}}" class="name">  <strong> {{$item->Ten}} </strong></a>
 	        	<br>
-	        	<i class="fa fa-clock-o" aria-hidden="true">  11/08/2017</i>
+	        	<i class="fa fa-clock-o" aria-hidden="true">  {{$item->NgayBatDau}}</i>
 	        	<br>
-		        <i class="fa fa-map-marker" aria-hidden="true"> Cung Hữu Nghị Việt Xô, , Số 91, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</i>
+		        <i class="fa fa-map-marker" aria-hidden="true"> {{$item->DiaChi}}</i>
 	        </div>
 	    </div>
+	    @endforeach
 	</div>
 </div>
 @endsection

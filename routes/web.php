@@ -57,8 +57,9 @@ Route::get('tin-noi-bat','PageController\TinTucController@getTinNoiBat');
 //show all su kien
 Route::get('su-kien','PageController\SuKienController@danhSachSuKien');
 Route::get('su-kien/{slug}','PageController\SuKienController@detailsSuKien');
-
-Route::get('su-kien/{slug}/dang-ki','PageController\SuKienController@NguoiDangKiSuKien');
+// nguoi dang ky su kien
+// Route::get('su-kien/{slug}/dang-ki','PageController\SuKienController@NguoiDangKiSuKien');
+Route::post('su-kien/{slug}','PageController\SuKienController@NguoiDangKiSuKien');
 
 //show cong nghe
 Route::get('cong-nghe','PageController\PageController@CongNghe');
