@@ -1,4 +1,4 @@
-<div class="col-md-3 main-right">
+<div class="col-md-3 col-sm-3 main-right">
 	<div class="img-sidebar padding-top-20">
 	@foreach($hinhanhsidebar as $item)
 		<a href="{{url($item->Link)}}" title="">
