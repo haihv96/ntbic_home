@@ -3,8 +3,8 @@
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
-			<li><a href="{{route('home')}}">Trang chủ</a></li>
-			<li><a href="">Tin tức</a></li>
+			<li><a href="{{route('home')}}">{{trans('header.home')}}</a></li>
+			<li><a href="">{{trans('header.news')}}</a></li>
 			<li>{{$lt->Ten}}</li>
 	</ul>
 	<div class="line col-md-12 col-sm-12 ">
@@ -24,7 +24,7 @@
 			<div class="listnews_item_date">
 
 				<i class="fa fa-calendar" aria-hidden="true"> {{substr($item->created_at,0,11)}}</i> | 
-				<a href="tin-tuc/{{$lt->slug}}/{{$item->slug}}">Xem thêm </a>
+				<a href="tin-tuc/{{$lt->slug}}/{{$item->slug}}">{{trans('sidebar.view_more')}}</a>
 
 			</div>
 		</div>
