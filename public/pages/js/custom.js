@@ -43,7 +43,7 @@ $(document).ready(function() {
  		});
  	});
  });
-$(window).load(function() {
+$(window).on('load',function() {
     var boxheight = $('#myCarousel .carousel-inner').innerHeight();
     var itemlength = $('#myCarousel .item').length;
     var triggerheight = Math.round(boxheight/itemlength+1);
