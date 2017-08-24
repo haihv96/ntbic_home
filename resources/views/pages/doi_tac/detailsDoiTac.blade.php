@@ -4,9 +4,9 @@
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
-		<li><a href="#">Trang chủ</a></li>
-		<li><a href="#">Đối tác</a></li>
-		<li><a href="#">{{$ldt->Ten}}</a></li>
+		<li><a href="{{route('home')}}">{{trans('header.home')}}</a></li>
+		<li><a href="">{{trans('header.partners')}}</a></li>
+		<li><a href="">{{$ldt->Ten}}</a></li>
 	</ul>
 	<div class=" col-md-12 col-sm-12  detailsNew">
 		<!--header details news-->

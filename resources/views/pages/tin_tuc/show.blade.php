@@ -4,8 +4,8 @@
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
-		<li><a href="{{route('home')}}">Trang chủ</a></li>
-		<li><a href="">Tin tức</a></li>
+		<li><a href="{{route('home')}}">{{trans('header.home')}}</a></li>
+		<li><a href="">{{trans('header.news')}}</a></li>
 		<li><a href="">{{$tenlt}}</a></li>
 	</ul>
 	<div class=" col-md-12 col-sm-12  detailsNew">

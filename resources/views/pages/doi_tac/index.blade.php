@@ -3,8 +3,8 @@
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
-			<li><a href="{{route('home')}}">Trang chủ</a></li>
-			<li><a href="">Đối tác</a></li>
+			<li><a href="{{route('home')}}">{{trans('header.home')}}</a></li>
+			<li><a href="">{{trans('header.partners')}}</a></li>
 			<li>{{$ldt->Ten}}</li>
 	</ul>
 	<div class="line col-md-12 col-sm-12 ">
