@@ -8,6 +8,7 @@
 	<title></title>
 	<link href="{{ URL::asset('pages/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ URL::asset('pages/css/custom.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ URL::asset('pages/css/carousel.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ URL::asset('pages/css/contactUs.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ URL::asset('pages/css/faq.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ URL::asset('pages/fonts/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
