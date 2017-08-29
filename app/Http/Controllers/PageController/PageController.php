@@ -219,15 +219,19 @@ class PageController extends Controller
         app()->setlocale($locale);
 
 		$cong_nghe = DB::table('cong_nghe')->join('cong_nghe_translations','cong_nghe_translations.cong_nghe_id','=','cong_nghe.id')
-                    ->where('locale',$locale)
 					->where('NoiDung','<>','')
                     ->where('Ten','LIKE','%'.$text_search.'%')
                     ->orWhere('NoiDung','LIKE','%'.$text_search.'%')
-					->orderBy('cong_nghe.created_at','desc')->paginate($per_page);
+					->orderBy('cong_nghe.created_at','desc')->get();
+		$cong_nghe = $cong_nghe->where('locale',$locale);
+		$keys = $cong_nghe->keyBy('id')->keys();
+		$result = DB::table('cong_nghe')->join('cong_nghe_translations','cong_nghe_translations.cong_nghe_id','=','cong_nghe.id')
+					->whereIn('cong_nghe_translations.id',$keys)->paginate($per_page);
+
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
-		return view('pages.cong_nghe.index',['congnghe'=>$cong_nghe,
+		return view('pages.cong_nghe.index',['congnghe'=>$result,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
 											'loaidoitac'=>$loai_doi_tac,

@@ -21,3 +21,30 @@ $(document).ready( function() {
         clickEvent = false;
     });
 });
+
+$(document).ready(function() {
+	$("#register").click(function() {
+		var id = $(this).data("id");
+        console.log(id);
+        
+        $("#submit").click(function() {
+            var ten = $('input[name=ten]').val();
+            var email = $('input[name=email]').val();
+            var phone = $('input[name=phone]').val();
+            $.ajax({
+                url: 'su-kien/'+ id,
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'ten': $('input[name=ten]').val(),
+                    'email': $('input[name=email]').val(),
+                    'phone': $('input[name=phone]').val(),
+                },
+                success: function() {
+                    location.reload();
+                }
+            });
+        });
+	});
+});

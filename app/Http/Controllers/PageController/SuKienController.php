@@ -5,6 +5,8 @@ namespace App\Http\Controllers\PageController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\Paginator;
 use App\SuKien;
 use App\LoaiDoiTac;
 use App\TinTuc;
@@ -26,7 +28,7 @@ class SuKienController extends Controller
 	}
     public function danhSachSuKien(Request $request){
 		$text_search = $request->text_search;
-		$per_page = 12;
+		$per_page = 6;
 
 		if (!session()->has('language')) {
             session(['language'=>'vi']);
@@ -34,19 +36,23 @@ class SuKienController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $su_kien = DB::table('su_kien')->join('su_kien_translations','su_kien.id','=','su_kien_translations.su_kien_id')
-                    ->where('su_kien_translations.locale',$locale)
 					->where('NoiDung','<>','')
                     ->where('Ten','LIKE','%'.$text_search.'%')
                     ->orWhere('TomTat','LIKE','%'.$text_search.'%')
-                    ->orWhere('NoiDung','LIKE','%'.$text_search.'%')->orderBy('su_kien.created_at','desc')->paginate($per_page);
-                  
+                    ->orWhere('NoiDung','LIKE','%'.$text_search.'%')->orderBy('su_kien.created_at','desc')->get();
+		$su_kien = $su_kien->where('locale',$locale);
+		$keys = $su_kien->keyBy('id')->keys();
+		$result = DB::table('su_kien')->join('su_kien_translations','su_kien.id','=','su_kien_translations.su_kien_id')
+					->whereIn('su_kien_translations.id',$keys)->paginate($per_page);
+
+
 		$loai_tin = LoaiTin::all();
 		$loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		$su_kien_noi_bat=SuKien::all()->where('status',1)->take(4);
 		$su_kien_slideshow = SuKienSlideshow::all();
 		// print_r($su_kien);
-		return view('pages.su_kien.danhsachsukien',['sukien'=>$su_kien,
+		return view('pages.su_kien.danhsachsukien',['sukien'=>$result,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
 											'loaidoitac'=>$loai_doi_tac,
@@ -75,13 +81,14 @@ class SuKienController extends Controller
 											'sukiensapdienra'=>$su_kien_sap_dien_ra]);
 	}
 
-    public function NguoiDangKiSuKien($slug,NguoiDangKiSuKienRequest $request){
-        $su_kien=SuKien::where('slug',$slug)->first();
+    public function NguoiDangKiSuKien($id,NguoiDangKiSuKienRequest $request){
         $nguoi=new NguoiDangKiSuKien;
         $nguoi->Ten=$request->ten;
-        $nguoi->su_kien_id=1;
+        $nguoi->su_kien_id= $id;
         $nguoi->email=$request->email;
         $nguoi->phone=$request->phone;
-        $nguoi->save();     
+		$nguoi->save();  
+		
+		return $nguoi->toJson();
     }
 }
