@@ -51,7 +51,7 @@ class TinTucController extends Controller
 		$keys = $tin_tuc->keyBy('id')->keys();
 		$result = DB::table('tin_tuc')->join('tin_tuc_translations','tin_tuc_translations.tin_tuc_id','=','tin_tuc.id')
 					->whereIn('tin_tuc_translations.id',$keys)->paginate($per_page);
-		return view('pages.tin_tuc.news',['tintuc'=>$tin_tuc, 'locale'=>$locale, 'text_search'=>$text_search]);
+		return view('pages.tin_tuc.allNews',['tintuc'=>$result, 'locale'=>$locale, 'text_search'=>$text_search]);
 	}
 	public function newsOfKind($slug){
 		if (!session()->has('language')) {
