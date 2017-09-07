@@ -43,12 +43,15 @@ class TinTucController extends Controller
 	    $locale = session()->get('language');
 	    app()->setlocale($locale);
 
-		$tin_tuc = DB::table('tin_tuc')->join('tin_tuc_translations','tin_tuc_translations.tin_tuc_id','=','tin_tuc.id')
-                    ->where('locale',$locale)
+		$tin_tuc = DB::table('tin_tuc')->join('tin_tuc_translations','tin_tuc_translations.tin_tuc_id','=','tin_tuc.id')                    
                     ->where('Ten','LIKE','%'.$text_search.'%')
                     ->orWhere('TomTat','LIKE','%'.$text_search.'%')
-                    ->orWhere('NoiDung','LIKE','%'.$text_search.'%')->paginate($per_page);
-		return view('pages.tin_tuc.allNews',['tintuc'=>$tin_tuc, 'locale'=>$locale, 'text_search'=>$text_search]);
+					->orWhere('NoiDung','LIKE','%'.$text_search.'%')->get();
+		$tin_tuc = $tin_tuc->where('locale',$locale);
+		$keys = $tin_tuc->keyBy('id')->keys();
+		$result = DB::table('tin_tuc')->join('tin_tuc_translations','tin_tuc_translations.tin_tuc_id','=','tin_tuc.id')
+					->whereIn('tin_tuc_translations.id',$keys)->paginate($per_page);
+		return view('pages.tin_tuc.allNews',['tintuc'=>$result, 'locale'=>$locale, 'text_search'=>$text_search]);
 	}
 	public function newsOfKind($slug){
 		if (!session()->has('language')) {

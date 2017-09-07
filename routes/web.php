@@ -54,12 +54,13 @@ Route::get('tin-tuc/{slug}','PageController\TinTucController@newsOfKind');
 //show detail one new
 Route::get('tin-tuc/{slug_loai_tin}/{slug_tin_tuc}','PageController\TinTucController@detailsNew');
 Route::get('tin-noi-bat','PageController\TinTucController@getTinNoiBat');
+Route::get('tin-tuc','PageController\TinTucController@allNews');
 //show all su kien
 Route::get('su-kien','PageController\SuKienController@danhSachSuKien');
 Route::get('su-kien/{slug}','PageController\SuKienController@detailsSuKien');
 // nguoi dang ky su kien
 // Route::get('su-kien/{slug}/dang-ki','PageController\SuKienController@NguoiDangKiSuKien');
-Route::post('su-kien/{slug}','PageController\SuKienController@NguoiDangKiSuKien');
+Route::post('su-kien/{id}','PageController\SuKienController@NguoiDangKiSuKien');
 
 //show cong nghe
 Route::get('cong-nghe','PageController\PageController@CongNghe');

@@ -64,7 +64,10 @@
 		        <i class="fa fa-map-marker" aria-hidden="true"> {{$item->DiaChi}}</i>
 	        </div>
 	    </div>
-	    @endforeach
+		@endforeach
+	</div>
+	<div>
+		{{$sukien->links()}}
 	</div>
 </div>
 @endsection
