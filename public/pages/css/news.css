@@ -14,9 +14,10 @@
 	
 }
 .listnews_item_description{
-	height: 90px;
+    height: 80px;
 	overflow: hidden;
-    margin-bottom: 2px
+    margin-bottom: 2px;
+    line-height: 20px;
 }
 .listnews_item_description p {
 	margin: 0px!important;
