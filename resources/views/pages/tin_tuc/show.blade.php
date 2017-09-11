@@ -1,6 +1,7 @@
 @extends('pages.layout.index')
 <html ... xmlns:fb="http://ogp.me/ns/fb#">
-<meta property="fb:admins" content=""/>
+<meta property="fb:app_id" content="APP ID" />
+<meta property="fb:admins" content="100005319492123"/>
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
 	<ul class="breadcrumb">
@@ -26,7 +27,7 @@
 		    	<div  class="share-detail-news ">
 			    	<ul class="list-inline" >
 	  					<li id="plug">
-	  						<iframe src="tin-tuc/{{$lt}}/{{$tintuc->slug}}" width="154" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+	  						<div class="fb-like" data-href="{!!url('tin-tuc/'.$lt.'/'.$tintuc->slug) !!}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
 	  					</li>
 					</ul>
 		    	</div>
@@ -45,7 +46,7 @@
     			<div  class="share-detail-news">
 			    	<ul class="list-inline" >
 	  					<li id="plug">
-	  						<iframe src="tin-tuc/{{$lt}}/{{$tintuc->slug}}" width="154" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+	  						<div class="fb-like" data-href="{!!url('tin-tuc/'.$lt.'/'.$tintuc->slug) !!}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
 	  					</li>
 	  					<i class="fa fa-pencil" aria-hidden="true"> Bộ khoa học và Công nghệ</i>
 					</ul>
@@ -61,7 +62,7 @@
 	    			Bình luận
 	    		</h4>
 	    		<!--plugin comment facebook-->
-	    		<div class="fb-comments" data-href="tin-tuc/{{$lt}}/{{$tintuc->slug}}" data-width="auto" data-numposts="1"></div>
+	    		<div class="fb-comments" data-href="{!!url('tin-tuc/'.$lt.'/'.$tintuc->slug) !!}" data-numposts="5"></div>
     		</div>
     	</div>
     	<!--other news-->
@@ -76,10 +77,12 @@
     		<div class="row list-other-news col-md-12 col-sm-12">
     			@foreach($tinlienquan as $item)    		
 				<div class="col-md-3 ">
-				    <div class="thumbnail" style="height: 200px">				      
+				    <div class="thumbnail" style="height: 200px">			      
 				        <img src="assets/upload/tin_tuc/{{$item->HinhAnh}}" alt="Lights" style="width:100%; height: 100px;">
 			        	<h3>
-			        		<a href="tin-tuc/{{$lt}}/{{$item->slug}}">  <strong> {{ $item->Ten }} </strong></a>
+			        		<div class="name-news">
+								<a href="tin-tuc/{{$lt}}/{{$item->slug}}" title="{{$item->Ten}}">  <strong> {{ $item->Ten }} </strong></a>
+							</div>
 			        	</h3>
 			        	<p  class="date">
 			        	</p>
