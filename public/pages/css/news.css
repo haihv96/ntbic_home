@@ -67,6 +67,9 @@ ul.breadcrumb li+li:before {
     height: 100%;
     margin-bottom: 10px;
 }
+.thumbnail h3 {
+    font-size: 14px !important;
+}
 @media only screen and (min-width: 820px){
   	.img_listnews img{
 		height: 138px;
@@ -75,4 +78,13 @@ ul.breadcrumb li+li:before {
 
 .navbar-form{
 	padding-right: 0px;
+}
+.list-other-news{
+	/*margin-right: 0px !important;*/
+	margin-left: 0px !important;
+}
+.name-news{
+	height: 54px;
+	overflow: hidden;
+	line-height: 18px;
 }
