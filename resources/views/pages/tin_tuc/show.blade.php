@@ -1,6 +1,6 @@
 @extends('pages.layout.index')
 <html ... xmlns:fb="http://ogp.me/ns/fb#">
-<meta property="fb:app_id" content="APP ID" />
+<meta property="fb:app_id" content="679916892204765" />
 <meta property="fb:admins" content="100005319492123"/>
 @section('content')
 <div class="col-md-9 col-sm-9  main-left">
@@ -91,7 +91,6 @@
 				@endforeach
     		</div>	
     	</div>
-
 	</div>
 </div>
 @endsection

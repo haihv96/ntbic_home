@@ -7,9 +7,9 @@
 	margin-bottom: 5px;
 }
 .listnews_item_title {
-	font-size: 100%;
+	font-size: 16px;
 	font-weight: bold;
-	margin-bottom: 5px;
+	margin-bottom: 4px;
 	padding-top: 0px;
 	
 }
@@ -73,7 +73,7 @@ ul.breadcrumb li+li:before {
 }
 @media only screen and (min-width: 820px){
   	.img_listnews img{
-		height: 138px;
+		height: 143px;
 	}
 }
 
