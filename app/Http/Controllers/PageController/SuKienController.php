@@ -51,7 +51,7 @@ class SuKienController extends Controller
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
 		$su_kien_noi_bat=SuKien::all()->where('status',1)->take(4);
 		$su_kien_slideshow = SuKienSlideshow::all();
-		// print_r($su_kien);
+		$count_su_kien_slideshow = SuKienSlideshow::count();
 		return view('pages.su_kien.danhsachsukien',['sukien'=>$result,
 											'locale'=>$locale,
 											'loaitin' => $loai_tin, 
@@ -59,7 +59,8 @@ class SuKienController extends Controller
 											'tinnoibat'=>$tin_noi_bat,
 											'text_search'=>$text_search,
 											'sukiennoibat'=>$su_kien_noi_bat,
-											'sukienslideshow' => $su_kien_slideshow]);
+											'sukienslideshow' => $su_kien_slideshow,
+											'countsukienslideshow' => $count_su_kien_slideshow]);
 	}
 
 	public function detailsSuKien($slug){
