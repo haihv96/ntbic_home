@@ -62,7 +62,8 @@
 	    			Bình luận
 	    		</h4>
 	    		<!--plugin comment facebook-->
-	    		<div class="fb-comments" data-href="{!!url('tin-tuc/'.$lt.'/'.$tintuc->slug) !!}" data-numposts="5"></div>
+	    		<!-- <div class="fb-comments" data-href="{!!url('tin-tuc/'.$lt.'/'.$tintuc->slug) !!}" data-numposts="5"></div> -->
+	    		<div class="fb-comments" data-href="{!!url('tin-tuc/'.$lt.'/'.$tintuc->slug) !!}" data-width="100%" data-numposts="5"></div>
     		</div>
     	</div>
     	<!--other news-->
@@ -95,10 +96,11 @@
 </div>
 @endsection
 
+<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=679916892204765";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
