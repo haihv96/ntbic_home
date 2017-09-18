@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="col-md-12 col-sm-12">
+	<ul class="breadcrumb">		
+		<li><a href="#">Trang chủ</a></li>		
+		<li><a href="#">sự kiện</a></li>		
+		<!-- <li>Tin tổng hợp</li> -->		
+	</ul>	
 	@if($countsukienslideshow > 0)
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
     
@@ -46,9 +51,9 @@
 	<hr>
 	<!-- tong hop tat ca tin tuc -->
 	<div class="col-md-12 col-sm-12 events">
-		<h3>
+		<h4>
 	        <span class="fa fa-caret-down"></span> Danh sách sự kiện
-	    </h3>
+	    </h4>
 	    @foreach($sukien as $item)
     	<div class="col-md-4 col-sm-4 event">
     		<div class="mota">
