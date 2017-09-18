@@ -50,7 +50,7 @@
     </div><!-- End Carousel -->
     <div class="clearfix"></div>
     <div class="advert margintop">
-    	<img src="pages/image/quangcao.gif" alt="">
+    	<img src="pages/image/anhdep.jpg" alt="">
     </div> <!-- advert -->
     <div class="clearfix"></div>
 	<div class="margintop">
