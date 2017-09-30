@@ -18,11 +18,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            if(Auth::guard($guard)->user()->level == 1) {
+            if(Auth::guard($guard)->user()->can("Access admin dashboard")) {
                 return redirect()->route('admin_dashboard');
-            }
-            elseif(Auth::guard($guard)->user()->level == 2) {
-                return redirect()->route('moderator_dashboard');
             }
             else {
                 return redirect()->route('home');

@@ -18,11 +18,13 @@
             <div class="portlet-body">
                 <div class="table-toolbar">
                     <div class="row">
+                        @can('Create users')
                         <div class="col-md-6">
                             <div class="btn-group">
                                 <a id="create" class="btn sbold green btn-outline" href="#"><span class="fa fa-pencil"></span> Thêm user</a>
                             </div>
                         </div>
+                        @endcan
                         <div class="col-md-6">
                             <div class="btn-group pull-right">
                                 <a id="send-message" class="btn sbold green btn-outline" href="{{route('send.notification')}}"><span class="fa fa-pencil"></span> Gửi thông báo</a>
@@ -63,36 +65,53 @@
                             <th> Tên </th>
                             <th> Email </th>
                             <th> Avatar </th>
-                            <th> Level </th>
+                            <th> Roles </th>
                             <th> Active </th>
+                            @can('Edit users')
                             <th> Sửa </th>
+                            @endcan
+                            @can('Delete users')
                             <th> Xóa </th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $item)
-                        <tr class="odd gradeX">
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->username}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->email}}</td>
-                            <td><img src="assets/upload/users/{{$item->hinh_anh}}" height="100"></td>
-                            @if($item->level == 1)
-                                <td>Admin</td>
-                            @elseif ($item->level == 2)
-                                <td>Moderator</td>
-                            @elseif ($item->level == 3)
-                                <td>User</td>
-                            @endif
-                            @if($item->verified == 1)
-                                <td>Đã kích hoạt</td>
-                            @else
-                                <td>Chưa kích hoạt</td>
-                            @endif                      
-                            <td class="center"><div ><a class='edit' href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
-                            <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
-                        </tr>
-                    @endforeach
+                    @can('View users')
+                        @foreach($users as $item)
+                            <tr class="odd gradeX">
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->username}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->email}}</td>
+                                <td><img src="assets/upload/users/{{$item->hinh_anh}}" height="100"></td>
+                                <td>
+                                    <?php
+                                        $roles = App\User::find($item->id)->getRoleNames()
+                                    ?>
+                                    @if($roles->count() <= 1)
+                                        @foreach ($roles as $role)
+                                            {{$role}}
+                                        @endforeach
+                                    @else
+                                        @foreach ($roles as $role)
+                                            {{$role}}, 
+                                        @endforeach
+                                    @endif
+                                </td>
+                                @if($item->verified == 1)
+                                    <td>Đã kích hoạt</td>
+                                @else
+                                    <td>Chưa kích hoạt</td>
+                                @endif
+                                @can('Edit users')                      
+                                    <td class="center"><div ><a class='edit' href="#" data-id="{{$item->id}}"><span class="fa fa-pencil-square"></span></a></div></td>
+                                @endcan
+                                @can('Delete users')
+                                    <td class="center"><a class="delete-modal" data-toggle="modal" href="#small" data-id="{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+                                @endcan
+                            </tr>
+                        @endforeach
+                    @endcan
                     </tbody>
                 </table>
                 {!! $users->links() !!}

@@ -181,6 +181,8 @@ return [
         //translation
         Dimsav\Translatable\TranslatableServiceProvider::class,
 
+        //user permission
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*

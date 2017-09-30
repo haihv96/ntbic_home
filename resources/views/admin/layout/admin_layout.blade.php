@@ -20,6 +20,7 @@
         <link href="{{ URL::asset('assets/global/plugins/uniform/css/uniform.default.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ URL::asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+        <link href="{{ URL::asset('assets/global/plugins/icheck/skins/all.css') }}" rel="stylesheet" type="text/css" />
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="{{ URL::asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') }}" rel="stylesheet" type="text/css" />        
         <link href="{{ URL::asset('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />
@@ -178,11 +179,27 @@
                         <li class="heading">
                             <h3 class="uppercase">Nội dung </h3>
                         </li>
-                        @if(Auth::user()->level == 1)
+                        @if(Auth::user()->hasAnyPermission(['View users', 'Create users', 'Edit users', 'Delete users']))
                         <li class="nav-item" id="active-user">
                             <a href="{{route('users.index')}}" class="nav-link nav-toggle">
                                 <i class="icon-briefcase"></i>
                                 <span class="title">Quản trị người dùng</span>
+                            </a>
+                        </li>
+                        @endif
+                        @if(Auth::user()->hasAnyPermission(['View roles', 'Create roles', 'Edit roles', 'Delete roles']))
+                        <li class="nav-item" id="active-role">
+                            <a href="{{url('admin/roles')}}" class="nav-link nav-toggle">
+                                <i class="icon-briefcase"></i>
+                                <span class="title">Quản trị Roles</span>
+                            </a>
+                        </li>
+                        @endif
+                        @if(Auth::user()->hasAnyPermission(['View permissions', 'Create permissions', 'Edit permissions', 'Delete permissions']))
+                        <li class="nav-item" id="active-permission">
+                            <a href="{{url('admin/permissions')}}" class="nav-link nav-toggle">
+                                <i class="icon-briefcase"></i>
+                                <span class="title">Quản trị Permissions</span>
                             </a>
                         </li>
                         @endif
@@ -431,6 +448,7 @@
         <script src="{{  URL::asset('assets/layouts/global/scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
         <script src="{{  URL::asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') }}" type="text/javascript"></script>
         <script src="{{  URL::asset('assets/pages/scripts/profile.min.js') }}" type="text/javascript"></script>
+        <script src="{{  URL::asset('assets/global/plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
         @yield('js');
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>
