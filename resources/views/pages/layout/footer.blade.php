@@ -8,9 +8,9 @@
 		</div>
 		<div class="col-md-4">
 			<p style="font-weight:bold"><span>{{trans('footer.contact')}}</span></p>
-			<p>{{trans('footer.address')}}</p>
-			<p>Hotline: (024) 3933 6570</p>
-			<p>{{trans('footer.email')}}</p>
+			<p class="lien-he-dia-chi">{{trans('footer.address')}}</p>
+			<p class="lien-he">Hotline: (024) 3933 6570</p>
+			<p class="lien-he">{{trans('footer.email')}}</p>
 			<a href="#"><img src="{!! url('assets/upload/icon_social/google.png') !!}"></a> &nbsp 
 			<a href="#"><img src="{!! url('assets/upload/icon_social/skype.png') !!}"></a>
 		</div>

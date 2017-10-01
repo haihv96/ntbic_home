@@ -27,8 +27,8 @@
 		</div>
 		<div class="col-md-7 col-sm-7"> 
 			<div class="top_news_right"> 
-				<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug) !!}" title="">
-					<b>{{$item->Ten}}</b>
+				<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug) !!}" title="{{$item->Ten}}">
+					{{$item->Ten}}
 				</a>
 			</div>
 		</div>

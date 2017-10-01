@@ -14,10 +14,16 @@
 	
 }
 .listnews_item_description{
-    height: 80px;
+	margin-bottom: 2px;
+   /* height: 80px;
 	overflow: hidden;
     margin-bottom: 2px;
-    line-height: 20px;
+    line-height: 20px;*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
 }
 .listnews_item_description p {
 	margin: 0px!important;

@@ -8,5 +8,5 @@
 		    technology enterprises in the fields of the Institute.',
 		'contact' => 'CONTACT',
 		'address' => 'ADDRESS: 25 LE THANH TONG, HOAN KIEM, HANOI.',
-		'email' => 'info@ntbic.com',
+		'email' => 'Email: info@ntbic.com',
 	];
