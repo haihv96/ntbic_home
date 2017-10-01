@@ -157,6 +157,13 @@ a{
 .footer-index p{
 	color: #fff;
 }
+.lien-he-dia-chi{
+	margin-bottom: 0px !important;
+}
+.lien-he{
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
 /* 
 đối tác */
 /* The indicators */
@@ -274,4 +281,11 @@ div.gallery img {
 div.desc {
     padding: 15px;
     text-align: center;
+}
+.top_news_right {
+	text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
 }
