@@ -17,6 +17,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
+use PragmaRX\Tracker\Vendor\Laravel\Models\Session;
+use PragmaRX\Tracker\Vendor\Laravel\Facade as Tracker;
 
 
 class PageController extends Controller
@@ -24,9 +26,19 @@ class PageController extends Controller
 	public function __construct()
 	{
 		$hinh_anh_sidebar = HinhSidebar::all();
-		$logo_doi_tac = LogoDoitac::all();
+		$logo_doi_tac = LogoDoitac::all();	
+        $visitor = Tracker::currentSession();
+        $count_visitors = DB::table('tracker_sessions')->where('created_at', '>=', '2017-01-01 00:00:00')->count();
+        $country_name = DB::table('tracker_geoip')
+                     ->join('tracker_sessions', 'tracker_geoip.id', '=', 'tracker_sessions.geoip_id')
+                     ->select(DB::raw('count(*) as count_session, tracker_geoip.country_name as country'))
+                     ->groupBy('country')
+                     ->orderBy('count_session', 'desc')->take(4)->get();
 		view()->share('hinhanhsidebar',$hinh_anh_sidebar);
 		view()->share('logodoitac',$logo_doi_tac);
+		view()->share('visitor', $visitor);
+		view()->share('count_visitors', $count_visitors);
+		view()->share('country_name', $country_name);
 	}
 	public function TrangChu(){
 		if (!session()->has('language')) {

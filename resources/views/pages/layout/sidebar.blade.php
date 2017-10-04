@@ -18,16 +18,33 @@
 	?>
 	<div class="row padding-top-10">
 
-		<div class="col-md-5 col-xs-5 top_news">
-			<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug) !!}" title="">
-				<img src="{!!url('assets/upload/tin_tuc/'.$item->HinhAnh)!!}" alt="">
-			</a>
+		<div class="col-md-5 col-sm-5">
+			<div class="top_news">
+				<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug) !!}" title="">
+					<img src="{!!url('assets/upload/tin_tuc/'.$item->HinhAnh)!!}" alt="">
+				</a>
+			</div>
 		</div>
-		<div class="col-md-7 col-xs-7 top_news_right"> 
-			<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug) !!}" title="">
-				<b>{{$item->Ten}}</b>
-			</a>
+		<div class="col-md-7 col-sm-7"> 
+			<div class="top_news_right"> 
+				<a href="{!!url('tin-tuc/'.$loai_tin->slug.'/'.$item->slug) !!}" title="{{$item->Ten}}">
+					{{$item->Ten}}
+				</a>
+			</div>
 		</div>
 	</div>
 	@endforeach
+	<div class="clearfix padding-top-20"></div>
+	<div style="border: 1px solid #4792d3; margin-right: 3%;">
+		<div class="header-blue">
+			<a title="" class="group_header_link">Quốc gia nhiều người truy cập</a>
+		</div>
+		<div class="row" style="padding-left: 15%; padding-top: 15%;">
+		@foreach ($country_name as $key ) 
+			<div class="row" style="color: #666;" >{{$key->country}}</div>
+		@endforeach	
+		</div>
+	</div>
+	<div class="clearfix padding-top-20"></div>
+	<div>Số người truy cập:<span style="color:#4792d3;"> {{$count_visitors}} </span></div>
 </div>

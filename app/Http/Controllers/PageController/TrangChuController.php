@@ -21,7 +21,6 @@ class TrangChuController extends Controller
         }
         $locale = session()->get('language');
         app()->setlocale($locale);
-
 		$loai_tin=LoaiTin::all();
 		return view('pages.trangchu',['loaitin'=>$loai_tin,'locale'=>$locale]);
 	}

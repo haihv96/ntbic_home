@@ -2,38 +2,39 @@
 
 @section('content')
 <div class="col-md-12 col-sm-12">
+	<ul class="breadcrumb">		
+		<li><a href="#">Trang chủ</a></li>		
+		<li><a href="#">sự kiện</a></li>		
+		<!-- <li>Tin tổng hợp</li> -->		
+	</ul>	
+	@if($countsukienslideshow > 0)
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
     
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
       
         <div class="item active">
-          	<img src="{{ URL::asset('assets/upload/su_kien_slideshow/AFxe_704-1906346-439186-1461741581296.jpg') }}">
+          	<img src="{{ URL::asset($sukienslideshow[0]-> HinhAnh) }}">
         </div><!-- End Item -->
- 
-        <div class="item">
-          	<img src="{{ URL::asset('assets/upload/su_kien_slideshow/AFxe_704-1906346-439186-1461741581296.jpg') }}">
-        </div><!-- End Item -->
-        
-        <div class="item">
-          	<img src="{{ URL::asset('assets/upload/su_kien_slideshow/AFxe_704-1906346-439186-1461741581296.jpg') }}">
-        </div><!-- End Item -->
-        
-        <div class="item">
-          	<img src="{{ URL::asset('assets/upload/su_kien_slideshow/AFxe_704-1906346-439186-1461741581296.jpg') }}">
-        </div><!-- End Item -->
-                
+        @if($countsukienslideshow > 1)
+	        @for($i=1 ; $i < $countsukienslideshow ; $i++)
+	        <div class="item">
+	          	<img src="{{ URL::asset($sukienslideshow[$i]-> HinhAnh) }}">
+	        </div><!-- End Item --> 
+	        @endfor
+        @endif     
       </div><!-- End Carousel Inner -->
-
 
         <ul class="nav nav-pills nav-justified">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
+          @if($countsukienslideshow > 1)
+	          @for($i=1 ; $i < $countsukienslideshow ; $i++)
+	          <li data-target="#myCarousel" data-slide-to="$i"></li>
+	          @endfor
+          @endif
         </ul>
     </div><!-- End Carousel -->
-
+    @endif
 	<!-- tin tuc noi bat -->
 	<div class="row">
 		@foreach($sukiennoibat as $item)
@@ -50,9 +51,9 @@
 	<hr>
 	<!-- tong hop tat ca tin tuc -->
 	<div class="col-md-12 col-sm-12 events">
-		<h3>
+		<h4>
 	        <span class="fa fa-caret-down"></span> Danh sách sự kiện
-	    </h3>
+	    </h4>
 	    @foreach($sukien as $item)
     	<div class="col-md-4 col-sm-4 event">
     		<div class="mota">

@@ -27,7 +27,7 @@ class ToChucController extends Controller
         $locale = session()->get('language');
         app()->setlocale($locale);
         $to_chuc = ToChuc::paginate(10);
-         $count= DB::table('to_chuc')->count();
+        $count= DB::table('to_chuc')->count();
         return view('admin.manager_data.to_chuc.index',['tochuc' => $to_chuc, 'count'=>$count,'locale'=>$locale]);
     }
 

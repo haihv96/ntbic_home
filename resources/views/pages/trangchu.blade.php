@@ -1,6 +1,6 @@
 @extends('pages.layout.index')
 @section('content')
-<div class="col-md-9 main-left">
+<div class="col-md-9 col-sm-9 main-left">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
       	<div class="carousel-inner">
@@ -50,7 +50,7 @@
     </div><!-- End Carousel -->
     <div class="clearfix"></div>
     <div class="advert margintop">
-    	<img src="pages/image/quangcao.gif" alt="">
+    	<img src="pages/image/anhdep.jpg" alt="">
     </div> <!-- advert -->
     <div class="clearfix"></div>
 	<div class="margintop">
