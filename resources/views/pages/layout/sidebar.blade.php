@@ -34,4 +34,17 @@
 		</div>
 	</div>
 	@endforeach
+	<div class="clearfix padding-top-20"></div>
+	<div style="border: 1px solid #4792d3; margin-right: 3%;">
+		<div class="header-blue">
+			<a title="" class="group_header_link">Quốc gia nhiều người truy cập</a>
+		</div>
+		<div class="row" style="padding-left: 15%; padding-top: 15%;">
+		@foreach ($country_name as $key ) 
+			<div class="row" style="color: #666;" >{{$key->country}}</div>
+		@endforeach	
+		</div>
+	</div>
+	<div class="clearfix padding-top-20"></div>
+	<div>Số người truy cập:<span style="color:#4792d3;"> {{$count_visitors}} </span></div>
 </div>
