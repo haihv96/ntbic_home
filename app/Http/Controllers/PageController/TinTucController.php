@@ -14,7 +14,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-
+use PragmaRX\Tracker\Vendor\Laravel\Models\Session;
+use PragmaRX\Tracker\Vendor\Laravel\Facade as Tracker;
 
 class TinTucController extends Controller
 {
@@ -25,12 +26,22 @@ class TinTucController extends Controller
 		$loai_tin_list = LoaiTin::all();
 	    $loai_doi_tac = LoaiDoiTac::all();
 		$tin_noi_bat = TinTuc::all()->where('status',1)->take(4);
+		$visitor = Tracker::currentSession();
+        $count_visitors = DB::table('tracker_sessions')->where('created_at', '>=', '2017-01-01 00:00:00')->count();
+        $country_name = DB::table('tracker_geoip')
+                     ->join('tracker_sessions', 'tracker_geoip.id', '=', 'tracker_sessions.geoip_id')
+                     ->select(DB::raw('count(*) as count_session, tracker_geoip.country_name as country'))
+                     ->groupBy('country')
+                     ->orderBy('count_session', 'desc')->take(5)->get();
 		
 		view()->share('hinhanhsidebar',$hinh_anh_sidebar);
 		view()->share('logodoitac',$logo_doi_tac);
 		view()->share('loaitin', $loai_tin_list);
 		view()->share('loaidoitac', $loai_doi_tac);
 		view()->share('tinnoibat',$tin_noi_bat);
+		view()->share('visitor', $visitor);
+		view()->share('count_visitors', $count_visitors);
+		view()->share('country_name', $country_name);
 	}
 
 	public function allNews(Request $request){

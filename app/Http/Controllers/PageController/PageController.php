@@ -33,7 +33,7 @@ class PageController extends Controller
                      ->join('tracker_sessions', 'tracker_geoip.id', '=', 'tracker_sessions.geoip_id')
                      ->select(DB::raw('count(*) as count_session, tracker_geoip.country_name as country'))
                      ->groupBy('country')
-                     ->orderBy('count_session', 'desc')->take(4)->get();
+                     ->orderBy('count_session', 'desc')->take(5)->get();
 		view()->share('hinhanhsidebar',$hinh_anh_sidebar);
 		view()->share('logodoitac',$logo_doi_tac);
 		view()->share('visitor', $visitor);
