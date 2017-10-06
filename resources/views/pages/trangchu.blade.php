@@ -1,6 +1,6 @@
 @extends('pages.layout.index')
 @section('content')
-<div class="col-md-9 main-left">
+<div class="col-md-9 col-sm-9 main-left">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
       	<div class="carousel-inner">

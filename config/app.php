@@ -180,6 +180,7 @@ return [
 
         //translation
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        'PragmaRX\Tracker\Vendor\Laravel\ServiceProvider',
 
         //user permission
         Spatie\Permission\PermissionServiceProvider::class,
@@ -231,7 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Tracker' => 'PragmaRX\Tracker\Vendor\Laravel\Facade',
     ],
 
 ];
