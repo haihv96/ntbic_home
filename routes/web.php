@@ -30,6 +30,8 @@ Route::get('user/verify/{token}', 'Manager\UserController@verify_user_mo');
 Route::get('abc',function(){
 	 return bcrypt('123456');
 });
+Route::get('abcd', 'Manager\UserController@makeRole');
+
 Route::get('/','PageController\PageController@TrangChu')->name('home');
 //Route::get('tintuc','PageController\PageController@TinTuc');
 // Route::get('lien-he','PageController\PageController@LienHe');

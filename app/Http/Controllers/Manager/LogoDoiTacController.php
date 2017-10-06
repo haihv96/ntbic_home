@@ -68,11 +68,7 @@ class LogoDoiTacController extends Controller
         }
 
         $logo->save();
-        if (Auth::user()->level == 1) {
-            return redirect()->route('admin.logo-doi-tac.index')->with('message','Bạn đã thêm tin tức thành công');
-        } elseif (Auth::user()->level == 2) {
-            return redirect()->route('logo-doi-tac.index')->with('message','Bạn đã thêm tin tức thành công');
-        }
+        return redirect()->route('admin.logo-doi-tac.index')->with('message','Bạn đã thêm tin tức thành công');       
     }
 
     /**

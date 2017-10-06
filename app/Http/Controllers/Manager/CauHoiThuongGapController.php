@@ -53,11 +53,7 @@ class CauhoithuonggapController extends Controller
         $cau_hoi->Slug = changeTitle($request->CauHoi);
         $cau_hoi->CauTraLoi = $request->CauTraLoi;
         $cau_hoi->save();
-        if (Auth::user()->level == 1) {
-            return redirect()->route('admin.cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
-        } elseif (Auth::user()->level == 2) {
-             return redirect()->route('cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
-        }
+        return redirect()->route('admin.cau-hoi-thuong-gap.index')->with('message','Bạn đã thêm câu hỏi thường gặp thành công');
     }
 
     /**

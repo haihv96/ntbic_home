@@ -12,6 +12,9 @@ use Auth;
 
 class LoaiTinController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth', 'news']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -61,11 +64,7 @@ class LoaiTinController extends Controller
     	$loai_tin->Slug = changeTitle($request->ten);
 
     	$loai_tin->save();
-        if (Auth::user()->level == 1) {
-            return redirect()->route('admin.loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
-        } elseif (Auth::user()->level == 2) {
-    	    return redirect()->route('loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
-        }
+        return redirect()->route('admin.loai-tin.index')->with('message','Bạn đã thêm loại tin thành công');
     }
 
     /**

@@ -82,11 +82,7 @@ class ChuyenGiaController extends Controller
             $chuyen_gia->HinhAnh = "";
         }
         $chuyen_gia->save();
-        if (Auth::user()->level == 1) {
-            return redirect()->route('admin.chuyen-gia.index')->with('message','Bạn đã thêm chuyên gia thành công');
-        } elseif (Auth::user()->level == 2) {
-            return redirect()->route('chuyen-gia.index')->with('message','Bạn đã thêm chuyên gia thành công');
-        }    
+        return redirect()->route('admin.chuyen-gia.index')->with('message','Bạn đã thêm chuyên gia thành công');  
     }
 
     /**

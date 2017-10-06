@@ -19,8 +19,8 @@ class AdminAuthenticated
         if (!Auth::guard($guard)->check()) {
             return redirect('login');
         }
-        if(Auth::guard($guard)->user()->level != 1) {
-            return redirect('login');
+        if(!Auth::guard($guard)->user()->hasPermissionTo('Access admin dashboard')) {
+            abort(403);
         }
         return $next($request);
     }

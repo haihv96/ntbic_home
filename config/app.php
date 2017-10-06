@@ -182,6 +182,8 @@ return [
         Dimsav\Translatable\TranslatableServiceProvider::class,
         'PragmaRX\Tracker\Vendor\Laravel\ServiceProvider',
 
+        //user permission
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*

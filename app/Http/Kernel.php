@@ -81,5 +81,10 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => \App\Http\Middleware\AdminAuthenticated::class,
         'moderator' => \App\Http\Middleware\ModeratorAuthenticated::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'news' => \App\Http\Middleware\NewsMiddleware::class,
+        'events' => \App\Http\Middleware\EventsMiddleware::class,
+        'partners' => \App\Http\Middleware\PartnersMiddleware::class,
     ];
 }

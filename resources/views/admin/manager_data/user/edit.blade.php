@@ -43,16 +43,25 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Level
+                            <label class="control-label col-md-3">Roles
                                 <span class="required"> * </span>
                             </label>
-                            <div class="col-md-4">                               
-                                <select id='level' class="form-control select2me" name="level" data-id="{{$user->level}}">
-                                    <option id="lv1" value="1">Admin</option>
-                                    <option id="lv2" value="2">Moderator</option>
-                                </select>
-                                <span class="required"> {{$errors->first('level')}}</span>
-                            </div>
+                            <div class="input-group col-md-8" style="border: 1px solid #c2cad8;padding: 6px 12px;margin-left:15px;">
+                            <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible="1" data-rail-color="white" data-handle-color="gray">
+                                <div class="icheck-list">
+                                    @foreach($roles as $item)
+                                        @if($user->hasRole($item->name))
+                                            <label class="col-md-6">
+                                                <input type="checkbox" class="icheck" name="roles[]" value="{{$item->id}}" checked> {{$item->name}}
+                                            </label>
+                                        @else
+                                            <label class="col-md-6">
+                                                <input type="checkbox" class="icheck" name="roles[]" value="{{$item->id}}"> {{$item->name}}
+                                            </label>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div></div>
                         </div>
                          <div class="form-group">
                             <label class="control-label col-md-3">Tên người dùng

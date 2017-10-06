@@ -50,7 +50,45 @@ Route::resource('menu','Manager\MenuController',['names' => [
 	'index' => 'admin.menu.index'
 ]]);
 
-Route::resource('users','Manager\UserController');
+// users, roles, permissions
+Route::group(['middleware' => ['permission:View users|Create users|Edit users|Delete users']], function () {
+	Route::resource('users','Manager\UserController');
+});
+
+Route::group(['middleware' => ['permission:View permissions|Create permissions|Edit permissions|Delete permissions'], 'prefix' => 'permissions'], function() {
+	Route::get('/','Manager\RolesAndPermissionsController@getPermissions')->name('permissions.index');
+
+	Route::group(['middleware' => ['permission:Create permissions']], function() {
+		Route::get('create','Manager\RolesAndPermissionsController@createPermission');
+		Route::post('create','Manager\RolesAndPermissionsController@storePermission');
+	});
+
+	Route::group(['middleware' => ['permission:Edit permissions']], function() {
+		Route::get('edit/{id}','Manager\RolesAndPermissionsController@editPermission');
+		Route::put('{id}','Manager\RolesAndPermissionsController@updatePermission');
+	});
+
+	Route::group(['middleware' => ['permission:Delete permissions']], function() {
+		Route::delete('{id}','Manager\RolesAndPermissionsController@destroyPermission');
+	});
+});
+
+Route::group(['middleware' => ['permission:View roles|Create roles|Edit roles|Delete roles'], 'prefix' => 'roles'], function() {
+	Route::group(['middleware' => ['permission:View roles']], function() {
+		Route::get('/','Manager\RolesAndPermissionsController@getRoles')->name('roles.index');
+	});
+	Route::group(['middleware' => ['permission:Create roles']], function() {
+		Route::get('create','Manager\RolesAndPermissionsController@createRole');
+		Route::post('create','Manager\RolesAndPermissionsController@storeRole');
+	});
+	Route::group(['middleware' => ['permission:Edit roles']], function() {
+		Route::get('edit/{id}','Manager\RolesAndPermissionsController@editRole');
+		Route::put('{id}','Manager\RolesAndPermissionsController@updateRole');
+	});
+	Route::group(['middleware' => ['permission:Delete roles']], function() {
+		Route::delete('{id}','Manager\RolesAndPermissionsController@destroyRole');
+	});
+});
 
 Route::get('profile','Manager\UserController@getProfile')->name('admin.profile');
 Route::post('profile-account','Manager\UserController@updateProfile');

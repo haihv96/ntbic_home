@@ -15,6 +15,8 @@ use App\Mail\Notification;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications;
 use App\NotificationReceived;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -25,7 +27,8 @@ class UserController extends Controller
     }
 
     public function create() {
-    	return view('admin.manager_data.user.create');
+        $roles = Role::all();
+    	return view('admin.manager_data.user.create',['roles' => $roles]);
     }
 
     public function store(Request $request) {
@@ -35,7 +38,7 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email',
                 'hinh_anh' => 'image|mimes:jpeg,bmp,png,jpg',
                 'name' => 'required',
-                'level' => 'required'
+               // 'roles' => 'required'
             ],
             [
                 'username.required' => 'Bạn cần nhập username',
@@ -46,17 +49,17 @@ class UserController extends Controller
                 'email.email' => 'Định dạng email không hợp lệ',
                 'hinh_anh.image' => 'Bạn cần chọn 1 ảnh',
                 'hinh_anh.mimes' => "Bạn chỉ có thể chọn ảnh có định dạng: jpeg,bmp,png,jpg",
-                'level.required' => 'Cần chọn quyền của người dùng'
+               // 'level.required' => 'Cần chọn quyền của người dùng'
             ]);
 
         $user = new User;
         $user->username = $request->username;
         $user->name = $request->name;
-        $user->level = $request->level;
         $user->email = $request->email;
         $user->email_token = str_random(10);
         $pass = str_random(6);
-        $user->password = bcrypt($pass); 
+        $user->password = bcrypt($pass);
+        $user->level = 3; 
 
         if($request->hasFile('hinh_anh')){
             $file = $request->file('hinh_anh');
@@ -76,6 +79,13 @@ class UserController extends Controller
         DB::beginTransaction();
         try{
             $user->save();
+            
+            $roles = $request->input('roles');
+            if (isset($roles)) {               
+                foreach ($roles as $role) {          
+                    $user->assignRole($role); //Assigning role to user
+                }
+            } 
             $id=$user->id;
             $user1 = User::find($id);
              Mail::to($request->email)->send(new ActiveAccount(
@@ -97,18 +107,19 @@ class UserController extends Controller
     }
 
     public function edit($id) {
-    	$user = User::find($id);
-    	return view('admin.manager_data.user.edit', ['user' => $user]);
+        $user = User::find($id);
+        $roles = Role::all();
+    	return view('admin.manager_data.user.edit', ['user' => $user, 'roles'=>$roles]);
     }
 
     public function update(Request $request, $id) {
         $this->validate($request,
             [
-                'username' => 'required',
-                'email' => 'required|email',
+                'username' => 'required|unique:users,username,'.$id,
+                'email' => 'required|email|unique:users,email,'.$id,
                 'hinh_anh' => 'image|mimes:jpeg,bmp,png,jpg',
                 'name' => 'required',
-                'level' => 'required'
+               // 'level' => 'required'
             ],
             [
                 'username.required' => 'Bạn cần nhập username',
@@ -119,13 +130,13 @@ class UserController extends Controller
                 'email.email' => 'Định dạng email không hợp lệ',
                 'hinh_anh.image' => 'Bạn cần chọn 1 ảnh',
                 'hinh_anh.mimes' => "Bạn chỉ có thể chọn ảnh có định dạng: jpeg,bmp,png,jpg",
-                'level.required' => 'Cần chọn quyền của người dùng'
+               // 'level.required' => 'Cần chọn quyền của người dùng'
             ]);
 
         $user = User::find($id);
         $user->username = $request->username;
         $user->name = $request->name;
-        $user->level = $request->level;
+        $user->level = 3;
         $user->email = $request->email;
 
         $pass = '123456';
@@ -147,6 +158,14 @@ class UserController extends Controller
         }
 
         $user->save();
+
+        $roles = $request->input('roles');
+        if (isset($roles)) {        
+            $user->roles()->sync($roles);  //If one or more role is selected associate user to roles          
+        }        
+        else {
+            $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
+        }
         return redirect()->back()->with('message',"Bạn đã sửa user thành công");
     }
 
@@ -336,5 +355,11 @@ class UserController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function makeRole() {
+        $role = Role::findByName('moderator');
+        $permissions = $role->permissions();
+        dd($permissions);
     }
 }
