@@ -85,18 +85,7 @@
                                 <td>{{$item->email}}</td>
                                 <td><img src="assets/upload/users/{{$item->hinh_anh}}" height="100"></td>
                                 <td>
-                                    <?php
-                                        $roles = App\User::find($item->id)->getRoleNames()
-                                    ?>
-                                    @if($roles->count() <= 1)
-                                        @foreach ($roles as $role)
-                                            {{$role}}
-                                        @endforeach
-                                    @else
-                                        @foreach ($roles as $role)
-                                            {{$role}}, 
-                                        @endforeach
-                                    @endif
+                                {{ str_replace(array('[',']','"'),' ', App\User::find($item->id)->getRoleNames()) }}
                                 </td>
                                 @if($item->verified == 1)
                                     <td>Đã kích hoạt</td>

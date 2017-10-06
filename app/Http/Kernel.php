@@ -80,5 +80,8 @@ class Kernel extends HttpKernel
         'moderator' => \App\Http\Middleware\ModeratorAuthenticated::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'news' => \App\Http\Middleware\NewsMiddleware::class,
+        'events' => \App\Http\Middleware\EventsMiddleware::class,
+        'partners' => \App\Http\Middleware\PartnersMiddleware::class,
     ];
 }

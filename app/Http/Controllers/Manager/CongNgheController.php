@@ -71,11 +71,7 @@ class CongNgheController extends Controller
             $cong_nghe->slug = changeTitle($request->Ten);
 
             $cong_nghe->save();
-            if (Auth::user()->level == 1) {
             return redirect()->route('admin.cong-nghe.index')->with('message','Bạn đã thêm công nghệ thành công');
-            } elseif (Auth::user()->level == 2) {
-                return redirect()->route('cong-nghe.index')->with('message','Bạn đã thêm công nghệ thành công');
-            }
         }
     }
 

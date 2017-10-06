@@ -12,6 +12,9 @@ use Auth;
 
 class LoaiDoiTacController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth', 'partners']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -61,11 +64,7 @@ class LoaiDoiTacController extends Controller
     	$loai_doi_tac->Slug = changeTitle($request->ten);
 
     	$loai_doi_tac->save();
-    	if (Auth::user()->level == 1) {
-            return redirect()->route('admin.loai-doi-tac.index')->with('message','Bạn đã thêm loại đối tác thành công');
-        } elseif (Auth::user()->level == 2) {
-            return redirect()->route('loai-doi-tac.index')->with('message','Bạn đã thêm loại đối tác thành công');
-        }
+    	return redirect()->route('admin.loai-doi-tac.index')->with('message','Bạn đã thêm loại đối tác thành công');
     }
 
     /**

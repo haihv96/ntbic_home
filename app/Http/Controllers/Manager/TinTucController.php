@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Redirect;
 
 class TinTucController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth', 'news']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,11 +27,8 @@ class TinTucController extends Controller
 
         $locale = session()->get('language');
         app()->setlocale($locale);
-        if(Auth::user()->level == 1) {
-            $tin_tuc = TinTuc::paginate(10);
-        } elseif (Auth::user()->level == 2) {
-            $tin_tuc = TinTuc::where('users_id', Auth::user()->id)->paginate(10);
-        }        
+        $tin_tuc = TinTuc::paginate(10);
+             
         return view('admin.manager_data.tin_tuc.index',['tintuc' => $tin_tuc, 'locale'=>$locale]);
     }
 
@@ -97,11 +97,7 @@ class TinTucController extends Controller
         }
 
         $tin_tuc->save();
-        if (Auth::user()->level == 1) {
-            return redirect()->route('admin.tin-tuc.index')->with('message','Bạn đã thêm tin tức thành công');
-        } elseif (Auth::user()->level == 2) {
-    	    return redirect()->route('tin-tuc.index')->with('message','Bạn đã thêm tin tức thành công');
-        }
+        return redirect()->route('admin.tin-tuc.index')->with('message','Bạn đã thêm tin tức thành công');
     }
 
     /**

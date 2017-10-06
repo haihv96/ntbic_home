@@ -22,6 +22,74 @@ class RolesAndPermissionsController extends Controller
     }
 
     /**
+     * Show the form for creating a new permission.
+     *
+     * @return Response
+     */
+     public function createPermission() {
+        return view('admin.manager_data.permissions.create');
+    }
+
+    public function storePermission(Request $request) {
+        $this->validate($request,
+        [
+            'name' => 'required|unique:permissions'
+        ],
+        [
+            'name.required' => 'Bạn cần nhập tên permissions',
+        ]);
+
+        Permission::create(['name' => $request->name]);
+
+        return redirect()->route('permissions.index')->with('message','Bạn đã thêm permission thành công');
+    }
+
+     /**
+     * Display the specified permission.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+     public function editPermission($id) {
+        $permission = Permission::find($id);
+        return view('admin.manager_data.permissions.edit', ['permission' => $permission]);
+    }
+
+    /**
+     * Update the specified permission in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function updatePermission(Request $request, $id) {
+        $this->validate($request,
+        [
+            'name' => 'required|unique:permissions,name,'.$id,
+        ],
+        [
+            'name.required' => 'Bạn cần nhập tên permission',
+        ]);
+
+        $permission = Permission::find($id);
+        $permission->name = $request->name;
+        $permission->save();
+
+        return redirect()->route('permissions.index')->with('message','Bạn đã update permission thành công');
+    }
+
+    /**
+     * Remove the specified permission from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+     public function destroyPermission($id) {
+        $permission = Permission::find($id);
+        $permission->delete();
+        return $permission->toJson();
+    }
+
+    /**
      * Display a listing of the roles.
      *
      * @return Response
@@ -99,6 +167,8 @@ class RolesAndPermissionsController extends Controller
 
         app()['cache']->forget('spatie.permission.cache');
         $role = Role::find($id);
+        $role->name =  $request->name;
+        $role->save();
 
         $p_all = Permission::all();
         foreach($p_all as $p) {

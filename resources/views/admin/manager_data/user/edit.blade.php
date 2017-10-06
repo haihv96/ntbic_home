@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Permissions
+                            <label class="control-label col-md-3">Roles
                                 <span class="required"> * </span>
                             </label>
                             <div class="input-group col-md-8" style="border: 1px solid #c2cad8;padding: 6px 12px;margin-left:15px;">

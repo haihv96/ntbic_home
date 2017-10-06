@@ -16,6 +16,9 @@ use App\NguoiDangKiSuKien;
 
 class SuKienController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth', 'events']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,11 +31,7 @@ class SuKienController extends Controller
 
         $locale = session()->get('language');
         app()->setlocale($locale);
-        if(Auth::user()->level == 1) {
-            $su_kien = SuKien::paginate(10);
-        } elseif (Auth::user()->level == 2) {
-            $su_kien = SuKien::where('users_id', Auth::user()->id)->paginate(10);
-        } 
+        $su_kien = SuKien::paginate(10); 
         return view('admin.manager_data.su_kien.index',['sukien' => $su_kien, 'locale'=>$locale]);
     }
 

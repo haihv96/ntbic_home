@@ -33,12 +33,27 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'Create news']);
         Permission::create(['name' => 'View news']);
 
+        Permission::create(['name' => 'Edit events']);
+        Permission::create(['name' => 'Delete events']);
+        Permission::create(['name' => 'Create events']);
+        Permission::create(['name' => 'View events']);
+
+        Permission::create(['name' => 'Edit events']);
+        Permission::create(['name' => 'Delete events']);
+        Permission::create(['name' => 'Create events']);
+        Permission::create(['name' => 'View events']);
+
+        Permission::create(['name' => 'Access admin dashboard']);
+        Permission::create(['name' => 'Download file']);
+
         // create roles and assign existing permissions
         $role = Role::create(['name' => 'moderator']);
         $role->givePermissionTo('Edit news');
         $role->givePermissionTo('Delete news');
         $role->givePermissionTo('Create news');
         $role->givePermissionTo('View news');
+        $role->givePermissionTo('Access admin dashboard');
+        $role->givePermissionTo('Download file');
 
         $role = Role::create(['name' => 'admin']);
         $role->givePermissionTo('Edit news');
@@ -57,5 +72,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $role->givePermissionTo('Delete permissions');
         $role->givePermissionTo('Create permissions');
         $role->givePermissionTo('View permissions');
+        $role->givePermissionTo('Access admin dashboard');
+        $role->givePermissionTo('Download file');
     }
 }

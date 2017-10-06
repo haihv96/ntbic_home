@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Redirect;
 
 class DoiTacController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth', 'partners']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -89,11 +92,7 @@ class DoiTacController extends Controller
         }
 
         $doi_tac->save();
-        if (Auth::user()->level == 1) {
-            return redirect()->route('admin.doi-tac.index')->with('message','Bạn đã thêm đối tác thành công');
-        } elseif (Auth::user()->level == 2) {
-            return redirect()->route('doi-tac.index')->with('message','Bạn đã thêm đối tác thành công');
-        }
+        return redirect()->route('admin.doi-tac.index')->with('message','Bạn đã thêm đối tác thành công');
     }
 
     /**
