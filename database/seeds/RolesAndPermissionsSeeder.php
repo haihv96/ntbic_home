@@ -4,6 +4,7 @@
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\User;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -33,10 +34,10 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'Create news']);
         Permission::create(['name' => 'View news']);
 
-        Permission::create(['name' => 'Edit events']);
-        Permission::create(['name' => 'Delete events']);
-        Permission::create(['name' => 'Create events']);
-        Permission::create(['name' => 'View events']);
+        Permission::create(['name' => 'Edit partners']);
+        Permission::create(['name' => 'Delete partners']);
+        Permission::create(['name' => 'Create partners']);
+        Permission::create(['name' => 'View partners']);
 
         Permission::create(['name' => 'Edit events']);
         Permission::create(['name' => 'Delete events']);
@@ -74,5 +75,8 @@ class RolesAndPermissionsSeeder extends Seeder
         $role->givePermissionTo('View permissions');
         $role->givePermissionTo('Access admin dashboard');
         $role->givePermissionTo('Download file');
+
+        $admin = User::find(1);
+        $admin->assignRole('admin');        
     }
 }
