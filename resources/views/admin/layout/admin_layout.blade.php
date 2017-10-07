@@ -275,6 +275,11 @@
                                         <span class="title">Ảnh sidebar</span>
                                     </a>
                                 </li>
+                                <li class="nav-item" id="active-anh-trang-chu">
+                                    <a href="{{route('admin.anh-trang-chu.index')}}" class="nav-link ">
+                                        <span class="title">Ảnh trang chủ</span>
+                                    </a>
+                                </li>
                                 <li class="nav-item" id="active-lien-he">
                                     <a href="{{route('admin.lien-he.index')}}" class="nav-link ">
                                         <span class="title">Ý kiến phản hồi</span>

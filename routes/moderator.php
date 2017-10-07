@@ -19,6 +19,7 @@ Route::resource('logo-doi-tac','Manager\LogoDoiTacController');
 Route::resource('anh-sidebar','Manager\AnhSideBarController');
 Route::resource('lien-he','Manager\LienHeController');
 Route::resource('menu','Manager\MenuController');
+Route::resource('anh-trang-chu','Manager\AnhTrangChuController');
 
 Route::get('profile','Manager\UserController@getProfile')->name('moderator.profile');	
 Route::post('profile-account','Manager\UserController@updateProfile');

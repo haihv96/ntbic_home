@@ -45,6 +45,9 @@ Route::resource('lien-he','Manager\LienHeController',['names' => [
 Route::resource('su-kien-slideshow','Manager\SuKienSlideshowController',['names' => [
 	'index' => 'admin.su-kien-slideshow.index'
 ]]);
+Route::resource('anh-trang-chu','Manager\AnhTrangChuController',['names' => [
+	'index' => 'admin.anh-trang-chu.index'
+]]);
 
 Route::resource('menu','Manager\MenuController',['names' => [
 	'index' => 'admin.menu.index'

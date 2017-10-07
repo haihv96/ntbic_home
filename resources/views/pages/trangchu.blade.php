@@ -50,7 +50,12 @@
     </div><!-- End Carousel -->
     <div class="clearfix"></div>
     <div class="advert margintop">
-    	<img src="pages/image/anhdep.jpg" alt="">
+    	<?php
+            $hinh_anh = App\AnhTrangChu::find('1');
+        ?>
+        @if($hinh_anh != NULL)
+        <a href="{!!url($hinh_anh->Link)!!}"><img src="{!!url($hinh_anh->HinhAnh) !!}"></a>
+        @endif
     </div> <!-- advert -->
     <div class="clearfix"></div>
 	<div class="margintop">
