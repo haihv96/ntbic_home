@@ -115,6 +115,17 @@ return [
         'tracker',
     ],
 
+     /*
+     * GeoIp2 database path.
+     *
+     * To get a fresh version of this file, use the command
+     *
+     *      php artisan tracker:updategeoip
+     *
+     */
+
+    'geoip_database_path' => __DIR__.'/geoip', //storage_path('geoip'),
+
     /*
      * Also log SQL query bindings?
      *
