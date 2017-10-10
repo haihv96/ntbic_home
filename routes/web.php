@@ -76,3 +76,7 @@ Route::get('lien-he','PageController\LienHeController@create');
 Route::post('lien-he','PageController\LienHeController@store');
 //serach
 Route::get('search','SearchController@searchAll');
+
+Route::get('sso/login', 'SsoController@login')->name('sso.login_form');
+Route::post('sso/make_request', 'SsoController@makeRequest')->name('sso.login');
+Route::get('sso/set_cookie/{ssoTicketSecret}', 'SsoController@setCookie');
