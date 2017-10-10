@@ -15,7 +15,8 @@
 
         "spatie/laravel-permission": "^2.6",
 
-        "pragmarx/tracker": "^3.2"
+        "pragmarx/tracker": "^3.2",
+        "guzzlehttp/guzzle": "^6.3"
 
     },
     "require-dev": {
